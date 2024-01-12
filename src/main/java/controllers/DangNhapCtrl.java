@@ -17,7 +17,7 @@ public class DangNhapCtrl {
         PreparedStatement statement = null;
         try {
             connection = ConnectDB.getConnection();
-            String sql = "SELECT MatKhau FROM NHANVIEN WHERE Email=?";
+            String sql = "SELECT MatKhau FROM GIANGVIEN WHERE Email=?";
             statement = connection.prepareStatement(sql);
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
@@ -54,7 +54,7 @@ public class DangNhapCtrl {
         PreparedStatement statement = null;
         try {
             connection = ConnectDB.getConnection();
-            String sql = "SELECT * FROM NHANVIEN WHERE Email=?";
+            String sql = "SELECT * FROM GIANGVIEN WHERE Email=?";
             statement = connection.prepareStatement(sql);
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();

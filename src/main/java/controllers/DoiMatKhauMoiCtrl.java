@@ -15,7 +15,7 @@ public class DoiMatKhauMoiCtrl {
         PreparedStatement statement = null;
         try {
             connection = ConnectDB.getConnection();
-            String sql = "UPDATE NHANVIEN SET MatKhau=? WHERE Email=?";
+            String sql = "UPDATE GIANGVIEN SET MatKhau=? WHERE Email=?";
             statement = connection.prepareCall(sql);
             String hashedPassword = PasswordHashing.hashPassword(newPassword);
             statement.setString(1, hashedPassword);
