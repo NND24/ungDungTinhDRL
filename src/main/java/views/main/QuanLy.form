@@ -98,7 +98,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="views.main.list.DSSinhVien" name="dSSinhVien1">
+            <Component class="views.list.DSSinhVien" name="dSSinhVien1">
             </Component>
           </SubComponents>
         </Container>
@@ -128,7 +128,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="views.main.list.DSGiangVien" name="dSGiangVien1">
+            <Component class="views.list.DSGiangVien" name="dSGiangVien1">
             </Component>
           </SubComponents>
         </Container>

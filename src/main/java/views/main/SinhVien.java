@@ -88,8 +88,8 @@ public class SinhVien extends javax.swing.JFrame {
         LayeredPane = new javax.swing.JLayeredPane();
         dsSinhVienPane = new javax.swing.JTabbedPane();
         dSDiemRenLuyenSVPanel = new javax.swing.JPanel();
-        dSDiemRenLuyenSV1 = new views.main.list.DSDiemRenLuyenSV();
-        formChamDiem1 = new views.main.FormChamDiem();
+        dSDiemRenLuyenSV1 = new views.list.DSDiemRenLuyenCaNhan();
+        formChamDiem1 = new views.main.FormChamDiemSV();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -311,10 +311,10 @@ public class SinhVien extends javax.swing.JFrame {
     private javax.swing.JLabel HoTenUserLabel;
     private javax.swing.JLayeredPane LayeredPane;
     private javax.swing.JLabel MSSVLabel;
-    private views.main.list.DSDiemRenLuyenSV dSDiemRenLuyenSV1;
+    private views.list.DSDiemRenLuyenCaNhan dSDiemRenLuyenSV1;
     private javax.swing.JPanel dSDiemRenLuyenSVPanel;
     private javax.swing.JTabbedPane dsSinhVienPane;
-    private views.main.FormChamDiem formChamDiem1;
+    private views.main.FormChamDiemSV formChamDiem1;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -1,4 +1,4 @@
-package views.main.list;
+package views.list;
 
 public class DSKhoa extends javax.swing.JFrame {
 
