@@ -1,4 +1,4 @@
-package views.main.list;
+package views.list;
 
 public class DSGiangVien extends javax.swing.JPanel {
 
@@ -15,10 +15,10 @@ public class DSGiangVien extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        LamMoiButton = new javax.swing.JButton();
-        SuaThongTinBacSiButton = new javax.swing.JButton();
-        XoaBacSiButton = new javax.swing.JButton();
-        ThemBacSiButton = new javax.swing.JButton();
+        lamMoiButton = new javax.swing.JButton();
+        suaGiangVienButton = new javax.swing.JButton();
+        xoaGiangVienButton = new javax.swing.JButton();
+        themGiangVienButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         MaSoTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -94,33 +94,33 @@ public class DSGiangVien extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("THÔNG TIN GIẢNG VIÊN");
 
-        LamMoiButton.setBackground(new java.awt.Color(0, 102, 255));
-        LamMoiButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        LamMoiButton.setForeground(new java.awt.Color(255, 255, 255));
-        LamMoiButton.setText("Làm mới");
-        LamMoiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LamMoiButton.setPreferredSize(new java.awt.Dimension(100, 25));
+        lamMoiButton.setBackground(new java.awt.Color(0, 102, 255));
+        lamMoiButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lamMoiButton.setForeground(new java.awt.Color(255, 255, 255));
+        lamMoiButton.setText("Làm mới");
+        lamMoiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lamMoiButton.setPreferredSize(new java.awt.Dimension(100, 25));
 
-        SuaThongTinBacSiButton.setBackground(new java.awt.Color(0, 102, 255));
-        SuaThongTinBacSiButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        SuaThongTinBacSiButton.setForeground(new java.awt.Color(255, 255, 255));
-        SuaThongTinBacSiButton.setText("Sửa thông tin");
-        SuaThongTinBacSiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SuaThongTinBacSiButton.setPreferredSize(new java.awt.Dimension(125, 25));
+        suaGiangVienButton.setBackground(new java.awt.Color(0, 102, 255));
+        suaGiangVienButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        suaGiangVienButton.setForeground(new java.awt.Color(255, 255, 255));
+        suaGiangVienButton.setText("Sửa thông tin");
+        suaGiangVienButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        suaGiangVienButton.setPreferredSize(new java.awt.Dimension(125, 25));
 
-        XoaBacSiButton.setBackground(new java.awt.Color(0, 102, 255));
-        XoaBacSiButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        XoaBacSiButton.setForeground(new java.awt.Color(255, 255, 255));
-        XoaBacSiButton.setText("Xóa giảng viên");
-        XoaBacSiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        XoaBacSiButton.setPreferredSize(new java.awt.Dimension(98, 25));
+        xoaGiangVienButton.setBackground(new java.awt.Color(0, 102, 255));
+        xoaGiangVienButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        xoaGiangVienButton.setForeground(new java.awt.Color(255, 255, 255));
+        xoaGiangVienButton.setText("Xóa giảng viên");
+        xoaGiangVienButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        xoaGiangVienButton.setPreferredSize(new java.awt.Dimension(98, 25));
 
-        ThemBacSiButton.setBackground(new java.awt.Color(0, 102, 255));
-        ThemBacSiButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ThemBacSiButton.setForeground(new java.awt.Color(255, 255, 255));
-        ThemBacSiButton.setText("Thêm giảng viên");
-        ThemBacSiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ThemBacSiButton.setPreferredSize(new java.awt.Dimension(120, 25));
+        themGiangVienButton.setBackground(new java.awt.Color(0, 102, 255));
+        themGiangVienButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        themGiangVienButton.setForeground(new java.awt.Color(255, 255, 255));
+        themGiangVienButton.setText("Thêm giảng viên");
+        themGiangVienButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        themGiangVienButton.setPreferredSize(new java.awt.Dimension(120, 25));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -130,13 +130,13 @@ public class DSGiangVien extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 615, Short.MAX_VALUE)
-                .addComponent(ThemBacSiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(themGiangVienButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
-                .addComponent(XoaBacSiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(xoaGiangVienButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
-                .addComponent(SuaThongTinBacSiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(suaGiangVienButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
-                .addComponent(LamMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lamMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
         jPanel4Layout.setVerticalGroup(
@@ -144,10 +144,10 @@ public class DSGiangVien extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LamMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SuaThongTinBacSiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(XoaBacSiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ThemBacSiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lamMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(suaGiangVienButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(xoaGiangVienButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(themGiangVienButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -388,15 +388,11 @@ public class DSGiangVien extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> KhoaComboBox;
     private javax.swing.JComboBox<String> KhoaComboBox1;
     private javax.swing.JComboBox<String> KhoaComboBox2;
-    private javax.swing.JButton LamMoiButton;
     private javax.swing.JComboBox<String> LocKhoaComboBox;
     private javax.swing.JTextField MaSoTextField;
     private javax.swing.JTextField NamSinhTextField;
     private javax.swing.JTextField SDTTextField;
-    private javax.swing.JButton SuaThongTinBacSiButton;
-    private javax.swing.JButton ThemBacSiButton;
     private javax.swing.JTextField TimKiemTextField;
-    private javax.swing.JButton XoaBacSiButton;
     private javax.swing.JTable dsGiangVienTable;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
@@ -419,5 +415,9 @@ public class DSGiangVien extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton lamMoiButton;
+    private javax.swing.JButton suaGiangVienButton;
+    private javax.swing.JButton themGiangVienButton;
+    private javax.swing.JButton xoaGiangVienButton;
     // End of variables declaration//GEN-END:variables
 }

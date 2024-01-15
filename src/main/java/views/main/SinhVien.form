@@ -120,11 +120,11 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="views.main.list.DSDiemRenLuyenSV" name="dSDiemRenLuyenSV1">
+                <Component class="views.list.DSDiemRenLuyenCaNhan" name="dSDiemRenLuyenSV1">
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="views.main.FormChamDiem" name="formChamDiem1">
+            <Component class="views.main.FormChamDiemSV" name="formChamDiem1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Ch&#x1ea5;m &#x111;i&#x1ec3;m r&#xe8;n luy&#x1ec7;n">

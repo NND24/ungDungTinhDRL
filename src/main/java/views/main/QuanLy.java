@@ -87,9 +87,9 @@ public class QuanLy extends javax.swing.JFrame {
 
         LayeredPane = new javax.swing.JLayeredPane();
         dsSinhVienPanel = new javax.swing.JPanel();
-        dSSinhVien1 = new views.main.list.DSSinhVien();
+        dSSinhVien1 = new views.list.DSSinhVien();
         dsGiangVienPanel = new javax.swing.JPanel();
-        dSGiangVien1 = new views.main.list.DSGiangVien();
+        dSGiangVien1 = new views.list.DSGiangVien();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -321,8 +321,8 @@ public class QuanLy extends javax.swing.JFrame {
     private javax.swing.JLabel HoTenUserLabel;
     private javax.swing.JLayeredPane LayeredPane;
     private javax.swing.JLabel MSSVLabel;
-    private views.main.list.DSGiangVien dSGiangVien1;
-    private views.main.list.DSSinhVien dSSinhVien1;
+    private views.list.DSGiangVien dSGiangVien1;
+    private views.list.DSSinhVien dSSinhVien1;
     private javax.swing.JPanel dsGiangVienPanel;
     private javax.swing.JPanel dsSinhVienPanel;
     private javax.swing.JPanel header;
