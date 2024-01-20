@@ -1,8 +1,8 @@
 package views.main;
 
-public class FormChamDiemSV extends javax.swing.JPanel {
+public class FormChamDiemBCS extends javax.swing.JPanel {
 
-    public FormChamDiemSV() {
+    public FormChamDiemBCS() {
         initComponents();
     }
 
@@ -618,30 +618,43 @@ public class FormChamDiemSV extends javax.swing.JPanel {
         jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv11TextField.setEditable(false);
         sv11TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv12aTextField.setEditable(false);
         sv12aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv12bTextField.setEditable(false);
         sv12bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv12cTextField.setEditable(false);
         sv12cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv12dTextField.setEditable(false);
         sv12dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv12eTextField.setEditable(false);
         sv12eTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv12gTextField.setEditable(false);
         sv12gTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv13bTextField.setEditable(false);
         sv13bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv13cTextField.setEditable(false);
         sv13cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv13dTextField.setEditable(false);
         sv13dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv14TextField.setEditable(false);
         sv14TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv15TextField.setEditable(false);
         sv15TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv1TextField.setEditable(false);
         sv1TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv1TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -649,46 +662,32 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
-        bcs11TextField.setEditable(false);
         bcs11TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs12aTextField.setEditable(false);
         bcs12aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs12bTextField.setEditable(false);
         bcs12bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs12cTextField.setEditable(false);
         bcs12cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs12dTextField.setEditable(false);
         bcs12dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs12eTextField.setEditable(false);
         bcs12eTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs12gTextField.setEditable(false);
         bcs12gTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs13aTextField.setEditable(false);
         bcs13aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs13bTextField.setEditable(false);
         bcs13bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs13cTextField.setEditable(false);
         bcs13cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs13dTextField.setEditable(false);
         bcs13dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs14TextField.setEditable(false);
         bcs14TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs15TextField.setEditable(false);
         bcs15TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs1TextField.setEditable(false);
         bcs1TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv11TextField.setEditable(false);
@@ -765,6 +764,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
         jLabel74.setText("15 điểm");
         jLabel74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv21aTextField.setEditable(false);
         sv21aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv21aTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -772,7 +772,6 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
-        bcs21aTextField.setEditable(false);
         bcs21aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv21aTextField.setEditable(false);
@@ -889,6 +888,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
         jLabel94.setText("25 điểm");
         jLabel94.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv21bTextField.setEditable(false);
         sv21bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv21bTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -896,6 +896,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv21cTextField.setEditable(false);
         sv21cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv21cTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -903,6 +904,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv22aTextField.setEditable(false);
         sv22aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv22aTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -910,6 +912,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv22bTextField.setEditable(false);
         sv22bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv22bTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -917,6 +920,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv23aTextField.setEditable(false);
         sv23aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv23aTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -924,6 +928,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv23bTextField.setEditable(false);
         sv23bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv23bTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -931,6 +936,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv2TextField.setEditable(false);
         sv2TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv2TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -938,25 +944,18 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
-        bcs21bTextField.setEditable(false);
         bcs21bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs21cTextField.setEditable(false);
         bcs21cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs22aTextField.setEditable(false);
         bcs22aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs22bTextField.setEditable(false);
         bcs22bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs23aTextField.setEditable(false);
         bcs23aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs23bTextField.setEditable(false);
         bcs23bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs2TextField.setEditable(false);
         bcs2TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv21bTextField.setEditable(false);
@@ -1065,6 +1064,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
         jLabel101.setText("10 điểm");
         jLabel101.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv31TextField.setEditable(false);
         sv31TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv31TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1072,7 +1072,6 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
-        bcs31TextField.setEditable(false);
         bcs31TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv31TextField.setEditable(false);
@@ -1083,6 +1082,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
         jLabel102.setText("20 điểm");
         jLabel102.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv3TextField.setEditable(false);
         sv3TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv3TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1090,7 +1090,6 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
-        bcs3TextField.setEditable(false);
         bcs3TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv3TextField.setEditable(false);
@@ -1120,6 +1119,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
         jLabel107.setText("- 10 điểm");
         jLabel107.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv32TextField.setEditable(false);
         sv32TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv32TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1127,6 +1127,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv33TextField.setEditable(false);
         sv33TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv33TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1134,6 +1135,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv34TextField.setEditable(false);
         sv34TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv34TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1141,6 +1143,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv35TextField.setEditable(false);
         sv35TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv35TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1148,16 +1151,12 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
-        bcs32TextField.setEditable(false);
         bcs32TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs33TextField.setEditable(false);
         bcs33TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs34TextField.setEditable(false);
         bcs34TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs35TextField.setEditable(false);
         bcs35TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv32TextField.setEditable(false);
@@ -1400,6 +1399,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
         jLabel138.setText("100");
         jLabel138.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv41TextField.setEditable(false);
         sv41TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv41TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1407,6 +1407,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv42TextField.setEditable(false);
         sv42TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv42TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1414,6 +1415,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv43TextField.setEditable(false);
         sv43TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv43TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1421,6 +1423,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv44TextField.setEditable(false);
         sv44TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv44TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1428,6 +1431,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv45TextField.setEditable(false);
         sv45TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv45TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1435,6 +1439,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv46TextField.setEditable(false);
         sv46TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv46TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1442,6 +1447,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv4TextField.setEditable(false);
         sv4TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv4TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1449,6 +1455,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv51TextField.setEditable(false);
         sv51TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv51TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1456,6 +1463,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv52TextField.setEditable(false);
         sv52TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv52TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1463,6 +1471,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv53TextField.setEditable(false);
         sv53TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv53TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1470,6 +1479,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        sv5TextField.setEditable(false);
         sv5TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         sv5TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1477,6 +1487,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
+        svTongTextField.setEditable(false);
         svTongTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         svTongTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1484,40 +1495,28 @@ public class FormChamDiemSV extends javax.swing.JPanel {
             }
         });
 
-        bcs43TextField.setEditable(false);
         bcs43TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs4TextField.setEditable(false);
         bcs4TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs5TextField.setEditable(false);
         bcs5TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcsTongTextField.setEditable(false);
         bcsTongTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs41TextField.setEditable(false);
         bcs41TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs42TextField.setEditable(false);
         bcs42TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs44TextField.setEditable(false);
         bcs44TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs45TextField.setEditable(false);
         bcs45TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs46TextField.setEditable(false);
         bcs46TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs51TextField.setEditable(false);
         bcs51TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs52TextField.setEditable(false);
         bcs52TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs53TextField.setEditable(false);
         bcs53TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv43Tex.setEditable(false);
@@ -1573,6 +1572,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
 
         jLabel65.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        sv13aTextField.setEditable(false);
         sv13aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

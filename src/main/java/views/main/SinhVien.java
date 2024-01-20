@@ -301,7 +301,7 @@ public class SinhVien extends javax.swing.JFrame {
                 // Đặt trạng thái cửa sổ là toàn màn hình
                 main.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-                main.setTitle("QUẢN LÝ PHÒNG KHÁM");
+                main.setTitle("QUẢN LÝ ĐIỂM RÈN LUYỆN PTIT");
                 main.setVisible(true);
             }
         });
