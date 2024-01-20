@@ -26,9 +26,21 @@ public class QuanLy extends javax.swing.JFrame {
             public void selected(int index, int subIndex) {
                 if (index == 0) {
                     LayeredPane.removeAll();
-                    //LayeredPane.add();
+                    LayeredPane.add(chamDiemPanel);
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
+                } else if (index == 1) {
+                    LayeredPane.removeAll();
+                    LayeredPane.add(dsSinhVienPanel);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
+                } else if (index == 2) {
+                    if (subIndex == 1) {
+                        LayeredPane.removeAll();
+                        LayeredPane.add(dsGiangVienPanel);
+                        LayeredPane.repaint();
+                        LayeredPane.revalidate();
+                    }
                 }
             }
         }
@@ -90,6 +102,9 @@ public class QuanLy extends javax.swing.JFrame {
         dSSinhVien1 = new views.list.DSSinhVien();
         dsGiangVienPanel = new javax.swing.JPanel();
         dSGiangVien1 = new views.list.DSGiangVien();
+        chamDiemPanel = new javax.swing.JTabbedPane();
+        dSDiemRenLuyenCVHT1 = new views.list.DSDiemRenLuyenCVHT();
+        formChamDiemCVHT2 = new views.main.FormChamDiemCVHT();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -126,7 +141,7 @@ public class QuanLy extends javax.swing.JFrame {
             dsSinhVienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dsSinhVienPanelLayout.createSequentialGroup()
                 .addComponent(dSSinhVien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 140, Short.MAX_VALUE))
+                .addGap(0, 2156, Short.MAX_VALUE))
         );
 
         LayeredPane.add(dsSinhVienPanel, "card3");
@@ -143,10 +158,15 @@ public class QuanLy extends javax.swing.JFrame {
             dsGiangVienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dsGiangVienPanelLayout.createSequentialGroup()
                 .addComponent(dSGiangVien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 109, Short.MAX_VALUE))
+                .addGap(0, 2156, Short.MAX_VALUE))
         );
 
         LayeredPane.add(dsGiangVienPanel, "card3");
+
+        chamDiemPanel.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenCVHT1);
+        chamDiemPanel.addTab("Chấm điểm rèn luyện", formChamDiemCVHT2);
+
+        LayeredPane.add(chamDiemPanel, "card5");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -311,7 +331,7 @@ public class QuanLy extends javax.swing.JFrame {
                 // Đặt trạng thái cửa sổ là toàn màn hình
                 main.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-                main.setTitle("QUẢN LÝ PHÒNG KHÁM");
+                main.setTitle("QUẢN LÝ ĐIỂM RÈN LUYỆN PTIT");
                 main.setVisible(true);
             }
         });
@@ -321,10 +341,13 @@ public class QuanLy extends javax.swing.JFrame {
     private javax.swing.JLabel HoTenUserLabel;
     private javax.swing.JLayeredPane LayeredPane;
     private javax.swing.JLabel MSSVLabel;
+    private javax.swing.JTabbedPane chamDiemPanel;
+    private views.list.DSDiemRenLuyenCVHT dSDiemRenLuyenCVHT1;
     private views.list.DSGiangVien dSGiangVien1;
     private views.list.DSSinhVien dSSinhVien1;
     private javax.swing.JPanel dsGiangVienPanel;
     private javax.swing.JPanel dsSinhVienPanel;
+    private views.main.FormChamDiemCVHT formChamDiemCVHT2;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
