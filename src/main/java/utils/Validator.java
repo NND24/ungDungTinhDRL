@@ -1,8 +1,12 @@
 package utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -98,5 +102,27 @@ public class Validator {
         String regex = "^\\d+$";
 
         return Pattern.matches(regex, input);
+    }
+
+    public static boolean isValidDate(String inputDate) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        sdf.setLenient(false);
+
+        try {
+            Date date = sdf.parse(inputDate);
+
+            // Lấy năm hiện tại
+            Calendar currentYear = Calendar.getInstance();
+            int currentYearValue = currentYear.get(Calendar.YEAR);
+
+            // Lấy năm nhập vào
+            Calendar inputYear = Calendar.getInstance();
+            inputYear.setTime(date);
+            int inputYearValue = inputYear.get(Calendar.YEAR);
+
+            return inputYearValue <= currentYearValue && currentYearValue - inputYearValue >= 18 && inputDate.equals(sdf.format(date));
+        } catch (ParseException e) {
+            return false;
+        }
     }
 }

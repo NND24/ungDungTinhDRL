@@ -1,6 +1,6 @@
 package views.main;
 
-import controllers.DoiMatKhauMoiCtrl;
+import controllers.TaiKhoanCtrl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -15,7 +15,6 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BG = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -26,8 +25,7 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         ComfirmButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/DangNhap.png"))); // NOI18N
+        setTitle("Đổi mật khẩu");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -124,17 +122,12 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BG)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(BG)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -146,8 +139,8 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
 
     private void ComfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComfirmButtonActionPerformed
         // TODO add your handling code here:
-        String email = DangNhap.currentUserEmail;
-        System.out.println(email);
+        String userId = QuenMatKhau.maTaiKhoan;
+
         char[] newPasswordChars = NewPasswordTextField.getPassword();
         String newPassword = String.valueOf(newPasswordChars);
 
@@ -159,7 +152,7 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         } else {
             if (retypePassword.equals(newPassword)) {
                 try {
-                    DoiMatKhauMoiCtrl.doiMatKhau(email, newPassword);
+                    TaiKhoanCtrl.doiMatKhau(userId, newPassword);
                     JOptionPane.showMessageDialog(this, "Đổi mật khẩu thành công, đăng nhập lại vào hệ thống!");
                     this.setVisible(false);
                     new DangNhap().setVisible(true);
@@ -173,10 +166,6 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ComfirmButtonActionPerformed
 
-    private void NewPasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPasswordTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NewPasswordTextFieldActionPerformed
-
     private void HienThiCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HienThiCheckBoxActionPerformed
         // TODO add your handling code here:
         if (HienThiCheckBox.isSelected()) {
@@ -188,6 +177,10 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_HienThiCheckBoxActionPerformed
 
+    private void NewPasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPasswordTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewPasswordTextFieldActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -197,7 +190,6 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BG;
     private javax.swing.JButton ComfirmButton;
     private javax.swing.JCheckBox HienThiCheckBox;
     private javax.swing.JPasswordField NewPasswordTextField;

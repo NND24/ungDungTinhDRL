@@ -1,8 +1,8 @@
 package views.list;
 
-public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
+public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
-    public DSDiemRenLuyenCVHT() {
+    public DSDiemRenLuyenBCS() {
         initComponents();
     }
 
