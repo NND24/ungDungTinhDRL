@@ -10,9 +10,9 @@ import java.util.Properties;
 public class SendEmail {
 
     public static void sendEmail(String code, String email) throws MessagingException, UnsupportedEncodingException {
-        final String fromEmail = "";
+        final String fromEmail = "n21dccn007@student.ptithcm.edu.vn";
         // Mat khai email cua ban
-        final String password = "";
+        final String password = "n21dccn007#180803";
         // dia chi email nguoi nhan
         final String toEmail = email;
         final String subject = "Mã xác nhận";
@@ -48,7 +48,7 @@ public class SendEmail {
         msg.addHeader("Content-Transfer-Encoding", "8bit");
         msg.setHeader("X-Mailer", "JavaMail");
         msg.setHeader("X-MimeOLE", "Produced By Microsoft MimeOLE V6.00.2900.2869");
-        msg.setFrom(new InternetAddress(fromEmail, "PTIT Care"));
+        msg.setFrom(new InternetAddress(fromEmail, "PTIT"));
         msg.setReplyTo(InternetAddress.parse(fromEmail, false));
         msg.setSubject(subject, "UTF-8");
         msg.setContent(body, "text/html; charset=utf-8");

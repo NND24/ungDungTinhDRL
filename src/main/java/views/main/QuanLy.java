@@ -3,8 +3,6 @@ package views.main;
 import java.awt.DisplayMode;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.Toolkit;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -41,6 +39,18 @@ public class QuanLy extends javax.swing.JFrame {
                         LayeredPane.repaint();
                         LayeredPane.revalidate();
                     }
+                } else if (index == 3) {
+                    LayeredPane.removeAll();
+                    LayeredPane.add(dsQuanLyPanel);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
+                } else if (index == 4) {
+                    new TaiKhoanCaNhan().setVisible(true);
+                    new TaiKhoanCaNhan().setAlwaysOnTop(true);
+                } else if (index == 5) {
+                    new DangNhap().setVisible(true);
+                    new DangNhap().setAlwaysOnTop(true);
+                    Instance.dispose();
                 }
             }
         }
@@ -82,17 +92,6 @@ public class QuanLy extends javax.swing.JFrame {
         }).start();
     }
 
-    private void setIconImage() {
-        URL url = getClass().getResource("MainIcon.png");
-        if (url == null) {
-            System.out.println("Resource not found: MainIcon.png");
-        } else {
-            System.out.println("Resource URL: " + url.toString());
-            setIconImage(Toolkit.getDefaultToolkit().getImage(url));
-        }
-
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -102,8 +101,10 @@ public class QuanLy extends javax.swing.JFrame {
         dSSinhVien1 = new views.list.DSSinhVien();
         dsGiangVienPanel = new javax.swing.JPanel();
         dSGiangVien1 = new views.list.DSGiangVien();
+        dsQuanLyPanel = new javax.swing.JPanel();
+        dSQuanLy1 = new views.list.DSQuanLy();
         chamDiemPanel = new javax.swing.JTabbedPane();
-        dSDiemRenLuyenCVHT1 = new views.list.DSDiemRenLuyenCVHT();
+        dSDiemRenLuyenBCS1 = new views.list.DSDiemRenLuyenBCS();
         formChamDiemCVHT2 = new views.main.FormChamDiemCVHT();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -163,7 +164,24 @@ public class QuanLy extends javax.swing.JFrame {
 
         LayeredPane.add(dsGiangVienPanel, "card3");
 
-        chamDiemPanel.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenCVHT1);
+        javax.swing.GroupLayout dsQuanLyPanelLayout = new javax.swing.GroupLayout(dsQuanLyPanel);
+        dsQuanLyPanel.setLayout(dsQuanLyPanelLayout);
+        dsQuanLyPanelLayout.setHorizontalGroup(
+            dsQuanLyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dsQuanLyPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(dSQuanLy1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        dsQuanLyPanelLayout.setVerticalGroup(
+            dsQuanLyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dsQuanLyPanelLayout.createSequentialGroup()
+                .addComponent(dSQuanLy1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
+        LayeredPane.add(dsQuanLyPanel, "card3");
+
+        chamDiemPanel.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenBCS1);
         chamDiemPanel.addTab("Chấm điểm rèn luyện", formChamDiemCVHT2);
 
         LayeredPane.add(chamDiemPanel, "card5");
@@ -185,7 +203,7 @@ public class QuanLy extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Mã QL:");
+        jLabel4.setText("Tài khoản:");
 
         HoTenUserLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         HoTenUserLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,11 +225,11 @@ public class QuanLy extends javax.swing.JFrame {
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(MSSVLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(HoTenUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
         );
@@ -342,10 +360,12 @@ public class QuanLy extends javax.swing.JFrame {
     private javax.swing.JLayeredPane LayeredPane;
     private javax.swing.JLabel MSSVLabel;
     private javax.swing.JTabbedPane chamDiemPanel;
-    private views.list.DSDiemRenLuyenCVHT dSDiemRenLuyenCVHT1;
+    private views.list.DSDiemRenLuyenBCS dSDiemRenLuyenBCS1;
     private views.list.DSGiangVien dSGiangVien1;
+    private views.list.DSQuanLy dSQuanLy1;
     private views.list.DSSinhVien dSSinhVien1;
     private javax.swing.JPanel dsGiangVienPanel;
+    private javax.swing.JPanel dsQuanLyPanel;
     private javax.swing.JPanel dsSinhVienPanel;
     private views.main.FormChamDiemCVHT formChamDiemCVHT2;
     private javax.swing.JPanel header;
