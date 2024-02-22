@@ -13,14 +13,14 @@ import models.TaiKhoanModel;
 public class TaiKhoanCtrl {
 
     public static void themTaiKhoan(TaiKhoanModel tk) throws ClassNotFoundException {
-        String sql = "INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, ChucVu) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO TaiKhoan (MaTaiKhoan, Email, MatKhau, MaChucVu) VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, tk.getMaTaiKhoan());
             statement.setString(2, tk.getEmail());
             String hashedPassword = PasswordHashing.hashPassword(tk.getMatKhau());
             statement.setString(3, hashedPassword);
-            statement.setString(4, tk.getChucVu());
+            statement.setString(4, tk.getMaChucVu());
 
             statement.executeUpdate();
         } catch (SQLException ex) {
@@ -29,9 +29,9 @@ public class TaiKhoanCtrl {
     }
 
     public static String dangNhap(String maTaiKhoan, String matKhau) throws ClassNotFoundException {
-        String chucVu = "";
+        String maChucVu = "";
         try (Connection connection = ConnectDB.getConnection()) {
-            String sql = "SELECT MatKhau, ChucVu FROM TaiKhoan WHERE MaTaiKhoan=? ";
+            String sql = "SELECT MatKhau, MaChucVu FROM TaiKhoan WHERE MaTaiKhoan=? ";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, maTaiKhoan);
 
@@ -40,14 +40,14 @@ public class TaiKhoanCtrl {
                 if (resultSet.next()) {
                     String storedPasswordHash = resultSet.getString("MatKhau");
                     if (PasswordHashing.checkPassword(matKhau, storedPasswordHash)) {
-                        chucVu = resultSet.getString("ChucVu");
+                        maChucVu = resultSet.getString("MaChucVu");
                     }
                 }
             }
         } catch (SQLException ex) {
             Logger.getLogger(TaiKhoanCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return chucVu;
+        return maChucVu;
     }
 
     public static boolean kiemTraTaiKhoanCoTonTai(String maTaiKhoan) throws ClassNotFoundException {
@@ -126,7 +126,7 @@ public class TaiKhoanCtrl {
 
             statement.executeUpdate();
         } catch (Exception ex) {
-            Logger.getLogger(QuanLyCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TaiKhoanCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

@@ -23,6 +23,7 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         RetypePasswordTextField = new javax.swing.JPasswordField();
         HienThiCheckBox = new javax.swing.JCheckBox();
         ComfirmButton = new javax.swing.JButton();
+        CancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Đổi mật khẩu");
@@ -44,7 +45,7 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel3.setText("Xác nhận Mật Khẩu");
+        jLabel3.setText("Xác Nhận Mật Khẩu");
 
         RetypePasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -58,13 +59,25 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         });
 
         ComfirmButton.setBackground(new java.awt.Color(51, 153, 255));
-        ComfirmButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ComfirmButton.setFont(new java.awt.Font("Segoe UI", 1, 23)); // NOI18N
         ComfirmButton.setForeground(new java.awt.Color(255, 255, 255));
         ComfirmButton.setText("Xác nhận");
         ComfirmButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ComfirmButton.setPreferredSize(new java.awt.Dimension(128, 35));
         ComfirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComfirmButtonActionPerformed(evt);
+            }
+        });
+
+        CancelButton.setBackground(new java.awt.Color(51, 153, 255));
+        CancelButton.setFont(new java.awt.Font("Segoe UI", 1, 23)); // NOI18N
+        CancelButton.setForeground(new java.awt.Color(255, 255, 255));
+        CancelButton.setText("Hủy");
+        CancelButton.setPreferredSize(new java.awt.Dimension(128, 35));
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
             }
         });
 
@@ -89,13 +102,14 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(ComfirmButton)
-                        .addGap(187, 187, 187))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(158, 158, 158))))
+                .addComponent(jLabel1)
+                .addGap(158, 158, 158))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(ComfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +127,9 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HienThiCheckBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ComfirmButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ComfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
@@ -181,6 +197,12 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NewPasswordTextFieldActionPerformed
 
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new DangNhap().setVisible(true);
+    }//GEN-LAST:event_CancelButtonActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -190,6 +212,7 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CancelButton;
     private javax.swing.JButton ComfirmButton;
     private javax.swing.JCheckBox HienThiCheckBox;
     private javax.swing.JPasswordField NewPasswordTextField;

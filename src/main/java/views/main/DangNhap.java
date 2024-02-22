@@ -38,11 +38,13 @@ public class DangNhap extends javax.swing.JFrame {
         jLabel5.setText("Tài khoản");
 
         taiKhoanTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        taiKhoanTextField.setText("n21dccn013");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setText("Mật khẩu");
 
         passwordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        passwordField.setText("123456789");
 
         DangNhapButton.setBackground(new java.awt.Color(51, 153, 255));
         DangNhapButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -81,7 +83,7 @@ public class DangNhap extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(check)
@@ -95,9 +97,9 @@ public class DangNhap extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(taiKhoanTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                             .addComponent(passwordField))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
+                .addGap(120, 120, 120)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -162,26 +164,22 @@ public class DangNhap extends javax.swing.JFrame {
                 try {
                     String chucVu = TaiKhoanCtrl.dangNhap(userId, password);
 
-                    if (chucVu.equalsIgnoreCase("Sinh viên")) {
+                    if (chucVu.equalsIgnoreCase("SV")) {
                         currentUserId = userId;
                         new SinhVien().setVisible(true);
                         this.dispose();
-
-                    } else if (chucVu.equalsIgnoreCase("Ban cán sự")) {
+                    } else if (chucVu.equalsIgnoreCase("BCS")) {
+                        currentUserId = userId;
+                        new BanCanSu().setVisible(true);
+                        this.dispose();
+                    } else if (chucVu.equalsIgnoreCase("CV")) {
+                        currentUserId = userId;
+                        new CoVan().setVisible(true);
+                        this.dispose();
+                    } else if (chucVu.equalsIgnoreCase("QL")) {
                         currentUserId = userId;
                         new QuanLy().setVisible(true);
                         this.dispose();
-
-                    } else if (chucVu.equalsIgnoreCase("Cố vấn")) {
-                        currentUserId = userId;
-                        new QuanLy().setVisible(true);
-                        this.dispose();
-
-                    } else if (chucVu.equalsIgnoreCase("Quản lý")) {
-                        currentUserId = userId;
-                        new QuanLy().setVisible(true);
-                        this.dispose();
-
                     } else {
                         JOptionPane.showMessageDialog(null, "Tài khoản hoặc mật khẩu bị sai!", "Thông báo", JOptionPane.ERROR_MESSAGE);
                     }

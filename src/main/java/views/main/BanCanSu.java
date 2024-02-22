@@ -3,25 +3,23 @@ package views.main;
 import java.awt.DisplayMode;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.Toolkit;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import view.custom.menu.MenuEvent;
 
-public class SinhVien extends javax.swing.JFrame {
+public class BanCanSu extends javax.swing.JFrame {
 
-    public static SinhVien Instance;
+    public static BanCanSu Instance;
     public JLabel tenUser;
 
-    public SinhVien() {
+    public BanCanSu() {
         initComponents();
 
         Instance = this;
 
-        menu1.setEvent(new MenuEvent() {
+        menuBanCanSu1.setEvent(new MenuEvent() {
             @Override
             public void selected(int index, int subIndex) {
                 if (index == 0) {
@@ -30,9 +28,14 @@ public class SinhVien extends javax.swing.JFrame {
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 1) {
+                    LayeredPane.removeAll();
+                    LayeredPane.add(dsLopSinhVienPane);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
+                } else if (index == 2) {
                     new TaiKhoanCaNhan().setVisible(true);
                     new TaiKhoanCaNhan().setAlwaysOnTop(true);
-                } else if (index == 2) {
+                } else if (index == 3) {
                     new DangNhap().setVisible(true);
                     new DangNhap().setAlwaysOnTop(true);
                     dispose();
@@ -54,7 +57,7 @@ public class SinhVien extends javax.swing.JFrame {
                         sideMenu.setSize(i, height);
                         Thread.sleep(0, 5);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(SinhVien.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(BanCanSu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -70,22 +73,11 @@ public class SinhVien extends javax.swing.JFrame {
                         sideMenu.setSize(i, height);
                         Thread.sleep(0, 5);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(SinhVien.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(BanCanSu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
         }).start();
-    }
-
-    private void setIconImage() {
-        URL url = getClass().getResource("MainIcon.png");
-        if (url == null) {
-            System.out.println("Resource not found: MainIcon.png");
-        } else {
-            System.out.println("Resource URL: " + url.toString());
-            setIconImage(Toolkit.getDefaultToolkit().getImage(url));
-        }
-
     }
 
     @SuppressWarnings("unchecked")
@@ -97,6 +89,9 @@ public class SinhVien extends javax.swing.JFrame {
         dSDiemRenLuyenSVPanel = new javax.swing.JPanel();
         dSDiemRenLuyenSV1 = new views.list.DSDiemRenLuyenCaNhan();
         formChamDiem1 = new views.main.FormChamDiemSV();
+        dsLopSinhVienPane = new javax.swing.JTabbedPane();
+        dSDiemRenLuyenBCS1 = new views.list.DSDiemRenLuyenBCS();
+        formChamDiemBCS1 = new views.main.FormChamDiemBCS();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -106,7 +101,7 @@ public class SinhVien extends javax.swing.JFrame {
         sideMenu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         scrollPaneWin112 = new view.custom.scroll.ScrollPane();
-        menu1 = new view.custom.menu.MenuSinhVien();
+        menuBanCanSu1 = new view.custom.menu.MenuBanCanSu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -137,13 +132,21 @@ public class SinhVien extends javax.swing.JFrame {
             dSDiemRenLuyenSVPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dSDiemRenLuyenSVPanelLayout.createSequentialGroup()
                 .addComponent(dSDiemRenLuyenSV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 109, Short.MAX_VALUE))
+                .addGap(0, 2125, Short.MAX_VALUE))
         );
 
         dsSinhVienPane.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenSVPanel);
         dsSinhVienPane.addTab("Chấm điểm rèn luyện", formChamDiem1);
 
         LayeredPane.add(dsSinhVienPane, "card2");
+
+        dsLopSinhVienPane.setBackground(new java.awt.Color(255, 255, 255));
+        dsLopSinhVienPane.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsLopSinhVienPane.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsLopSinhVienPane.addTab("Danh sách điểm rèn luyện của lớp", dSDiemRenLuyenBCS1);
+        dsLopSinhVienPane.addTab("Chấm điểm rèn luyện", formChamDiemBCS1);
+
+        LayeredPane.add(dsLopSinhVienPane, "card2");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -222,7 +225,7 @@ public class SinhVien extends javax.swing.JFrame {
         });
 
         scrollPaneWin112.setPreferredSize(new java.awt.Dimension(250, 700));
-        scrollPaneWin112.setViewportView(menu1);
+        scrollPaneWin112.setViewportView(menuBanCanSu1);
 
         javax.swing.GroupLayout sideMenuLayout = new javax.swing.GroupLayout(sideMenu);
         sideMenu.setLayout(sideMenuLayout);
@@ -295,7 +298,7 @@ public class SinhVien extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                SinhVien main = new SinhVien();
+                BanCanSu main = new BanCanSu();
 
                 // Lấy kích thước màn hình
                 GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -318,16 +321,19 @@ public class SinhVien extends javax.swing.JFrame {
     private javax.swing.JLabel HoTenUserLabel;
     private javax.swing.JLayeredPane LayeredPane;
     private javax.swing.JLabel MSSVLabel;
+    private views.list.DSDiemRenLuyenBCS dSDiemRenLuyenBCS1;
     private views.list.DSDiemRenLuyenCaNhan dSDiemRenLuyenSV1;
     private javax.swing.JPanel dSDiemRenLuyenSVPanel;
+    private javax.swing.JTabbedPane dsLopSinhVienPane;
     private javax.swing.JTabbedPane dsSinhVienPane;
     private views.main.FormChamDiemSV formChamDiem1;
+    private views.main.FormChamDiemBCS formChamDiemBCS1;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private view.custom.menu.MenuSinhVien menu1;
+    private view.custom.menu.MenuBanCanSu menuBanCanSu1;
     private view.custom.scroll.ScrollPane scrollPaneWin112;
     private javax.swing.JPanel sideMenu;
     // End of variables declaration//GEN-END:variables
