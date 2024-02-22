@@ -180,15 +180,6 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="views.main.FormChamDiemCVHT" name="formChamDiemCVHT2">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Ch&#x1ea5;m &#x111;i&#x1ec3;m r&#xe8;n luy&#x1ec7;n">
-                    <Property name="tabTitle" type="java.lang.String" value="Ch&#x1ea5;m &#x111;i&#x1ec3;m r&#xe8;n luy&#x1ec7;n"/>
-                  </JTabbedPaneConstraints>
-                </Constraint>
-              </Constraints>
-            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

@@ -1,0 +1,274 @@
+package controllers;
+
+import database.ConnectDB;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import models.DiemRenLuyenModel;
+
+public class DiemRenLuyenCtrl {
+
+    public static List<DiemRenLuyenModel> timTatCaDRL() throws ClassNotFoundException {
+        List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+
+        try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
+
+            String sql = "SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa FROM DiemRenLuyen, SinhVien WHERE DiemRenLuyen.MaSinhVien=SinhVien.MaSinhVien";
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                if (resultSet.getInt("TrangThaiXoa") == 0) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsDiemRenLuyen;
+    }
+
+    public static List<DiemRenLuyenModel> timTatCaDiemCuaSV(String maSinhVien) throws ClassNotFoundException {
+        List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+        String sql = "SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa FROM DiemRenLuyen, SinhVien WHERE DiemRenLuyen.MaSinhVien=SinhVien.MaSinhVien AND DiemRenLuyen.MaSinhVien=? AND NguoiCham='CoVan'";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maSinhVien);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                if (resultSet.getInt("TrangThaiXoa") == 0) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsDiemRenLuyen;
+    }
+
+    public static List<DiemRenLuyenModel> timDiemCuaLop(String tenLop, String hocKy, String namHoc) throws ClassNotFoundException {
+        List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+        String sql = """
+                     SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN SinhVien ON DiemRenLuyen.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE SinhVien.TenLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan'
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, tenLop);
+            statement.setString(2, hocKy);
+            statement.setString(3, namHoc);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                if (resultSet.getInt("TrangThaiXoa") == 0) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsDiemRenLuyen;
+    }
+
+    public static DiemRenLuyenModel timDRLDayDu(String maSinhVien, String hocKy, String namHoc, String nguoiCham) throws ClassNotFoundException {
+        DiemRenLuyenModel drl = null;
+        String sql = """
+                     SELECT DISTINCT *, DiemRenLuyen.MaSinhVien AS MaSV, DiemRenLuyen.TrangThaiXoa AS TrangThaiXoaDRL, SinhVien.TrangThaiXoa AS TrangThaiXoaSV
+                     FROM DiemRenLuyen
+                     INNER JOIN SinhVien ON DiemRenLuyen.MaSinhVien = SinhVien.MaSinhVien
+                     WHERE DiemRenLuyen.MaSinhVien=? AND HocKy=? AND NamHoc=? AND NguoiCham=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maSinhVien);
+            statement.setString(2, hocKy);
+            statement.setString(3, namHoc);
+            statement.setString(4, nguoiCham);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    if (resultSet.getInt("TrangThaiXoaDRL") == 0 && resultSet.getInt("TrangThaiXoaSV") == 0) {
+                        drl = new DiemRenLuyenModel(
+                                resultSet.getString("HocKy"),
+                                resultSet.getString("NamHoc"),
+                                resultSet.getString("NguoiCham"),
+                                resultSet.getString("XepLoai"),
+                                resultSet.getString("TrangThaiCham"),
+                                resultSet.getFloat("TongDiem"),
+                                resultSet.getInt("d11"),
+                                resultSet.getInt("d12a"),
+                                resultSet.getInt("d12b"),
+                                resultSet.getInt("d12c"),
+                                resultSet.getInt("d12d"),
+                                resultSet.getInt("d12e"),
+                                resultSet.getInt("d12g"),
+                                resultSet.getInt("d13"),
+                                resultSet.getInt("d13a"),
+                                resultSet.getInt("d13b"),
+                                resultSet.getInt("d13c"),
+                                resultSet.getInt("d13d"),
+                                resultSet.getFloat("d14"),
+                                resultSet.getInt("d15"),
+                                resultSet.getFloat("d1"),
+                                resultSet.getInt("d21"),
+                                resultSet.getInt("d21a"),
+                                resultSet.getInt("d21b"),
+                                resultSet.getInt("d22a"),
+                                resultSet.getInt("d22b"),
+                                resultSet.getInt("d23a"),
+                                resultSet.getInt("d23b"),
+                                resultSet.getInt("d2"),
+                                resultSet.getInt("d31"),
+                                resultSet.getInt("d32"),
+                                resultSet.getInt("d33"),
+                                resultSet.getInt("d34"),
+                                resultSet.getInt("d35"),
+                                resultSet.getInt("d3"),
+                                resultSet.getInt("d41"),
+                                resultSet.getInt("d42"),
+                                resultSet.getInt("d43"),
+                                resultSet.getInt("d44"),
+                                resultSet.getInt("d45"),
+                                resultSet.getInt("d46"),
+                                resultSet.getInt("d4"),
+                                resultSet.getInt("d51"),
+                                resultSet.getInt("d52"),
+                                resultSet.getInt("d53"),
+                                resultSet.getInt("d5"),
+                                resultSet.getString("MaSV"),
+                                resultSet.getString("TenLop"),
+                                resultSet.getString("HoTen"),
+                                resultSet.getDate("NgaySinh")
+                        );
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return drl;
+    }
+
+    public static void chamDiemSV(DiemRenLuyenModel drl) throws ClassNotFoundException {
+        String sql = "UPDATE DiemRenLuyen SET TongDiem=?, XepLoai=?, TrangThaiCham=?, d11=?, d12a=?, d12b=?, d12c=?, d12d=?, d12e=?, d12g=?, d13=?, d13a=?, d13b=?, d13c=?, d13d=?, d14=?, d15=?, d1=?, d21=?, d21a=?, d21b=?, d22a=?, d22b=?, d23a=?, d23b=?, d2=?, d31=?, d32=?, d33=?, d34=?, d35=?, d3=?, d41=?, d42=?, d43=?, d44=?, d45=?, d46=?, d4=?, d51=?, d52=?, d53=?, d5=? WHERE MaSinhVien=? AND NguoiCham=? AND HocKy=? AND NamHoc=? ";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setFloat(1, drl.getTongDiem());
+            statement.setString(2, drl.getXepLoai());
+            statement.setString(3, drl.getTrangThaiCham());
+            statement.setFloat(4, drl.getD11());
+            statement.setInt(5, drl.getD12a());
+            statement.setInt(6, drl.getD12b());
+            statement.setInt(7, drl.getD12c());
+            statement.setInt(8, drl.getD12d());
+            statement.setInt(9, drl.getD12e());
+            statement.setInt(10, drl.getD12g());
+            statement.setInt(11, drl.getD13());
+            statement.setInt(12, drl.getD13a());
+            statement.setInt(13, drl.getD13b());
+            statement.setInt(14, drl.getD13c());
+            statement.setInt(15, drl.getD13d());
+            statement.setFloat(16, drl.getD14());
+            statement.setInt(17, drl.getD15());
+            statement.setFloat(18, drl.getD1());
+            statement.setInt(19, drl.getD21());
+            statement.setInt(20, drl.getD21a());
+            statement.setInt(21, drl.getD21b());
+            statement.setInt(22, drl.getD22a());
+            statement.setInt(23, drl.getD22b());
+            statement.setInt(24, drl.getD23a());
+            statement.setInt(25, drl.getD23b());
+            statement.setInt(26, drl.getD2());
+            statement.setInt(27, drl.getD31());
+            statement.setInt(28, drl.getD32());
+            statement.setInt(29, drl.getD33());
+            statement.setInt(30, drl.getD34());
+            statement.setInt(31, drl.getD35());
+            statement.setInt(32, drl.getD3());
+            statement.setInt(33, drl.getD41());
+            statement.setInt(34, drl.getD2());
+            statement.setInt(35, drl.getD43());
+            statement.setInt(36, drl.getD44());
+            statement.setInt(37, drl.getD45());
+            statement.setInt(38, drl.getD46());
+            statement.setInt(39, drl.getD4());
+            statement.setInt(40, drl.getD51());
+            statement.setInt(41, drl.getD52());
+            statement.setInt(42, drl.getD53());
+            statement.setInt(43, drl.getD5());
+            statement.setString(44, drl.getMaSinhVien());
+            statement.setString(45, drl.getNguoiCham());
+            statement.setString(46, drl.getHocKy());
+            statement.setString(47, drl.getNamHoc());
+
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void thayDoiTrangThaiCham(String trangThaiCham, String maSinhVien, String hocKy, String namHoc) throws ClassNotFoundException {
+        String sql = "UPDATE DiemRenLuyen SET TrangThaiCham=? WHERE MaSinhVien=? AND HocKy=? AND NamHoc=?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, trangThaiCham);
+            statement.setString(2, maSinhVien);
+            statement.setString(3, hocKy);
+            statement.setString(4, namHoc);
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}

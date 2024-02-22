@@ -105,7 +105,6 @@ public class QuanLy extends javax.swing.JFrame {
         dSQuanLy1 = new views.list.DSQuanLy();
         chamDiemPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenBCS1 = new views.list.DSDiemRenLuyenBCS();
-        formChamDiemCVHT2 = new views.main.FormChamDiemCVHT();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -182,7 +181,6 @@ public class QuanLy extends javax.swing.JFrame {
         LayeredPane.add(dsQuanLyPanel, "card3");
 
         chamDiemPanel.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenBCS1);
-        chamDiemPanel.addTab("Chấm điểm rèn luyện", formChamDiemCVHT2);
 
         LayeredPane.add(chamDiemPanel, "card5");
 
@@ -367,7 +365,6 @@ public class QuanLy extends javax.swing.JFrame {
     private javax.swing.JPanel dsGiangVienPanel;
     private javax.swing.JPanel dsQuanLyPanel;
     private javax.swing.JPanel dsSinhVienPanel;
-    private views.main.FormChamDiemCVHT formChamDiemCVHT2;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
