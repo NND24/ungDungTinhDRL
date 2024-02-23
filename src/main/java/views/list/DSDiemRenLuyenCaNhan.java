@@ -494,7 +494,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
                 if (namHoc.equals("---Năm học---")) {
                     timKiemTheoHocKiComboBox.setSelectedIndex(0);
                 } else {
-                    dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(sv.getTenLop(), hocKy, namHoc);
+                    dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", sv.getTenLop(), hocKy, namHoc);
                     tableModel.setRowCount(0);
 
                     dsDiemRenLuyen.forEach(drl -> {

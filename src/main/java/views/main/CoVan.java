@@ -30,10 +30,12 @@ public class CoVan extends javax.swing.JFrame {
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 1) {
-                    LayeredPane.removeAll();
-                    LayeredPane.add(dsLopSinhVienPane);
-                    LayeredPane.repaint();
-                    LayeredPane.revalidate();
+                    new TaiKhoanCaNhan().setVisible(true);
+                    new TaiKhoanCaNhan().setAlwaysOnTop(true);
+                } else if (index == 3) {
+                    new DangNhap().setVisible(true);
+                    new DangNhap().setAlwaysOnTop(true);
+                    dispose();
                 }
             }
         }

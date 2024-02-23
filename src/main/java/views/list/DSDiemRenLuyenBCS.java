@@ -57,7 +57,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 namHoc = (currentYear - 1) + "-" + currentYear;
             }
 
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(sv.getTenLop(), hocKy, namHoc);
+            dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", sv.getTenLop(), hocKy, namHoc);
             tableModel.setRowCount(0);
 
             dsDiemRenLuyen.forEach(drl -> {
@@ -182,7 +182,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         jPanel4.setPreferredSize(new java.awt.Dimension(88, 35));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("THÔNG TIN ĐIỂM RÈN LUYỆN ");
+        jLabel1.setText("THÔNG TIN ĐIỂM RÈN LUYỆN");
 
         xemDiemButton.setBackground(new java.awt.Color(0, 102, 255));
         xemDiemButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -239,7 +239,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 638, Short.MAX_VALUE)
                 .addComponent(xemDiemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(ketThucChamButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -276,6 +276,12 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         timKiemTheoHocKiComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 timKiemTheoHocKiComboBoxActionPerformed(evt);
+            }
+        });
+
+        TimKiemTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TimKiemTextFieldKeyPressed(evt);
             }
         });
 
@@ -322,7 +328,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(timKiemTheoHocKiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -543,6 +549,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         try {
             SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoMaSV(DangNhap.currentUserId);
             if (sv != null) {
+                String tuKhoa = TimKiemTextField.getText();
                 String hocKy = timKiemTheoHocKiComboBox.getSelectedItem().toString();
                 String namHoc = timKiemTheoNamHocComboBox.getSelectedItem().toString();
 
@@ -550,7 +557,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                     hienThiDRLHienTai();
                     timKiemTheoHocKiComboBox.setSelectedIndex(0);
                 } else {
-                    dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(sv.getTenLop(), hocKy, namHoc);
+                    dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(tuKhoa, sv.getTenLop(), hocKy, namHoc);
                     tableModel.setRowCount(0);
 
                     dsDiemRenLuyen.forEach(drl -> {
@@ -616,6 +623,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         try {
             SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoMaSV(DangNhap.currentUserId);
             if (sv != null) {
+                String tuKhoa = TimKiemTextField.getText();
                 String hocKy = timKiemTheoHocKiComboBox.getSelectedItem().toString();
                 String namHoc = timKiemTheoNamHocComboBox.getSelectedItem().toString();
 
@@ -623,7 +631,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                     hienThiDRLHienTai();
                     timKiemTheoHocKiComboBox.setSelectedIndex(0);
                 } else {
-                    dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(sv.getTenLop(), hocKy, namHoc);
+                    dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(tuKhoa, sv.getTenLop(), hocKy, namHoc);
                     tableModel.setRowCount(0);
 
                     dsDiemRenLuyen.forEach(drl -> {
@@ -640,6 +648,36 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_timKiemTheoNamHocComboBoxActionPerformed
+
+    private void TimKiemTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TimKiemTextFieldKeyPressed
+        try {
+            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoMaSV(DangNhap.currentUserId);
+            if (sv != null) {
+                String tuKhoa = TimKiemTextField.getText();
+                String hocKy = timKiemTheoHocKiComboBox.getSelectedItem().toString();
+                String namHoc = timKiemTheoNamHocComboBox.getSelectedItem().toString();
+
+                if (namHoc.equals("---Năm học---")) {
+                    hienThiDRLHienTai();
+                    timKiemTheoHocKiComboBox.setSelectedIndex(0);
+                } else {
+                    dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(tuKhoa, sv.getTenLop(), hocKy, namHoc);
+                    tableModel.setRowCount(0);
+
+                    dsDiemRenLuyen.forEach(drl -> {
+                        tableModel.addRow(new Object[]{
+                            drl.getMaSinhVien(), drl.getHoTen(),
+                            drl.getD1(), drl.getD2(), drl.getD3(),
+                            drl.getD4(), drl.getD5(), drl.getTongDiem(),
+                            drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
+                            drl.getTrangThaiCham()});
+                    });
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_TimKiemTextFieldKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TimKiemTextField;

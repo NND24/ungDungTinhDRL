@@ -80,20 +80,23 @@ public class DiemRenLuyenCtrl {
         return dsDiemRenLuyen;
     }
 
-    public static List<DiemRenLuyenModel> timDiemCuaLop(String tenLop, String hocKy, String namHoc) throws ClassNotFoundException {
+    public static List<DiemRenLuyenModel> timDiemCuaLop(String tuKhoa, String tenLop, String hocKy, String namHoc) throws ClassNotFoundException {
         List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
         String sql = """
                      SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
                      FROM DiemRenLuyen
                      INNER JOIN SinhVien ON DiemRenLuyen.MaSinhVien=SinhVien.MaSinhVien
                      INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
-                     WHERE SinhVien.TenLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan'
+                     WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
+                     AND (SinhVien.TenLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan')
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setString(1, tenLop);
-            statement.setString(2, hocKy);
-            statement.setString(3, namHoc);
+            statement.setString(1, "%" + tuKhoa + "%");
+            statement.setString(2, "%" + tuKhoa + "%");
+            statement.setString(3, tenLop);
+            statement.setString(4, hocKy);
+            statement.setString(5, namHoc);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {

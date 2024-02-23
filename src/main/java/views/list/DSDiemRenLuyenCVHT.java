@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.DiemRenLuyenModel;
+import models.SinhVienModelTest;
 import utils.DialogHelper;
 import views.main.DangNhap;
 import views.main.FormChamDiemBCS;
@@ -68,7 +69,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
                 namHoc = (currentYear - 1) + "-" + currentYear;
             }
 
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(tenLop, hocKy, namHoc);
+            dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", tenLop, hocKy, namHoc);
             tableModel.setRowCount(0);
 
             dsDiemRenLuyen.forEach(drl -> {
@@ -142,8 +143,8 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         tongDiemTextField = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        timKiemTheoHocKiComboBox2 = new javax.swing.JComboBox<>();
-        TimKiemTextField3 = new javax.swing.JTextField();
+        timKiemTheoHocKiComboBox = new javax.swing.JComboBox<>();
+        TimKiemTextField = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -320,16 +321,16 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setText("DANH SÁCH ĐIỂM RÈN LUYỆN CỦA LỚP");
 
-        timKiemTheoHocKiComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
-        timKiemTheoHocKiComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        timKiemTheoHocKiComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
+        timKiemTheoHocKiComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                timKiemTheoHocKiComboBox2ActionPerformed(evt);
+                timKiemTheoHocKiComboBoxActionPerformed(evt);
             }
         });
 
-        TimKiemTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TimKiemTextField3ActionPerformed(evt);
+        TimKiemTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TimKiemTextFieldKeyPressed(evt);
             }
         });
 
@@ -369,7 +370,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TimKiemTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TimKiemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel30)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -381,16 +382,16 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel29)
                 .addGap(4, 4, 4)
-                .addComponent(timKiemTheoHocKiComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(timKiemTheoHocKiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(timKiemTheoHocKiComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(timKiemTheoHocKiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28)
-                    .addComponent(TimKiemTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TimKiemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
                     .addComponent(jLabel29)
                     .addComponent(timKiemLopComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -499,7 +500,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1364, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -592,7 +593,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         boolean flag = DialogHelper.showConfirmation("Thao tác này sẽ duyệt điểm của cả lớp. Bạn có chắc muốn thực hiện thao tác này!");
 
         if (flag) {
-            String hocKy = timKiemTheoHocKiComboBox2.getSelectedItem().toString();
+            String hocKy = timKiemTheoHocKiComboBox.getSelectedItem().toString();
             String namHoc = timKiemTheoNamHocComboBox.getSelectedItem().toString();
             String lop = timKiemLopComboBox.getSelectedItem().toString();
 
@@ -627,15 +628,16 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
 
     private void timKiemTheoNamHocComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timKiemTheoNamHocComboBoxActionPerformed
         try {
-            String hocKy = timKiemTheoHocKiComboBox2.getSelectedItem().toString();
+            String tuKhoa = TimKiemTextField.getText();
+            String hocKy = timKiemTheoHocKiComboBox.getSelectedItem().toString();
             String namHoc = timKiemTheoNamHocComboBox.getSelectedItem().toString();
             String lop = timKiemLopComboBox.getSelectedItem().toString();
 
             if (namHoc.equals("---Năm học---")) {
-                // hienThiDRLHienTai();
-                timKiemTheoHocKiComboBox2.setSelectedIndex(0);
+                timKiemTheoHocKiComboBox.setSelectedIndex(0);
+                tableModel.setRowCount(0);
             } else {
-                dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(lop, hocKy, namHoc);
+                dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(tuKhoa, lop, hocKy, namHoc);
                 tableModel.setRowCount(0);
 
                 dsDiemRenLuyen.forEach(drl -> {
@@ -652,24 +654,21 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_timKiemTheoNamHocComboBoxActionPerformed
 
-    private void TimKiemTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimKiemTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TimKiemTextField3ActionPerformed
-
     private void timKiemLopComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timKiemLopComboBoxActionPerformed
         if (timKiemLopComboBox.getSelectedItem() != null) {
+            String tuKhoa = TimKiemTextField.getText();
             String tenLop = timKiemLopComboBox.getSelectedItem().toString();
-            String hocKy = timKiemTheoHocKiComboBox2.getSelectedItem().toString();
-            String namHoc = timKiemTheoHocKiComboBox2.getSelectedItem().toString();
+            String hocKy = timKiemTheoHocKiComboBox.getSelectedItem().toString();
+            String namHoc = timKiemTheoHocKiComboBox.getSelectedItem().toString();
 
             if (tenLop.equals("---Lớp---")) {
-                dsDiemRenLuyenTable.removeAll();
-                timKiemTheoHocKiComboBox2.setSelectedIndex(0);
-                timKiemTheoHocKiComboBox2.setSelectedIndex(0);
+                timKiemTheoNamHocComboBox.setSelectedIndex(0);
+                timKiemTheoHocKiComboBox.setSelectedIndex(0);
+                tableModel.setRowCount(0);
             } else {
                 if (namHoc.equals("---Năm học---")) {
                     try {
-                        dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(tenLop, hocKy, namHoc);
+                        dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(tuKhoa, tenLop, hocKy, namHoc);
                         tableModel.setRowCount(0);
 
                         dsDiemRenLuyen.forEach(drl -> {
@@ -692,17 +691,22 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_timKiemLopComboBoxActionPerformed
 
-    private void timKiemTheoHocKiComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timKiemTheoHocKiComboBox2ActionPerformed
+    private void timKiemTheoHocKiComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timKiemTheoHocKiComboBoxActionPerformed
         try {
-            String hocKy = timKiemTheoHocKiComboBox2.getSelectedItem().toString();
-            String namHoc = timKiemTheoNamHocComboBox.getSelectedItem().toString();
+            String tuKhoa = TimKiemTextField.getText();
             String lop = timKiemLopComboBox.getSelectedItem().toString();
+            String hocKy = timKiemTheoHocKiComboBox.getSelectedItem().toString();
+            String namHoc = timKiemTheoNamHocComboBox.getSelectedItem().toString();
 
-            if (namHoc.equals("---Năm học---")) {
-                hienThiDRLHienTai();
-                timKiemTheoHocKiComboBox2.setSelectedIndex(0);
+            if (lop.equals("---Lớp---")) {
+                timKiemTheoNamHocComboBox.setSelectedIndex(0);
+                timKiemTheoHocKiComboBox.setSelectedIndex(0);
+                tableModel.setRowCount(0);
+            } else if (namHoc.equals("---Năm học---")) {
+                timKiemTheoHocKiComboBox.setSelectedIndex(0);
+                tableModel.setRowCount(0);
             } else {
-                dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(lop, hocKy, namHoc);
+                dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(tuKhoa, lop, hocKy, namHoc);
                 tableModel.setRowCount(0);
 
                 dsDiemRenLuyen.forEach(drl -> {
@@ -717,10 +721,38 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_timKiemTheoHocKiComboBox2ActionPerformed
+    }//GEN-LAST:event_timKiemTheoHocKiComboBoxActionPerformed
+
+    private void TimKiemTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TimKiemTextFieldKeyPressed
+        try {
+            String tuKhoa = TimKiemTextField.getText();
+            String lop = timKiemLopComboBox.getSelectedItem().toString();
+            String hocKy = timKiemTheoHocKiComboBox.getSelectedItem().toString();
+            String namHoc = timKiemTheoNamHocComboBox.getSelectedItem().toString();
+
+            if (namHoc.equals("---Năm học---")) {
+                timKiemTheoHocKiComboBox.setSelectedIndex(0);
+                tableModel.setRowCount(0);
+            } else {
+                dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop(tuKhoa, lop, hocKy, namHoc);
+                tableModel.setRowCount(0);
+
+                dsDiemRenLuyen.forEach(drl -> {
+                    tableModel.addRow(new Object[]{
+                        drl.getMaSinhVien(), drl.getHoTen(),
+                        drl.getD1(), drl.getD2(), drl.getD3(),
+                        drl.getD4(), drl.getD5(), drl.getTongDiem(),
+                        drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
+                        drl.getTrangThaiCham()});
+                });
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_TimKiemTextFieldKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TimKiemTextField3;
+    private javax.swing.JTextField TimKiemTextField;
     private javax.swing.JButton chamLaiButton;
     private javax.swing.JTextField diemTieuChi1TextField;
     private javax.swing.JTextField diemTieuChi2TextField;
@@ -757,7 +789,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
     private javax.swing.JTextField maSinhVienTextField;
     private javax.swing.JTextField namHocTextField;
     private javax.swing.JComboBox<String> timKiemLopComboBox;
-    private javax.swing.JComboBox<String> timKiemTheoHocKiComboBox2;
+    private javax.swing.JComboBox<String> timKiemTheoHocKiComboBox;
     private javax.swing.JComboBox<String> timKiemTheoNamHocComboBox;
     private javax.swing.JTextField tongDiemTextField;
     private javax.swing.JButton xemDiemButton;

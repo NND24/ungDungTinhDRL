@@ -2808,7 +2808,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void luuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButton1ActionPerformed
-        if (trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+        if (trangThai.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
             DialogHelper.showError("Đã hết thời gian chấm lại điểm");
         } else {
             dienDiem();
