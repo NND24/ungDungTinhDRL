@@ -2779,7 +2779,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
     }//GEN-LAST:event_formed
 
     private void luuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButtonActionPerformed
-        if (trangThai != null && trangThai.equalsIgnoreCase("Sinh viên kết thúc chấm")) {
+        if (trangThai != null && (!trangThai.equalsIgnoreCase("Sinh viên đang chấm") || !trangThai.equalsIgnoreCase("Sinh viên đã chấm"))) {
             DialogHelper.showError("Đã hết thời gian tự chấm điểm");
         } else {
             String maSinhVien = maSinhVienTextField.getText();

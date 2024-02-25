@@ -313,7 +313,7 @@ public class TaiKhoanCaNhan extends javax.swing.JFrame {
         } else if (oldPassword.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Mật khẩu cũ không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } else if (!newPassword.equals(retypePassword)) {
-            JOptionPane.showMessageDialog(null, "Mật khẩu mới không giống mật khẩu cũ", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Mật khẩu mới không giống nhập lại mật khẩu", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } else {
 //                if (TaiKhoanCaNhanCtrl.kiemTraMatKhauCu(maNhanVien, email, oldPassword)) {
 //                    TaiKhoanCaNhanCtrl.doiMatKhau(maNhanVien, newPassword);

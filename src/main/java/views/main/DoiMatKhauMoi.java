@@ -176,7 +176,7 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
                     Logger.getLogger(DoiMatKhauMoi.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Nhập lại không giống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Xác nhận mật khẩu không trùng với mật khẩu mới. Vui lòng nhập lại!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             }
         }
 

@@ -32,7 +32,7 @@ public class CoVan extends javax.swing.JFrame {
                 } else if (index == 1) {
                     new TaiKhoanCaNhan().setVisible(true);
                     new TaiKhoanCaNhan().setAlwaysOnTop(true);
-                } else if (index == 3) {
+                } else if (index == 2) {
                     new DangNhap().setVisible(true);
                     new DangNhap().setAlwaysOnTop(true);
                     dispose();

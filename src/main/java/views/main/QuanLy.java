@@ -97,14 +97,14 @@ public class QuanLy extends javax.swing.JFrame {
     private void initComponents() {
 
         LayeredPane = new javax.swing.JLayeredPane();
+        chamDiemPanel = new javax.swing.JTabbedPane();
+        dSDiemRenLuyenQuanLy1 = new views.list.DSDiemRenLuyenQuanLy();
         dsSinhVienPanel = new javax.swing.JPanel();
-        dSSinhVien1 = new views.list.DSSinhVien();
+        dSSinhVienTest1 = new views.list.DSSinhVienTest();
         dsGiangVienPanel = new javax.swing.JPanel();
         dSGiangVien1 = new views.list.DSGiangVien();
         dsQuanLyPanel = new javax.swing.JPanel();
         dSQuanLy1 = new views.list.DSQuanLy();
-        chamDiemPanel = new javax.swing.JTabbedPane();
-        dSDiemRenLuyenBCS1 = new views.list.DSDiemRenLuyenBCS();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -129,19 +129,25 @@ public class QuanLy extends javax.swing.JFrame {
         LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 800));
         LayeredPane.setLayout(new java.awt.CardLayout());
 
+        chamDiemPanel.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenQuanLy1);
+
+        LayeredPane.add(chamDiemPanel, "card5");
+
         javax.swing.GroupLayout dsSinhVienPanelLayout = new javax.swing.GroupLayout(dsSinhVienPanel);
         dsSinhVienPanel.setLayout(dsSinhVienPanelLayout);
         dsSinhVienPanelLayout.setHorizontalGroup(
             dsSinhVienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dsSinhVienPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(dSSinhVien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(dsSinhVienPanelLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(dSSinhVienTest1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         dsSinhVienPanelLayout.setVerticalGroup(
             dsSinhVienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dsSinhVienPanelLayout.createSequentialGroup()
-                .addComponent(dSSinhVien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2156, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(dSSinhVienTest1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         LayeredPane.add(dsSinhVienPanel, "card3");
@@ -179,10 +185,6 @@ public class QuanLy extends javax.swing.JFrame {
         );
 
         LayeredPane.add(dsQuanLyPanel, "card3");
-
-        chamDiemPanel.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenBCS1);
-
-        LayeredPane.add(chamDiemPanel, "card5");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -358,10 +360,10 @@ public class QuanLy extends javax.swing.JFrame {
     private javax.swing.JLayeredPane LayeredPane;
     private javax.swing.JLabel MSSVLabel;
     private javax.swing.JTabbedPane chamDiemPanel;
-    private views.list.DSDiemRenLuyenBCS dSDiemRenLuyenBCS1;
+    private views.list.DSDiemRenLuyenQuanLy dSDiemRenLuyenQuanLy1;
     private views.list.DSGiangVien dSGiangVien1;
     private views.list.DSQuanLy dSQuanLy1;
-    private views.list.DSSinhVien dSSinhVien1;
+    private views.list.DSSinhVienTest dSSinhVienTest1;
     private javax.swing.JPanel dsGiangVienPanel;
     private javax.swing.JPanel dsQuanLyPanel;
     private javax.swing.JPanel dsSinhVienPanel;

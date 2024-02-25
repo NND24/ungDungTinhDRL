@@ -239,7 +239,7 @@ public class DiemRenLuyenCtrl {
             statement.setInt(31, drl.getD35());
             statement.setInt(32, drl.getD3());
             statement.setInt(33, drl.getD41());
-            statement.setInt(34, drl.getD2());
+            statement.setInt(34, drl.getD42());
             statement.setInt(35, drl.getD43());
             statement.setInt(36, drl.getD44());
             statement.setInt(37, drl.getD45());

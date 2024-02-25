@@ -152,10 +152,10 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void DangNhapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DangNhapButtonActionPerformed
         try {
-            String userId = taiKhoanTextField.getText();
+            String userId = taiKhoanTextField.getText().trim();
 
             char[] passwordChars = passwordField.getPassword();
-            String password = String.valueOf(passwordChars);
+            String password = String.valueOf(passwordChars).trim();
             if (userId.isEmpty() || password.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             } else if (TaiKhoanCtrl.kiemTraTaiKhoanCoTonTai(userId) == false) {

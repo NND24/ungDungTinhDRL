@@ -146,10 +146,8 @@ public class QuenMatKhau extends javax.swing.JFrame {
             String email = emailTextField.getText();
             String userId = taiKhoanTextField.getText();
 
-            if (email.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Email không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
-            } else if (userId.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Tài khoản không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+            if (email.isEmpty() || userId.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Tài khoản hoặc email không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             } else if (TaiKhoanCtrl.kiemTraEmailCoTonTai(email) == false) {
                 JOptionPane.showMessageDialog(null, "Email không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             } else if (TaiKhoanCtrl.kiemTraTaiKhoanCoTonTai(userId) == false) {

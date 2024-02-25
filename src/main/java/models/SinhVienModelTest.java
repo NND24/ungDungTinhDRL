@@ -11,6 +11,24 @@ public class SinhVienModelTest {
         this.maSinhVien = maSinhVien;
     }
 
+    public SinhVienModelTest(String maSinhVien, String chucVu, String email, String matKhau) {
+        this.maSinhVien = maSinhVien;
+        this.chucVu = chucVu;
+        this.email = email;
+        this.matKhau = matKhau;
+    }
+
+    public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh) {
+        this.maSinhVien = maSinhVien;
+        this.tenLop = tenLop;
+        this.hoTen = hoTen;
+        this.gioiTinh = gioiTinh;
+        this.soDienThoai = soDienThoai;
+        this.canCuoc = canCuoc;
+        this.queQuan = queQuan;
+        this.ngaySinh = ngaySinh;
+    }
+
     public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, String chucVu, String email, String matKhau, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan) {
         this.maSinhVien = maSinhVien;
         this.tenLop = tenLop;
