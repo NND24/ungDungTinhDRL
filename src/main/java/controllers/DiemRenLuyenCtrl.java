@@ -19,7 +19,8 @@ public class DiemRenLuyenCtrl {
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
-            String sql = "SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa FROM DiemRenLuyen, SinhVien WHERE DiemRenLuyen.MaSinhVien=SinhVien.MaSinhVien";
+            String sql = "SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa \n"
+                    + "FROM DiemRenLuyen, PhieuDRL, SinhVien WHERE PhieuDRL.MaSinhVien=SinhVien.MaSinhVien AND DiemRenLuyen.IdPhieuDRL=PhieuDRL.IdPhieuDRL";
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
@@ -49,7 +50,9 @@ public class DiemRenLuyenCtrl {
 
     public static List<DiemRenLuyenModel> timTatCaDiemCuaSV(String maSinhVien) throws ClassNotFoundException {
         List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
-        String sql = "SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa FROM DiemRenLuyen, SinhVien WHERE DiemRenLuyen.MaSinhVien=SinhVien.MaSinhVien AND DiemRenLuyen.MaSinhVien=? AND NguoiCham='CoVan'";
+        String sql = "SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa \n"
+                + "FROM DiemRenLuyen, SinhVien, PhieuDRL\n"
+                + "WHERE PhieuDRL.MaSinhVien=SinhVien.MaSinhVien AND DiemRenLuyen.IdPhieuDRL=PhieuDRL.IdPhieuDRL AND PhieuDRL.MaSinhVien=? AND NguoiCham='CoVan'";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, maSinhVien);
@@ -85,7 +88,8 @@ public class DiemRenLuyenCtrl {
         String sql = """
                      SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
                      FROM DiemRenLuyen
-                     INNER JOIN SinhVien ON DiemRenLuyen.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
                      INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
                      AND (SinhVien.TenLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan')
@@ -127,10 +131,11 @@ public class DiemRenLuyenCtrl {
     public static DiemRenLuyenModel timDRLDayDu(String maSinhVien, String hocKy, String namHoc, String nguoiCham) throws ClassNotFoundException {
         DiemRenLuyenModel drl = null;
         String sql = """
-                     SELECT DISTINCT *, DiemRenLuyen.MaSinhVien AS MaSV, DiemRenLuyen.TrangThaiXoa AS TrangThaiXoaDRL, SinhVien.TrangThaiXoa AS TrangThaiXoaSV
+                     SELECT DISTINCT *, PhieuDRL.MaSinhVien AS MaSV, DiemRenLuyen.TrangThaiXoa AS TrangThaiXoaDRL, SinhVien.TrangThaiXoa AS TrangThaiXoaSV
                      FROM DiemRenLuyen
-                     INNER JOIN SinhVien ON DiemRenLuyen.MaSinhVien = SinhVien.MaSinhVien
-                     WHERE DiemRenLuyen.MaSinhVien=? AND HocKy=? AND NamHoc=? AND NguoiCham=?
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien = SinhVien.MaSinhVien
+                     WHERE PhieuDRL.MaSinhVien=? AND HocKy=? AND NamHoc=? AND NguoiCham=?
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -203,8 +208,29 @@ public class DiemRenLuyenCtrl {
         return drl;
     }
 
+    public static String timIDPhieuDRL(String maSinhVien, String hocKy, String namHoc) throws ClassNotFoundException {
+        String idPhieuDRL = "";
+        String sql = "SELECT DISTINCT DiemRenLuyen.IdPhieuDRL, TrangThaiXoa  FROM DiemRenLuyen, PhieuDRL WHERE DiemRenLuyen.IdPhieuDRL=PhieuDRL.IdPhieuDRL AND MaSinhVien = ? AND NamHoc = ? AND HocKy = ?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maSinhVien);
+            statement.setString(2, namHoc);
+            statement.setString(3, hocKy);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                if (resultSet.getInt("TrangThaiXoa") == 0) {
+                    idPhieuDRL = resultSet.getString("IdPhieuDRL");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return idPhieuDRL;
+    }
+
     public static void chamDiemSV(DiemRenLuyenModel drl) throws ClassNotFoundException {
-        String sql = "UPDATE DiemRenLuyen SET TongDiem=?, XepLoai=?, TrangThaiCham=?, d11=?, d12a=?, d12b=?, d12c=?, d12d=?, d12e=?, d12g=?, d13=?, d13a=?, d13b=?, d13c=?, d13d=?, d14=?, d15=?, d1=?, d21=?, d21a=?, d21b=?, d22a=?, d22b=?, d23a=?, d23b=?, d2=?, d31=?, d32=?, d33=?, d34=?, d35=?, d3=?, d41=?, d42=?, d43=?, d44=?, d45=?, d46=?, d4=?, d51=?, d52=?, d53=?, d5=? WHERE MaSinhVien=? AND NguoiCham=? AND HocKy=? AND NamHoc=? ";
+        String sql = "UPDATE DiemRenLuyen SET TongDiem=?, XepLoai=?, TrangThaiCham=?, d11=?, d12a=?, d12b=?, d12c=?, d12d=?, d12e=?, d12g=?, d13=?, d13a=?, d13b=?, d13c=?, d13d=?, d14=?, d15=?, d1=?, d21=?, d21a=?, d21b=?, d22a=?, d22b=?, d23a=?, d23b=?, d2=?, d31=?, d32=?, d33=?, d34=?, d35=?, d3=?, d41=?, d42=?, d43=?, d44=?, d45=?, d46=?, d4=?, d51=?, d52=?, d53=?, d5=? WHERE IdPhieuDRL=? AND NguoiCham=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setFloat(1, drl.getTongDiem());
             statement.setString(2, drl.getXepLoai());
@@ -249,10 +275,8 @@ public class DiemRenLuyenCtrl {
             statement.setInt(41, drl.getD52());
             statement.setInt(42, drl.getD53());
             statement.setInt(43, drl.getD5());
-            statement.setString(44, drl.getMaSinhVien());
+            statement.setString(44, drl.getIdPhieuDRL());
             statement.setString(45, drl.getNguoiCham());
-            statement.setString(46, drl.getHocKy());
-            statement.setString(47, drl.getNamHoc());
 
             statement.executeUpdate();
 
@@ -261,13 +285,11 @@ public class DiemRenLuyenCtrl {
         }
     }
 
-    public static void thayDoiTrangThaiCham(String trangThaiCham, String maSinhVien, String hocKy, String namHoc) throws ClassNotFoundException {
-        String sql = "UPDATE DiemRenLuyen SET TrangThaiCham=? WHERE MaSinhVien=? AND HocKy=? AND NamHoc=?";
+    public static void thayDoiTrangThaiCham(String trangThaiCham, String idPhieuDRL) throws ClassNotFoundException {
+        String sql = "UPDATE DiemRenLuyen SET TrangThaiCham=? WHERE IdPhieuDRL=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, trangThaiCham);
-            statement.setString(2, maSinhVien);
-            statement.setString(3, hocKy);
-            statement.setString(4, namHoc);
+            statement.setString(2, idPhieuDRL);
             statement.executeUpdate();
 
         } catch (SQLException ex) {

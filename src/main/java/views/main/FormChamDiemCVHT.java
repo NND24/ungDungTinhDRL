@@ -215,7 +215,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
 
         int bcs51 = Integer.parseInt(bcs51TextField.getText());
         int bcs52 = Integer.parseInt(bcs52TextField.getText());
-        int bcs53 = Integer.parseInt(bcs33TextField.getText());
+        int bcs53 = Integer.parseInt(bcs53TextField.getText());
         int bcs5 = Integer.parseInt(bcs5TextField.getText());
 
         float tongDiem = Float.parseFloat(bcsTongTextField.getText());
@@ -384,8 +384,8 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel70 = new javax.swing.JLabel();
         hoTenTextField = new javax.swing.JTextField();
         maSinhVienTextField = new javax.swing.JTextField();
-        jTextField45 = new javax.swing.JTextField();
-        jTextField46 = new javax.swing.JTextField();
+        ngaySinhTextField = new javax.swing.JTextField();
+        lopTextField = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
@@ -1009,6 +1009,16 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
 
         jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel70.setText("Lớp:");
+
+        maSinhVienTextField.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                maSinhVienTextFieldAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         jLabel71.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1756,11 +1766,9 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(luuButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addComponent(luuButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1775,9 +1783,17 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                             .addComponent(luuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jScrollPane7)
                                     .addComponent(jLabel108, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1803,21 +1819,6 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                                             .addComponent(bcs21TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(0, 0, 0)
                                             .addComponent(cv21TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(0, 0, 0)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(0, 0, 0)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(0, 0, 0)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(0, 0, 0)
-                                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(0, 0, 0)
-                                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -2198,35 +2199,6 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                                                         .addComponent(cv33TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(cv32TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(cv34TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel1)
-                                                .addComponent(jLabel62))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(hoTenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(maSinhVienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(55, 55, 55)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel70)
-                                                .addComponent(jLabel69))
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGap(11, 11, 11)
-                                                    .addComponent(jTextField46, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGap(12, 12, 12)
-                                                    .addComponent(jTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGap(55, 55, 55)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(jLabel139)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(hocKyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(jLabel140)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(namHocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -2251,15 +2223,52 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                                                         .addComponent(bcs11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(0, 0, 0)
                                                         .addComponent(cv11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel1)
+                                                .addComponent(jLabel62))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(hoTenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(maSinhVienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(55, 55, 55)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel70)
+                                                .addComponent(jLabel69))
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGap(11, 11, 11)
+                                                    .addComponent(lopTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGap(12, 12, 12)
+                                                    .addComponent(ngaySinhTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(jLabel139)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(hocKyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGap(49, 49, 49)
+                                                    .addComponent(jLabel140)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(namHocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, 0)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, 0)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, 0)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(0, 0, 0)
+                                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(0, 0, 0)
+                                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jScrollPane17, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -2337,7 +2346,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jLabel69)
                     .addComponent(maSinhVienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ngaySinhTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel139)
                     .addComponent(hocKyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2345,7 +2354,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                     .addComponent(jLabel62)
                     .addComponent(jLabel70)
                     .addComponent(hoTenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lopTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel140)
                     .addComponent(namHocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
@@ -2802,196 +2811,364 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 2785, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 35, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void luuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButton1ActionPerformed
         if (trangThai.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
             DialogHelper.showError("Đã hết thời gian chấm điểm");
-        } else if (!trangThai.equalsIgnoreCase("Cố vấn đã chấm") || !trangThai.equalsIgnoreCase("Ban cán sự đã chấm")) {
-            DialogHelper.showError("Ban cán sự vẫn còn đang trong thời gian chấm điểm");
         } else if (trangThai.equalsIgnoreCase("Cố vấn đã chấm")
                 || trangThai.equalsIgnoreCase("Ban cán sự đã chấm")
                 || trangThai.equalsIgnoreCase("Ban cán kết thúc chấm")) {
-            dienDiem();
+            try {
+                dienDiem();
 
+                String maSinhVien = maSinhVienTextField.getText();
+                String hocKy = hocKyTextField.getText();
+                String namHoc = namHocTextField.getText();
+                String idPhieuDRL = DiemRenLuyenCtrl.timIDPhieuDRL(maSinhVien, hocKy, namHoc);
+
+                String nguoiCham = "CoVan";
+                String trangThaiCham = "Cố vấn đã chấm";
+                float bcs1 = Float.parseFloat(bcs1TextField.getText());
+                int bcs2 = Integer.parseInt(bcs2TextField.getText());
+                int bcs3 = Integer.parseInt(bcs3TextField.getText());
+                int bcs4 = Integer.parseInt(bcs4TextField.getText());
+                int bcs5 = Integer.parseInt(bcs5TextField.getText());
+                float tongDiem = Float.parseFloat(bcsTongTextField.getText());
+                String xepLoai = "";
+                if (tongDiem >= 90) {
+                    xepLoai = "Xuất sắc";
+                } else if (tongDiem >= 80) {
+                    xepLoai = "Tốt";
+                } else if (tongDiem >= 65) {
+                    xepLoai = "Khá";
+                } else if (tongDiem >= 50) {
+                    xepLoai = "Trung bình";
+                } else if (tongDiem >= 35) {
+                    xepLoai = "Yếu";
+                } else {
+                    xepLoai = "Kém";
+                }
+                int bcs11 = Integer.parseInt(bcs11TextField.getText());
+                int bcs12a = Integer.parseInt(bcs12aTextField.getText());
+                int bcs12b = Integer.parseInt(bcs12bTextField.getText());
+                int bcs12c = Integer.parseInt(bcs12cTextField.getText());
+                int bcs12d = Integer.parseInt(bcs12dTextField.getText());
+                int bcs12e = Integer.parseInt(bcs12eTextField.getText());
+                int bcs12g = Integer.parseInt(bcs12gTextField.getText());
+                int bcs13 = Integer.parseInt(bcs13TextField.getText());
+                int bcs13a = Integer.parseInt(bcs13aTextField.getText());
+                int bcs13b = Integer.parseInt(bcs13bTextField.getText());
+                int bcs13c = Integer.parseInt(bcs13cTextField.getText());
+                int bcs13d = Integer.parseInt(bcs13dTextField.getText());
+                float bcs14 = Float.parseFloat(bcs14TextField.getText());
+                int bcs15 = Integer.parseInt(bcs15TextField.getText());
+
+                int bcs21 = Integer.parseInt(bcs21TextField.getText());
+                int bcs21a = Integer.parseInt(bcs21aTextField.getText());
+                int bcs21b = Integer.parseInt(bcs21bTextField.getText());
+                int bcs22a = Integer.parseInt(bcs22aTextField.getText());
+                int bcs22b = Integer.parseInt(bcs22bTextField.getText());
+                int bcs23a = Integer.parseInt(bcs23aTextField.getText());
+                int bcs23b = Integer.parseInt(bcs23bTextField.getText());
+
+                int bcs31 = Integer.parseInt(bcs31TextField.getText());
+                int bcs32 = Integer.parseInt(bcs32TextField.getText());
+                int bcs33 = Integer.parseInt(bcs33TextField.getText());
+                int bcs34 = Integer.parseInt(bcs34TextField.getText());
+                int bcs35 = Integer.parseInt(bcs35TextField.getText());
+
+                int bcs41 = Integer.parseInt(bcs41TextField.getText());
+                int bcs42 = Integer.parseInt(bcs42TextField.getText());
+                int bcs43 = Integer.parseInt(bcs43TextField.getText());
+                int bcs44 = Integer.parseInt(bcs44TextField.getText());
+                int bcs45 = Integer.parseInt(bcs45TextField.getText());
+                int bcs46 = Integer.parseInt(bcs46TextField.getText());
+
+                int bcs51 = Integer.parseInt(bcs51TextField.getText());
+                int bcs52 = Integer.parseInt(bcs52TextField.getText());
+                int bcs53 = Integer.parseInt(bcs53TextField.getText());
+
+                if (maSinhVien.isEmpty()) {
+                    DialogHelper.showError("Mã sinh viên không được để trống");
+                } else if (hocKy.isEmpty()) {
+                    DialogHelper.showError("Học kỳ không được để trống");
+                } else if (namHoc.isEmpty()) {
+                    DialogHelper.showError("Năm học không được để trống");
+                } else if (nguoiCham.isEmpty()) {
+                    DialogHelper.showError("Người chấm không được để trống");
+                } else if (xepLoai.isEmpty()) {
+                    DialogHelper.showError("Xếp loại không được để trống");
+                } else if (bcs11 != 0 && (bcs11 < 0 || bcs11 > 3)) {
+                    DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12a != 0 && (bcs12a != 10)) {
+                    DialogHelper.showError("Mục 1.2a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12b != 0 && (bcs12b != 8)) {
+                    DialogHelper.showError("Mục 1.2b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12c != 0 && (bcs12c != 6)) {
+                    DialogHelper.showError("Mục 1.2c không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12d != 0 && (bcs12d != 4)) {
+                    DialogHelper.showError("Mục 1.2d không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12e != 0 && (bcs12e != 0)) {
+                    DialogHelper.showError("Mục 1.2e không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12g != 0 && (bcs12g != 100)) {
+                    DialogHelper.showError("Mục 1.2g không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13 != 0 && (bcs13 < 0 || bcs13 > 4)) {
+                    DialogHelper.showError("Mục 1.3 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13a != 0 && (bcs13a != -2)) {
+                    DialogHelper.showError("Mục 1.3a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13b != 0 && (bcs13b != -2)) {
+                    DialogHelper.showError("Mục 1.3b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13c != 0 && (bcs13c != -3)) {
+                    DialogHelper.showError("Mục 1.3c không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13d != 0 && (bcs13d != -4)) {
+                    DialogHelper.showError("Mục 1.3d không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs14 != 0 && (bcs14 < 0 || bcs14 > 2)) {
+                    DialogHelper.showError("Mục 1.4 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs15 != 0 && (bcs15 < 0 || bcs15 > 15)) {
+                    DialogHelper.showError("Mục 1.5 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs21 != 0 && (bcs21 < 0 || bcs21 > 15)) {
+                    DialogHelper.showError("Mục 2.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs21a != 0 && (bcs21a != -15)) {
+                    DialogHelper.showError("Mục 2.1a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs21b != 0 && (bcs21b != -5)) {
+                    DialogHelper.showError("Mục 2.1b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs22a != 0 && (bcs22a < 0 || bcs22a > 5)) {
+                    DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs22b != 0 && (bcs22b != -1)) {
+                    DialogHelper.showError("Mục 2.2b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs23a != 0 && (bcs23a < 0 || bcs23a > 5)) {
+                    DialogHelper.showError("Mục 2.3a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs23b != 0 && (bcs23b != -2)) {
+                    DialogHelper.showError("Mục 2.3b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs31 != 0 && (bcs31 < 0 || bcs31 > 10)) {
+                    DialogHelper.showError("Mục 3.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs32 != 0 && (bcs32 < 0 || bcs32 > 4)) {
+                    DialogHelper.showError("Mục 3.2 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs33 != 0 && (bcs33 < 0 || bcs33 > 3)) {
+                    DialogHelper.showError("Mục 3.3 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs34 != 0 && (bcs34 < 0 || bcs34 > 3)) {
+                    DialogHelper.showError("Mục 3.4 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs35 != 0 && (bcs35 != -10)) {
+                    DialogHelper.showError("Mục 3.5 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs41 != 0 && (bcs41 < 0 || bcs41 > 8)) {
+                    DialogHelper.showError("Mục 4.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs42 != 0 && (bcs42 < 0 || bcs42 > 5)) {
+                    DialogHelper.showError("Mục 4.2 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs43 != 0 && (bcs43 < 0 || bcs43 > 5)) {
+                    DialogHelper.showError("Mục 4.3 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs44 != 0 && (bcs44 < 0 || bcs44 > 5)) {
+                    DialogHelper.showError("Mục 4.4 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs45 != 0 && (bcs45 < 0 || bcs45 > 2)) {
+                    DialogHelper.showError("Mục 4.5 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs46 != 0 && (bcs46 != -5)) {
+                    DialogHelper.showError("Mục 4.6 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs51 != 0 && (bcs51 < 0 || bcs51 > 4)) {
+                    DialogHelper.showError("Mục 5.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs52 != 0 && (bcs52 < 0 || bcs52 > 3)) {
+                    DialogHelper.showError("Mục 5.2 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs53 != 0 && (bcs53 < 0 || bcs53 > 3)) {
+                    DialogHelper.showError("Mục 5.3 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs1 != 0 && (bcs1 > 20)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 1 không chính xác");
+                } else if (bcs2 != 0 && (bcs2 > 25)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 2 không chính xác");
+                } else if (bcs3 != 0 && (bcs3 > 20)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 3 không chính xác");
+                } else if (bcs4 != 0 && (bcs4 > 25)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 4 không chính xác");
+                } else if (bcs5 != 0 && (bcs5 > 10)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 5 không chính xác");
+                } else if (tongDiem != 0 && (tongDiem > 100)) {
+                    DialogHelper.showError("Tổng điểm không chính xác");
+                } else if (bcs1 + bcs2 + bcs3 + bcs4 + bcs5 != tongDiem) {
+                    DialogHelper.showError("Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!");
+                } else if (tongDiem == 0) {
+                    DialogHelper.showError("Chưa nhập điểm. Vui lòng nhập lại!");
+                } else {
+                    try {
+                        DiemRenLuyenModel drl = new DiemRenLuyenModel(idPhieuDRL, nguoiCham, xepLoai, trangThaiCham, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5);
+                        DiemRenLuyenCtrl.chamDiemSV(drl);
+                        DiemRenLuyenCtrl.thayDoiTrangThaiCham(trangThaiCham, idPhieuDRL);
+                        DialogHelper.showMessage("Duyệt điểm thành công!");
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            DialogHelper.showError("Đã hết thời gian chấm điểm");
+        }
+    }//GEN-LAST:event_luuButton1ActionPerformed
+
+    private void maSinhVienTextFieldAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_maSinhVienTextFieldAncestorAdded
+        try {
             String maSinhVien = maSinhVienTextField.getText();
             String hocKy = hocKyTextField.getText();
             String namHoc = namHocTextField.getText();
-            String nguoiCham = "CoVan";
-            String trangThaiCham = "Cố vấn đã chấm";
-            float bcs1 = Float.parseFloat(bcs1TextField.getText());
-            int bcs2 = Integer.parseInt(bcs2TextField.getText());
-            int bcs3 = Integer.parseInt(bcs3TextField.getText());
-            int bcs4 = Integer.parseInt(bcs4TextField.getText());
-            int bcs5 = Integer.parseInt(bcs5TextField.getText());
-            float tongDiem = Float.parseFloat(bcsTongTextField.getText());
-            String xepLoai = "";
-            if (tongDiem >= 90) {
-                xepLoai = "Xuất sắc";
-            } else if (tongDiem >= 80) {
-                xepLoai = "Tốt";
-            } else if (tongDiem >= 65) {
-                xepLoai = "Khá";
-            } else if (tongDiem >= 50) {
-                xepLoai = "Trung bình";
-            } else if (tongDiem >= 35) {
-                xepLoai = "Yếu";
-            } else {
-                xepLoai = "Kém";
+            lamMoi();
+            DiemRenLuyenModel diemRenLuyenSV = DiemRenLuyenCtrl.timDRLDayDu(maSinhVien, hocKy, namHoc, "SinhVien");
+            if (diemRenLuyenSV != null) {
+                trangThai = diemRenLuyenSV.getTrangThaiCham();
+                ngaySinhTextField.setText(sdf.format(diemRenLuyenSV.getNgaySinh()));
+                lopTextField.setText(diemRenLuyenSV.getTenLop());
+
+                sv11TextField.setText(Integer.toString(diemRenLuyenSV.getD11()));
+                sv12aTextField.setText(Integer.toString(diemRenLuyenSV.getD12a()));
+                sv12bTextField.setText(Integer.toString(diemRenLuyenSV.getD12b()));
+                sv12cTextField.setText(Integer.toString(diemRenLuyenSV.getD12c()));
+                sv12dTextField.setText(Integer.toString(diemRenLuyenSV.getD12d()));
+                sv12eTextField.setText(Integer.toString(diemRenLuyenSV.getD12e()));
+                sv12gTextField.setText(Integer.toString(diemRenLuyenSV.getD12g()));
+                sv13TextField.setText(Integer.toString(diemRenLuyenSV.getD13()));
+                sv13aTextField.setText(Integer.toString(diemRenLuyenSV.getD13a()));
+                sv13bTextField.setText(Integer.toString(diemRenLuyenSV.getD13b()));
+                sv13cTextField.setText(Integer.toString(diemRenLuyenSV.getD13c()));
+                sv13dTextField.setText(Integer.toString(diemRenLuyenSV.getD13d()));
+                sv14TextField.setText(Float.toString(diemRenLuyenSV.getD14()));
+                sv15TextField.setText(Integer.toString(diemRenLuyenSV.getD15()));
+                sv1TextField.setText(Float.toString(diemRenLuyenSV.getD1()));
+
+                sv21TextField.setText(Integer.toString(diemRenLuyenSV.getD21()));
+                sv21aTextField.setText(Integer.toString(diemRenLuyenSV.getD21a()));
+                sv21bTextField.setText(Integer.toString(diemRenLuyenSV.getD21b()));
+                sv22aTextField.setText(Integer.toString(diemRenLuyenSV.getD22a()));
+                sv22bTextField.setText(Integer.toString(diemRenLuyenSV.getD22b()));
+                sv23aTextField.setText(Integer.toString(diemRenLuyenSV.getD23a()));
+                sv23bTextField.setText(Integer.toString(diemRenLuyenSV.getD23b()));
+                sv2TextField.setText(Integer.toString(diemRenLuyenSV.getD2()));
+
+                sv31TextField.setText(Integer.toString(diemRenLuyenSV.getD31()));
+                sv32TextField.setText(Integer.toString(diemRenLuyenSV.getD32()));
+                sv33TextField.setText(Integer.toString(diemRenLuyenSV.getD33()));
+                sv34TextField.setText(Integer.toString(diemRenLuyenSV.getD34()));
+                sv35TextField.setText(Integer.toString(diemRenLuyenSV.getD35()));
+                sv3TextField.setText(Integer.toString(diemRenLuyenSV.getD3()));
+
+                sv41TextField.setText(Integer.toString(diemRenLuyenSV.getD41()));
+                sv42TextField.setText(Integer.toString(diemRenLuyenSV.getD42()));
+                sv43TextField.setText(Integer.toString(diemRenLuyenSV.getD43()));
+                sv44TextField.setText(Integer.toString(diemRenLuyenSV.getD44()));
+                sv45TextField.setText(Integer.toString(diemRenLuyenSV.getD45()));
+                sv46TextField.setText(Integer.toString(diemRenLuyenSV.getD46()));
+                sv4TextField.setText(Integer.toString(diemRenLuyenSV.getD4()));
+
+                sv51TextField.setText(Integer.toString(diemRenLuyenSV.getD51()));
+                sv52TextField.setText(Integer.toString(diemRenLuyenSV.getD52()));
+                sv53TextField.setText(Integer.toString(diemRenLuyenSV.getD53()));
+                sv5TextField.setText(Integer.toString(diemRenLuyenSV.getD5()));
+
+                svTongTextField.setText(Float.toString(diemRenLuyenSV.getTongDiem()));
             }
-            int bcs11 = Integer.parseInt(bcs11TextField.getText());
-            int bcs12a = Integer.parseInt(bcs12aTextField.getText());
-            int bcs12b = Integer.parseInt(bcs12bTextField.getText());
-            int bcs12c = Integer.parseInt(bcs12cTextField.getText());
-            int bcs12d = Integer.parseInt(bcs12dTextField.getText());
-            int bcs12e = Integer.parseInt(bcs12eTextField.getText());
-            int bcs12g = Integer.parseInt(bcs12gTextField.getText());
-            int bcs13 = Integer.parseInt(bcs13TextField.getText());
-            int bcs13a = Integer.parseInt(bcs13aTextField.getText());
-            int bcs13b = Integer.parseInt(bcs13bTextField.getText());
-            int bcs13c = Integer.parseInt(bcs13cTextField.getText());
-            int bcs13d = Integer.parseInt(bcs13dTextField.getText());
-            float bcs14 = Float.parseFloat(bcs14TextField.getText());
-            int bcs15 = Integer.parseInt(bcs15TextField.getText());
 
-            int bcs21 = Integer.parseInt(bcs21TextField.getText());
-            int bcs21a = Integer.parseInt(bcs21aTextField.getText());
-            int bcs21b = Integer.parseInt(bcs21bTextField.getText());
-            int bcs22a = Integer.parseInt(bcs22aTextField.getText());
-            int bcs22b = Integer.parseInt(bcs22bTextField.getText());
-            int bcs23a = Integer.parseInt(bcs23aTextField.getText());
-            int bcs23b = Integer.parseInt(bcs23bTextField.getText());
+            DiemRenLuyenModel diemRenLuyenBCS = DiemRenLuyenCtrl.timDRLDayDu(maSinhVien, hocKy, namHoc, "BanCanSu");
+            if (diemRenLuyenBCS != null) {
+                bcs11TextField.setText(Integer.toString(diemRenLuyenBCS.getD11()));
+                bcs12aTextField.setText(Integer.toString(diemRenLuyenBCS.getD12a()));
+                bcs12bTextField.setText(Integer.toString(diemRenLuyenBCS.getD12b()));
+                bcs12cTextField.setText(Integer.toString(diemRenLuyenBCS.getD12c()));
+                bcs12dTextField.setText(Integer.toString(diemRenLuyenBCS.getD12d()));
+                bcs12eTextField.setText(Integer.toString(diemRenLuyenBCS.getD12e()));
+                bcs12gTextField.setText(Integer.toString(diemRenLuyenBCS.getD12g()));
+                bcs13TextField.setText(Integer.toString(diemRenLuyenBCS.getD13()));
+                bcs13aTextField.setText(Integer.toString(diemRenLuyenBCS.getD13a()));
+                bcs13bTextField.setText(Integer.toString(diemRenLuyenBCS.getD13b()));
+                bcs13cTextField.setText(Integer.toString(diemRenLuyenBCS.getD13c()));
+                bcs13dTextField.setText(Integer.toString(diemRenLuyenBCS.getD13d()));
+                bcs14TextField.setText(Float.toString(diemRenLuyenBCS.getD14()));
+                bcs15TextField.setText(Integer.toString(diemRenLuyenBCS.getD15()));
+                bcs1TextField.setText(Float.toString(diemRenLuyenBCS.getD1()));
 
-            int bcs31 = Integer.parseInt(bcs31TextField.getText());
-            int bcs32 = Integer.parseInt(bcs32TextField.getText());
-            int bcs33 = Integer.parseInt(bcs33TextField.getText());
-            int bcs34 = Integer.parseInt(bcs34TextField.getText());
-            int bcs35 = Integer.parseInt(bcs35TextField.getText());
+                bcs21TextField.setText(Integer.toString(diemRenLuyenBCS.getD21()));
+                bcs21aTextField.setText(Integer.toString(diemRenLuyenBCS.getD21a()));
+                bcs21bTextField.setText(Integer.toString(diemRenLuyenBCS.getD21b()));
+                bcs22aTextField.setText(Integer.toString(diemRenLuyenBCS.getD22a()));
+                bcs22bTextField.setText(Integer.toString(diemRenLuyenBCS.getD22b()));
+                bcs23aTextField.setText(Integer.toString(diemRenLuyenBCS.getD23a()));
+                bcs23bTextField.setText(Integer.toString(diemRenLuyenBCS.getD23b()));
+                bcs2TextField.setText(Integer.toString(diemRenLuyenBCS.getD2()));
 
-            int bcs41 = Integer.parseInt(bcs41TextField.getText());
-            int bcs42 = Integer.parseInt(bcs42TextField.getText());
-            int bcs43 = Integer.parseInt(bcs43TextField.getText());
-            int bcs44 = Integer.parseInt(bcs44TextField.getText());
-            int bcs45 = Integer.parseInt(bcs45TextField.getText());
-            int bcs46 = Integer.parseInt(bcs46TextField.getText());
+                bcs31TextField.setText(Integer.toString(diemRenLuyenBCS.getD31()));
+                bcs32TextField.setText(Integer.toString(diemRenLuyenBCS.getD32()));
+                bcs33TextField.setText(Integer.toString(diemRenLuyenBCS.getD33()));
+                bcs34TextField.setText(Integer.toString(diemRenLuyenBCS.getD34()));
+                bcs35TextField.setText(Integer.toString(diemRenLuyenBCS.getD35()));
+                bcs3TextField.setText(Integer.toString(diemRenLuyenBCS.getD3()));
 
-            int bcs51 = Integer.parseInt(bcs51TextField.getText());
-            int bcs52 = Integer.parseInt(bcs52TextField.getText());
-            int bcs53 = Integer.parseInt(bcs53TextField.getText());
+                bcs41TextField.setText(Integer.toString(diemRenLuyenBCS.getD41()));
+                bcs42TextField.setText(Integer.toString(diemRenLuyenBCS.getD42()));
+                bcs43TextField.setText(Integer.toString(diemRenLuyenBCS.getD43()));
+                bcs44TextField.setText(Integer.toString(diemRenLuyenBCS.getD44()));
+                bcs45TextField.setText(Integer.toString(diemRenLuyenBCS.getD45()));
+                bcs46TextField.setText(Integer.toString(diemRenLuyenBCS.getD46()));
+                bcs4TextField.setText(Integer.toString(diemRenLuyenBCS.getD4()));
 
-            if (maSinhVien.isEmpty()) {
-                DialogHelper.showError("Mã sinh viên không được để trống");
-            } else if (hocKy.isEmpty()) {
-                DialogHelper.showError("Học kỳ không được để trống");
-            } else if (namHoc.isEmpty()) {
-                DialogHelper.showError("Năm học không được để trống");
-            } else if (nguoiCham.isEmpty()) {
-                DialogHelper.showError("Người chấm không được để trống");
-            } else if (xepLoai.isEmpty()) {
-                DialogHelper.showError("Xếp loại không được để trống");
-            } else if (bcs11 != 0 && (bcs11 < 0 || bcs11 > 3)) {
-                DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12a != 0 && (bcs12a != 10)) {
-                DialogHelper.showError("Mục 1.2a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12b != 0 && (bcs12b != 8)) {
-                DialogHelper.showError("Mục 1.2b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12c != 0 && (bcs12c != 6)) {
-                DialogHelper.showError("Mục 1.2c không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12d != 0 && (bcs12d != 4)) {
-                DialogHelper.showError("Mục 1.2d không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12e != 0 && (bcs12e != 0)) {
-                DialogHelper.showError("Mục 1.2e không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12g != 0 && (bcs12g != 100)) {
-                DialogHelper.showError("Mục 1.2g không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13 != 0 && (bcs13 < 0 || bcs13 > 4)) {
-                DialogHelper.showError("Mục 1.3 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13a != 0 && (bcs13a != -2)) {
-                DialogHelper.showError("Mục 1.3a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13b != 0 && (bcs13b != -2)) {
-                DialogHelper.showError("Mục 1.3b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13c != 0 && (bcs13c != -3)) {
-                DialogHelper.showError("Mục 1.3c không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13d != 0 && (bcs13d != -4)) {
-                DialogHelper.showError("Mục 1.3d không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs14 != 0 && (bcs14 < 0 || bcs14 > 2)) {
-                DialogHelper.showError("Mục 1.4 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs15 != 0 && (bcs15 < 0 || bcs15 > 15)) {
-                DialogHelper.showError("Mục 1.5 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs21 != 0 && (bcs21 < 0 || bcs21 > 15)) {
-                DialogHelper.showError("Mục 2.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs21a != 0 && (bcs21a != -15)) {
-                DialogHelper.showError("Mục 2.1a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs21b != 0 && (bcs21b != -5)) {
-                DialogHelper.showError("Mục 2.1b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs22a != 0 && (bcs22a < 0 || bcs22a > 5)) {
-                DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs22b != 0 && (bcs22b != -1)) {
-                DialogHelper.showError("Mục 2.2b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs23a != 0 && (bcs23a < 0 || bcs23a > 5)) {
-                DialogHelper.showError("Mục 2.3a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs23b != 0 && (bcs23b != -2)) {
-                DialogHelper.showError("Mục 2.3b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs31 != 0 && (bcs31 < 0 || bcs31 > 10)) {
-                DialogHelper.showError("Mục 3.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs32 != 0 && (bcs32 < 0 || bcs32 > 4)) {
-                DialogHelper.showError("Mục 3.2 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs33 != 0 && (bcs33 < 0 || bcs33 > 3)) {
-                DialogHelper.showError("Mục 3.3 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs34 != 0 && (bcs34 < 0 || bcs34 > 3)) {
-                DialogHelper.showError("Mục 3.4 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs35 != 0 && (bcs35 != -10)) {
-                DialogHelper.showError("Mục 3.5 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs41 != 0 && (bcs41 < 0 || bcs41 > 8)) {
-                DialogHelper.showError("Mục 4.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs42 != 0 && (bcs42 < 0 || bcs42 > 5)) {
-                DialogHelper.showError("Mục 4.2 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs43 != 0 && (bcs43 < 0 || bcs43 > 5)) {
-                DialogHelper.showError("Mục 4.3 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs44 != 0 && (bcs44 < 0 || bcs44 > 5)) {
-                DialogHelper.showError("Mục 4.4 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs45 != 0 && (bcs45 < 0 || bcs45 > 2)) {
-                DialogHelper.showError("Mục 4.5 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs46 != 0 && (bcs46 != -5)) {
-                DialogHelper.showError("Mục 4.6 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs51 != 0 && (bcs51 < 0 || bcs51 > 4)) {
-                DialogHelper.showError("Mục 5.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs52 != 0 && (bcs52 < 0 || bcs52 > 3)) {
-                DialogHelper.showError("Mục 5.2 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs53 != 0 && (bcs53 < 0 || bcs53 > 3)) {
-                DialogHelper.showError("Mục 5.3 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs1 != 0 && (bcs1 > 20)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 1 không chính xác");
-            } else if (bcs2 != 0 && (bcs2 > 25)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 2 không chính xác");
-            } else if (bcs3 != 0 && (bcs3 > 20)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 3 không chính xác");
-            } else if (bcs4 != 0 && (bcs4 > 25)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 4 không chính xác");
-            } else if (bcs5 != 0 && (bcs5 > 10)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 5 không chính xác");
-            } else if (tongDiem != 0 && (tongDiem > 100)) {
-                DialogHelper.showError("Tổng điểm không chính xác");
-            } else if (bcs1 + bcs2 + bcs3 + bcs4 + bcs5 != tongDiem) {
-                DialogHelper.showError("Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!");
-            } else if (tongDiem == 0) {
-                DialogHelper.showError("Chưa nhập điểm. Vui lòng nhập lại!");
-            } else {
-                try {
-                    DiemRenLuyenModel drl = new DiemRenLuyenModel(hocKy, namHoc, nguoiCham, xepLoai, trangThaiCham, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5, maSinhVien);
-                    DiemRenLuyenCtrl.chamDiemSV(drl);
-                    DiemRenLuyenCtrl.thayDoiTrangThaiCham(trangThaiCham, maSinhVien, hocKy, namHoc);
-                    DialogHelper.showMessage("Duyệt điểm thành công!");
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                bcs51TextField.setText(Integer.toString(diemRenLuyenBCS.getD51()));
+                bcs52TextField.setText(Integer.toString(diemRenLuyenBCS.getD52()));
+                bcs53TextField.setText(Integer.toString(diemRenLuyenBCS.getD53()));
+                bcs5TextField.setText(Integer.toString(diemRenLuyenBCS.getD5()));
+
+                bcsTongTextField.setText(Float.toString(diemRenLuyenBCS.getTongDiem()));
             }
-        } else {
-            DialogHelper.showError("Đã có lỗi xảy ra");
+
+            DiemRenLuyenModel diemRenLuyenCoVan = DiemRenLuyenCtrl.timDRLDayDu(maSinhVien, hocKy, namHoc, "CoVan");
+            if (diemRenLuyenCoVan != null) {
+                cv11TextField.setText(Integer.toString(diemRenLuyenCoVan.getD11()));
+                cv12aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12a()));
+                cv12bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12b()));
+                cv12cTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12c()));
+                cv12dTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12d()));
+                cv12eTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12e()));
+                cv12gTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12g()));
+                cv13TextField.setText(Integer.toString(diemRenLuyenCoVan.getD13()));
+                cv13aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD13a()));
+                cv13bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD13b()));
+                cv13cTextField.setText(Integer.toString(diemRenLuyenCoVan.getD13c()));
+                cv13dTextField.setText(Integer.toString(diemRenLuyenCoVan.getD13d()));
+                cv14TextField.setText(Float.toString(diemRenLuyenCoVan.getD14()));
+                cv15TextField.setText(Integer.toString(diemRenLuyenCoVan.getD15()));
+                cv1TextField.setText(Float.toString(diemRenLuyenCoVan.getD1()));
+
+                cv21TextField.setText(Integer.toString(diemRenLuyenCoVan.getD21()));
+                cv21aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD21a()));
+                cv21bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD21b()));
+                cv22aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD22a()));
+                cv22bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD22b()));
+                cv23aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD23a()));
+                cv23bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD23b()));
+                cv2TextField.setText(Integer.toString(diemRenLuyenCoVan.getD2()));
+
+                cv31TextField.setText(Integer.toString(diemRenLuyenCoVan.getD31()));
+                cv32TextField.setText(Integer.toString(diemRenLuyenCoVan.getD32()));
+                cv33TextField.setText(Integer.toString(diemRenLuyenCoVan.getD33()));
+                cv34TextField.setText(Integer.toString(diemRenLuyenCoVan.getD34()));
+                cv35TextField.setText(Integer.toString(diemRenLuyenCoVan.getD35()));
+                cv3TextField.setText(Integer.toString(diemRenLuyenCoVan.getD3()));
+
+                cv41TextField.setText(Integer.toString(diemRenLuyenCoVan.getD41()));
+                cv42TextField.setText(Integer.toString(diemRenLuyenCoVan.getD42()));
+                cv43TextField.setText(Integer.toString(diemRenLuyenCoVan.getD43()));
+                cv44TextField.setText(Integer.toString(diemRenLuyenCoVan.getD44()));
+                cv45TextField.setText(Integer.toString(diemRenLuyenCoVan.getD45()));
+                cv46TextField.setText(Integer.toString(diemRenLuyenCoVan.getD46()));
+                cv4TextField.setText(Integer.toString(diemRenLuyenCoVan.getD4()));
+
+                cv51TextField.setText(Integer.toString(diemRenLuyenCoVan.getD51()));
+                cv52TextField.setText(Integer.toString(diemRenLuyenCoVan.getD52()));
+                cv53TextField.setText(Integer.toString(diemRenLuyenCoVan.getD53()));
+                cv5TextField.setText(Integer.toString(diemRenLuyenCoVan.getD5()));
+
+                cvTongTextField.setText(Float.toString(diemRenLuyenCoVan.getTongDiem()));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FormChamDiemSV.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_luuButton1ActionPerformed
+    }//GEN-LAST:event_maSinhVienTextFieldAncestorAdded
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bcs11TextField;
@@ -3258,12 +3435,12 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea7;
     private javax.swing.JTextArea jTextArea8;
     private javax.swing.JTextArea jTextArea9;
-    private javax.swing.JTextField jTextField45;
-    private javax.swing.JTextField jTextField46;
+    private javax.swing.JTextField lopTextField;
     private javax.swing.JButton luuButton;
     private javax.swing.JButton luuButton1;
     private javax.swing.JTextField maSinhVienTextField;
     private javax.swing.JTextField namHocTextField;
+    private javax.swing.JTextField ngaySinhTextField;
     private javax.swing.JTextField sv11TextField;
     private javax.swing.JTextField sv12aTextField;
     private javax.swing.JTextField sv12bTextField;

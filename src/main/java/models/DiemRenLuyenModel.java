@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class DiemRenLuyenModel extends SinhVienModelTest {
 
-    private String hocKy, namHoc, nguoiCham, xepLoai, trangThaiCham;
+    private String idPhieuDRL, hocKy, namHoc, nguoiCham, xepLoai, trangThaiCham;
     private float tongDiem;
     private int d11, d12a, d12b, d12c, d12d, d12e, d12g, d13, d13a, d13b, d13c, d13d;
     private float d14;
@@ -77,10 +77,9 @@ public class DiemRenLuyenModel extends SinhVienModelTest {
         this.d5 = d5;
     }
 
-    public DiemRenLuyenModel(String hocKy, String namHoc, String nguoiCham, String xepLoai, String trangThaiCham, float tongDiem, int d11, int d12a, int d12b, int d12c, int d12d, int d12e, int d12g, int d13, int d13a, int d13b, int d13c, int d13d, float d14, int d15, float d1, int d21, int d21a, int d21b, int d22a, int d22b, int d23a, int d23b, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5, String maSinhVien) {
-        super(maSinhVien);
-        this.hocKy = hocKy;
-        this.namHoc = namHoc;
+    public DiemRenLuyenModel(String idPhieuDRL, String nguoiCham, String xepLoai, String trangThaiCham, float tongDiem, int d11, int d12a, int d12b, int d12c, int d12d, int d12e, int d12g, int d13, int d13a, int d13b, int d13c, int d13d, float d14, int d15, float d1, int d21, int d21a, int d21b, int d22a, int d22b, int d23a, int d23b, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5) {
+        super();
+        this.idPhieuDRL = idPhieuDRL;
         this.nguoiCham = nguoiCham;
         this.xepLoai = xepLoai;
         this.trangThaiCham = trangThaiCham;
@@ -125,6 +124,14 @@ public class DiemRenLuyenModel extends SinhVienModelTest {
         this.d52 = d52;
         this.d53 = d53;
         this.d5 = d5;
+    }
+
+    public String getIdPhieuDRL() {
+        return idPhieuDRL;
+    }
+
+    public void setIdPhieuDRL(String idPhieuDRL) {
+        this.idPhieuDRL = idPhieuDRL;
     }
 
     public String getHocKy() {

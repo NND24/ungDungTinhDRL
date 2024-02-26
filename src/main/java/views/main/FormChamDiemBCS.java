@@ -216,7 +216,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
 
         int bcs51 = Integer.parseInt(sv51TextField.getText());
         int bcs52 = Integer.parseInt(sv52TextField.getText());
-        int bcs53 = Integer.parseInt(sv33TextField.getText());
+        int bcs53 = Integer.parseInt(sv53TextField.getText());
         int bcs5 = Integer.parseInt(sv5TextField.getText());
 
         float tongDiem = Float.parseFloat(svTongTextField.getText());
@@ -2877,182 +2877,189 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                 || trangThai.equalsIgnoreCase("Cố vấn đã chấm")) {
             DialogHelper.showError("Đã hết thời gian chấm điểm");
         } else if (trangThai.equalsIgnoreCase("Sinh viên đã chấm")
+                || trangThai.equalsIgnoreCase("Sinh viên kết thúc chấm")
                 || trangThai.equalsIgnoreCase("Ban cán sự đã chấm")
                 || trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
-            String maSinhVien = maSinhVienTextField.getText();
-            String hocKy = hocKyTextField.getText();
-            String namHoc = namHocTextField.getText();
-            String nguoiCham = "BanCanSu";
-            String trangThaiCham = "Ban cán sự đã chấm";
-            float bcs1 = Float.parseFloat(bcs1TextField.getText());
-            int bcs2 = Integer.parseInt(bcs2TextField.getText());
-            int bcs3 = Integer.parseInt(bcs3TextField.getText());
-            int bcs4 = Integer.parseInt(bcs4TextField.getText());
-            int bcs5 = Integer.parseInt(bcs5TextField.getText());
-            float tongDiem = Float.parseFloat(bcsTongTextField.getText());
-            String xepLoai = "";
-            if (tongDiem >= 90) {
-                xepLoai = "Xuất sắc";
-            } else if (tongDiem >= 80) {
-                xepLoai = "Tốt";
-            } else if (tongDiem >= 65) {
-                xepLoai = "Khá";
-            } else if (tongDiem >= 50) {
-                xepLoai = "Trung bình";
-            } else if (tongDiem >= 35) {
-                xepLoai = "Yếu";
-            } else {
-                xepLoai = "Kém";
-            }
-            int bcs11 = Integer.parseInt(bcs11TextField.getText());
-            int bcs12a = Integer.parseInt(bcs12aTextField.getText());
-            int bcs12b = Integer.parseInt(bcs12bTextField.getText());
-            int bcs12c = Integer.parseInt(bcs12cTextField.getText());
-            int bcs12d = Integer.parseInt(bcs12dTextField.getText());
-            int bcs12e = Integer.parseInt(bcs12eTextField.getText());
-            int bcs12g = Integer.parseInt(bcs12gTextField.getText());
-            int bcs13 = Integer.parseInt(bcs13TextField.getText());
-            int bcs13a = Integer.parseInt(bcs13aTextField.getText());
-            int bcs13b = Integer.parseInt(bcs13bTextField.getText());
-            int bcs13c = Integer.parseInt(bcs13cTextField.getText());
-            int bcs13d = Integer.parseInt(bcs13dTextField.getText());
-            float bcs14 = Float.parseFloat(bcs14TextField.getText());
-            int bcs15 = Integer.parseInt(bcs15TextField.getText());
+            try {
+                String maSinhVien = maSinhVienTextField.getText();
+                String hocKy = hocKyTextField.getText();
+                String namHoc = namHocTextField.getText();
+                String idPhieuDRL = DiemRenLuyenCtrl.timIDPhieuDRL(maSinhVien, hocKy, namHoc);
 
-            int bcs21 = Integer.parseInt(bcs21TextField.getText());
-            int bcs21a = Integer.parseInt(bcs21aTextField.getText());
-            int bcs21b = Integer.parseInt(bcs21bTextField.getText());
-            int bcs22a = Integer.parseInt(bcs22aTextField.getText());
-            int bcs22b = Integer.parseInt(bcs22bTextField.getText());
-            int bcs23a = Integer.parseInt(bcs23aTextField.getText());
-            int bcs23b = Integer.parseInt(bcs23bTextField.getText());
-
-            int bcs31 = Integer.parseInt(bcs31TextField.getText());
-            int bcs32 = Integer.parseInt(bcs32TextField.getText());
-            int bcs33 = Integer.parseInt(bcs33TextField.getText());
-            int bcs34 = Integer.parseInt(bcs34TextField.getText());
-            int bcs35 = Integer.parseInt(bcs35TextField.getText());
-
-            int bcs41 = Integer.parseInt(bcs41TextField.getText());
-            int bcs42 = Integer.parseInt(bcs42TextField.getText());
-            int bcs43 = Integer.parseInt(bcs43TextField.getText());
-            int bcs44 = Integer.parseInt(bcs44TextField.getText());
-            int bcs45 = Integer.parseInt(bcs45TextField.getText());
-            int bcs46 = Integer.parseInt(bcs46TextField.getText());
-
-            int bcs51 = Integer.parseInt(bcs51TextField.getText());
-            int bcs52 = Integer.parseInt(bcs52TextField.getText());
-            int bcs53 = Integer.parseInt(bcs53TextField.getText());
-
-            if (maSinhVien.isEmpty()) {
-                DialogHelper.showError("Mã sinh viên không được để trống");
-            } else if (hocKy.isEmpty()) {
-                DialogHelper.showError("Học kỳ không được để trống");
-            } else if (namHoc.isEmpty()) {
-                DialogHelper.showError("Năm học không được để trống");
-            } else if (nguoiCham.isEmpty()) {
-                DialogHelper.showError("Người chấm không được để trống");
-            } else if (xepLoai.isEmpty()) {
-                DialogHelper.showError("Xếp loại không được để trống");
-            } else if (bcs11 != 0 && (bcs11 < 0 || bcs11 > 3)) {
-                DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12a != 0 && (bcs12a != 10)) {
-                DialogHelper.showError("Mục 1.2a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12b != 0 && (bcs12b != 8)) {
-                DialogHelper.showError("Mục 1.2b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12c != 0 && (bcs12c != 6)) {
-                DialogHelper.showError("Mục 1.2c không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12d != 0 && (bcs12d != 4)) {
-                DialogHelper.showError("Mục 1.2d không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12e != 0 && (bcs12e != 0)) {
-                DialogHelper.showError("Mục 1.2e không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs12g != 0 && (bcs12g != 100)) {
-                DialogHelper.showError("Mục 1.2g không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13 != 0 && (bcs13 < 0 || bcs13 > 4)) {
-                DialogHelper.showError("Mục 1.3 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13a != 0 && (bcs13a != -2)) {
-                DialogHelper.showError("Mục 1.3a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13b != 0 && (bcs13b != -2)) {
-                DialogHelper.showError("Mục 1.3b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13c != 0 && (bcs13c != -3)) {
-                DialogHelper.showError("Mục 1.3c không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs13d != 0 && (bcs13d != -4)) {
-                DialogHelper.showError("Mục 1.3d không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs14 != 0 && (bcs14 < 0 || bcs14 > 2)) {
-                DialogHelper.showError("Mục 1.4 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs15 != 0 && (bcs15 < 0 || bcs15 > 15)) {
-                DialogHelper.showError("Mục 1.5 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs21 != 0 && (bcs21 < 0 || bcs21 > 15)) {
-                DialogHelper.showError("Mục 2.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs21a != 0 && (bcs21a != -15)) {
-                DialogHelper.showError("Mục 2.1a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs21b != 0 && (bcs21b != -5)) {
-                DialogHelper.showError("Mục 2.1b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs22a != 0 && (bcs22a < 0 || bcs22a > 5)) {
-                DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs22b != 0 && (bcs22b != -1)) {
-                DialogHelper.showError("Mục 2.2b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs23a != 0 && (bcs23a < 0 || bcs23a > 5)) {
-                DialogHelper.showError("Mục 2.3a không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs23b != 0 && (bcs23b != -2)) {
-                DialogHelper.showError("Mục 2.3b không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs31 != 0 && (bcs31 < 0 || bcs31 > 10)) {
-                DialogHelper.showError("Mục 3.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs32 != 0 && (bcs32 < 0 || bcs32 > 4)) {
-                DialogHelper.showError("Mục 3.2 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs33 != 0 && (bcs33 < 0 || bcs33 > 3)) {
-                DialogHelper.showError("Mục 3.3 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs34 != 0 && (bcs34 < 0 || bcs34 > 3)) {
-                DialogHelper.showError("Mục 3.4 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs35 != 0 && (bcs35 != -10)) {
-                DialogHelper.showError("Mục 3.5 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs41 != 0 && (bcs41 < 0 || bcs41 > 8)) {
-                DialogHelper.showError("Mục 4.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs42 != 0 && (bcs42 < 0 || bcs42 > 5)) {
-                DialogHelper.showError("Mục 4.2 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs43 != 0 && (bcs43 < 0 || bcs43 > 5)) {
-                DialogHelper.showError("Mục 4.3 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs44 != 0 && (bcs44 < 0 || bcs44 > 5)) {
-                DialogHelper.showError("Mục 4.4 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs45 != 0 && (bcs45 < 0 || bcs45 > 2)) {
-                DialogHelper.showError("Mục 4.5 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs46 != 0 && (bcs46 != -5)) {
-                DialogHelper.showError("Mục 4.6 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs51 != 0 && (bcs51 < 0 || bcs51 > 4)) {
-                DialogHelper.showError("Mục 5.1 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs52 != 0 && (bcs52 < 0 || bcs52 > 3)) {
-                DialogHelper.showError("Mục 5.2 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs53 != 0 && (bcs53 < 0 || bcs53 > 3)) {
-                DialogHelper.showError("Mục 5.3 không hợp lệ. Vui lòng nhập lại!");
-            } else if (bcs1 != 0 && (bcs1 > 20)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 1 không chính xác");
-            } else if (bcs2 != 0 && (bcs2 > 25)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 2 không chính xác");
-            } else if (bcs3 != 0 && (bcs3 > 20)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 3 không chính xác");
-            } else if (bcs4 != 0 && (bcs4 > 25)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 4 không chính xác");
-            } else if (bcs5 != 0 && (bcs5 > 10)) {
-                DialogHelper.showError("Tổng điểm tiêu chí 5 không chính xác");
-            } else if (tongDiem != 0 && (tongDiem > 100)) {
-                DialogHelper.showError("Tổng điểm không chính xác");
-            } else if (bcs1 + bcs2 + bcs3 + bcs4 + bcs5 != tongDiem) {
-                DialogHelper.showError("Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!");
-                JOptionPane.showMessageDialog(null, "Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!", "Thông báo", JOptionPane.ERROR_MESSAGE);
-            } else if (tongDiem == 0) {
-                DialogHelper.showError("Chưa nhập điểm. Vui lòng nhập lại!");
-            } else {
-                try {
-                    DiemRenLuyenModel drl = new DiemRenLuyenModel(hocKy, namHoc, nguoiCham, xepLoai, trangThaiCham, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5, maSinhVien);
-                    DiemRenLuyenCtrl.chamDiemSV(drl);
-                    DiemRenLuyenCtrl.thayDoiTrangThaiCham(trangThaiCham, maSinhVien, hocKy, namHoc);
-                    DialogHelper.showMessage("Chấm điểm thành công!");
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(FormChamDiemSV.class.getName()).log(Level.SEVERE, null, ex);
+                String nguoiCham = "BanCanSu";
+                String trangThaiCham = "Ban cán sự đã chấm";
+                float bcs1 = Float.parseFloat(bcs1TextField.getText());
+                int bcs2 = Integer.parseInt(bcs2TextField.getText());
+                int bcs3 = Integer.parseInt(bcs3TextField.getText());
+                int bcs4 = Integer.parseInt(bcs4TextField.getText());
+                int bcs5 = Integer.parseInt(bcs5TextField.getText());
+                float tongDiem = Float.parseFloat(bcsTongTextField.getText());
+                String xepLoai = "";
+                if (tongDiem >= 90) {
+                    xepLoai = "Xuất sắc";
+                } else if (tongDiem >= 80) {
+                    xepLoai = "Tốt";
+                } else if (tongDiem >= 65) {
+                    xepLoai = "Khá";
+                } else if (tongDiem >= 50) {
+                    xepLoai = "Trung bình";
+                } else if (tongDiem >= 35) {
+                    xepLoai = "Yếu";
+                } else {
+                    xepLoai = "Kém";
                 }
+                int bcs11 = Integer.parseInt(bcs11TextField.getText());
+                int bcs12a = Integer.parseInt(bcs12aTextField.getText());
+                int bcs12b = Integer.parseInt(bcs12bTextField.getText());
+                int bcs12c = Integer.parseInt(bcs12cTextField.getText());
+                int bcs12d = Integer.parseInt(bcs12dTextField.getText());
+                int bcs12e = Integer.parseInt(bcs12eTextField.getText());
+                int bcs12g = Integer.parseInt(bcs12gTextField.getText());
+                int bcs13 = Integer.parseInt(bcs13TextField.getText());
+                int bcs13a = Integer.parseInt(bcs13aTextField.getText());
+                int bcs13b = Integer.parseInt(bcs13bTextField.getText());
+                int bcs13c = Integer.parseInt(bcs13cTextField.getText());
+                int bcs13d = Integer.parseInt(bcs13dTextField.getText());
+                float bcs14 = Float.parseFloat(bcs14TextField.getText());
+                int bcs15 = Integer.parseInt(bcs15TextField.getText());
+
+                int bcs21 = Integer.parseInt(bcs21TextField.getText());
+                int bcs21a = Integer.parseInt(bcs21aTextField.getText());
+                int bcs21b = Integer.parseInt(bcs21bTextField.getText());
+                int bcs22a = Integer.parseInt(bcs22aTextField.getText());
+                int bcs22b = Integer.parseInt(bcs22bTextField.getText());
+                int bcs23a = Integer.parseInt(bcs23aTextField.getText());
+                int bcs23b = Integer.parseInt(bcs23bTextField.getText());
+
+                int bcs31 = Integer.parseInt(bcs31TextField.getText());
+                int bcs32 = Integer.parseInt(bcs32TextField.getText());
+                int bcs33 = Integer.parseInt(bcs33TextField.getText());
+                int bcs34 = Integer.parseInt(bcs34TextField.getText());
+                int bcs35 = Integer.parseInt(bcs35TextField.getText());
+
+                int bcs41 = Integer.parseInt(bcs41TextField.getText());
+                int bcs42 = Integer.parseInt(bcs42TextField.getText());
+                int bcs43 = Integer.parseInt(bcs43TextField.getText());
+                int bcs44 = Integer.parseInt(bcs44TextField.getText());
+                int bcs45 = Integer.parseInt(bcs45TextField.getText());
+                int bcs46 = Integer.parseInt(bcs46TextField.getText());
+
+                int bcs51 = Integer.parseInt(bcs51TextField.getText());
+                int bcs52 = Integer.parseInt(bcs52TextField.getText());
+                int bcs53 = Integer.parseInt(bcs53TextField.getText());
+
+                if (maSinhVien.isEmpty()) {
+                    DialogHelper.showError("Mã sinh viên không được để trống");
+                } else if (hocKy.isEmpty()) {
+                    DialogHelper.showError("Học kỳ không được để trống");
+                } else if (namHoc.isEmpty()) {
+                    DialogHelper.showError("Năm học không được để trống");
+                } else if (nguoiCham.isEmpty()) {
+                    DialogHelper.showError("Người chấm không được để trống");
+                } else if (xepLoai.isEmpty()) {
+                    DialogHelper.showError("Xếp loại không được để trống");
+                } else if (bcs11 != 0 && (bcs11 < 0 || bcs11 > 3)) {
+                    DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12a != 0 && (bcs12a != 10)) {
+                    DialogHelper.showError("Mục 1.2a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12b != 0 && (bcs12b != 8)) {
+                    DialogHelper.showError("Mục 1.2b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12c != 0 && (bcs12c != 6)) {
+                    DialogHelper.showError("Mục 1.2c không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12d != 0 && (bcs12d != 4)) {
+                    DialogHelper.showError("Mục 1.2d không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12e != 0 && (bcs12e != 0)) {
+                    DialogHelper.showError("Mục 1.2e không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs12g != 0 && (bcs12g != 100)) {
+                    DialogHelper.showError("Mục 1.2g không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13 != 0 && (bcs13 < 0 || bcs13 > 4)) {
+                    DialogHelper.showError("Mục 1.3 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13a != 0 && (bcs13a != -2)) {
+                    DialogHelper.showError("Mục 1.3a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13b != 0 && (bcs13b != -2)) {
+                    DialogHelper.showError("Mục 1.3b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13c != 0 && (bcs13c != -3)) {
+                    DialogHelper.showError("Mục 1.3c không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs13d != 0 && (bcs13d != -4)) {
+                    DialogHelper.showError("Mục 1.3d không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs14 != 0 && (bcs14 < 0 || bcs14 > 2)) {
+                    DialogHelper.showError("Mục 1.4 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs15 != 0 && (bcs15 < 0 || bcs15 > 15)) {
+                    DialogHelper.showError("Mục 1.5 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs21 != 0 && (bcs21 < 0 || bcs21 > 15)) {
+                    DialogHelper.showError("Mục 2.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs21a != 0 && (bcs21a != -15)) {
+                    DialogHelper.showError("Mục 2.1a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs21b != 0 && (bcs21b != -5)) {
+                    DialogHelper.showError("Mục 2.1b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs22a != 0 && (bcs22a < 0 || bcs22a > 5)) {
+                    DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs22b != 0 && (bcs22b != -1)) {
+                    DialogHelper.showError("Mục 2.2b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs23a != 0 && (bcs23a < 0 || bcs23a > 5)) {
+                    DialogHelper.showError("Mục 2.3a không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs23b != 0 && (bcs23b != -2)) {
+                    DialogHelper.showError("Mục 2.3b không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs31 != 0 && (bcs31 < 0 || bcs31 > 10)) {
+                    DialogHelper.showError("Mục 3.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs32 != 0 && (bcs32 < 0 || bcs32 > 4)) {
+                    DialogHelper.showError("Mục 3.2 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs33 != 0 && (bcs33 < 0 || bcs33 > 3)) {
+                    DialogHelper.showError("Mục 3.3 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs34 != 0 && (bcs34 < 0 || bcs34 > 3)) {
+                    DialogHelper.showError("Mục 3.4 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs35 != 0 && (bcs35 != -10)) {
+                    DialogHelper.showError("Mục 3.5 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs41 != 0 && (bcs41 < 0 || bcs41 > 8)) {
+                    DialogHelper.showError("Mục 4.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs42 != 0 && (bcs42 < 0 || bcs42 > 5)) {
+                    DialogHelper.showError("Mục 4.2 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs43 != 0 && (bcs43 < 0 || bcs43 > 5)) {
+                    DialogHelper.showError("Mục 4.3 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs44 != 0 && (bcs44 < 0 || bcs44 > 5)) {
+                    DialogHelper.showError("Mục 4.4 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs45 != 0 && (bcs45 < 0 || bcs45 > 2)) {
+                    DialogHelper.showError("Mục 4.5 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs46 != 0 && (bcs46 != -5)) {
+                    DialogHelper.showError("Mục 4.6 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs51 != 0 && (bcs51 < 0 || bcs51 > 4)) {
+                    DialogHelper.showError("Mục 5.1 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs52 != 0 && (bcs52 < 0 || bcs52 > 3)) {
+                    DialogHelper.showError("Mục 5.2 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs53 != 0 && (bcs53 < 0 || bcs53 > 3)) {
+                    DialogHelper.showError("Mục 5.3 không hợp lệ. Vui lòng nhập lại!");
+                } else if (bcs1 != 0 && (bcs1 > 20)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 1 không chính xác");
+                } else if (bcs2 != 0 && (bcs2 > 25)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 2 không chính xác");
+                } else if (bcs3 != 0 && (bcs3 > 20)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 3 không chính xác");
+                } else if (bcs4 != 0 && (bcs4 > 25)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 4 không chính xác");
+                } else if (bcs5 != 0 && (bcs5 > 10)) {
+                    DialogHelper.showError("Tổng điểm tiêu chí 5 không chính xác");
+                } else if (tongDiem != 0 && (tongDiem > 100)) {
+                    DialogHelper.showError("Tổng điểm không chính xác");
+                } else if (bcs1 + bcs2 + bcs3 + bcs4 + bcs5 != tongDiem) {
+                    DialogHelper.showError("Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!");
+                    JOptionPane.showMessageDialog(null, "Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                } else if (tongDiem == 0) {
+                    DialogHelper.showError("Chưa nhập điểm. Vui lòng nhập lại!");
+                } else {
+                    try {
+                        DiemRenLuyenModel drl = new DiemRenLuyenModel(idPhieuDRL, nguoiCham, xepLoai, trangThaiCham, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5);
+                        DiemRenLuyenCtrl.chamDiemSV(drl);
+                        DiemRenLuyenCtrl.thayDoiTrangThaiCham(trangThaiCham, idPhieuDRL);
+                        DialogHelper.showMessage("Chấm điểm thành công!");
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(FormChamDiemSV.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(FormChamDiemBCS.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            DialogHelper.showError("Đã có lỗi xảy ra");
+            DialogHelper.showError("Đã hết thời gian chấm điểm");
         }
     }//GEN-LAST:event_luuButtonActionPerformed
 

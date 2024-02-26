@@ -343,17 +343,17 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
         dsDiemRenLuyenTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sinh viên", "Họ tên", "Điểm tiêu chí 1", "Điểm tiêu chí 2", "Điểm tiêu chí 3", "Điểm tiêu chí 4", "Điểm tiêu chí 5", "Tổng điểm", "Xếp loại", "Học kỳ", "Năm học"
+                "Mã sinh viên", "Họ tên", "Điểm tiêu chí 1", "Điểm tiêu chí 2", "Điểm tiêu chí 3", "Điểm tiêu chí 4", "Điểm tiêu chí 5", "Tổng điểm", "Xếp loại", "Học kỳ", "Năm học", "Trạng thái chấm"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, true, true
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -573,62 +573,72 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }//GEN-LAST:event_timKiemTheoHocKiComboBoxActionPerformed
 
     private void ketThucChamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ketThucChamButtonActionPerformed
-        String hocKy = "";
-        String namHoc = "";
-        for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
-            try {
-                if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")
-                        || coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")
-                        || coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
-                    DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
-                } else {
-                    DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên kết thúc chấm", sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
-                    hocKy = sv.getHocKy();
-                    namHoc = sv.getNamHoc();
+        if (dsDiemRenLuyen.isEmpty()) {
+            DialogHelper.showError("Chưa chọn năm học, học kỳ muốn thao tác");
+        } else {
+            String hocKy = "";
+            String namHoc = "";
+            for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
+                try {
+                    if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")
+                            || coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")
+                            || coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+                        DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
+                    } else {
+                        String idPhieuDRL = DiemRenLuyenCtrl.timIDPhieuDRL(sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
+                        DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên kết thúc chấm", idPhieuDRL);
+                        hocKy = sv.getHocKy();
+                        namHoc = sv.getNamHoc();
+                    }
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        if (!coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
-            String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
-            DialogHelper.showMessage(message);
-        } else if (!coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
-            String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
-            DialogHelper.showMessage(message);
-        } else if (!coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
-            String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
-            DialogHelper.showMessage(message);
+            if (!coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
+                String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+                DialogHelper.showMessage(message);
+            } else if (!coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
+                String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+                DialogHelper.showMessage(message);
+            } else if (!coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+                String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+                DialogHelper.showMessage(message);
+            }
         }
     }//GEN-LAST:event_ketThucChamButtonActionPerformed
 
     private void chamLaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chamLaiButtonActionPerformed
-        String hocKy = "";
-        String namHoc = "";
-        for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
-            try {
-                if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")
-                        || coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")
-                        || coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
-                    DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
-                } else {
-                    DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên đã chấm", sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
-                    hocKy = sv.getHocKy();
-                    namHoc = sv.getNamHoc();
+        if (dsDiemRenLuyen.isEmpty()) {
+            DialogHelper.showError("Chưa chọn năm học, học kỳ muốn thao tác");
+        } else {
+            String hocKy = "";
+            String namHoc = "";
+            for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
+                try {
+                    if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")
+                            || coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")
+                            || coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+                        DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
+                    } else {
+                        String idPhieuDRL = DiemRenLuyenCtrl.timIDPhieuDRL(sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
+                        DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên đã chấm", idPhieuDRL);
+                        hocKy = sv.getHocKy();
+                        namHoc = sv.getNamHoc();
+                    }
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        if (!coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
-            String message = "Chấm lại điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
-            DialogHelper.showMessage(message);
-        } else if (!coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
-            String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
-            DialogHelper.showMessage(message);
-        } else if (!coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
-            String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
-            DialogHelper.showMessage(message);
+            if (!coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
+                String message = "Chấm lại điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+                DialogHelper.showMessage(message);
+            } else if (!coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
+                String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+                DialogHelper.showMessage(message);
+            } else if (!coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+                String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+                DialogHelper.showMessage(message);
+            }
         }
     }//GEN-LAST:event_chamLaiButtonActionPerformed
 

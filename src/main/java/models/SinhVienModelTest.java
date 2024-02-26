@@ -7,6 +7,9 @@ public class SinhVienModelTest {
     private String maSinhVien, tenLop, hoTen, chucVu, email, matKhau, gioiTinh, soDienThoai, canCuoc, queQuan;
     private Date ngaySinh;
 
+    public SinhVienModelTest() {
+    }
+
     public SinhVienModelTest(String maSinhVien) {
         this.maSinhVien = maSinhVien;
     }

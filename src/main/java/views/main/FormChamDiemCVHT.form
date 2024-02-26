@@ -30,8 +30,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane1" min="-2" pref="2785" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="700" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,9 +72,18 @@
                                   <Component id="luuButton" min="-2" pref="98" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel71" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jScrollPane7" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jLabel108" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel75" min="-2" pref="60" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jLabel76" min="-2" pref="500" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jLabel87" min="-2" pref="125" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jLabel65" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel71" alignment="0" max="32767" attributes="0"/>
                                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <Component id="jLabel77" min="-2" pref="60" max="-2" attributes="0"/>
@@ -101,24 +110,6 @@
                                                   <Component id="bcs21TextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                                   <Component id="cv21TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel8" min="-2" pref="59" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="jLabel2" min="-2" pref="500" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="jLabel3" min="-2" pref="125" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel5" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel6" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel7" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="jLabel4" max="32767" attributes="0"/>
-                                                  </Group>
                                               </Group>
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -570,45 +561,6 @@
                                                       </Group>
                                                   </Group>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel62" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="hoTenTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      <Component id="maSinhVienTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                                          <Component id="jTextField46" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                                          <Component id="jTextField45" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel139" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                          <Component id="hocKyTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel140" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="namHocTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                                   <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
@@ -642,15 +594,64 @@
                                                       </Group>
                                                   </Group>
                                               </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel75" min="-2" pref="60" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jLabel76" min="-2" pref="500" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jLabel87" min="-2" pref="125" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jLabel65" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel62" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="hoTenTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      <Component id="maSinhVienTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                                          <Component id="lopTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                                          <Component id="ngaySinhTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="jLabel139" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="hocKyTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                                          <Component id="jLabel140" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="namHocTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel8" min="-2" pref="59" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jLabel2" min="-2" pref="500" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jLabel3" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jLabel5" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                          <Component id="jLabel6" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                          <Component id="jLabel7" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="jLabel4" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -746,7 +747,7 @@
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel69" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="maSinhVienTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField45" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ngaySinhTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel139" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="hocKyTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -755,7 +756,7 @@
                           <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="hoTenTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField46" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lopTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel140" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="namHocTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -2614,10 +2615,13 @@
             <Component class="javax.swing.JTextField" name="hoTenTextField">
             </Component>
             <Component class="javax.swing.JTextField" name="maSinhVienTextField">
+              <Events>
+                <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="maSinhVienTextFieldAncestorAdded"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField45">
+            <Component class="javax.swing.JTextField" name="ngaySinhTextField">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField46">
+            <Component class="javax.swing.JTextField" name="lopTextField">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel71">
               <Properties>
@@ -4920,12 +4924,10 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Component id="luuButton1" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jLabel15" alignment="3" pref="40" max="32767" attributes="0"/>
+                          <Component id="luuButton1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel15" alignment="0" pref="40" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
