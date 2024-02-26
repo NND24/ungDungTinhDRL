@@ -72,7 +72,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
             dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", tenLop, hocKy, namHoc);
             tableModel.setRowCount(0);
 
-            dsDiemRenLuyen.forEach(drl -> {
+            for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
                 tableModel.addRow(new Object[]{
                     drl.getMaSinhVien(), drl.getHoTen(),
                     drl.getD1(), drl.getD2(), drl.getD3(),
@@ -80,10 +80,11 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
                     drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
                     drl.getTrangThaiCham()});
 
-                if (drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn đã chấm")) {
+                if (drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn kết thúc chấm")) {
                     coVanCham = drl.getTrangThaiCham();
+                    break;
                 }
-            });
+            }
 
         } else {
             lamMoi();
@@ -550,8 +551,8 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         String namHoc = "";
         for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
             try {
-                if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
-                    DialogHelper.showError("Cố vấn đã kết thúc chấm. Vui lòng liên hệ với cố vấn học tập!");
+                if (coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
+                    DialogHelper.showError("Hết thời gian chấm. Vui lòng liên hệ với phòng quản lý!");
                 } else {
                     DiemRenLuyenCtrl.thayDoiTrangThaiCham("Ban cán sự đã chấm", sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
                     hocKy = sv.getHocKy();
@@ -561,7 +562,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
                 Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (!coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
+        if (!coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
             String message = "Chấm lại điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
             DialogHelper.showMessage(message);
         }
@@ -572,8 +573,8 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         String namHoc = "";
         for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
             try {
-                if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
-                    DialogHelper.showError("Cố vấn đã kết thúc chấm. Vui lòng liên hệ với cố vấn học tập!");
+                if (coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
+                    DialogHelper.showError("Hết thời gian chấm. Vui lòng liên hệ với phòng quản lý!");
                 } else {
                     DiemRenLuyenCtrl.thayDoiTrangThaiCham("Ban cán sự kết thúc chấm", sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
                     hocKy = sv.getHocKy();
@@ -583,7 +584,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
                 Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (!coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
+        if (!coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
             String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
             DialogHelper.showMessage(message);
         }
@@ -617,6 +618,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
                             DiemRenLuyenModel diemRenLuyenBCS = DiemRenLuyenCtrl.timDRLDayDu(drl.getMaSinhVien(), hocKy, namHoc, "BanCanSu");
                             DiemRenLuyenModel diem = new DiemRenLuyenModel(hocKy, namHoc, "CoVan", diemRenLuyenBCS.getXepLoai(), "Cố vấn đã chấm", diemRenLuyenBCS.getTongDiem(), diemRenLuyenBCS.getD11(), diemRenLuyenBCS.getD12a(), diemRenLuyenBCS.getD12b(), diemRenLuyenBCS.getD12c(), diemRenLuyenBCS.getD12d(), diemRenLuyenBCS.getD12e(), diemRenLuyenBCS.getD12g(), diemRenLuyenBCS.getD13(), diemRenLuyenBCS.getD13a(), diemRenLuyenBCS.getD13b(), diemRenLuyenBCS.getD13c(), diemRenLuyenBCS.getD13d(), diemRenLuyenBCS.getD14(), diemRenLuyenBCS.getD15(), diemRenLuyenBCS.getD1(), diemRenLuyenBCS.getD21(), diemRenLuyenBCS.getD21a(), diemRenLuyenBCS.getD21b(), diemRenLuyenBCS.getD22a(), diemRenLuyenBCS.getD22b(), diemRenLuyenBCS.getD23a(), diemRenLuyenBCS.getD23b(), diemRenLuyenBCS.getD2(), diemRenLuyenBCS.getD31(), diemRenLuyenBCS.getD32(), diemRenLuyenBCS.getD33(), diemRenLuyenBCS.getD34(), diemRenLuyenBCS.getD35(), diemRenLuyenBCS.getD3(), diemRenLuyenBCS.getD41(), diemRenLuyenBCS.getD42(), diemRenLuyenBCS.getD43(), diemRenLuyenBCS.getD44(), diemRenLuyenBCS.getD45(), diemRenLuyenBCS.getD46(), diemRenLuyenBCS.getD4(), diemRenLuyenBCS.getD51(), diemRenLuyenBCS.getD52(), diemRenLuyenBCS.getD53(), diemRenLuyenBCS.getD5(), diemRenLuyenBCS.getMaSinhVien());
                             DiemRenLuyenCtrl.chamDiemSV(diem);
+                            DiemRenLuyenCtrl.thayDoiTrangThaiCham("Cố vấn đã chấm", diemRenLuyenBCS.getMaSinhVien(), hocKy, namHoc);
                         } catch (ClassNotFoundException ex) {
                             Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
                         }

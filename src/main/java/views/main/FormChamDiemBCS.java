@@ -2871,12 +2871,14 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
 
     private void luuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButtonActionPerformed
         if (trangThai.equalsIgnoreCase("Sinh viên đang chấm")) {
-            DialogHelper.showError("Sinh viễn vẫn còn đang trong thời gian chấm điểm");
+            DialogHelper.showError("Sinh viên vẫn còn đang trong thời gian chấm điểm");
         } else if (trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")
                 || trangThai.equalsIgnoreCase("Cố vấn kết thúc chấm")
                 || trangThai.equalsIgnoreCase("Cố vấn đã chấm")) {
             DialogHelper.showError("Đã hết thời gian chấm điểm");
-        } else {
+        } else if (trangThai.equalsIgnoreCase("Sinh viên đã chấm")
+                || trangThai.equalsIgnoreCase("Ban cán sự đã chấm")
+                || trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
             String maSinhVien = maSinhVienTextField.getText();
             String hocKy = hocKyTextField.getText();
             String namHoc = namHocTextField.getText();
@@ -2940,7 +2942,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
 
             int bcs51 = Integer.parseInt(bcs51TextField.getText());
             int bcs52 = Integer.parseInt(bcs52TextField.getText());
-            int bcs53 = Integer.parseInt(bcs33TextField.getText());
+            int bcs53 = Integer.parseInt(bcs53TextField.getText());
 
             if (maSinhVien.isEmpty()) {
                 DialogHelper.showError("Mã sinh viên không được để trống");
@@ -3049,6 +3051,8 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                     Logger.getLogger(FormChamDiemSV.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        } else {
+            DialogHelper.showError("Đã có lỗi xảy ra");
         }
     }//GEN-LAST:event_luuButtonActionPerformed
 

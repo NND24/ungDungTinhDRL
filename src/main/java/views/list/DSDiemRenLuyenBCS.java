@@ -60,7 +60,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", sv.getTenLop(), hocKy, namHoc);
             tableModel.setRowCount(0);
 
-            dsDiemRenLuyen.forEach(drl -> {
+            for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
                 tableModel.addRow(new Object[]{
                     drl.getMaSinhVien(), drl.getHoTen(),
                     drl.getD1(), drl.getD2(), drl.getD3(),
@@ -68,10 +68,14 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                     drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
                     drl.getTrangThaiCham()});
 
-                if (drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn đã chấm")) {
+                if (drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn đã chấm")
+                        || drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn kết thúc chấm")
+                        || drl.getTrangThaiCham().equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
                     coVanCham = drl.getTrangThaiCham();
-                };
-            });
+                    break;
+                }
+            }
+
         }
     }
 
@@ -314,16 +318,13 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 .addComponent(TimKiemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
-                .addGap(144, 144, 144)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(timKiemTheoNamHocComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel16)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(timKiemTheoHocKiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                    .addContainerGap(1065, Short.MAX_VALUE)
-                    .addComponent(timKiemTheoNamHocComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(175, 175, 175)))
+                .addGap(16, 16, 16))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,14 +335,10 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(TimKiemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel16))
+                    .addComponent(jLabel16)
+                    .addComponent(timKiemTheoNamHocComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8))
             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                    .addContainerGap(17, Short.MAX_VALUE)
-                    .addComponent(timKiemTheoNamHocComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
         );
 
         dsDiemRenLuyenTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -580,8 +577,10 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         String namHoc = "";
         for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
             try {
-                if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
-                    DialogHelper.showError("Cố vấn đã kết thúc chấm. Vui lòng liên hệ với cố vấn học tập!");
+                if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")
+                        || coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")
+                        || coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+                    DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
                 } else {
                     DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên kết thúc chấm", sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
                     hocKy = sv.getHocKy();
@@ -594,6 +593,12 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         if (!coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
             String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
             DialogHelper.showMessage(message);
+        } else if (!coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
+            String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+            DialogHelper.showMessage(message);
+        } else if (!coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+            String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+            DialogHelper.showMessage(message);
         }
     }//GEN-LAST:event_ketThucChamButtonActionPerformed
 
@@ -602,8 +607,10 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         String namHoc = "";
         for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
             try {
-                if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
-                    DialogHelper.showError("Cố vấn đã kết thúc chấm. Vui lòng liên hệ với cố vấn học tập!");
+                if (coVanCham.equalsIgnoreCase("Cố vấn đã chấm")
+                        || coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")
+                        || coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+                    DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
                 } else {
                     DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên đã chấm", sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
                     hocKy = sv.getHocKy();
@@ -615,6 +622,12 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         }
         if (!coVanCham.equalsIgnoreCase("Cố vấn đã chấm")) {
             String message = "Chấm lại điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+            DialogHelper.showMessage(message);
+        } else if (!coVanCham.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
+            String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
+            DialogHelper.showMessage(message);
+        } else if (!coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+            String message = "Kết thúc chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
             DialogHelper.showMessage(message);
         }
     }//GEN-LAST:event_chamLaiButtonActionPerformed

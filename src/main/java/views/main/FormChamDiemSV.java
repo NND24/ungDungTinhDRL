@@ -2779,9 +2779,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
     }//GEN-LAST:event_formed
 
     private void luuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButtonActionPerformed
-        if (trangThai != null && (!trangThai.equalsIgnoreCase("Sinh viên đang chấm") || !trangThai.equalsIgnoreCase("Sinh viên đã chấm"))) {
-            DialogHelper.showError("Đã hết thời gian tự chấm điểm");
-        } else {
+        if (trangThai.equalsIgnoreCase("Sinh viên đang chấm") || trangThai.equalsIgnoreCase("Sinh viên đã chấm")) {
             String maSinhVien = maSinhVienTextField.getText();
             String hocKy = hocKyTextField.getText();
             String namHoc = namHocTextField.getText();
@@ -2845,7 +2843,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
 
             int sv51 = Integer.parseInt(sv51TextField.getText());
             int sv52 = Integer.parseInt(sv52TextField.getText());
-            int sv53 = Integer.parseInt(sv33TextField.getText());
+            int sv53 = Integer.parseInt(sv53TextField.getText());
 
             if (maSinhVien.isEmpty()) {
                 DialogHelper.showError("Mã sinh viên không được để trống");
@@ -2948,11 +2946,14 @@ public class FormChamDiemSV extends javax.swing.JPanel {
                 try {
                     DiemRenLuyenModel drl = new DiemRenLuyenModel(hocKy, namHoc, nguoiCham, xepLoai, trangThaiCham, tongDiem, sv11, sv12a, sv12b, sv12c, sv12d, sv12e, sv12g, sv13, sv13a, sv13b, sv13c, sv13d, sv14, sv15, sv1, sv21, sv21a, sv21b, sv22a, sv22b, sv23a, sv23b, sv2, sv31, sv32, sv33, sv34, sv35, sv3, sv41, sv42, sv43, sv44, sv45, sv46, sv4, sv51, sv52, sv53, sv5, maSinhVien);
                     DiemRenLuyenCtrl.chamDiemSV(drl);
+                    DiemRenLuyenCtrl.thayDoiTrangThaiCham(trangThaiCham, maSinhVien, hocKy, namHoc);
                     DialogHelper.showMessage("Chấm điểm thành công!");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(FormChamDiemSV.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        } else {
+            DialogHelper.showError("Đã hết thời gian tự chấm điểm");
         }
     }//GEN-LAST:event_luuButtonActionPerformed
 

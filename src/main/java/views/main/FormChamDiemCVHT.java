@@ -2810,7 +2810,11 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     private void luuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButton1ActionPerformed
         if (trangThai.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
             DialogHelper.showError("Đã hết thời gian chấm điểm");
-        } else {
+        } else if (!trangThai.equalsIgnoreCase("Cố vấn đã chấm") || !trangThai.equalsIgnoreCase("Ban cán sự đã chấm")) {
+            DialogHelper.showError("Ban cán sự vẫn còn đang trong thời gian chấm điểm");
+        } else if (trangThai.equalsIgnoreCase("Cố vấn đã chấm")
+                || trangThai.equalsIgnoreCase("Ban cán sự đã chấm")
+                || trangThai.equalsIgnoreCase("Ban cán kết thúc chấm")) {
             dienDiem();
 
             String maSinhVien = maSinhVienTextField.getText();
@@ -2876,7 +2880,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
 
             int bcs51 = Integer.parseInt(bcs51TextField.getText());
             int bcs52 = Integer.parseInt(bcs52TextField.getText());
-            int bcs53 = Integer.parseInt(bcs33TextField.getText());
+            int bcs53 = Integer.parseInt(bcs53TextField.getText());
 
             if (maSinhVien.isEmpty()) {
                 DialogHelper.showError("Mã sinh viên không được để trống");
@@ -2978,11 +2982,14 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                 try {
                     DiemRenLuyenModel drl = new DiemRenLuyenModel(hocKy, namHoc, nguoiCham, xepLoai, trangThaiCham, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5, maSinhVien);
                     DiemRenLuyenCtrl.chamDiemSV(drl);
+                    DiemRenLuyenCtrl.thayDoiTrangThaiCham(trangThaiCham, maSinhVien, hocKy, namHoc);
                     DialogHelper.showMessage("Duyệt điểm thành công!");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        } else {
+            DialogHelper.showError("Đã có lỗi xảy ra");
         }
     }//GEN-LAST:event_luuButton1ActionPerformed
 

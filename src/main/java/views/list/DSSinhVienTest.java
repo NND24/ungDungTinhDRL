@@ -425,7 +425,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             String gioiTinh = GioiTinhComboBox.getSelectedItem().toString();
             String soDienThoai = soDienThoaiTextField.getText();
             String canCuoc = canCuocTextField.getText();
-            String email = maSinhVien.toLowerCase() + "@ptithcm.student.edu.vn";
+            String email = maSinhVien.toLowerCase() + "@student.ptithcm.edu.vn";
             String matKhau = maSinhVien.toLowerCase() + "#" + ngaySinhTextField.getText().replace("/", "");
             String queQuan = queQuanTextField.getText();
             String tenLop = tenLopComboBox.getSelectedItem().toString();
