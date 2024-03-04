@@ -29,6 +29,7 @@ public class MenuCoVan extends JComponent {
     private MigLayout layout;
     private String[][] menuItems = new String[][]{
         {"Chấm điểm rèn luyện của lớp"},
+        {"Xem  điểm rèn luyện toàn trường"},
         {"Tài khoản cá nhân"},
         {"Đăng xuất"},};
 

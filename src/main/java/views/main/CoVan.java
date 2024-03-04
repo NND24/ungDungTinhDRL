@@ -26,13 +26,18 @@ public class CoVan extends javax.swing.JFrame {
             public void selected(int index, int subIndex) {
                 if (index == 0) {
                     LayeredPane.removeAll();
-                    LayeredPane.add(dsLopSinhVienPane);
+                    LayeredPane.add(dsLopSinhVienPanel);
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 1) {
+                    LayeredPane.removeAll();
+                    LayeredPane.add(dsDiemToanTruongPanel);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
+                } else if (index == 2) {
                     new TaiKhoanCaNhan().setVisible(true);
                     new TaiKhoanCaNhan().setAlwaysOnTop(true);
-                } else if (index == 2) {
+                } else if (index == 3) {
                     new DangNhap().setVisible(true);
                     new DangNhap().setAlwaysOnTop(true);
                     dispose();
@@ -93,9 +98,11 @@ public class CoVan extends javax.swing.JFrame {
     private void initComponents() {
 
         LayeredPane = new javax.swing.JLayeredPane();
-        dsLopSinhVienPane = new javax.swing.JTabbedPane();
+        dsLopSinhVienPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenCVHT1 = new views.list.DSDiemRenLuyenCVHT();
         formChamDiemCVHT1 = new views.main.FormChamDiemCVHT();
+        dsDiemToanTruongPanel = new javax.swing.JTabbedPane();
+        dSDiemRenLuyenToanTruong1 = new views.list.DSDiemRenLuyenToanTruong();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -119,13 +126,20 @@ public class CoVan extends javax.swing.JFrame {
         LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 800));
         LayeredPane.setLayout(new java.awt.CardLayout());
 
-        dsLopSinhVienPane.setBackground(new java.awt.Color(255, 255, 255));
-        dsLopSinhVienPane.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        dsLopSinhVienPane.setPreferredSize(new java.awt.Dimension(1674, 650));
-        dsLopSinhVienPane.addTab("Danh sách điểm rèn luyện của các lớp", dSDiemRenLuyenCVHT1);
-        dsLopSinhVienPane.addTab("Chấm điểm rèn luyện", formChamDiemCVHT1);
+        dsLopSinhVienPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsLopSinhVienPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsLopSinhVienPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsLopSinhVienPanel.addTab("Danh sách điểm rèn luyện của các lớp", dSDiemRenLuyenCVHT1);
+        dsLopSinhVienPanel.addTab("Chấm điểm rèn luyện", formChamDiemCVHT1);
 
-        LayeredPane.add(dsLopSinhVienPane, "card2");
+        LayeredPane.add(dsLopSinhVienPanel, "card2");
+
+        dsDiemToanTruongPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsDiemToanTruongPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsDiemToanTruongPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsDiemToanTruongPanel.addTab("Danh sách điểm rèn luyện toàn trường", dSDiemRenLuyenToanTruong1);
+
+        LayeredPane.add(dsDiemToanTruongPanel, "card2");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -293,7 +307,9 @@ public class CoVan extends javax.swing.JFrame {
     private javax.swing.JLayeredPane LayeredPane;
     private javax.swing.JLabel MSSVLabel;
     private views.list.DSDiemRenLuyenCVHT dSDiemRenLuyenCVHT1;
-    private javax.swing.JTabbedPane dsLopSinhVienPane;
+    private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong1;
+    private javax.swing.JTabbedPane dsDiemToanTruongPanel;
+    private javax.swing.JTabbedPane dsLopSinhVienPanel;
     private views.main.FormChamDiemCVHT formChamDiemCVHT1;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;

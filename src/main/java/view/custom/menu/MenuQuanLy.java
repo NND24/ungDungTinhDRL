@@ -32,6 +32,7 @@ public class MenuQuanLy extends JComponent {
         {"Quản lý sinh viên"},
         {"Quản lý giảng viên", "Danh sách giảng viên", "Phân công"},
         {"Quản lý admin"},
+        {"Xem  điểm rèn luyện toàn trường"},
         {"Tài khoản cá nhân"},
         {"Đăng xuất"}};
 

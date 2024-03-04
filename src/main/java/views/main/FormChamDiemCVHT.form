@@ -30,8 +30,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane1" min="-2" pref="700" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="2160" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,663 +68,659 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="luuButton" min="-2" pref="98" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jScrollPane7" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jLabel108" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel75" min="-2" pref="60" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jScrollPane7" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel108" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel75" min="-2" pref="60" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                          <Component id="jLabel76" min="-2" pref="500" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                          <Component id="jLabel87" min="-2" pref="125" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                          <Component id="jLabel65" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel71" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel77" min="-2" pref="60" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jLabel76" min="-2" pref="500" max="-2" attributes="0"/>
+                                              <Component id="jLabel80" min="-2" pref="500" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jLabel87" min="-2" pref="125" max="-2" attributes="0"/>
+                                              <Component id="jLabel88" min="-2" pref="125" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jLabel65" max="32767" attributes="0"/>
+                                              <Component id="sv21aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="bcs21aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="cv21aTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jLabel71" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel77" min="-2" pref="60" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="jLabel80" min="-2" pref="500" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="jLabel88" min="-2" pref="125" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="sv21aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="bcs21aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="cv21aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel72" min="-2" pref="60" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="jLabel73" min="-2" pref="500" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="jLabel74" min="-2" pref="125" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="sv21TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="bcs21TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="cv21TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="jLabel78" min="-2" pref="60" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel81" min="-2" pref="500" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="1" attributes="0">
-                                                              <Component id="jLabel79" min="-2" pref="60" max="-2" attributes="0"/>
-                                                              <Component id="jLabel84" min="-2" pref="60" max="-2" attributes="0"/>
-                                                              <Component id="jLabel85" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                                      <Component id="jScrollPane5" min="-2" pref="500" max="-2" attributes="0"/>
-                                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                                          <Component id="jLabel83" min="-2" pref="500" max="-2" attributes="0"/>
-                                                                          <Component id="jLabel82" min="-2" pref="500" max="-2" attributes="0"/>
-                                                                          <Component id="jLabel86" min="-2" pref="500" max="-2" attributes="0"/>
-                                                                      </Group>
-                                                                  </Group>
-                                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel89" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv21bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs21bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv21bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel90" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv22aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs22aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv22aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel91" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv22bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs22bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv22bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel92" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv23aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs23aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv23aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel93" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv23bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs23bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv23bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel94" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv2TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs2TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv2TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="jLabel109" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel110" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel112" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel113" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel114" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel115" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel122" min="-2" pref="60" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jScrollPane13" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel128" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv42TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs42TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv42TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jScrollPane12" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel127" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv41TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs41TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv41TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel111" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel129" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv43TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs43TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv43TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jScrollPane14" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel130" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv44TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs44TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv44TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel116" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel133" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv4TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs4TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv4TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Component id="jScrollPane15" min="-2" pref="500" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel131" min="-2" pref="125" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Component id="jScrollPane16" min="-2" pref="500" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel132" min="-2" pref="125" max="-2" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="sv45TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="sv46TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="bcs45TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="bcs46TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="cv45TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="cv46TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="jLabel18" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel32" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel33" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel34" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel35" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel36" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel37" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel38" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel39" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel40" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel41" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel42" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel44" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel45" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel46" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel66" min="-2" pref="60" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel21" max="32767" attributes="0"/>
-                                                      <Component id="jLabel20" max="32767" attributes="0"/>
-                                                      <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel23" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel24" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel25" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel26" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel27" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel28" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel29" alignment="0" pref="500" max="32767" attributes="0"/>
-                                                      <Component id="jLabel30" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel31" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel43" alignment="0" pref="500" max="32767" attributes="0"/>
-                                                      <Component id="jLabel64" alignment="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel48" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv12aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs12aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv12aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel49" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv12bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs12bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv12bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel50" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv12cTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs12cTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv12cTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel51" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv12dTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs12dTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv12dTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel52" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv12eTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs12eTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv12eTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel55" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv13aTextFiel1" max="32767" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel56" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv13aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs13aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv13aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel57" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv13bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs13bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv13bTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel58" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv13cTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs13cTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv13cTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel60" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv15TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs15TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv15TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel61" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv1TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs1TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv1TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel47" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel63" min="-2" pref="270" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel53" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                                              <Component id="jLabel54" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Group type="102" attributes="0">
-                                                                  <Component id="sv13TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                                  <Component id="bcs13TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Group type="102" attributes="0">
-                                                                  <Component id="sv12gTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                                  <Component id="bcs12gTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="cv13TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="cv12gTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel59" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                                              <Component id="jLabel67" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Group type="102" attributes="0">
-                                                                  <Component id="sv14TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                                  <Component id="bcs14TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                                  <Component id="cv14TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Component id="sv13dTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                                  <Component id="bcs13dTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                                  <Component id="cv13dTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="jLabel95" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel97" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel98" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel99" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel100" min="-2" pref="60" max="-2" attributes="0"/>
-                                                      <Component id="jLabel103" min="-2" pref="60" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jScrollPane6" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel101" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv31TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs31TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv31TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jScrollPane11" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel107" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv35TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs35TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv35TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel96" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel102" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="sv3TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="bcs3TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="cv3TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jScrollPane8" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
-                                                              <Component id="jScrollPane9" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
-                                                              <Component id="jScrollPane10" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel105" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                                              <Component id="jLabel104" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                                              <Component id="jLabel106" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="sv33TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="sv32TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="sv34TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="bcs33TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="bcs32TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="bcs34TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="cv33TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="cv32TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Component id="cv34TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="jLabel10" min="-2" pref="60" max="-2" attributes="0"/>
-                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                              <Component id="jLabel11" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="jLabel17" min="-2" pref="60" max="-2" attributes="0"/>
-                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                              <Component id="jLabel19" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel72" min="-2" pref="60" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jLabel73" min="-2" pref="500" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jLabel74" min="-2" pref="125" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="sv21TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="bcs21TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="cv21TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="jLabel78" min="-2" pref="60" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel12" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                                          <Component id="jLabel13" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <Component id="jLabel81" min="-2" pref="500" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="jLabel79" min="-2" pref="60" max="-2" attributes="0"/>
+                                                          <Component id="jLabel84" min="-2" pref="60" max="-2" attributes="0"/>
+                                                          <Component id="jLabel85" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Group type="102" attributes="0">
-                                                              <Component id="sv11TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                              <Component id="bcs11TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                              <Component id="cv11TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                                  <Component id="jScrollPane5" min="-2" pref="500" max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabel83" min="-2" pref="500" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel82" min="-2" pref="500" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel86" min="-2" pref="500" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                           </Group>
-                                                          <Component id="jLabel14" max="32767" attributes="0"/>
                                                       </Group>
                                                   </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel62" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="hoTenTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      <Component id="maSinhVienTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                                          <Component id="lopTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                                          <Component id="ngaySinhTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="jLabel139" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Component id="hocKyTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                                          <Component id="jLabel140" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Component id="namHocTextField" min="-2" pref="200" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel8" min="-2" pref="59" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="jLabel2" min="-2" pref="500" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="jLabel3" min="-2" pref="125" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel5" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel6" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel7" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="jLabel4" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jScrollPane17" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jLabel117" min="-2" pref="60" max="-2" attributes="0"/>
-                                                  <Component id="jLabel118" min="-2" pref="60" max="-2" attributes="0"/>
-                                                  <Component id="jLabel121" min="-2" pref="60" max="-2" attributes="0"/>
-                                                  <Component id="jLabel123" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                                                  <Component id="jLabel125" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
-                                                      <Component id="jScrollPane19" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <Component id="jLabel89" min="-2" pref="125" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="jLabel135" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <Component id="sv21bTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="sv52TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="bcs21bTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="bcs52TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="cv52TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="cv21bTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" attributes="0">
-                                                      <Component id="jScrollPane18" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <Component id="jLabel90" min="-2" pref="125" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="jLabel134" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <Component id="sv22aTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="sv51TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="bcs22aTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="bcs51TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="cv51TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="cv22aTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" attributes="0">
-                                                      <Component id="jLabel124" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <Component id="jLabel91" min="-2" pref="125" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="jLabel137" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <Component id="sv22bTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="sv5TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="bcs22bTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="bcs5TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="cv22bTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel92" min="-2" pref="125" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="cv5TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="sv23aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs23aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv23aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel93" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv23bTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs23bTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv23bTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel94" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv2TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs2TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv2TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="jLabel109" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel110" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel112" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel113" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel114" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel115" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel122" min="-2" pref="60" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jScrollPane13" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel128" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv42TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs42TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv42TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jScrollPane12" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel127" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv41TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs41TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv41TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel111" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel129" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv43TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs43TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv43TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jScrollPane14" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel130" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv44TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs44TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv44TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel116" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel133" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv4TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs4TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv4TextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" attributes="0">
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel119" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <Component id="jLabel120" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
-                                                          <Component id="jScrollPane20" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jScrollPane15" min="-2" pref="500" max="-2" attributes="0"/>
+                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                              <Component id="jLabel131" min="-2" pref="125" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jScrollPane16" min="-2" pref="500" max="-2" attributes="0"/>
+                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                              <Component id="jLabel132" min="-2" pref="125" max="-2" attributes="0"/>
+                                                          </Group>
                                                       </Group>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="jLabel136" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="sv45TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="sv46TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      </Group>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="sv53TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="bcs45TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="bcs46TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      </Group>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="bcs53TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="cv45TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="cv46TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="jLabel18" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel32" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel33" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel34" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel35" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel36" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel37" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel38" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel39" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel40" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel41" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel42" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel44" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel45" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel46" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel66" min="-2" pref="60" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jLabel21" max="32767" attributes="0"/>
+                                                  <Component id="jLabel20" max="32767" attributes="0"/>
+                                                  <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel23" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel24" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel25" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel26" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel27" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel28" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel29" alignment="0" pref="500" max="32767" attributes="0"/>
+                                                  <Component id="jLabel30" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel31" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel43" alignment="0" pref="500" max="32767" attributes="0"/>
+                                                  <Component id="jLabel64" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel48" min="-2" pref="125" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="cv53TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="sv12aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs12aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv12aTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel126" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <Component id="jLabel49" min="-2" pref="125" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="jLabel138" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <Component id="sv12bTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="svTongTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="bcs12bTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="bcsTongTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                      <Component id="cvTongTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Component id="cv12bTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel50" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv12cTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs12cTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv12cTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel51" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv12dTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs12dTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv12dTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel52" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv12eTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs12eTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv12eTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel55" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv13aTextFiel1" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel56" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv13aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs13aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv13aTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel57" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv13bTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs13bTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv13bTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel58" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv13cTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs13cTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv13cTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel60" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv15TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs15TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv15TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel61" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv1TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs1TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv1TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel47" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel63" min="-2" pref="270" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel53" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                          <Component id="jLabel54" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="sv13TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                              <Component id="bcs13TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="sv12gTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                              <Component id="bcs12gTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="cv13TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="cv12gTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel59" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                          <Component id="jLabel67" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="sv14TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                              <Component id="bcs14TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                              <Component id="cv14TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="sv13dTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                              <Component id="bcs13dTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                              <Component id="cv13dTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="jLabel95" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel97" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel98" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel99" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel100" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="jLabel103" min="-2" pref="60" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jScrollPane6" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel101" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv31TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs31TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv31TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jScrollPane11" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel107" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv35TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs35TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv35TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel96" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel102" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="sv3TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="bcs3TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="cv3TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jScrollPane8" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
+                                                          <Component id="jScrollPane9" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
+                                                          <Component id="jScrollPane10" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel105" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                          <Component id="jLabel104" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                          <Component id="jLabel106" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="sv33TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="sv32TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="sv34TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="bcs33TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="bcs32TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="bcs34TextField" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="cv33TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="cv32TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <Component id="cv34TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel10" min="-2" pref="60" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                          <Component id="jLabel11" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel17" min="-2" pref="60" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                          <Component id="jLabel19" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel12" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                      <Component id="jLabel13" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="sv11TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                          <Component id="bcs11TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                          <Component id="cv11TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="jLabel14" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel62" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="hoTenTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  <Component id="maSinhVienTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                                      <Component id="lopTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                                      <Component id="ngaySinhTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel139" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="hocKyTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel140" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="namHocTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel8" min="-2" pref="59" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jLabel2" min="-2" pref="500" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jLabel3" min="-2" pref="125" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel5" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel6" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                      <Component id="jLabel7" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jLabel4" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jScrollPane17" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="jLabel117" min="-2" pref="60" max="-2" attributes="0"/>
+                                              <Component id="jLabel118" min="-2" pref="60" max="-2" attributes="0"/>
+                                              <Component id="jLabel121" min="-2" pref="60" max="-2" attributes="0"/>
+                                              <Component id="jLabel123" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                                              <Component id="jLabel125" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jScrollPane19" min="-2" pref="500" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jLabel135" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="sv52TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="bcs52TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="cv52TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jScrollPane18" min="-2" pref="500" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jLabel134" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="sv51TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="bcs51TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="cv51TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel124" min="-2" pref="500" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jLabel137" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="sv5TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="bcs5TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="cv5TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel119" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <Component id="jLabel120" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
+                                                      <Component id="jScrollPane20" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jLabel136" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="sv53TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="bcs53TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="cv53TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel126" min="-2" pref="500" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jLabel138" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="svTongTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="bcsTongTextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="cvTongTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -1315,9 +1311,7 @@
                               <Component id="cvTongTextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="luuButton" min="-2" pref="36" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4767,20 +4761,6 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="luuButton">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="66" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="L&#x1b0;u"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel139">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -4916,7 +4896,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="1043" max="32767" attributes="0"/>
+                          <EmptySpace pref="1016" max="32767" attributes="0"/>
                           <Component id="luuButton1" min="-2" pref="122" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
@@ -4935,7 +4915,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel15">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="1"/>
+                      <Font name="Segoe UI" size="14" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="CHI TI&#x1ebe;T &#x110;I&#x1ec2;M R&#xc8;N LUY&#x1ec6;N "/>
                   </Properties>

@@ -1271,6 +1271,8 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jTextArea6.setRows(5);
         jTextArea6.setText("Tiêu chí 3. Đánh giá về ý thức và kết quả tham gia hoạt động chính trị- xã hội, văn hóa, văn nghệ, thể thao, phòng chống tội phạm và\ncác tệ nạn xã hội ");
         jTextArea6.setBorder(null);
+        jTextArea6.setMinimumSize(new java.awt.Dimension(854, 44));
+        jTextArea6.setPreferredSize(new java.awt.Dimension(854, 104));
         jScrollPane7.setViewportView(jTextArea6);
 
         jLabel95.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1778,7 +1780,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
 
         jPanel4.setPreferredSize(new java.awt.Dimension(88, 35));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setText("CHI TIẾT ĐIỂM RÈN LUYỆN ");
 
         dienDiemButton.setBackground(new java.awt.Color(0, 102, 255));
@@ -1810,7 +1812,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 852, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 825, Short.MAX_VALUE)
                 .addComponent(dienDiemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(luuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2270,7 +2272,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(hoTenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(maSinhVienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(55, 55, 55)
+                                        .addGap(40, 40, 40)
                                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel70)
                                             .addComponent(jLabel69))
@@ -2285,11 +2287,11 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                                 .addComponent(jLabel139)
-                                                .addGap(19, 19, 19)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(hocKyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                                 .addComponent(jLabel140)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(namHocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
@@ -2864,8 +2866,8 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2000, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2040, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

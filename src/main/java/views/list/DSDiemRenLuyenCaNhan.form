@@ -240,7 +240,7 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="891" max="-2" attributes="0"/>
                       <Component id="xemDiemButton" min="-2" pref="150" max="-2" attributes="0"/>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="lamMoiButton" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
@@ -260,7 +260,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="12" style="1"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="TH&#xd4;NG TIN &#x110;I&#x1ec2;M R&#xc8;N LUY&#x1ec6;N "/>
               </Properties>
@@ -361,11 +361,11 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="timKiemTheoNamHocComboBox" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="cmbTKNamHoc" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="timKiemTheoHocKiComboBox" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="cmbTKHocKy" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -375,9 +375,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="7" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="timKiemTheoHocKiComboBox" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="cmbTKHocKy" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="timKiemTheoNamHocComboBox" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="cmbTKNamHoc" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
@@ -390,20 +390,24 @@
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="12" style="1"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="DANH S&#xc1;CH &#x110;I&#x1ec2;M R&#xc8;N LUY&#x1ec6;N"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="timKiemTheoHocKiComboBox">
+            <Component class="javax.swing.JComboBox" name="cmbTKHocKy">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="1"/>
-                    <StringItem index="1" value="2"/>
+                  <StringArray count="3">
+                    <StringItem index="0" value="---H&#x1ecd;c k&#x1ef3;---"/>
+                    <StringItem index="1" value="1"/>
+                    <StringItem index="2" value="2"/>
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTKHocKyActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -424,7 +428,7 @@
                 <Property name="text" type="java.lang.String" value="H&#x1ecd;c k&#xec;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="timKiemTheoNamHocComboBox">
+            <Component class="javax.swing.JComboBox" name="cmbTKNamHoc">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -435,7 +439,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="timKiemTheoNamHocComboBoxActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTKNamHocActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

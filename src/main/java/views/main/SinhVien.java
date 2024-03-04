@@ -26,13 +26,18 @@ public class SinhVien extends javax.swing.JFrame {
             public void selected(int index, int subIndex) {
                 if (index == 0) {
                     LayeredPane.removeAll();
-                    LayeredPane.add(dsSinhVienPane);
+                    LayeredPane.add(dsSinhVienPanel);
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 1) {
+                    LayeredPane.removeAll();
+                    LayeredPane.add(dsDiemToanTruongPanel);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
+                } else if (index == 2) {
                     new TaiKhoanCaNhan().setVisible(true);
                     new TaiKhoanCaNhan().setAlwaysOnTop(true);
-                } else if (index == 2) {
+                } else if (index == 3) {
                     new DangNhap().setVisible(true);
                     new DangNhap().setAlwaysOnTop(true);
                     dispose();
@@ -93,10 +98,12 @@ public class SinhVien extends javax.swing.JFrame {
     private void initComponents() {
 
         LayeredPane = new javax.swing.JLayeredPane();
-        dsSinhVienPane = new javax.swing.JTabbedPane();
+        dsSinhVienPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenSVPanel = new javax.swing.JPanel();
         dSDiemRenLuyenSV1 = new views.list.DSDiemRenLuyenCaNhan();
         formChamDiem1 = new views.main.FormChamDiemSV();
+        dsDiemToanTruongPanel = new javax.swing.JTabbedPane();
+        dSDiemRenLuyenToanTruong1 = new views.list.DSDiemRenLuyenToanTruong();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -121,9 +128,9 @@ public class SinhVien extends javax.swing.JFrame {
         LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 800));
         LayeredPane.setLayout(new java.awt.CardLayout());
 
-        dsSinhVienPane.setBackground(new java.awt.Color(255, 255, 255));
-        dsSinhVienPane.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        dsSinhVienPane.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsSinhVienPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsSinhVienPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsSinhVienPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
 
         javax.swing.GroupLayout dSDiemRenLuyenSVPanelLayout = new javax.swing.GroupLayout(dSDiemRenLuyenSVPanel);
         dSDiemRenLuyenSVPanel.setLayout(dSDiemRenLuyenSVPanelLayout);
@@ -140,10 +147,17 @@ public class SinhVien extends javax.swing.JFrame {
                 .addGap(0, 109, Short.MAX_VALUE))
         );
 
-        dsSinhVienPane.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenSVPanel);
-        dsSinhVienPane.addTab("Chấm điểm rèn luyện", formChamDiem1);
+        dsSinhVienPanel.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenSVPanel);
+        dsSinhVienPanel.addTab("Chấm điểm rèn luyện", formChamDiem1);
 
-        LayeredPane.add(dsSinhVienPane, "card2");
+        LayeredPane.add(dsSinhVienPanel, "card2");
+
+        dsDiemToanTruongPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsDiemToanTruongPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsDiemToanTruongPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsDiemToanTruongPanel.addTab("Danh sách điểm rèn luyện toàn trường", dSDiemRenLuyenToanTruong1);
+
+        LayeredPane.add(dsDiemToanTruongPanel, "card2");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -320,7 +334,9 @@ public class SinhVien extends javax.swing.JFrame {
     private javax.swing.JLabel MSSVLabel;
     private views.list.DSDiemRenLuyenCaNhan dSDiemRenLuyenSV1;
     private javax.swing.JPanel dSDiemRenLuyenSVPanel;
-    private javax.swing.JTabbedPane dsSinhVienPane;
+    private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong1;
+    private javax.swing.JTabbedPane dsDiemToanTruongPanel;
+    private javax.swing.JTabbedPane dsSinhVienPanel;
     private views.main.FormChamDiemSV formChamDiem1;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;

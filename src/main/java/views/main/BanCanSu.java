@@ -24,18 +24,23 @@ public class BanCanSu extends javax.swing.JFrame {
             public void selected(int index, int subIndex) {
                 if (index == 0) {
                     LayeredPane.removeAll();
-                    LayeredPane.add(dsSinhVienPane);
+                    LayeredPane.add(dsSinhVienPanel);
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 1) {
                     LayeredPane.removeAll();
-                    LayeredPane.add(dsLopSinhVienPane);
+                    LayeredPane.add(dsLopSinhVienPanel);
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 2) {
+                    LayeredPane.removeAll();
+                    LayeredPane.add(dsDiemToanTruongPanel);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
+                } else if (index == 3) {
                     new TaiKhoanCaNhan().setVisible(true);
                     new TaiKhoanCaNhan().setAlwaysOnTop(true);
-                } else if (index == 3) {
+                } else if (index == 4) {
                     new DangNhap().setVisible(true);
                     new DangNhap().setAlwaysOnTop(true);
                     dispose();
@@ -85,13 +90,15 @@ public class BanCanSu extends javax.swing.JFrame {
     private void initComponents() {
 
         LayeredPane = new javax.swing.JLayeredPane();
-        dsSinhVienPane = new javax.swing.JTabbedPane();
+        dsSinhVienPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenSVPanel = new javax.swing.JPanel();
         dSDiemRenLuyenSV1 = new views.list.DSDiemRenLuyenCaNhan();
         formChamDiem1 = new views.main.FormChamDiemSV();
-        dsLopSinhVienPane = new javax.swing.JTabbedPane();
+        dsLopSinhVienPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenBCS1 = new views.list.DSDiemRenLuyenBCS();
         formChamDiemBCS1 = new views.main.FormChamDiemBCS();
+        dsDiemToanTruongPanel = new javax.swing.JTabbedPane();
+        dSDiemRenLuyenToanTruong1 = new views.list.DSDiemRenLuyenToanTruong();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -116,9 +123,9 @@ public class BanCanSu extends javax.swing.JFrame {
         LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 800));
         LayeredPane.setLayout(new java.awt.CardLayout());
 
-        dsSinhVienPane.setBackground(new java.awt.Color(255, 255, 255));
-        dsSinhVienPane.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        dsSinhVienPane.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsSinhVienPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsSinhVienPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsSinhVienPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
 
         javax.swing.GroupLayout dSDiemRenLuyenSVPanelLayout = new javax.swing.GroupLayout(dSDiemRenLuyenSVPanel);
         dSDiemRenLuyenSVPanel.setLayout(dSDiemRenLuyenSVPanelLayout);
@@ -135,18 +142,25 @@ public class BanCanSu extends javax.swing.JFrame {
                 .addGap(0, 2125, Short.MAX_VALUE))
         );
 
-        dsSinhVienPane.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenSVPanel);
-        dsSinhVienPane.addTab("Chấm điểm rèn luyện", formChamDiem1);
+        dsSinhVienPanel.addTab("Danh sách điểm rèn luyện", dSDiemRenLuyenSVPanel);
+        dsSinhVienPanel.addTab("Chấm điểm rèn luyện", formChamDiem1);
 
-        LayeredPane.add(dsSinhVienPane, "card2");
+        LayeredPane.add(dsSinhVienPanel, "card2");
 
-        dsLopSinhVienPane.setBackground(new java.awt.Color(255, 255, 255));
-        dsLopSinhVienPane.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        dsLopSinhVienPane.setPreferredSize(new java.awt.Dimension(1674, 650));
-        dsLopSinhVienPane.addTab("Danh sách điểm rèn luyện của lớp", dSDiemRenLuyenBCS1);
-        dsLopSinhVienPane.addTab("Chấm điểm rèn luyện", formChamDiemBCS1);
+        dsLopSinhVienPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsLopSinhVienPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsLopSinhVienPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsLopSinhVienPanel.addTab("Danh sách điểm rèn luyện của lớp", dSDiemRenLuyenBCS1);
+        dsLopSinhVienPanel.addTab("Chấm điểm rèn luyện", formChamDiemBCS1);
 
-        LayeredPane.add(dsLopSinhVienPane, "card2");
+        LayeredPane.add(dsLopSinhVienPanel, "card2");
+
+        dsDiemToanTruongPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsDiemToanTruongPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsDiemToanTruongPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsDiemToanTruongPanel.addTab("Danh sách điểm rèn luyện toàn trường", dSDiemRenLuyenToanTruong1);
+
+        LayeredPane.add(dsDiemToanTruongPanel, "card2");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -324,8 +338,10 @@ public class BanCanSu extends javax.swing.JFrame {
     private views.list.DSDiemRenLuyenBCS dSDiemRenLuyenBCS1;
     private views.list.DSDiemRenLuyenCaNhan dSDiemRenLuyenSV1;
     private javax.swing.JPanel dSDiemRenLuyenSVPanel;
-    private javax.swing.JTabbedPane dsLopSinhVienPane;
-    private javax.swing.JTabbedPane dsSinhVienPane;
+    private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong1;
+    private javax.swing.JTabbedPane dsDiemToanTruongPanel;
+    private javax.swing.JTabbedPane dsLopSinhVienPanel;
+    private javax.swing.JTabbedPane dsSinhVienPanel;
     private views.main.FormChamDiemSV formChamDiem1;
     private views.main.FormChamDiemBCS formChamDiemBCS1;
     private javax.swing.JPanel header;

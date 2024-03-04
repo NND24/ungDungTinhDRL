@@ -4,11 +4,12 @@ import java.sql.Date;
 
 public class QuanLyModel {
 
-    private String maQuanLy, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan;
+    private String maQuanLy, idTaiKhoan, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan;
     private Date ngaySinh;
 
-    public QuanLyModel(String maQuanLy, String hoTen, String email, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh) {
+    public QuanLyModel(String maQuanLy, String idTaiKhoan, String hoTen, String email, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh) {
         this.maQuanLy = maQuanLy;
+        this.idTaiKhoan = idTaiKhoan;
         this.hoTen = hoTen;
         this.email = email;
         this.gioiTinh = gioiTinh;
@@ -18,9 +19,10 @@ public class QuanLyModel {
         this.ngaySinh = ngaySinh;
     }
 
-    public QuanLyModel(String maQuanLy, String hoTen, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh) {
+    public QuanLyModel(String maQuanLy, String hoTen, String email, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh) {
         this.maQuanLy = maQuanLy;
         this.hoTen = hoTen;
+        this.email = email;
         this.gioiTinh = gioiTinh;
         this.soDienThoai = soDienThoai;
         this.canCuoc = canCuoc;
@@ -34,6 +36,14 @@ public class QuanLyModel {
 
     public void setMaQuanLy(String maQuanLy) {
         this.maQuanLy = maQuanLy;
+    }
+
+    public String getIdTaiKhoan() {
+        return idTaiKhoan;
+    }
+
+    public void setIdTaiKhoan(String idTaiKhoan) {
+        this.idTaiKhoan = idTaiKhoan;
     }
 
     public String getHoTen() {

@@ -105,24 +105,37 @@ public class Validator {
     }
 
     public static boolean isValidDate(String inputDate) {
+        // Định dạng ngày tháng năm
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        // Không chấp nhận ngày tháng năm không hợp lệ (ví dụ: 31/02/2024)
         sdf.setLenient(false);
 
         try {
             Date date = sdf.parse(inputDate);
 
+            // Lấy thời gian hiện tại
+            Calendar currentDate = Calendar.getInstance();
             // Lấy năm hiện tại
-            Calendar currentYear = Calendar.getInstance();
-            int currentYearValue = currentYear.get(Calendar.YEAR);
+            int currentYear = currentDate.get(Calendar.YEAR);
 
+            // Lấy thời gian nhập vào
+            Calendar inputDateCal = Calendar.getInstance();
+            inputDateCal.setTime(date);
             // Lấy năm nhập vào
-            Calendar inputYear = Calendar.getInstance();
-            inputYear.setTime(date);
-            int inputYearValue = inputYear.get(Calendar.YEAR);
+            int inputYear = inputDateCal.get(Calendar.YEAR);
 
-            return inputYearValue <= currentYearValue && currentYearValue - inputYearValue >= 18 && inputDate.equals(sdf.format(date));
+            // Kiểm tra năm và tuổi
+            int age = currentYear - inputYear;
+            // Kiểm tra xem tuổi có lớn hơn hoặc bằng 18 không
+            if (age >= 18) {
+                // Kiểm tra xem ngày tháng nhập vào có phải là ngày tháng hợp lệ không
+                return inputDate.equals(sdf.format(date));
+            }
         } catch (ParseException e) {
+            // Ngày tháng không hợp lệ
             return false;
         }
+        // Nếu không thỏa mãn các điều kiện trên, trả về false
+        return false;
     }
 }

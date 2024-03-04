@@ -1,8 +1,13 @@
 package views.main;
 
 import javax.swing.JOptionPane;
+import controllers.TaiKhoanCtrl;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class VerifyCode extends javax.swing.JFrame {
+
+    public static String idTaiKhoan;
 
     public VerifyCode() {
         initComponents();
@@ -13,45 +18,45 @@ public class VerifyCode extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        OkButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        CodeTextField = new javax.swing.JTextField();
-        CancelButton = new javax.swing.JButton();
+        btnXacNhan = new javax.swing.JButton();
+        lblMaXacNhan = new javax.swing.JLabel();
+        lblKiemTraEmail = new javax.swing.JLabel();
+        txtMaXacNhan = new javax.swing.JTextField();
+        btnHuy = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mã Xác Nhận");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        OkButton.setBackground(new java.awt.Color(51, 153, 255));
-        OkButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        OkButton.setForeground(new java.awt.Color(255, 255, 255));
-        OkButton.setText("Xác nhận");
-        OkButton.setPreferredSize(new java.awt.Dimension(90, 30));
-        OkButton.addActionListener(new java.awt.event.ActionListener() {
+        btnXacNhan.setBackground(new java.awt.Color(51, 153, 255));
+        btnXacNhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXacNhan.setForeground(new java.awt.Color(255, 255, 255));
+        btnXacNhan.setText("Xác nhận");
+        btnXacNhan.setPreferredSize(new java.awt.Dimension(90, 30));
+        btnXacNhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OkButtonActionPerformed(evt);
+                btnXacNhanActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setText("Mã Xác Nhận");
+        lblMaXacNhan.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblMaXacNhan.setForeground(new java.awt.Color(255, 0, 0));
+        lblMaXacNhan.setText("Mã Xác Nhận");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Kiểm tra Email của bạn để lấy mã");
+        lblKiemTraEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblKiemTraEmail.setText("Kiểm tra Email của bạn để lấy mã");
 
-        CodeTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtMaXacNhan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        CancelButton.setBackground(new java.awt.Color(51, 153, 255));
-        CancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        CancelButton.setForeground(new java.awt.Color(255, 255, 255));
-        CancelButton.setText("Hủy");
-        CancelButton.setPreferredSize(new java.awt.Dimension(90, 30));
-        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+        btnHuy.setBackground(new java.awt.Color(255, 102, 102));
+        btnHuy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnHuy.setForeground(new java.awt.Color(255, 255, 255));
+        btnHuy.setText("Hủy");
+        btnHuy.setPreferredSize(new java.awt.Dimension(90, 30));
+        btnHuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelButtonActionPerformed(evt);
+                btnHuyActionPerformed(evt);
             }
         });
 
@@ -59,37 +64,35 @@ public class VerifyCode extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(183, 183, 183))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(137, 137, 137)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(137, 137, 137)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(OkButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblKiemTraEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtMaXacNhan)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(lblMaXacNhan)))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(30, 30, 30)
-                .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(lblMaXacNhan)
+                .addGap(18, 18, 18)
+                .addComponent(lblKiemTraEmail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtMaXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(OkButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50))
         );
 
@@ -108,25 +111,32 @@ public class VerifyCode extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void OkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkButtonActionPerformed
+    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
         // TODO add your handling code here:
         String theCode = QuenMatKhau.verifyCode;
-        String inputCode = CodeTextField.getText();
+        String inputCode = txtMaXacNhan.getText();
         if (theCode.equalsIgnoreCase(inputCode)) {
-            this.setVisible(false);
-            new DangNhap().setVisible(false);
-            new DoiMatKhauMoi().setVisible(true);
+            try {
+                this.setVisible(false);
+                new DangNhap().setVisible(false);
+                new DoiMatKhauMoi().setVisible(true);
+
+                String maTaiKhoan = QuenMatKhau.maTaiKhoan;
+                idTaiKhoan = TaiKhoanCtrl.layIdTaiKhoan(maTaiKhoan);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(VerifyCode.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Mã không hợp lệ!", "Thông báo", JOptionPane.ERROR_MESSAGE);
         }
 
-    }//GEN-LAST:event_OkButtonActionPerformed
+    }//GEN-LAST:event_btnXacNhanActionPerformed
 
-    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+    private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new DangNhap().setVisible(true);
-    }//GEN-LAST:event_CancelButtonActionPerformed
+    }//GEN-LAST:event_btnHuyActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -137,11 +147,11 @@ public class VerifyCode extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CancelButton;
-    private javax.swing.JTextField CodeTextField;
-    private javax.swing.JButton OkButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnHuy;
+    private javax.swing.JButton btnXacNhan;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblKiemTraEmail;
+    private javax.swing.JLabel lblMaXacNhan;
+    private javax.swing.JTextField txtMaXacNhan;
     // End of variables declaration//GEN-END:variables
 }

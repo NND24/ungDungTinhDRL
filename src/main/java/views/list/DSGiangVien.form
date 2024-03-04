@@ -253,7 +253,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="615" max="32767" attributes="0"/>
+                      <EmptySpace pref="591" max="32767" attributes="0"/>
                       <Component id="themGiangVienButton" min="-2" pref="142" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="xoaGiangVienButton" min="-2" pref="134" max="-2" attributes="0"/>
@@ -285,7 +285,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="12" style="1"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="TH&#xd4;NG TIN GI&#x1ea2;NG VI&#xca;N"/>
               </Properties>
@@ -498,7 +498,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="686" max="32767" attributes="0"/>
+                      <EmptySpace pref="659" max="32767" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="TimKiemTextField" min="-2" pref="211" max="-2" attributes="0"/>
@@ -530,7 +530,7 @@
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="12" style="1"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="DANH S&#xc1;CH GI&#x1ea2;NG VI&#xca;N"/>
               </Properties>

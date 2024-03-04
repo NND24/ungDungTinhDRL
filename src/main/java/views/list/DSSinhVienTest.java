@@ -2,6 +2,7 @@ package views.list;
 
 import models.SinhVienModelTest;
 import controllers.SinhVienCtrlTest;
+import controllers.TaiKhoanCtrl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import models.TaiKhoanModel;
+import utils.GenerateCode;
 
 public class DSSinhVienTest extends javax.swing.JPanel {
 
@@ -418,6 +421,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             // TODO add your handling code here:
             String soLuongNguoiFormatted = String.format("%03d", (SinhVienCtrlTest.timTatCaSinhVien().size() + 1));
             String maSinhVien = "N21DCCN" + soLuongNguoiFormatted;
+            String idTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = HoTenTextField.getText();
             java.util.Date ngaySinh = sdf.parse(ngaySinhTextField.getText());
             java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
@@ -431,10 +435,10 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             String tenLop = tenLopComboBox.getSelectedItem().toString();
             String chucVu = chucVuComboBox.getSelectedItem().toString();
 
-            SinhVienModelTest tk = new SinhVienModelTest(maSinhVien, chucVu, email, matKhau);
-            SinhVienModelTest sv = new SinhVienModelTest(maSinhVien, tenLop, hoTen, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh);
+            TaiKhoanModel tk = new TaiKhoanModel(idTaiKhoan, chucVu, matKhau);
+            SinhVienModelTest sv = new SinhVienModelTest(maSinhVien, tenLop, hoTen, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh, idTaiKhoan);
             try {
-                SinhVienCtrlTest.themTaiKhoan(maSinhVien, email, matKhau, chucVu);
+                TaiKhoanCtrl.themTaiKhoan(tk);
                 SinhVienCtrlTest.themSinhVien(sv);
                 hienThiTatCaSinhVien();
             } catch (ClassNotFoundException ex) {

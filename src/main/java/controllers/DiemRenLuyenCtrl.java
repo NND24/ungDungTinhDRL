@@ -104,23 +104,21 @@ public class DiemRenLuyenCtrl {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                if (resultSet.getInt("TrangThaiXoa") == 0) {
-                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
-                            resultSet.getString("HocKy"),
-                            resultSet.getString("NamHoc"),
-                            resultSet.getString("XepLoai"),
-                            resultSet.getString("TrangThaiCham"),
-                            resultSet.getFloat("TongDiem"),
-                            resultSet.getFloat("d1"),
-                            resultSet.getInt("d2"),
-                            resultSet.getInt("d3"),
-                            resultSet.getInt("d4"),
-                            resultSet.getInt("d5"),
-                            resultSet.getString("MaSinhVien"),
-                            resultSet.getString("HoTen")
-                    );
-                    dsDiemRenLuyen.add(drl);
-                }
+                DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                        resultSet.getString("HocKy"),
+                        resultSet.getString("NamHoc"),
+                        resultSet.getString("XepLoai"),
+                        resultSet.getString("TrangThaiCham"),
+                        resultSet.getFloat("TongDiem"),
+                        resultSet.getFloat("d1"),
+                        resultSet.getInt("d2"),
+                        resultSet.getInt("d3"),
+                        resultSet.getInt("d4"),
+                        resultSet.getInt("d5"),
+                        resultSet.getString("MaSinhVien"),
+                        resultSet.getString("HoTen")
+                );
+                dsDiemRenLuyen.add(drl);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -206,6 +204,602 @@ public class DiemRenLuyenCtrl {
             Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return drl;
+    }
+
+    public static List<DiemRenLuyenModel> timKiemDRL(String tuKhoa, String lop, String namHoc, String hocKy) throws ClassNotFoundException {
+        List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = ConnectDB.getConnection();
+
+            if (!tuKhoa.isEmpty() && lop.isEmpty() && namHoc.isEmpty() && hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (!tuKhoa.isEmpty() && !lop.isEmpty() && namHoc.isEmpty() && hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
+                     AND Lop.TenLop=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+                statement.setString(3, lop);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (tuKhoa.isEmpty() && !lop.isEmpty() && namHoc.isEmpty() && hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE NguoiCham='CoVan'
+                     AND Lop.TenLop=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, lop);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (!tuKhoa.isEmpty() && lop.isEmpty() && !namHoc.isEmpty() && hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
+                     AND NamHoc=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+                statement.setString(3, namHoc);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (tuKhoa.isEmpty() && lop.isEmpty() && !namHoc.isEmpty() && hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE NguoiCham='CoVan'
+                     AND NamHoc=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, namHoc);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (!tuKhoa.isEmpty() && lop.isEmpty() && namHoc.isEmpty() && !hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
+                     AND HocKy=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+                statement.setString(3, hocKy);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (tuKhoa.isEmpty() && lop.isEmpty() && namHoc.isEmpty() && !hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE NguoiCham='CoVan'
+                     AND HocKy=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, hocKy);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (!tuKhoa.isEmpty() && !lop.isEmpty() && !namHoc.isEmpty() && hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
+                     AND Lop.TenLop=? AND NamHoc=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+                statement.setString(3, lop);
+                statement.setString(4, namHoc);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (tuKhoa.isEmpty() && !lop.isEmpty() && !namHoc.isEmpty() && hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE NguoiCham='CoVan'
+                     AND Lop.TenLop=? AND NamHoc=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, lop);
+                statement.setString(2, namHoc);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (!tuKhoa.isEmpty() && !lop.isEmpty() && namHoc.isEmpty() && !hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
+                     AND Lop.TenLop=? AND HocKy=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+                statement.setString(3, lop);
+                statement.setString(4, hocKy);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (tuKhoa.isEmpty() && !lop.isEmpty() && namHoc.isEmpty() && !hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE NguoiCham='CoVan'
+                     AND Lop.TenLop=? AND HocKy=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, lop);
+                statement.setString(2, hocKy);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (!tuKhoa.isEmpty() && lop.isEmpty() && !namHoc.isEmpty() && !hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
+                     AND NamHoc=? AND HocKy=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+                statement.setString(3, namHoc);
+                statement.setString(4, hocKy);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (tuKhoa.isEmpty() && lop.isEmpty() && !namHoc.isEmpty() && !hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE NguoiCham='CoVan'
+                     AND NamHoc=? AND HocKy=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, namHoc);
+                statement.setString(2, hocKy);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (!tuKhoa.isEmpty() && !lop.isEmpty() && !namHoc.isEmpty() && !hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
+                     AND Lop.TenLop=? AND NamHoc=? AND HocKy=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+                statement.setString(3, lop);
+                statement.setString(4, namHoc);
+                statement.setString(5, hocKy);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            } else if (tuKhoa.isEmpty() && !lop.isEmpty() && !namHoc.isEmpty() && !hocKy.isEmpty()) {
+                String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     WHERE NguoiCham='CoVan'
+                     AND Lop.TenLop=? AND NamHoc=? AND HocKy=?
+                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     AND Lop.TrangThaiXoa=0
+                     """;
+
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, lop);
+                statement.setString(2, namHoc);
+                statement.setString(3, hocKy);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return dsDiemRenLuyen;
     }
 
     public static String timIDPhieuDRL(String maSinhVien, String hocKy, String namHoc) throws ClassNotFoundException {

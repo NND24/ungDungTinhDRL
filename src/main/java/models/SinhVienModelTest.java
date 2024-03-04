@@ -2,12 +2,13 @@ package models;
 
 import java.sql.Date;
 
-public class SinhVienModelTest {
+public class SinhVienModelTest extends TaiKhoanModel {
 
     private String maSinhVien, tenLop, hoTen, chucVu, email, matKhau, gioiTinh, soDienThoai, canCuoc, queQuan;
     private Date ngaySinh;
 
     public SinhVienModelTest() {
+        super();
     }
 
     public SinhVienModelTest(String maSinhVien) {
@@ -21,7 +22,8 @@ public class SinhVienModelTest {
         this.matKhau = matKhau;
     }
 
-    public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh) {
+    public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh, String idTaiKhoan) {
+        super(idTaiKhoan);
         this.maSinhVien = maSinhVien;
         this.tenLop = tenLop;
         this.hoTen = hoTen;
