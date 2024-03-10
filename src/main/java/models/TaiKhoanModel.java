@@ -2,27 +2,35 @@ package models;
 
 public class TaiKhoanModel {
 
-    private String idTaiKhoan, matKhau, maChucVu, tenChucVu;
+    private String maTaiKhoan, tenDangNhap, matKhau, maChucVu, tenChucVu;
 
     public TaiKhoanModel() {
     }
 
-    public TaiKhoanModel(String idTaiKhoan) {
-        this.idTaiKhoan = idTaiKhoan;
+    public TaiKhoanModel(String maTaiKhoan) {
+        this.maTaiKhoan = maTaiKhoan;
     }
 
-    public TaiKhoanModel(String idTaiKhoan, String matKhau, String maChucVu) {
-        this.idTaiKhoan = idTaiKhoan;
+    public TaiKhoanModel(String maTaiKhoan, String matKhau, String maChucVu) {
+        this.maTaiKhoan = maTaiKhoan;
         this.matKhau = matKhau;
         this.maChucVu = maChucVu;
     }
 
-    public String getIdTaiKhoan() {
-        return idTaiKhoan;
+    public String getMaTaiKhoan() {
+        return maTaiKhoan;
     }
 
-    public void setIdTaiKhoan(String idTaiKhoan) {
-        this.idTaiKhoan = idTaiKhoan;
+    public void setMaTaiKhoan(String maTaiKhoan) {
+        this.maTaiKhoan = maTaiKhoan;
+    }
+
+    public String getTenDangNhap() {
+        return tenDangNhap;
+    }
+
+    public void setTenDangNhap(String tenDangNhap) {
+        this.tenDangNhap = tenDangNhap;
     }
 
     public String getMatKhau() {

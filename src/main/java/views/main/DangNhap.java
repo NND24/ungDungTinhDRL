@@ -19,7 +19,7 @@ public class DangNhap extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblTaiKhoan = new javax.swing.JLabel();
-        txtTaiKhoan = new javax.swing.JTextField();
+        txtTenDangNhap = new javax.swing.JTextField();
         lblMatKhau = new javax.swing.JLabel();
         txtMatKhau = new javax.swing.JPasswordField();
         btnDangNhap = new javax.swing.JButton();
@@ -36,10 +36,10 @@ public class DangNhap extends javax.swing.JFrame {
 
         lblTaiKhoan.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         lblTaiKhoan.setForeground(new java.awt.Color(51, 51, 51));
-        lblTaiKhoan.setText("Tài khoản");
+        lblTaiKhoan.setText("Tên đăng nhập");
 
-        txtTaiKhoan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTaiKhoan.setText("admin001");
+        txtTenDangNhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtTenDangNhap.setText("n21dccn013");
 
         lblMatKhau.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         lblMatKhau.setText("Mật khẩu");
@@ -103,7 +103,7 @@ public class DangNhap extends javax.swing.JFrame {
                                 .addComponent(lblQuenMatKhau))
                             .addComponent(lblTaiKhoan)
                             .addComponent(lblMatKhau)
-                            .addComponent(txtTaiKhoan)
+                            .addComponent(txtTenDangNhap)
                             .addComponent(txtMatKhau)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -125,7 +125,7 @@ public class DangNhap extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addComponent(lblTaiKhoan)
                 .addGap(3, 3, 3)
-                .addComponent(txtTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(lblMatKhau)
                 .addGap(3, 3, 3)
@@ -161,41 +161,40 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         try {
-            String userId = txtTaiKhoan.getText().trim();
+            String tenDangNhap = txtTenDangNhap.getText().trim();
 
             char[] passwordChars = txtMatKhau.getPassword();
             String password = String.valueOf(passwordChars).trim();
-            if (userId.isEmpty() || password.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
-            } else if (TaiKhoanCtrl.kiemTraTaiKhoanCoTonTai(userId) == false) {
-                JOptionPane.showMessageDialog(this, "Tài khoản không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+            if (tenDangNhap.isEmpty() || password.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Tên đăng nhập hoặc mật khẩu không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+            } else if (TaiKhoanCtrl.kiemTraTaiKhoanCoTonTai(tenDangNhap) == false) {
+                JOptionPane.showMessageDialog(this, "Tên đăng nhập không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             } else {
                 try {
-                    String chucVu = TaiKhoanCtrl.dangNhap(userId, password);
+                    String chucVu = TaiKhoanCtrl.dangNhap(tenDangNhap, password);
 
                     if (chucVu.equalsIgnoreCase("SV")) {
-                        currentUserId = userId;
+                        currentUserId = tenDangNhap;
                         new SinhVien().setVisible(true);
                         this.dispose();
                     } else if (chucVu.equalsIgnoreCase("BCS")) {
-                        currentUserId = userId;
+                        currentUserId = tenDangNhap;
                         new BanCanSu().setVisible(true);
                         this.dispose();
                     } else if (chucVu.equalsIgnoreCase("CV")) {
-                        currentUserId = userId;
+                        currentUserId = tenDangNhap;
                         new CoVan().setVisible(true);
                         this.dispose();
                     } else if (chucVu.equalsIgnoreCase("QL")) {
-                        currentUserId = userId;
+                        currentUserId = tenDangNhap;
                         new QuanLy().setVisible(true);
                         this.dispose();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Tài khoản hoặc mật khẩu bị sai!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Tên đăng nhập hoặc mật khẩu bị sai!", "Thông báo", JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DangNhap.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DangNhap.class.getName()).log(Level.SEVERE, null, ex);
@@ -234,6 +233,6 @@ public class DangNhap extends javax.swing.JFrame {
     private javax.swing.JLabel lblQuenMatKhau;
     private javax.swing.JLabel lblTaiKhoan;
     private javax.swing.JPasswordField txtMatKhau;
-    private javax.swing.JTextField txtTaiKhoan;
+    private javax.swing.JTextField txtTenDangNhap;
     // End of variables declaration//GEN-END:variables
 }

@@ -2886,7 +2886,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                 String maSinhVien = maSinhVienTextField.getText();
                 String hocKy = hocKyTextField.getText();
                 String namHoc = namHocTextField.getText();
-                String idPhieuDRL = DiemRenLuyenCtrl.timIDPhieuDRL(maSinhVien, hocKy, namHoc);
+                String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(maSinhVien, hocKy, namHoc);
 
                 String nguoiCham = "BanCanSu";
                 String trangThaiCham = "Ban cán sự đã chấm";
@@ -2960,7 +2960,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                     DialogHelper.showError("Người chấm không được để trống");
                 } else if (xepLoai.isEmpty()) {
                     DialogHelper.showError("Xếp loại không được để trống");
-                } else if (bcs11 != 0 && (bcs11 < 0 || bcs11 > 3)) {
+                } else if (bcs11 != 0 && (bcs1 != 3)) {
                     DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs12a != 0 && (bcs12a != 10)) {
                     DialogHelper.showError("Mục 1.2a không hợp lệ. Vui lòng nhập lại!");
@@ -2972,7 +2972,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                     DialogHelper.showError("Mục 1.2d không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs12e != 0 && (bcs12e != 0)) {
                     DialogHelper.showError("Mục 1.2e không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs12g != 0 && (bcs12g != 100)) {
+                } else if (bcs12g != 0 && (bcs12g != -1)) {
                     DialogHelper.showError("Mục 1.2g không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs13 != 0 && (bcs13 < 0 || bcs13 > 4)) {
                     DialogHelper.showError("Mục 1.3 không hợp lệ. Vui lòng nhập lại!");
@@ -2986,15 +2986,15 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                     DialogHelper.showError("Mục 1.3d không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs14 != 0 && (bcs14 < 0 || bcs14 > 2)) {
                     DialogHelper.showError("Mục 1.4 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs15 != 0 && (bcs15 < 0 || bcs15 > 15)) {
+                } else if (bcs15 != 0 && (bcs15 != 1)) {
                     DialogHelper.showError("Mục 1.5 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs21 != 0 && (bcs21 < 0 || bcs21 > 15)) {
+                } else if (bcs21 != 0 && (bcs21 != 15)) {
                     DialogHelper.showError("Mục 2.1 không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs21a != 0 && (bcs21a != -15)) {
                     DialogHelper.showError("Mục 2.1a không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs21b != 0 && (bcs21b != -5)) {
                     DialogHelper.showError("Mục 2.1b không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs22a != 0 && (bcs22a < 0 || bcs22a > 5)) {
+                } else if (bcs22a != 0 && (bcs22a != 5)) {
                     DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs22b != 0 && (bcs22b != -1)) {
                     DialogHelper.showError("Mục 2.2b không hợp lệ. Vui lòng nhập lại!");
@@ -3030,28 +3030,27 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                     DialogHelper.showError("Mục 5.2 không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs53 != 0 && (bcs53 < 0 || bcs53 > 3)) {
                     DialogHelper.showError("Mục 5.3 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs1 != 0 && (bcs1 > 20)) {
+                } else if (bcs1 != 0 && (bcs1 < 0 || bcs1 > 20)) {
                     DialogHelper.showError("Tổng điểm tiêu chí 1 không chính xác");
-                } else if (bcs2 != 0 && (bcs2 > 25)) {
+                } else if (bcs2 != 0 && (bcs2 < 0 || bcs2 > 25)) {
                     DialogHelper.showError("Tổng điểm tiêu chí 2 không chính xác");
-                } else if (bcs3 != 0 && (bcs3 > 20)) {
+                } else if (bcs3 != 0 && (bcs3 < 0 || bcs3 > 20)) {
                     DialogHelper.showError("Tổng điểm tiêu chí 3 không chính xác");
-                } else if (bcs4 != 0 && (bcs4 > 25)) {
+                } else if (bcs4 != 0 && (bcs4 < 0 || bcs4 > 25)) {
                     DialogHelper.showError("Tổng điểm tiêu chí 4 không chính xác");
-                } else if (bcs5 != 0 && (bcs5 > 10)) {
+                } else if (bcs5 != 0 && (bcs5 < 0 || bcs5 > 10)) {
                     DialogHelper.showError("Tổng điểm tiêu chí 5 không chính xác");
-                } else if (tongDiem != 0 && (tongDiem > 100)) {
+                } else if (tongDiem != 0 && (tongDiem < 0 || tongDiem > 100)) {
                     DialogHelper.showError("Tổng điểm không chính xác");
                 } else if (bcs1 + bcs2 + bcs3 + bcs4 + bcs5 != tongDiem) {
                     DialogHelper.showError("Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!");
-                    JOptionPane.showMessageDialog(null, "Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!", "Thông báo", JOptionPane.ERROR_MESSAGE);
                 } else if (tongDiem == 0) {
                     DialogHelper.showError("Chưa nhập điểm. Vui lòng nhập lại!");
                 } else {
                     try {
-                        DiemRenLuyenModel drl = new DiemRenLuyenModel(idPhieuDRL, nguoiCham, xepLoai, trangThaiCham, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5);
+                        DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, trangThaiCham, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5);
                         DiemRenLuyenCtrl.chamDiemSV(drl);
-                        DiemRenLuyenCtrl.thayDoiTrangThaiCham(trangThaiCham, idPhieuDRL);
+                        DiemRenLuyenCtrl.thayDoiTrangThaiCham(trangThaiCham, maPhieuDRL);
                         DialogHelper.showMessage("Chấm điểm thành công!");
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(FormChamDiemSV.class.getName()).log(Level.SEVERE, null, ex);

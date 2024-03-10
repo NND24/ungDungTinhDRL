@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class VerifyCode extends javax.swing.JFrame {
 
-    public static String idTaiKhoan;
+    public static String maTaiKhoan;
 
     public VerifyCode() {
         initComponents();
@@ -121,8 +121,8 @@ public class VerifyCode extends javax.swing.JFrame {
                 new DangNhap().setVisible(false);
                 new DoiMatKhauMoi().setVisible(true);
 
-                String maTaiKhoan = QuenMatKhau.maTaiKhoan;
-                idTaiKhoan = TaiKhoanCtrl.layIdTaiKhoan(maTaiKhoan);
+                String tenDangNhap = QuenMatKhau.userName;
+                maTaiKhoan = TaiKhoanCtrl.layMaTaiKhoan(tenDangNhap);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(VerifyCode.class.getName()).log(Level.SEVERE, null, ex);
             }

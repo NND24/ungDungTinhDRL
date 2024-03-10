@@ -22,8 +22,8 @@ public class SinhVienModelTest extends TaiKhoanModel {
         this.matKhau = matKhau;
     }
 
-    public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh, String idTaiKhoan) {
-        super(idTaiKhoan);
+    public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh, String maTaiKhoan) {
+        super(maTaiKhoan);
         this.maSinhVien = maSinhVien;
         this.tenLop = tenLop;
         this.hoTen = hoTen;
@@ -48,11 +48,10 @@ public class SinhVienModelTest extends TaiKhoanModel {
         this.queQuan = queQuan;
     }
 
-    public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, String chucVu, String email, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan) {
+    public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, String email, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan) {
         this.maSinhVien = maSinhVien;
         this.tenLop = tenLop;
         this.hoTen = hoTen;
-        this.chucVu = chucVu;
         this.email = email;
         this.gioiTinh = gioiTinh;
         this.ngaySinh = ngaySinh;

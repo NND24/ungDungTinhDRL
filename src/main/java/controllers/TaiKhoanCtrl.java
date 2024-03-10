@@ -16,7 +16,7 @@ public class TaiKhoanCtrl {
         String sql = "INSERT INTO TaiKhoan (IdTaiKhoan, MatKhau, MaChucVu) VALUES (?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setString(1, tk.getIdTaiKhoan());
+            statement.setString(1, tk.getMaTaiKhoan());
             String hashedPassword = PasswordHashing.hashPassword(tk.getMatKhau());
             statement.setString(2, hashedPassword);
             statement.setString(3, tk.getMaChucVu());
@@ -27,31 +27,19 @@ public class TaiKhoanCtrl {
         }
     }
 
-    public static String layIdTaiKhoan(String maTaiKhoan) throws ClassNotFoundException {
+    public static String layMaTaiKhoan(String tenDangNhap) throws ClassNotFoundException {
         String idTaiKhoan = "";
         try (Connection connection = ConnectDB.getConnection()) {
             String sql = """
-                         SELECT MaTaiKhoan, IdTaiKhoan FROM
-                         (SELECT SinhVien.MaSinhVien AS MaTaiKhoan, SinhVien.IdTaiKhoan FROM TaiKhoan
-                         JOIN SinhVien ON TaiKhoan.IdTaiKhoan = SinhVien.IdTaiKhoan
-                         WHERE TaiKhoan.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                         UNION
-                         SELECT CoVan.MaCoVan AS MaTaiKhoan, CoVan.IdTaiKhoan FROM TaiKhoan
-                         JOIN CoVan ON TaiKhoan.IdTaiKhoan = CoVan.IdTaiKhoan
-                         WHERE TaiKhoan.TrangThaiXoa=0 AND CoVan.TrangThaiXoa=0
-                         UNION
-                         SELECT QuanLy.MaQuanLy AS MaTaiKhoan, QuanLy.IdTaiKhoan FROM TaiKhoan
-                         JOIN QuanLy ON TaiKhoan.IdTaiKhoan = QuanLy.IdTaiKhoan
-                         WHERE TaiKhoan.TrangThaiXoa=0 AND QuanLy.TrangThaiXoa=0) TK
-                         WHERE MaTaiKhoan=?
+                         SELECT MaTaiKhoan FROM TaiKhoan WHERE TenDangNhap=?
                          """;
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
-                statement.setString(1, maTaiKhoan);
+                statement.setString(1, tenDangNhap);
 
                 ResultSet resultSet = statement.executeQuery();
 
                 if (resultSet.next()) {
-                    idTaiKhoan = resultSet.getString("MaChucVu");
+                    idTaiKhoan = resultSet.getString("MaTaiKhoan");
                 }
             }
         } catch (SQLException ex) {
@@ -60,26 +48,14 @@ public class TaiKhoanCtrl {
         return idTaiKhoan;
     }
 
-    public static String dangNhap(String maTaiKhoan, String matKhau) throws ClassNotFoundException {
+    public static String dangNhap(String tenDangNhap, String matKhau) throws ClassNotFoundException {
         String maChucVu = "";
         try (Connection connection = ConnectDB.getConnection()) {
             String sql = """
-                         SELECT MatKhau, MaChucVu FROM
-                         (SELECT SinhVien.MaSinhVien AS MaTaiKhoan, MatKhau, MaChucVu FROM TaiKhoan
-                         JOIN SinhVien ON TaiKhoan.IdTaiKhoan = SinhVien.IdTaiKhoan
-                         WHERE TaiKhoan.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                         UNION
-                         SELECT CoVan.MaCoVan AS MaTaiKhoan, MatKhau, MaChucVu FROM TaiKhoan
-                         JOIN CoVan ON TaiKhoan.IdTaiKhoan = CoVan.IdTaiKhoan
-                         WHERE TaiKhoan.TrangThaiXoa=0 AND CoVan.TrangThaiXoa=0
-                         UNION
-                         SELECT QuanLy.MaQuanLy AS MaTaiKhoan, MatKhau, MaChucVu FROM TaiKhoan
-                         JOIN QuanLy ON TaiKhoan.IdTaiKhoan = QuanLy.IdTaiKhoan
-                         WHERE TaiKhoan.TrangThaiXoa=0 AND QuanLy.TrangThaiXoa=0) TK
-                         WHERE MaTaiKhoan=?
+                         SELECT MaChucVu, MatKhau FROM TaiKhoan WHERE TenDangNhap=?
                          """;
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
-                statement.setString(1, maTaiKhoan);
+                statement.setString(1, tenDangNhap);
 
                 ResultSet resultSet = statement.executeQuery();
 
@@ -96,26 +72,14 @@ public class TaiKhoanCtrl {
         return maChucVu;
     }
 
-    public static boolean kiemTraTaiKhoanCoTonTai(String maTaiKhoan) throws ClassNotFoundException {
+    public static boolean kiemTraTaiKhoanCoTonTai(String tenDangNhap) throws ClassNotFoundException {
         boolean flag = false;
         String sql = """
-                     SELECT * FROM
-                     (SELECT SinhVien.MaSinhVien AS MaTaiKhoan FROM TaiKhoan
-                     JOIN SinhVien ON TaiKhoan.IdTaiKhoan = SinhVien.IdTaiKhoan
-                     WHERE TaiKhoan.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     UNION
-                     SELECT CoVan.MaCoVan AS MaTaiKhoan FROM TaiKhoan
-                     JOIN CoVan ON TaiKhoan.IdTaiKhoan = CoVan.IdTaiKhoan
-                     WHERE TaiKhoan.TrangThaiXoa=0 AND CoVan.TrangThaiXoa=0
-                     UNION
-                     SELECT QuanLy.MaQuanLy AS MaTaiKhoan FROM TaiKhoan
-                     JOIN QuanLy ON TaiKhoan.IdTaiKhoan = QuanLy.IdTaiKhoan
-                     WHERE TaiKhoan.TrangThaiXoa=0 AND QuanLy.TrangThaiXoa=0) TK
-                     WHERE TK.MaTaiKhoan = ?
+                     SELECT MaTaiKhoan FROM TaiKhoan WHERE TenDangNhap=?
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setString(1, maTaiKhoan);
+            statement.setString(1, tenDangNhap);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     flag = true;
@@ -160,27 +124,24 @@ public class TaiKhoanCtrl {
         return flag;
     }
 
-    public static boolean kiemTraEmailCoDungTaiKhoan(String email, String maTaiKhoan) throws ClassNotFoundException {
+    public static boolean kiemTraEmailCoDungTaiKhoan(String email, String tenDangNhap) throws ClassNotFoundException {
         boolean flag = false;
         String sql = """
-                     SELECT Email, MaTaiKhoan FROM
-                     (SELECT SinhVien.Email AS Email, SinhVien.MaSinhVien AS MaTaiKhoan FROM TaiKhoan
-                     JOIN SinhVien ON TaiKhoan.IdTaiKhoan = SinhVien.IdTaiKhoan
-                     WHERE TaiKhoan.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
+                     SELECT Email, TenDangNhap FROM
+                     (SELECT SinhVien.Email AS Email, TenDangNhap FROM TaiKhoan
+                     JOIN SinhVien ON TaiKhoan.MaTaiKhoan = SinhVien.MaTaiKhoan
                      UNION
-                     SELECT CoVan.Email AS Email, CoVan.MaCoVan AS MaTaiKhoan FROM TaiKhoan
-                     JOIN CoVan ON TaiKhoan.IdTaiKhoan = CoVan.IdTaiKhoan
-                     WHERE TaiKhoan.TrangThaiXoa=0 AND CoVan.TrangThaiXoa=0
+                     SELECT CoVan.Email AS Email, TenDangNhap FROM TaiKhoan
+                     JOIN CoVan ON TaiKhoan.MaTaiKhoan = CoVan.MaTaiKhoan
                      UNION
-                     SELECT QuanLy.Email AS Email, QuanLy.MaQuanLy AS MaTaiKhoan FROM TaiKhoan
-                     JOIN QuanLy ON TaiKhoan.IdTaiKhoan = QuanLy.IdTaiKhoan
-                     WHERE TaiKhoan.TrangThaiXoa=0 AND QuanLy.TrangThaiXoa=0) TK
-                     WHERE Email=? AND MaTaiKhoan=?
+                     SELECT QuanLy.Email AS Email, TenDangNhap FROM TaiKhoan
+                     JOIN QuanLy ON TaiKhoan.MaTaiKhoan = QuanLy.MaTaiKhoan) TK
+                     WHERE Email=? AND TenDangNhap=?
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, email);
-            statement.setString(2, maTaiKhoan);
+            statement.setString(2, tenDangNhap);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     flag = true;
@@ -193,13 +154,13 @@ public class TaiKhoanCtrl {
         return flag;
     }
 
-    public static void doiMatKhau(String idTaiKhoan, String newPassword) throws ClassNotFoundException {
-        String sql = "UPDATE TaiKhoan SET MatKhau=? WHERE IdTaiKhoan=?";
+    public static void doiMatKhau(String maTaiKhoan, String newPassword) throws ClassNotFoundException {
+        String sql = "UPDATE TaiKhoan SET MatKhau=? WHERE MaTaiKhoan=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             String hashedPassword = PasswordHashing.hashPassword(newPassword);
             statement.setString(1, hashedPassword);
-            statement.setString(2, idTaiKhoan);
+            statement.setString(2, maTaiKhoan);
             statement.executeUpdate();
 
         } catch (SQLException ex) {
@@ -207,11 +168,10 @@ public class TaiKhoanCtrl {
         }
     }
 
-    public static void xoaTaiKhoan(String idTaiKhoan) {
-        String sql = "UPDATE TaiKhoan SET TrangThaiXoa='1' WHERE IdTaiKhoan=?";
+    public static void xoaTaiKhoan(String maTaiKhoan) {
+        String sql = "DELETE FROM TaiKhoan WHERE MaTaiKhoan=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, idTaiKhoan);
-
+            statement.setString(1, maTaiKhoan);
             statement.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(TaiKhoanCtrl.class.getName()).log(Level.SEVERE, null, ex);

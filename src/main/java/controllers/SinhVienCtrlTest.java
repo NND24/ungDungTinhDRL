@@ -15,7 +15,7 @@ import models.SinhVienModelTest;
 public class SinhVienCtrlTest {
 
     public static void themSinhVien(SinhVienModelTest sv) throws ClassNotFoundException {
-        String sql = "INSERT INTO SinhVien (MaSinhVien, TenLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO SinhVien (MaSinhVien, MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, sv.getMaSinhVien());
             statement.setString(2, sv.getTenLop());
@@ -40,10 +40,8 @@ public class SinhVienCtrlTest {
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
             String sql = """
-                         SELECT DISTINCT MaSinhVien, TenLop, HoTen, MaChucVu, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc,QueQuan
-                         FROM SinhVien, TaiKhoan WHERE SinhVien.IdTaiKhoan=TaiKhoan.IdTaiKhoan
-                         AND SinhVien.TrangThaiXoa=0 AND TaiKhoan.TrangThaiXoa=0
-                         """;
+                     SELECT * FROM SinhVien, Lop WHERE SinhVien.MaLop=Lop.MaLop
+                     """;
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
@@ -51,7 +49,6 @@ public class SinhVienCtrlTest {
                         resultSet.getString("MaSinhVien"),
                         resultSet.getString("TenLop"),
                         resultSet.getString("HoTen"),
-                        resultSet.getString("MaChucVu"),
                         resultSet.getString("Email"),
                         resultSet.getString("GioiTinh"),
                         resultSet.getDate("NgaySinh"),
@@ -69,9 +66,7 @@ public class SinhVienCtrlTest {
 
     public static SinhVienModelTest timSinhVienTheoMaSV(String maSV) throws ClassNotFoundException {
         String sql = """
-                     SELECT * FROM SinhVien, TaiKhoan
-                     WHERE MaSinhVien=? AND SinhVien.IdTaiKhoan=TaiKhoan.IdTaiKhoan
-                     AND SinhVien.TrangThaiXoa=0 AND TaiKhoan.TrangThaiXoa=0
+                     SELECT * FROM SinhVien, Lop WHERE SinhVien.MaLop=Lop.MaLop AND MaSinhVien=?
                      """;
         SinhVienModelTest sinhVien = null;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -84,7 +79,6 @@ public class SinhVienCtrlTest {
                         resultSet.getString("MaSinhVien"),
                         resultSet.getString("TenLop"),
                         resultSet.getString("HoTen"),
-                        resultSet.getString("MaChucVu"),
                         resultSet.getString("Email"),
                         resultSet.getString("GioiTinh"),
                         resultSet.getDate("NgaySinh"),

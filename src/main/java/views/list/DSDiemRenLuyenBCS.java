@@ -595,8 +595,8 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                             || coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
                         DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
                     } else {
-                        String idPhieuDRL = DiemRenLuyenCtrl.timIDPhieuDRL(sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
-                        DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên kết thúc chấm", idPhieuDRL);
+                        String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
+                        DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên kết thúc chấm", maPhieuDRL);
                         hocKy = sv.getHocKy();
                         namHoc = sv.getNamHoc();
                     }
@@ -630,8 +630,8 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                             || coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
                         DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
                     } else {
-                        String idPhieuDRL = DiemRenLuyenCtrl.timIDPhieuDRL(sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
-                        DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên đã chấm", idPhieuDRL);
+                        String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
+                        DiemRenLuyenCtrl.thayDoiTrangThaiCham("Sinh viên đã chấm", maPhieuDRL);
                         hocKy = sv.getHocKy();
                         namHoc = sv.getNamHoc();
                     }

@@ -4,6 +4,7 @@ import controllers.TaiKhoanCtrl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import utils.DialogHelper;
 
 public class DoiMatKhauMoi extends javax.swing.JFrame {
 
@@ -157,7 +158,7 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
         // TODO add your handling code here:
-        String userId = VerifyCode.idTaiKhoan;
+        String accountId = VerifyCode.maTaiKhoan;
 
         char[] newPasswordChars = txtMatKhauMoi.getPassword();
         String newPassword = String.valueOf(newPasswordChars);
@@ -166,19 +167,19 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         String retypePassword = String.valueOf(retypePasswordChars);
 
         if (newPassword.isEmpty() || retypePassword.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Mật khẩu và mật khẩu nhập lại không được để trống", "Thông báo", JOptionPane.ERROR_MESSAGE);
+            DialogHelper.showError("Mật khẩu và mật khẩu nhập lại không được để trống");
         } else {
             if (retypePassword.equals(newPassword)) {
                 try {
-                    TaiKhoanCtrl.doiMatKhau(userId, newPassword);
-                    JOptionPane.showMessageDialog(this, "Đổi mật khẩu thành công, đăng nhập lại vào hệ thống!");
+                    TaiKhoanCtrl.doiMatKhau(accountId, newPassword);
+                    DialogHelper.showMessage("Đổi mật khẩu thành công, đăng nhập lại vào hệ thống!");
                     this.setVisible(false);
                     new DangNhap().setVisible(true);
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DoiMatKhauMoi.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Xác nhận mật khẩu không trùng với mật khẩu mới. Vui lòng nhập lại!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                DialogHelper.showError("Xác nhận mật khẩu không trùng với mật khẩu mới. Vui lòng nhập lại!");
             }
         }
 

@@ -16,17 +16,15 @@ public class PhanCongCtrl {
 
     public static List<String> timDSLop(String maCoVan) throws ClassNotFoundException {
         List<String> dsDiemRenLuyen = new ArrayList<>();
-        String sql = "SELECT TenLop, TrangThaiXoa FROM PhanCong WHERE maCoVan = ?";
+        String sql = "SELECT TenLop FROM PhanCong, Lop WHERE PhanCong.MaLop=Lop.MaLop AND maCoVan = ?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, maCoVan);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                if (resultSet.getInt("TrangThaiXoa") == 0) {
-                    String drl = resultSet.getString("TenLop");
-                    dsDiemRenLuyen.add(drl);
-                }
+                String drl = resultSet.getString("TenLop");
+                dsDiemRenLuyen.add(drl);
             }
         } catch (SQLException ex) {
             Logger.getLogger(SinhVienCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -37,10 +35,9 @@ public class PhanCongCtrl {
     public static List<PhanCongModel> timTatCaPhanCong() throws ClassNotFoundException {
         List<PhanCongModel> dsPhanCong = new ArrayList<>();
         String sql = """
-                     SELECT DISTINCT PhanCong.MaCoVan, HoTen, TenLop, NamHoc FROM PhanCong, CoVan
-                     WHERE PhanCong.MaCoVan=CoVan.MaCoVan
-                     AND PhanCong.TrangThaiXoa=0
-                     AND CoVan.TrangThaiXoa=0
+                     SELECT DISTINCT PhanCong.MaCoVan, HoTen, TenLop, NamHoc FROM PhanCong, CoVan, Lop, NamHoc
+                     WHERE PhanCong.MaCoVan=CoVan.MaCoVan AND PhanCong.MaLop=Lop.MaLop
+                     AND PhanCong.MaNamHoc=NamHoc.MaNamHoc AND PhanCong.TrangThaiHienThi=1
                      """;
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 

@@ -19,8 +19,14 @@ public class DiemRenLuyenCtrl {
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
-            String sql = "SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa \n"
-                    + "FROM DiemRenLuyen, PhieuDRL, SinhVien WHERE PhieuDRL.MaSinhVien=SinhVien.MaSinhVien AND DiemRenLuyen.IdPhieuDRL=PhieuDRL.IdPhieuDRL";
+            String sql = """
+                         SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai,
+                         TrangThaiCham, d1, d2, d3, d4, d5
+                         FROM DiemRenLuyen, PhieuDRL, SinhVien, HocKy, NamHoc
+                         WHERE PhieuDRL.MaSinhVien=SinhVien.MaSinhVien AND DiemRenLuyen.MaPhieuDRL=PhieuDRL.MaPhieuDRL
+                         AND PhieuDRL.MaHocKy=HocKy.MaHocKy AND PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                         AND GETDATE() >= NgayBatDau
+                         """;
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
@@ -50,32 +56,38 @@ public class DiemRenLuyenCtrl {
 
     public static List<DiemRenLuyenModel> timTatCaDiemCuaSV(String maSinhVien) throws ClassNotFoundException {
         List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
-        String sql = "SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa \n"
-                + "FROM DiemRenLuyen, SinhVien, PhieuDRL\n"
-                + "WHERE PhieuDRL.MaSinhVien=SinhVien.MaSinhVien AND DiemRenLuyen.IdPhieuDRL=PhieuDRL.IdPhieuDRL AND PhieuDRL.MaSinhVien=? AND NguoiCham='CoVan'";
+        String sql = """
+                     SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai,
+                     TrangThaiCham, d1, d2, d3, d4, d5, NgayBatDau, NgayKetThuc
+                     FROM DiemRenLuyen
+                     INNER JOIN PhieuDRL ON DiemRenLuyen.MaPhieuDRL=PhieuDRL.MaPhieuDRL
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                     INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     WHERE PhieuDRL.MaSinhVien=?
+                     AND NguoiCham='CoVan' AND GETDATE() >= NgayBatDau
+                     """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, maSinhVien);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                if (resultSet.getInt("TrangThaiXoa") == 0) {
-                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
-                            resultSet.getString("HocKy"),
-                            resultSet.getString("NamHoc"),
-                            resultSet.getString("XepLoai"),
-                            resultSet.getString("TrangThaiCham"),
-                            resultSet.getFloat("TongDiem"),
-                            resultSet.getFloat("d1"),
-                            resultSet.getInt("d2"),
-                            resultSet.getInt("d3"),
-                            resultSet.getInt("d4"),
-                            resultSet.getInt("d5"),
-                            resultSet.getString("MaSinhVien"),
-                            resultSet.getString("HoTen")
-                    );
-                    dsDiemRenLuyen.add(drl);
-                }
+                DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                        resultSet.getString("HocKy"),
+                        resultSet.getString("NamHoc"),
+                        resultSet.getString("XepLoai"),
+                        resultSet.getString("TrangThaiCham"),
+                        resultSet.getFloat("TongDiem"),
+                        resultSet.getFloat("d1"),
+                        resultSet.getInt("d2"),
+                        resultSet.getInt("d3"),
+                        resultSet.getInt("d4"),
+                        resultSet.getInt("d5"),
+                        resultSet.getString("MaSinhVien"),
+                        resultSet.getString("HoTen")
+                );
+                dsDiemRenLuyen.add(drl);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,13 +98,16 @@ public class DiemRenLuyenCtrl {
     public static List<DiemRenLuyenModel> timDiemCuaLop(String tuKhoa, String tenLop, String hocKy, String namHoc) throws ClassNotFoundException {
         List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
         String sql = """
-                     SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                     INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                     INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
-                     AND (SinhVien.TenLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan')
+                     AND (TenLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan')
+                     AND GETDATE() >= NgayBatDau
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -129,11 +144,15 @@ public class DiemRenLuyenCtrl {
     public static DiemRenLuyenModel timDRLDayDu(String maSinhVien, String hocKy, String namHoc, String nguoiCham) throws ClassNotFoundException {
         DiemRenLuyenModel drl = null;
         String sql = """
-                     SELECT DISTINCT *, PhieuDRL.MaSinhVien AS MaSV, DiemRenLuyen.TrangThaiXoa AS TrangThaiXoaDRL, SinhVien.TrangThaiXoa AS TrangThaiXoaSV
+                     SELECT DISTINCT *
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien = SinhVien.MaSinhVien
+                     INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                     INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     INNER JOIN Lop ON SinhVien.MaLop=Lop.MaLop
                      WHERE PhieuDRL.MaSinhVien=? AND HocKy=? AND NamHoc=? AND NguoiCham=?
+                     AND GETDATE() >= NgayBatDau
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -144,60 +163,58 @@ public class DiemRenLuyenCtrl {
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    if (resultSet.getInt("TrangThaiXoaDRL") == 0 && resultSet.getInt("TrangThaiXoaSV") == 0) {
-                        drl = new DiemRenLuyenModel(
-                                resultSet.getString("HocKy"),
-                                resultSet.getString("NamHoc"),
-                                resultSet.getString("NguoiCham"),
-                                resultSet.getString("XepLoai"),
-                                resultSet.getString("TrangThaiCham"),
-                                resultSet.getFloat("TongDiem"),
-                                resultSet.getInt("d11"),
-                                resultSet.getInt("d12a"),
-                                resultSet.getInt("d12b"),
-                                resultSet.getInt("d12c"),
-                                resultSet.getInt("d12d"),
-                                resultSet.getInt("d12e"),
-                                resultSet.getInt("d12g"),
-                                resultSet.getInt("d13"),
-                                resultSet.getInt("d13a"),
-                                resultSet.getInt("d13b"),
-                                resultSet.getInt("d13c"),
-                                resultSet.getInt("d13d"),
-                                resultSet.getFloat("d14"),
-                                resultSet.getInt("d15"),
-                                resultSet.getFloat("d1"),
-                                resultSet.getInt("d21"),
-                                resultSet.getInt("d21a"),
-                                resultSet.getInt("d21b"),
-                                resultSet.getInt("d22a"),
-                                resultSet.getInt("d22b"),
-                                resultSet.getInt("d23a"),
-                                resultSet.getInt("d23b"),
-                                resultSet.getInt("d2"),
-                                resultSet.getInt("d31"),
-                                resultSet.getInt("d32"),
-                                resultSet.getInt("d33"),
-                                resultSet.getInt("d34"),
-                                resultSet.getInt("d35"),
-                                resultSet.getInt("d3"),
-                                resultSet.getInt("d41"),
-                                resultSet.getInt("d42"),
-                                resultSet.getInt("d43"),
-                                resultSet.getInt("d44"),
-                                resultSet.getInt("d45"),
-                                resultSet.getInt("d46"),
-                                resultSet.getInt("d4"),
-                                resultSet.getInt("d51"),
-                                resultSet.getInt("d52"),
-                                resultSet.getInt("d53"),
-                                resultSet.getInt("d5"),
-                                resultSet.getString("MaSV"),
-                                resultSet.getString("TenLop"),
-                                resultSet.getString("HoTen"),
-                                resultSet.getDate("NgaySinh")
-                        );
-                    }
+                    drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("NguoiCham"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getInt("d11"),
+                            resultSet.getInt("d12a"),
+                            resultSet.getInt("d12b"),
+                            resultSet.getInt("d12c"),
+                            resultSet.getInt("d12d"),
+                            resultSet.getInt("d12e"),
+                            resultSet.getInt("d12g"),
+                            resultSet.getInt("d13"),
+                            resultSet.getInt("d13a"),
+                            resultSet.getInt("d13b"),
+                            resultSet.getInt("d13c"),
+                            resultSet.getInt("d13d"),
+                            resultSet.getFloat("d14"),
+                            resultSet.getInt("d15"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d21"),
+                            resultSet.getInt("d21a"),
+                            resultSet.getInt("d21b"),
+                            resultSet.getInt("d22a"),
+                            resultSet.getInt("d22b"),
+                            resultSet.getInt("d23a"),
+                            resultSet.getInt("d23b"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d31"),
+                            resultSet.getInt("d32"),
+                            resultSet.getInt("d33"),
+                            resultSet.getInt("d34"),
+                            resultSet.getInt("d35"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d41"),
+                            resultSet.getInt("d42"),
+                            resultSet.getInt("d43"),
+                            resultSet.getInt("d44"),
+                            resultSet.getInt("d45"),
+                            resultSet.getInt("d46"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d51"),
+                            resultSet.getInt("d52"),
+                            resultSet.getInt("d53"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("TenLop"),
+                            resultSet.getString("HoTen"),
+                            resultSet.getDate("NgaySinh")
+                    );
                 }
             }
         } catch (SQLException ex) {
@@ -217,14 +234,15 @@ public class DiemRenLuyenCtrl {
             if (!tuKhoa.isEmpty() && lop.isEmpty() && namHoc.isEmpty() && hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -253,15 +271,15 @@ public class DiemRenLuyenCtrl {
             } else if (!tuKhoa.isEmpty() && !lop.isEmpty() && namHoc.isEmpty() && hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
-                     AND Lop.TenLop=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND Lop.TenLop=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -291,15 +309,15 @@ public class DiemRenLuyenCtrl {
             } else if (tuKhoa.isEmpty() && !lop.isEmpty() && namHoc.isEmpty() && hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE NguoiCham='CoVan'
-                     AND Lop.TenLop=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND Lop.TenLop=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -327,15 +345,15 @@ public class DiemRenLuyenCtrl {
             } else if (!tuKhoa.isEmpty() && lop.isEmpty() && !namHoc.isEmpty() && hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
-                     AND NamHoc=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND NamHoc=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -365,15 +383,15 @@ public class DiemRenLuyenCtrl {
             } else if (tuKhoa.isEmpty() && lop.isEmpty() && !namHoc.isEmpty() && hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE NguoiCham='CoVan'
-                     AND NamHoc=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND NamHoc=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -401,15 +419,15 @@ public class DiemRenLuyenCtrl {
             } else if (!tuKhoa.isEmpty() && lop.isEmpty() && namHoc.isEmpty() && !hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
-                     AND HocKy=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND HocKy=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -439,15 +457,15 @@ public class DiemRenLuyenCtrl {
             } else if (tuKhoa.isEmpty() && lop.isEmpty() && namHoc.isEmpty() && !hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE NguoiCham='CoVan'
-                     AND HocKy=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND HocKy=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -475,15 +493,15 @@ public class DiemRenLuyenCtrl {
             } else if (!tuKhoa.isEmpty() && !lop.isEmpty() && !namHoc.isEmpty() && hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
-                     AND Lop.TenLop=? AND NamHoc=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND Lop.TenLop=? AND NamHoc=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -514,15 +532,15 @@ public class DiemRenLuyenCtrl {
             } else if (tuKhoa.isEmpty() && !lop.isEmpty() && !namHoc.isEmpty() && hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE NguoiCham='CoVan'
-                     AND Lop.TenLop=? AND NamHoc=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND Lop.TenLop=? AND NamHoc=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -551,15 +569,15 @@ public class DiemRenLuyenCtrl {
             } else if (!tuKhoa.isEmpty() && !lop.isEmpty() && namHoc.isEmpty() && !hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
-                     AND Lop.TenLop=? AND HocKy=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND Lop.TenLop=? AND HocKy=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -590,15 +608,15 @@ public class DiemRenLuyenCtrl {
             } else if (tuKhoa.isEmpty() && !lop.isEmpty() && namHoc.isEmpty() && !hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE NguoiCham='CoVan'
-                     AND Lop.TenLop=? AND HocKy=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND Lop.TenLop=? AND HocKy=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -627,15 +645,15 @@ public class DiemRenLuyenCtrl {
             } else if (!tuKhoa.isEmpty() && lop.isEmpty() && !namHoc.isEmpty() && !hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
-                     AND NamHoc=? AND HocKy=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND NamHoc=? AND HocKy=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -666,15 +684,15 @@ public class DiemRenLuyenCtrl {
             } else if (tuKhoa.isEmpty() && lop.isEmpty() && !namHoc.isEmpty() && !hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE NguoiCham='CoVan'
-                     AND NamHoc=? AND HocKy=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND NamHoc=? AND HocKy=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -703,15 +721,15 @@ public class DiemRenLuyenCtrl {
             } else if (!tuKhoa.isEmpty() && !lop.isEmpty() && !namHoc.isEmpty() && !hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
-                     AND Lop.TenLop=? AND NamHoc=? AND HocKy=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND Lop.TenLop=? AND NamHoc=? AND HocKy=? AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -743,15 +761,16 @@ public class DiemRenLuyenCtrl {
             } else if (tuKhoa.isEmpty() && !lop.isEmpty() && !namHoc.isEmpty() && !hocKy.isEmpty()) {
                 String sql = """
                      SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, DiemRenLuyen.TrangThaiXoa
+                     TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
                      FROM DiemRenLuyen
-                     INNER JOIN PhieuDRL ON PhieuDRL.IdPhieuDRL = DiemRenLuyen.IdPhieuDRL
+                     INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-                     INNER JOIN Lop ON Lop.TenLop = SinhVien.TenLop
+                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE NguoiCham='CoVan'
                      AND Lop.TenLop=? AND NamHoc=? AND HocKy=?
-                     AND DiemRenLuyen.TrangThaiXoa=0 AND SinhVien.TrangThaiXoa=0
-                     AND Lop.TrangThaiXoa=0
+                     AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
 
                 statement = connection.prepareStatement(sql);
@@ -802,9 +821,13 @@ public class DiemRenLuyenCtrl {
         return dsDiemRenLuyen;
     }
 
-    public static String timIDPhieuDRL(String maSinhVien, String hocKy, String namHoc) throws ClassNotFoundException {
+    public static String timMaPhieuDRL(String maSinhVien, String hocKy, String namHoc) throws ClassNotFoundException {
         String idPhieuDRL = "";
-        String sql = "SELECT DISTINCT DiemRenLuyen.IdPhieuDRL, TrangThaiXoa  FROM DiemRenLuyen, PhieuDRL WHERE DiemRenLuyen.IdPhieuDRL=PhieuDRL.IdPhieuDRL AND MaSinhVien = ? AND NamHoc = ? AND HocKy = ?";
+        String sql = """
+                     SELECT DISTINCT DiemRenLuyen.MaPhieuDRL FROM DiemRenLuyen, PhieuDRL, NamHoc,HocKy
+                     WHERE DiemRenLuyen.MaPhieuDRL=PhieuDRL.MaPhieuDRL AND PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     AND PhieuDRL.MaHocKy=HocKy.MaHocKy AND MaSinhVien = ? AND NamHoc = ? AND HocKy = ?
+                     """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, maSinhVien);
@@ -813,9 +836,7 @@ public class DiemRenLuyenCtrl {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                if (resultSet.getInt("TrangThaiXoa") == 0) {
-                    idPhieuDRL = resultSet.getString("IdPhieuDRL");
-                }
+                idPhieuDRL = resultSet.getString("MaPhieuDRL");
             }
         } catch (SQLException ex) {
             Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -824,7 +845,7 @@ public class DiemRenLuyenCtrl {
     }
 
     public static void chamDiemSV(DiemRenLuyenModel drl) throws ClassNotFoundException {
-        String sql = "UPDATE DiemRenLuyen SET TongDiem=?, XepLoai=?, TrangThaiCham=?, d11=?, d12a=?, d12b=?, d12c=?, d12d=?, d12e=?, d12g=?, d13=?, d13a=?, d13b=?, d13c=?, d13d=?, d14=?, d15=?, d1=?, d21=?, d21a=?, d21b=?, d22a=?, d22b=?, d23a=?, d23b=?, d2=?, d31=?, d32=?, d33=?, d34=?, d35=?, d3=?, d41=?, d42=?, d43=?, d44=?, d45=?, d46=?, d4=?, d51=?, d52=?, d53=?, d5=? WHERE IdPhieuDRL=? AND NguoiCham=?";
+        String sql = "UPDATE DiemRenLuyen SET TongDiem=?, XepLoai=?, TrangThaiCham=?, d11=?, d12a=?, d12b=?, d12c=?, d12d=?, d12e=?, d12g=?, d13=?, d13a=?, d13b=?, d13c=?, d13d=?, d14=?, d15=?, d1=?, d21=?, d21a=?, d21b=?, d22a=?, d22b=?, d23a=?, d23b=?, d2=?, d31=?, d32=?, d33=?, d34=?, d35=?, d3=?, d41=?, d42=?, d43=?, d44=?, d45=?, d46=?, d4=?, d51=?, d52=?, d53=?, d5=? WHERE MaPhieuDRL=? AND NguoiCham=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setFloat(1, drl.getTongDiem());
             statement.setString(2, drl.getXepLoai());
@@ -869,7 +890,7 @@ public class DiemRenLuyenCtrl {
             statement.setInt(41, drl.getD52());
             statement.setInt(42, drl.getD53());
             statement.setInt(43, drl.getD5());
-            statement.setString(44, drl.getIdPhieuDRL());
+            statement.setString(44, drl.getMaPhieuDRL());
             statement.setString(45, drl.getNguoiCham());
 
             statement.executeUpdate();
@@ -879,11 +900,11 @@ public class DiemRenLuyenCtrl {
         }
     }
 
-    public static void thayDoiTrangThaiCham(String trangThaiCham, String idPhieuDRL) throws ClassNotFoundException {
-        String sql = "UPDATE DiemRenLuyen SET TrangThaiCham=? WHERE IdPhieuDRL=?";
+    public static void thayDoiTrangThaiCham(String trangThaiCham, String maPhieuDRL) throws ClassNotFoundException {
+        String sql = "UPDATE DiemRenLuyen SET TrangThaiCham=? WHERE MaPhieuDRL=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, trangThaiCham);
-            statement.setString(2, idPhieuDRL);
+            statement.setString(2, maPhieuDRL);
             statement.executeUpdate();
 
         } catch (SQLException ex) {

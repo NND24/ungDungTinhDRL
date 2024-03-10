@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class QuenMatKhau extends javax.swing.JFrame {
 
-    public static String maTaiKhoan;
+    public static String userName;
     public static String verifyCode;
 
     public QuenMatKhau() {
@@ -28,7 +28,7 @@ public class QuenMatKhau extends javax.swing.JFrame {
         btnGui = new javax.swing.JButton();
         btnQuayLai = new javax.swing.JButton();
         lblTaiKhoan = new javax.swing.JLabel();
-        txtTaiKhoan = new javax.swing.JTextField();
+        txtTenDangNhap = new javax.swing.JTextField();
         lblQuenMatKhau = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
 
@@ -70,9 +70,9 @@ public class QuenMatKhau extends javax.swing.JFrame {
 
         lblTaiKhoan.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         lblTaiKhoan.setForeground(new java.awt.Color(51, 51, 51));
-        lblTaiKhoan.setText("Tài khoản");
+        lblTaiKhoan.setText("Tên đăng nhập");
 
-        txtTaiKhoan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtTenDangNhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblQuenMatKhau.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblQuenMatKhau.setForeground(new java.awt.Color(51, 51, 51));
@@ -89,7 +89,7 @@ public class QuenMatKhau extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTaiKhoan)
                             .addComponent(lblEmail)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -118,7 +118,7 @@ public class QuenMatKhau extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addComponent(lblTaiKhoan)
                 .addGap(3, 3, 3)
-                .addComponent(txtTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(lblEmail)
                 .addGap(3, 3, 3)
@@ -154,20 +154,20 @@ public class QuenMatKhau extends javax.swing.JFrame {
         try {
             verifyCode = GenerateVerifyCode.generateRandomCode();
             String email = txtEmail.getText();
-            String userId = txtTaiKhoan.getText();
+            String tenDangNhap = txtTenDangNhap.getText();
 
-            if (email.isEmpty() || userId.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Tài khoản hoặc email không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+            if (email.isEmpty() || tenDangNhap.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Tên đăng nhập hoặc email không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             } else if (TaiKhoanCtrl.kiemTraEmailCoTonTai(email) == false) {
                 JOptionPane.showMessageDialog(null, "Email không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
-            } else if (TaiKhoanCtrl.kiemTraTaiKhoanCoTonTai(userId) == false) {
-                JOptionPane.showMessageDialog(null, "Tài khoản không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
-            } else if (TaiKhoanCtrl.kiemTraEmailCoDungTaiKhoan(email, userId) == false) {
+            } else if (TaiKhoanCtrl.kiemTraTaiKhoanCoTonTai(tenDangNhap) == false) {
+                JOptionPane.showMessageDialog(null, "Tên đăng nhập không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+            } else if (TaiKhoanCtrl.kiemTraEmailCoDungTaiKhoan(email, tenDangNhap) == false) {
                 JOptionPane.showMessageDialog(null, "Email không đúng với tài khoản!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             } else {
                 try {
                     SendEmail.sendEmail(verifyCode, email);
-                    maTaiKhoan = userId;
+                    userName = tenDangNhap;
 
                     new VerifyCode().setVisible(true);
                     this.setVisible(false);
@@ -202,6 +202,6 @@ public class QuenMatKhau extends javax.swing.JFrame {
     private javax.swing.JLabel lblQuenMatKhau;
     private javax.swing.JLabel lblTaiKhoan;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtTaiKhoan;
+    private javax.swing.JTextField txtTenDangNhap;
     // End of variables declaration//GEN-END:variables
 }
