@@ -494,7 +494,6 @@ public class DSQuanLy extends javax.swing.JPanel {
         } catch (ParseException | ClassNotFoundException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_themButtonActionPerformed
 
     private void dsQuanLyTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dsQuanLyTableMouseClicked

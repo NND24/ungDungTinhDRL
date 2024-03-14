@@ -9,12 +9,12 @@ import javax.swing.table.DefaultTableModel;
 import models.KhoaModelTest;
 import utils.DialogHelper;
 
-public class DSKhoa extends javax.swing.JFrame {
+public class DSKhoaTest extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
     List<KhoaModelTest> dsKhoa;
 
-    public DSKhoa() {
+    public DSKhoaTest() {
         initComponents();
         tableModel = (DefaultTableModel) tblDSKhoa.getModel();
 
@@ -307,7 +307,7 @@ public class DSKhoa extends javax.swing.JFrame {
             hienThiDSKhoa();
             lamMoi();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSKhoa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSKhoaTest.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnThemActionPerformed
@@ -329,7 +329,7 @@ public class DSKhoa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(DSKhoa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSKhoaTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 
@@ -344,7 +344,7 @@ public class DSKhoa extends javax.swing.JFrame {
                 KhoaCtrlTest.capNhatKhoa(khoa);
                 hienThiDSKhoa();
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(DSKhoa.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSKhoaTest.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_btnSuaActionPerformed
@@ -373,7 +373,7 @@ public class DSKhoa extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DSKhoa().setVisible(true);
+                new DSKhoaTest().setVisible(true);
             }
         });
     }

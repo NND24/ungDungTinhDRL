@@ -167,7 +167,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtNgaySinh" min="-2" pref="320" max="-2" attributes="0"/>
-                                      <Component id="CCCDTextField1" min="-2" pref="320" max="-2" attributes="0"/>
+                                      <Component id="txtChuyenMon" min="-2" pref="320" max="-2" attributes="0"/>
                                       <Component id="txtCanCuoc" min="-2" pref="320" max="-2" attributes="0"/>
                                       <Component id="cmbKhoa" min="-2" pref="320" max="-2" attributes="0"/>
                                   </Group>
@@ -222,7 +222,7 @@
                       <Component id="jLabel23" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="cmbHocHam" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel26" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="CCCDTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtChuyenMon" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="jPanel8" min="-2" pref="40" max="-2" attributes="0"/>
@@ -363,6 +363,9 @@
                   <Dimension value="[120, 25]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemCoVanActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -707,7 +710,7 @@
             <Property name="text" type="java.lang.String" value="Chuy&#xea;n m&#xf4;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CCCDTextField1">
+        <Component class="javax.swing.JTextField" name="txtChuyenMon">
         </Component>
       </SubComponents>
     </Container>
