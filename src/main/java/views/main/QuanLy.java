@@ -107,7 +107,7 @@ public class QuanLy extends javax.swing.JFrame {
         dsSinhVienPanel = new javax.swing.JPanel();
         dSSinhVienTest1 = new views.list.DSSinhVienTest();
         dsGiangVienPanel = new javax.swing.JPanel();
-        dSGiangVien1 = new views.list.DSGiangVien();
+        dSGiangVien1 = new views.list.DSCoVanTest();
         dsQuanLyPanel = new javax.swing.JPanel();
         dSQuanLy1 = new views.list.DSQuanLy();
         dsDiemToanTruongPanel = new javax.swing.JTabbedPane();
@@ -376,7 +376,7 @@ public class QuanLy extends javax.swing.JFrame {
     private javax.swing.JTabbedPane chamDiemPanel;
     private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenQuanLy1;
     private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong1;
-    private views.list.DSGiangVien dSGiangVien1;
+    private views.list.DSCoVanTest dSGiangVien1;
     private views.list.DSQuanLy dSQuanLy1;
     private views.list.DSSinhVienTest dSSinhVienTest1;
     private javax.swing.JTabbedPane dsDiemToanTruongPanel;

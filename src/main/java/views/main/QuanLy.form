@@ -150,7 +150,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="views.list.DSGiangVien" name="dSGiangVien1">
+            <Component class="views.list.DSCoVanTest" name="dSGiangVien1">
             </Component>
           </SubComponents>
         </Container>

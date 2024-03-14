@@ -1,10 +1,52 @@
 package views.list;
 
+import controllers.KhoaCtrlTest;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import models.KhoaModelTest;
+import utils.DialogHelper;
+
 public class DSKhoa extends javax.swing.JFrame {
+
+    DefaultTableModel tableModel;
+    List<KhoaModelTest> dsKhoa;
 
     public DSKhoa() {
         initComponents();
+        tableModel = (DefaultTableModel) tblDSKhoa.getModel();
 
+        hienThiDSKhoa();
+    }
+
+    private void hienThiDSKhoa() {
+        try {
+            dsKhoa = KhoaCtrlTest.timTatCaKhoa();
+
+            tableModel.setRowCount(0);
+            dsKhoa.forEach(khoa -> {
+                String trangThai = "";
+                if (khoa.getTrangThaiHienThi() == 0) {
+                    trangThai = "Ẩn";
+                } else {
+                    trangThai = "Hiển thị";
+                }
+
+                tableModel.addRow(new Object[]{
+                    khoa.getMaKhoa(), khoa.getTenKhoa(),
+                    trangThai});
+            });
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void lamMoi() {
+        txtMaKhoa.setText("");
+        txtTenKhoa.setText("");
+        cmbTrangThai.setSelectedIndex(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -17,18 +59,19 @@ public class DSKhoa extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        dsNhomDichVuKBTable = new javax.swing.JTable();
-        MaNhomDichVuTextField = new javax.swing.JTextField();
-        TenNhomDichVuTextField = new javax.swing.JTextField();
-        TrangThaiComboBox = new javax.swing.JComboBox<>();
-        ThemButton = new javax.swing.JButton();
-        XoaButton = new javax.swing.JButton();
-        SuaButton = new javax.swing.JButton();
-        NhapMoiButton = new javax.swing.JButton();
+        tblDSKhoa = new javax.swing.JTable();
+        txtMaKhoa = new javax.swing.JTextField();
+        txtTenKhoa = new javax.swing.JTextField();
+        cmbTrangThai = new javax.swing.JComboBox<>();
+        btnThem = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
+        btnSua = new javax.swing.JButton();
+        btnLamMoi = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         timKiemTextField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        btnXuatDSBenhNhan = new javax.swing.JButton();
 
         jButton3.setText("jButton3");
 
@@ -46,7 +89,7 @@ public class DSKhoa extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Trạng thái");
 
-        dsNhomDichVuKBTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblDSKhoa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -65,44 +108,69 @@ public class DSKhoa extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        dsNhomDichVuKBTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jScrollPane1.setViewportView(dsNhomDichVuKBTable);
+        tblDSKhoa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tblDSKhoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDSKhoaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblDSKhoa);
 
-        MaNhomDichVuTextField.setEditable(false);
+        txtMaKhoa.setEditable(false);
 
-        TrangThaiComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kích hoạt", "Ẩn" }));
+        cmbTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ẩn", "Hiển thị" }));
 
-        ThemButton.setBackground(new java.awt.Color(0, 102, 255));
-        ThemButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ThemButton.setForeground(new java.awt.Color(255, 255, 255));
-        ThemButton.setText("Thêm");
-        ThemButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ThemButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ThemButton.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnThem.setBackground(new java.awt.Color(0, 102, 255));
+        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
+        btnThem.setText("Thêm");
+        btnThem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnThem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnThem.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
-        XoaButton.setBackground(new java.awt.Color(0, 102, 255));
-        XoaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        XoaButton.setForeground(new java.awt.Color(255, 255, 255));
-        XoaButton.setText("Xóa");
-        XoaButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        XoaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        XoaButton.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnXoa.setBackground(new java.awt.Color(0, 102, 255));
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXoa.setForeground(new java.awt.Color(255, 255, 255));
+        btnXoa.setText("Xóa");
+        btnXoa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXoa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXoa.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
 
-        SuaButton.setBackground(new java.awt.Color(0, 102, 255));
-        SuaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        SuaButton.setForeground(new java.awt.Color(255, 255, 255));
-        SuaButton.setText("Sửa");
-        SuaButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        SuaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SuaButton.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnSua.setBackground(new java.awt.Color(0, 102, 255));
+        btnSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSua.setForeground(new java.awt.Color(255, 255, 255));
+        btnSua.setText("Sửa");
+        btnSua.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSua.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
 
-        NhapMoiButton.setBackground(new java.awt.Color(0, 102, 255));
-        NhapMoiButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        NhapMoiButton.setForeground(new java.awt.Color(255, 255, 255));
-        NhapMoiButton.setText("Làm mới");
-        NhapMoiButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        NhapMoiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        NhapMoiButton.setPreferredSize(new java.awt.Dimension(80, 30));
+        btnLamMoi.setBackground(new java.awt.Color(0, 102, 255));
+        btnLamMoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
+        btnLamMoi.setText("Làm mới");
+        btnLamMoi.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLamMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLamMoi.setPreferredSize(new java.awt.Dimension(80, 30));
+        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLamMoiActionPerformed(evt);
+            }
+        });
 
         jPanel6.setPreferredSize(new java.awt.Dimension(88, 35));
 
@@ -136,6 +204,19 @@ public class DSKhoa extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
+        btnXuatDSBenhNhan.setBackground(new java.awt.Color(0, 102, 255));
+        btnXuatDSBenhNhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXuatDSBenhNhan.setForeground(new java.awt.Color(255, 255, 255));
+        btnXuatDSBenhNhan.setText("Xuất danh sách");
+        btnXuatDSBenhNhan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatDSBenhNhan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXuatDSBenhNhan.setPreferredSize(new java.awt.Dimension(120, 25));
+        btnXuatDSBenhNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatDSBenhNhanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -152,19 +233,21 @@ public class DSKhoa extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MaNhomDichVuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TenNhomDichVuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TrangThaiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtMaKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTenKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(SuaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98)))
+                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnXuatDSBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)))
                 .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
@@ -173,21 +256,22 @@ public class DSKhoa extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(MaNhomDichVuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(TenNhomDichVuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTenKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(TrangThaiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SuaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXuatDSBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -212,6 +296,80 @@ public class DSKhoa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        try {
+            String tenKhoa = txtTenKhoa.getText();
+            int trangThai = cmbTrangThai.getSelectedIndex();
+
+            KhoaModelTest khoa = new KhoaModelTest(tenKhoa, trangThai);
+            KhoaCtrlTest.themKhoa(khoa);
+            DialogHelper.showMessage("Thêm khoa thành công!");
+            hienThiDSKhoa();
+            lamMoi();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSKhoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        try {
+            int maKhoa = Integer.parseInt(txtMaKhoa.getText());
+            if (txtMaKhoa.getText().isEmpty()) {
+                DialogHelper.showMessage("Chưa chọn khoa muốn xóa");
+            } else if (KhoaCtrlTest.kiemTraKhoaDaSuDung(maKhoa)) {
+                DialogHelper.showMessage("Khoa đã được sử dụng, không thể xóa");
+            } else {
+                boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa khoa này không!");
+                if (flag) {
+
+                    KhoaCtrlTest.xoaKhoa(maKhoa);
+                    DialogHelper.showMessage("Xóa khoa thành công!");
+                    hienThiDSKhoa();
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DSKhoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn sửa khoa này không!");
+        if (flag) {
+            try {
+                int maKhoa = Integer.parseInt(txtMaKhoa.getText());
+                String tenKhoa = txtTenKhoa.getText();
+                int trangThai = cmbTrangThai.getSelectedIndex();
+                KhoaModelTest khoa = new KhoaModelTest(maKhoa, tenKhoa, trangThai);
+                KhoaCtrlTest.capNhatKhoa(khoa);
+                hienThiDSKhoa();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(DSKhoa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnSuaActionPerformed
+
+    private void btnXuatDSBenhNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatDSBenhNhanActionPerformed
+        KhoaCtrlTest.xuatFileExcel(dsKhoa, "src/main/java/files/DSKhoa.xlsx");
+        DialogHelper.showMessage("Xuất danh sách thành công!");
+    }//GEN-LAST:event_btnXuatDSBenhNhanActionPerformed
+
+    private void tblDSKhoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSKhoaMouseClicked
+        int selectedIndex = tblDSKhoa.getSelectedRow();
+        if (selectedIndex >= 0) {
+            KhoaModelTest khoa = dsKhoa.get(selectedIndex);
+
+            txtMaKhoa.setText(Integer.toString(khoa.getMaKhoa()));
+            txtTenKhoa.setText(khoa.getTenKhoa());
+            cmbTrangThai.setSelectedIndex(khoa.getTrangThaiHienThi());
+        }
+    }//GEN-LAST:event_tblDSKhoaMouseClicked
+
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+        lamMoi();
+        hienThiDSKhoa();
+    }//GEN-LAST:event_btnLamMoiActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -221,14 +379,12 @@ public class DSKhoa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField MaNhomDichVuTextField;
-    private javax.swing.JButton NhapMoiButton;
-    private javax.swing.JButton SuaButton;
-    private javax.swing.JTextField TenNhomDichVuTextField;
-    private javax.swing.JButton ThemButton;
-    private javax.swing.JComboBox<String> TrangThaiComboBox;
-    private javax.swing.JButton XoaButton;
-    private javax.swing.JTable dsNhomDichVuKBTable;
+    private javax.swing.JButton btnLamMoi;
+    private javax.swing.JButton btnSua;
+    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnXoa;
+    private javax.swing.JButton btnXuatDSBenhNhan;
+    private javax.swing.JComboBox<String> cmbTrangThai;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -238,6 +394,9 @@ public class DSKhoa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblDSKhoa;
     private javax.swing.JTextField timKiemTextField;
+    private javax.swing.JTextField txtMaKhoa;
+    private javax.swing.JTextField txtTenKhoa;
     // End of variables declaration//GEN-END:variables
 }

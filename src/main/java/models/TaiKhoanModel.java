@@ -11,8 +11,9 @@ public class TaiKhoanModel {
         this.maTaiKhoan = maTaiKhoan;
     }
 
-    public TaiKhoanModel(String maTaiKhoan, String matKhau, String maChucVu) {
+    public TaiKhoanModel(String maTaiKhoan, String tenDangNhap, String matKhau, String maChucVu) {
         this.maTaiKhoan = maTaiKhoan;
+        this.tenDangNhap = tenDangNhap;
         this.matKhau = matKhau;
         this.maChucVu = maChucVu;
     }

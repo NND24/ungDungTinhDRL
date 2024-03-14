@@ -45,7 +45,7 @@ public class QuanLyCtrl {
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
-            String sql = "SELECT DISTINCT * FROM QuanLy WHERE TrangThaiXoa=0";
+            String sql = "SELECT DISTINCT * FROM QuanLy";
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {

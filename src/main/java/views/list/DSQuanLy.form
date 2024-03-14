@@ -131,7 +131,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="maQuanLyTextField" min="-2" pref="320" max="-2" attributes="0"/>
+                              <Component id="txtMaQuanLy" min="-2" pref="320" max="-2" attributes="0"/>
                               <Component id="GioiTinhComboBox" min="-2" pref="320" max="-2" attributes="0"/>
                               <Component id="soDienThoaiTextField" min="-2" pref="320" max="-2" attributes="0"/>
                           </Group>
@@ -175,7 +175,7 @@
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="maQuanLyTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtMaQuanLy" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="hoTenTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel21" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
@@ -390,7 +390,7 @@
             <Property name="text" type="java.lang.String" value="M&#xe3; qu&#x1ea3;n l&#xfd;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="maQuanLyTextField">
+        <Component class="javax.swing.JTextField" name="txtMaQuanLy">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>

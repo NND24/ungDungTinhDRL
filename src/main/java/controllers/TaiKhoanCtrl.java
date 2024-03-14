@@ -13,13 +13,14 @@ import models.TaiKhoanModel;
 public class TaiKhoanCtrl {
 
     public static void themTaiKhoan(TaiKhoanModel tk) throws ClassNotFoundException {
-        String sql = "INSERT INTO TaiKhoan (IdTaiKhoan, MatKhau, MaChucVu) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO TaiKhoan (MaTaiKhoan, TenDangNhap, MatKhau, MaChucVu) VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, tk.getMaTaiKhoan());
+            statement.setString(2, tk.getTenDangNhap());
             String hashedPassword = PasswordHashing.hashPassword(tk.getMatKhau());
-            statement.setString(2, hashedPassword);
-            statement.setString(3, tk.getMaChucVu());
+            statement.setString(3, hashedPassword);
+            statement.setString(4, tk.getMaChucVu());
 
             statement.executeUpdate();
         } catch (SQLException ex) {

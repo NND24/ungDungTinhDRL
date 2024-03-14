@@ -39,7 +39,7 @@ public class DangNhap extends javax.swing.JFrame {
         lblTaiKhoan.setText("Tên đăng nhập");
 
         txtTenDangNhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTenDangNhap.setText("n21dccn013");
+        txtTenDangNhap.setText("admin001");
 
         lblMatKhau.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         lblMatKhau.setText("Mật khẩu");

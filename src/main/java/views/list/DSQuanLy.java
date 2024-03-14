@@ -33,7 +33,7 @@ public class DSQuanLy extends javax.swing.JPanel {
     }
 
     void lamMoi() {
-        maQuanLyTextField.setText("");
+        txtMaQuanLy.setText("");
         hoTenTextField.setText("");
         emailTextField.setText("");
         queQuanTextField.setText("");
@@ -70,7 +70,7 @@ public class DSQuanLy extends javax.swing.JPanel {
         themButton = new javax.swing.JButton();
         btnXuatDSBenhNhan = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        maQuanLyTextField = new javax.swing.JTextField();
+        txtMaQuanLy = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         hoTenTextField = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -235,7 +235,7 @@ public class DSQuanLy extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Mã quản lý");
 
-        maQuanLyTextField.setEditable(false);
+        txtMaQuanLy.setEditable(false);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Họ tên");
@@ -369,7 +369,7 @@ public class DSQuanLy extends javax.swing.JPanel {
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(maQuanLyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMaQuanLy, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(GioiTinhComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(soDienThoaiTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
@@ -402,7 +402,7 @@ public class DSQuanLy extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(maQuanLyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMaQuanLy, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(hoTenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -463,7 +463,9 @@ public class DSQuanLy extends javax.swing.JPanel {
             String queQuan = queQuanTextField.getText();
             String chucVu = "QL";
 
-            if (hoTen.isEmpty()) {
+            if (!txtMaQuanLy.getText().isEmpty()) {
+                DialogHelper.showError("Quản lý đã tồn tại. Vui lòng nhập mới");
+            } else if (hoTen.isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
             } else if (ngaySinhTextField.getText().isEmpty()) {
                 DialogHelper.showError("Ngày sinh không được để trống!");
@@ -475,7 +477,7 @@ public class DSQuanLy extends javax.swing.JPanel {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else {
                 try {
-                    TaiKhoanModel tk = new TaiKhoanModel(idTaiKhoan, matKhau, chucVu);
+                    TaiKhoanModel tk = new TaiKhoanModel(idTaiKhoan, maQuanLy, matKhau, chucVu);
                     TaiKhoanCtrl.themTaiKhoan(tk);
 
                     QuanLyModel sv = new QuanLyModel(maQuanLy, idTaiKhoan, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh);
@@ -500,7 +502,7 @@ public class DSQuanLy extends javax.swing.JPanel {
         if (selectedIndex >= 0) {
             QuanLyModel ql = dsQuanLy.get(selectedIndex);
 
-            maQuanLyTextField.setText(ql.getMaQuanLy());
+            txtMaQuanLy.setText(ql.getMaQuanLy());
             hoTenTextField.setText(ql.getHoTen());
             queQuanTextField.setText(ql.getQueQuan());
             GioiTinhComboBox.setSelectedIndex(0);
@@ -515,7 +517,7 @@ public class DSQuanLy extends javax.swing.JPanel {
             boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa quản lý này");
 
             if (flag) {
-                String maQuanLy = maQuanLyTextField.getText();
+                String maQuanLy = txtMaQuanLy.getText();
                 QuanLyCtrl.xoaQuanLy(maQuanLy);
                 TaiKhoanCtrl.xoaTaiKhoan(maQuanLy);
                 lamMoi();
@@ -529,7 +531,7 @@ public class DSQuanLy extends javax.swing.JPanel {
 
     private void suaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suaButtonActionPerformed
         try {
-            String maQuanLy = maQuanLyTextField.getText();
+            String maQuanLy = txtMaQuanLy.getText();
             String hoTen = hoTenTextField.getText();
             String email = emailTextField.getText();
             java.util.Date ngaySinh = sdf.parse(ngaySinhTextField.getText());
@@ -667,12 +669,12 @@ public class DSQuanLy extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton lamMoiButton;
-    private javax.swing.JTextField maQuanLyTextField;
     private javax.swing.JTextField ngaySinhTextField;
     private javax.swing.JTextField queQuanTextField;
     private javax.swing.JTextField soDienThoaiTextField;
     private javax.swing.JButton suaButton;
     private javax.swing.JButton themButton;
+    private javax.swing.JTextField txtMaQuanLy;
     private javax.swing.JTextField txtTimKiem;
     private javax.swing.JButton xoaButton;
     // End of variables declaration//GEN-END:variables
