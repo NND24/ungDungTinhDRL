@@ -8,6 +8,21 @@ public class CoVanModelTest {
     private int maKhoa, gioiTinh;
     private Date ngaySinh;
 
+    public CoVanModelTest(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, int maKhoa, int gioiTinh, Date ngaySinh) {
+        this.maCoVan = maCoVan;
+        this.hoTen = hoTen;
+        this.email = email;
+        this.soDienThoai = soDienThoai;
+        this.canCuoc = canCuoc;
+        this.queQuan = queQuan;
+        this.hocVi = hocVi;
+        this.hocHam = hocHam;
+        this.chuyenMon = chuyenMon;
+        this.maKhoa = maKhoa;
+        this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
+    }
+
     public CoVanModelTest(String maCoVan, String maTaiKhoan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, int maKhoa, int gioiTinh, Date ngaySinh) {
         this.maCoVan = maCoVan;
         this.maTaiKhoan = maTaiKhoan;

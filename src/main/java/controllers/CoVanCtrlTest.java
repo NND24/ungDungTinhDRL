@@ -77,107 +77,126 @@ public class CoVanCtrlTest {
         return dsCoVan;
     }
 
-//    public static List<CoVanModelTest> timCoVanTheoDK(String tuKhoa, String gioiTinh) throws ClassNotFoundException {
-//        List<CoVanModelTest> dsQuanLy = new ArrayList<>();
-//        Connection connection = null;
-//        PreparedStatement statement = null;
-//
-//        try {
-//            connection = ConnectDB.getConnection();
-//
-//            if (!tuKhoa.isEmpty() && gioiTinh.isEmpty()) {
-//                String sql = "SELECT DISTINCT * FROM QuanLy WHERE MaQuanLy LIKE ? OR HoTen LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ?";
-//                statement = connection.prepareStatement(sql);
-//                statement.setString(1, "%" + tuKhoa + "%");
-//                statement.setString(2, "%" + tuKhoa + "%");
-//                statement.setString(3, "%" + tuKhoa + "%");
-//                statement.setString(4, "%" + tuKhoa + "%");
-//
-//                ResultSet resultSet = statement.executeQuery();
-//
-//                while (resultSet.next()) {
-//                    QuanLyModel ql = new QuanLyModel(
-//                            resultSet.getString("MaQuanLy"),
-//                            resultSet.getString("HoTen"),
-//                            resultSet.getString("Email"),
-//                            resultSet.getString("GioiTinh"),
-//                            resultSet.getString("SoDienThoai"),
-//                            resultSet.getString("CanCuoc"),
-//                            resultSet.getString("QueQuan"),
-//                            resultSet.getDate("NgaySinh")
-//                    );
-//                    dsQuanLy.add(ql);
-//                }
-//            } else if (tuKhoa.isEmpty() && !gioiTinh.isEmpty()) {
-//                String sql = "SELECT DISTINCT * FROM QuanLy WHERE GioiTinh LIKE ?";
-//                statement = connection.prepareStatement(sql);
-//                statement.setString(1, "%" + gioiTinh + "%");
-//
-//                ResultSet resultSet = statement.executeQuery();
-//
-//                while (resultSet.next()) {
-//                    QuanLyModel ql = new QuanLyModel(
-//                            resultSet.getString("MaQuanLy"),
-//                            resultSet.getString("HoTen"),
-//                            resultSet.getString("Email"),
-//                            resultSet.getString("GioiTinh"),
-//                            resultSet.getString("SoDienThoai"),
-//                            resultSet.getString("CanCuoc"),
-//                            resultSet.getString("QueQuan"),
-//                            resultSet.getDate("NgaySinh")
-//                    );
-//                    dsQuanLy.add(ql);
-//                }
-//            } else if (!tuKhoa.isEmpty() && !gioiTinh.isEmpty()) {
-//                String sql = "SELECT DISTINCT * FROM QuanLy WHERE ( MaQuanLy LIKE ? OR HoTen LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ?) AND GioiTinh LIKE ?";
-//                statement = connection.prepareStatement(sql);
-//                statement = connection.prepareStatement(sql);
-//                statement.setString(1, "%" + tuKhoa + "%");
-//                statement.setString(2, "%" + tuKhoa + "%");
-//                statement.setString(3, "%" + tuKhoa + "%");
-//                statement.setString(4, "%" + tuKhoa + "%");
-//                statement.setString(5, "%" + gioiTinh + "%");
-//
-//                ResultSet resultSet = statement.executeQuery();
-//
-//                while (resultSet.next()) {
-//                    QuanLyModel ql = new QuanLyModel(
-//                            resultSet.getString("MaQuanLy"),
-//                            resultSet.getString("HoTen"),
-//                            resultSet.getString("Email"),
-//                            resultSet.getString("GioiTinh"),
-//                            resultSet.getString("SoDienThoai"),
-//                            resultSet.getString("CanCuoc"),
-//                            resultSet.getString("QueQuan"),
-//                            resultSet.getDate("NgaySinh")
-//                    );
-//                    dsQuanLy.add(ql);
-//                }
-//            }
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CoVanCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
-//        } finally {
-//            if (statement != null) {
-//                try {
-//                    statement.close();
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(CoVanCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//            if (connection != null) {
-//                try {
-//                    connection.close();
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(CoVanCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//        }
-//
-//        return dsQuanLy;
-//    }
+    public static List<CoVanModelTest> timCoVanTheoDK(String tuKhoa, String gioiTinh) throws ClassNotFoundException {
+        List<CoVanModelTest> dsCoVan = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = ConnectDB.getConnection();
+
+            if (!tuKhoa.isEmpty() && gioiTinh.isEmpty()) {
+                String sql = "SELECT DISTINCT * FROM CoVan, Khoa WHERE CoVan.MaKhoa=Khoa.MaKhoa AND (MaCoVan LIKE ? OR HoTen LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ?)";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+                statement.setString(3, "%" + tuKhoa + "%");
+                statement.setString(4, "%" + tuKhoa + "%");
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    CoVanModelTest coVan = new CoVanModelTest(
+                            resultSet.getString("MaCoVan"),
+                            resultSet.getString("MaTaiKhoan"),
+                            resultSet.getString("TenKhoa"),
+                            resultSet.getString("HoTen"),
+                            resultSet.getString("Email"),
+                            resultSet.getString("SoDienThoai"),
+                            resultSet.getString("CanCuoc"),
+                            resultSet.getString("QueQuan"),
+                            resultSet.getString("HocVi"),
+                            resultSet.getString("HocHam"),
+                            resultSet.getString("ChuyenMon"),
+                            resultSet.getInt("MaKhoa"),
+                            resultSet.getInt("GioiTinh"),
+                            resultSet.getDate("NgaySinh")
+                    );
+                    dsCoVan.add(coVan);
+                }
+            } else if (tuKhoa.isEmpty() && !gioiTinh.isEmpty()) {
+                String sql = "SELECT DISTINCT * FROM CoVan, Khoa WHERE CoVan.MaKhoa=Khoa.MaKhoa AND GioiTinh LIKE ?";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + gioiTinh + "%");
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    CoVanModelTest coVan = new CoVanModelTest(
+                            resultSet.getString("MaCoVan"),
+                            resultSet.getString("MaTaiKhoan"),
+                            resultSet.getString("TenKhoa"),
+                            resultSet.getString("HoTen"),
+                            resultSet.getString("Email"),
+                            resultSet.getString("SoDienThoai"),
+                            resultSet.getString("CanCuoc"),
+                            resultSet.getString("QueQuan"),
+                            resultSet.getString("HocVi"),
+                            resultSet.getString("HocHam"),
+                            resultSet.getString("ChuyenMon"),
+                            resultSet.getInt("MaKhoa"),
+                            resultSet.getInt("GioiTinh"),
+                            resultSet.getDate("NgaySinh")
+                    );
+                    dsCoVan.add(coVan);
+                }
+            } else if (!tuKhoa.isEmpty() && !gioiTinh.isEmpty()) {
+                String sql = "SELECT DISTINCT * FROM CoVan, Khoa WHERE CoVan.MaKhoa=Khoa.MaKhoa AND ( MaCoVan LIKE ? OR HoTen LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ?) AND GioiTinh LIKE ?";
+                statement = connection.prepareStatement(sql);
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, "%" + tuKhoa + "%");
+                statement.setString(2, "%" + tuKhoa + "%");
+                statement.setString(3, "%" + tuKhoa + "%");
+                statement.setString(4, "%" + tuKhoa + "%");
+                statement.setString(5, "%" + gioiTinh + "%");
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    CoVanModelTest coVan = new CoVanModelTest(
+                            resultSet.getString("MaCoVan"),
+                            resultSet.getString("MaTaiKhoan"),
+                            resultSet.getString("TenKhoa"),
+                            resultSet.getString("HoTen"),
+                            resultSet.getString("Email"),
+                            resultSet.getString("SoDienThoai"),
+                            resultSet.getString("CanCuoc"),
+                            resultSet.getString("QueQuan"),
+                            resultSet.getString("HocVi"),
+                            resultSet.getString("HocHam"),
+                            resultSet.getString("ChuyenMon"),
+                            resultSet.getInt("MaKhoa"),
+                            resultSet.getInt("GioiTinh"),
+                            resultSet.getDate("NgaySinh")
+                    );
+                    dsCoVan.add(coVan);
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CoVanCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CoVanCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CoVanCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return dsCoVan;
+    }
+
     public static void capNhatQuanLy(CoVanModelTest coVan) {
-        String sql = "UPDATE CoVan SET HoTen=?, Email=?, NgaySinh=?, GioiTinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=?, HocVi=?, HocHam=?, ChuyenMon=? WHERE MaCoVan=?";
+        String sql = "UPDATE CoVan SET HoTen=?, Email=?, NgaySinh=?, GioiTinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=?, HocVi=?, HocHam=?, ChuyenMon=?, MaKhoa=? WHERE MaCoVan=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, coVan.getHoTen());
             statement.setString(2, coVan.getEmail());
@@ -189,7 +208,8 @@ public class CoVanCtrlTest {
             statement.setString(8, coVan.getHocVi());
             statement.setString(9, coVan.getHocHam());
             statement.setString(10, coVan.getChuyenMon());
-            statement.setString(11, coVan.getMaCoVan());
+            statement.setInt(11, coVan.getMaKhoa());
+            statement.setString(12, coVan.getMaCoVan());
 
             statement.executeUpdate();
         } catch (Exception ex) {
@@ -197,12 +217,33 @@ public class CoVanCtrlTest {
         }
     }
 
-    public static void xoaCoVan(int maCoVan) throws ClassNotFoundException, SQLException {
+    public static void xoaCoVan(String maCoVan) throws ClassNotFoundException, SQLException {
         String sql = "DELETE FROM CoVan WHERE MaCoVan=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, maCoVan);
+            statement.setString(1, maCoVan);
             statement.executeUpdate();
         }
+    }
+
+    public static boolean kiemTraKhoaDaSuDung(String maCoVan) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT CoVan.MaCoVan FROM CoVan
+                     JOIN PhanCong ON PhanCong.MaCoVan=CoVan.MaCoVan
+                     WHERE CoVan.MaCoVan=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maCoVan);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
     }
 
     public static void xuatFileExcel(List<CoVanModelTest> dsCoVan, String filePath) {

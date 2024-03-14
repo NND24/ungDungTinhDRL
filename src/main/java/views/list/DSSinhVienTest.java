@@ -238,7 +238,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 491, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 478, Short.MAX_VALUE)
                 .addComponent(themSinhVienButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(xoaSinhVienButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,7 +246,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
                 .addComponent(suaThongTinSinhVienButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(lamMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(25, 25, 25)
                 .addComponent(btnXuatDSBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -502,62 +502,57 @@ public class DSSinhVienTest extends javax.swing.JPanel {
 
     private void themSinhVienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themSinhVienButtonActionPerformed
         try {
+            int lopIndex = cmbLop.getSelectedIndex();
+            int maLop = Integer.parseInt(dsLop.get(lopIndex).getMaLop());
             String tenLop = cmbLop.getSelectedItem().toString();
+            String khoa = dsLop.get(lopIndex).getKhoa();
+            String nganh = dsLop.get(lopIndex).getNganh();
+            String soLuongNguoiFormatted = String.format("%03d", (SinhVienCtrlTest.timSinhVienTheoLop(tenLop).size() + 1));
+            String maSinhVien = "N" + khoa.substring(2) + "DC" + nganh + soLuongNguoiFormatted;
+            String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
+            String hoTen = HoTenTextField.getText();
+            java.util.Date ngaySinh = sdf.parse(ngaySinhTextField.getText());
+            java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
 
-            if (tenLop.equals("---Lớp---")) {
-                DialogHelper.showError("Chưa chọn lớp! Vui lòng chọn lớp để tiếp tục");
+            String gioiTinh = Integer.toString(GioiTinhComboBox.getSelectedIndex());
+            String soDienThoai = soDienThoaiTextField.getText();
+            String canCuoc = canCuocTextField.getText();
+            String email = maSinhVien.toLowerCase() + "@student.ptithcm.edu.vn";
+            String matKhau = maSinhVien.toLowerCase() + "#" + ngaySinhTextField.getText().replace("/", "");
+            String queQuan = queQuanTextField.getText();
+            String chucVu = chucVuComboBox.getSelectedItem().toString();
+            String maChucVu = "";
+            if (chucVu.equals("Sinh viên")) {
+                maChucVu = "SV";
             } else {
-                String soLuongNguoiFormatted = String.format("%03d", (SinhVienCtrlTest.timSinhVienTheoLop(tenLop).size() + 1));
-                int lopIndex = cmbLop.getSelectedIndex();
-                int maLop = Integer.parseInt(dsLop.get(lopIndex).getMaLop());
-                String khoa = dsLop.get(lopIndex).getKhoa();
-                String nganh = dsLop.get(lopIndex).getNganh();
-                String maSinhVien = "N" + khoa.substring(2) + "DC" + nganh + soLuongNguoiFormatted;
-                String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
-                String hoTen = HoTenTextField.getText();
-                java.util.Date ngaySinh = sdf.parse(ngaySinhTextField.getText());
-                java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+                maChucVu = "BCS";
+            }
+            String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
 
-                String gioiTinh = Integer.toString(GioiTinhComboBox.getSelectedIndex());
-                String soDienThoai = soDienThoaiTextField.getText();
-                String canCuoc = canCuocTextField.getText();
-                String email = maSinhVien.toLowerCase() + "@student.ptithcm.edu.vn";
-                String matKhau = maSinhVien.toLowerCase() + "#" + ngaySinhTextField.getText().replace("/", "");
-                String queQuan = queQuanTextField.getText();
-                String chucVu = chucVuComboBox.getSelectedItem().toString();
-                String maChucVu = "";
-                if (chucVu.equals("Sinh viên")) {
-                    maChucVu = "SV";
-                } else {
-                    maChucVu = "BCS";
-                }
-                String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
+            TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maSinhVien, matKhau, maChucVu);
+            SinhVienModelTest sv = new SinhVienModelTest(maSinhVien, maTaiKhoan, maLop, hoTen, email, gioiTinh, sqlNgaySinh, soDienThoai, canCuoc, queQuan, daNghiHoc);
 
-                TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maSinhVien, matKhau, maChucVu);
-                SinhVienModelTest sv = new SinhVienModelTest(maSinhVien, maTaiKhoan, maLop, hoTen, email, gioiTinh, sqlNgaySinh, soDienThoai, canCuoc, queQuan, daNghiHoc);
-
-                if (!txtMaSinhVien.getText().isEmpty()) {
-                    DialogHelper.showError("Sinh viên đã tồn tại. Vui lòng nhập mới");
-                } else if (hoTen.isEmpty()) {
-                    DialogHelper.showError("Họ tên không được để trống!");
-                } else if (ngaySinhTextField.getText().isEmpty()) {
-                    DialogHelper.showError("Ngày sinh không được để trống!");
-                } else if (!Validator.isValidDate(ngaySinhTextField.getText())) {
-                    DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-                } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
-                    DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-                } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
-                    DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-                } else {
-                    try {
-                        TaiKhoanCtrl.themTaiKhoan(tk);
-                        SinhVienCtrlTest.themSinhVien(sv);
-                        hienThiDSSinhVien();
-                        lamMoi();
-                        DialogHelper.showMessage("Thêm sinh viên thành công!");
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+            if (!txtMaSinhVien.getText().isEmpty()) {
+                DialogHelper.showError("Sinh viên đã tồn tại. Vui lòng nhập mới");
+            } else if (hoTen.isEmpty()) {
+                DialogHelper.showError("Họ tên không được để trống!");
+            } else if (ngaySinhTextField.getText().isEmpty()) {
+                DialogHelper.showError("Ngày sinh không được để trống!");
+            } else if (!Validator.isValidDate(ngaySinhTextField.getText())) {
+                DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+            } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+                DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+            } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+                DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+            } else {
+                try {
+                    TaiKhoanCtrl.themTaiKhoan(tk);
+                    SinhVienCtrlTest.themSinhVien(sv);
+                    hienThiDSSinhVien();
+                    lamMoi();
+                    DialogHelper.showMessage("Thêm sinh viên thành công!");
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         } catch (ParseException | ClassNotFoundException ex) {

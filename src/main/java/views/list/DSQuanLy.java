@@ -26,7 +26,7 @@ public class DSQuanLy extends javax.swing.JPanel {
             initComponents();
 
             tableModel = (DefaultTableModel) dsQuanLyTable.getModel();
-            hienThiTatCaQuanLy();
+            hienThiDSQuanLy();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -43,7 +43,7 @@ public class DSQuanLy extends javax.swing.JPanel {
         soDienThoaiTextField.setText("");
     }
 
-    private void hienThiTatCaQuanLy() throws ClassNotFoundException {
+    private void hienThiDSQuanLy() throws ClassNotFoundException {
         dsQuanLy = QuanLyCtrl.timTatCaQuanLy();
         tableModel.setRowCount(0);
 
@@ -449,7 +449,7 @@ public class DSQuanLy extends javax.swing.JPanel {
     private void themButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themButtonActionPerformed
         try {
             String soLuongNguoiFormatted = String.format("%03d", (QuanLyCtrl.timTatCaQuanLy().size() + 1));
-            String maQuanLy = "admin" + soLuongNguoiFormatted;
+            String maQuanLy = "admin" + GenerateCode.generateIdTaiKhoan();
             String idTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = hoTenTextField.getText();
             java.util.Date ngaySinh = sdf.parse(ngaySinhTextField.getText());
@@ -482,10 +482,8 @@ public class DSQuanLy extends javax.swing.JPanel {
 
                     QuanLyModel sv = new QuanLyModel(maQuanLy, idTaiKhoan, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh);
                     QuanLyCtrl.themQuanLy(sv);
-                    hienThiTatCaQuanLy();
-
                     lamMoi();
-                    hienThiTatCaQuanLy();
+                    hienThiDSQuanLy();
                     DialogHelper.showMessage("Thêm quản lý thành công");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
@@ -520,7 +518,7 @@ public class DSQuanLy extends javax.swing.JPanel {
                 QuanLyCtrl.xoaQuanLy(maQuanLy);
                 TaiKhoanCtrl.xoaTaiKhoan(maQuanLy);
                 lamMoi();
-                hienThiTatCaQuanLy();
+                hienThiDSQuanLy();
                 DialogHelper.showMessage("Xóa quản lý thành công");
             }
         } catch (ClassNotFoundException ex) {
@@ -557,7 +555,7 @@ public class DSQuanLy extends javax.swing.JPanel {
                     QuanLyModel ql = new QuanLyModel(maQuanLy, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh);
                     QuanLyCtrl.capNhatQuanLy(ql);
                     lamMoi();
-                    hienThiTatCaQuanLy();
+                    hienThiDSQuanLy();
                     DialogHelper.showMessage("Sửa quản lý thành công");
                 }
             }
@@ -569,7 +567,7 @@ public class DSQuanLy extends javax.swing.JPanel {
     private void lamMoiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lamMoiButtonActionPerformed
         try {
             lamMoi();
-            hienThiTatCaQuanLy();
+            hienThiDSQuanLy();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -597,7 +595,7 @@ public class DSQuanLy extends javax.swing.JPanel {
             }
 
             if (tuKhoa.isEmpty()) {
-                hienThiTatCaQuanLy();
+                hienThiDSQuanLy();
             } else {
                 dsQuanLy = QuanLyCtrl.timQuanLyTheoDK(tuKhoa, gioiTinh);
                 tableModel.setRowCount(0);
@@ -624,7 +622,7 @@ public class DSQuanLy extends javax.swing.JPanel {
             }
 
             if (gioiTinh.isEmpty()) {
-                hienThiTatCaQuanLy();
+                hienThiDSQuanLy();
             } else {
                 dsQuanLy = QuanLyCtrl.timQuanLyTheoDK(tuKhoa, gioiTinh);
                 tableModel.setRowCount(0);

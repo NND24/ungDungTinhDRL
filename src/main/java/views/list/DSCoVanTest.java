@@ -9,6 +9,7 @@ import models.KhoaModelTest;
 import controllers.KhoaCtrlTest;
 import controllers.TaiKhoanCtrl;
 import controllers.CoVanCtrlTest;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import models.CoVanModelTest;
@@ -22,11 +23,13 @@ public class DSCoVanTest extends javax.swing.JPanel {
     DefaultTableModel tableModel;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     List<KhoaModelTest> dsKhoa = new ArrayList<>();
+    List<CoVanModelTest> dsCoVan = new ArrayList<>();
 
     public DSCoVanTest() {
         initComponents();
         tableModel = (DefaultTableModel) tblDSCoVan.getModel();
 
+        hienThiDSCoVan();
         hienThiDSKhoa();
     }
 
@@ -36,6 +39,32 @@ public class DSCoVanTest extends javax.swing.JPanel {
             cmbKhoa.removeAllItems();
             dsKhoa.forEach(khoa -> {
                 cmbKhoa.addItem(khoa.getTenKhoa());
+            });
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void hienThiDSCoVan() {
+        try {
+            dsCoVan = CoVanCtrlTest.timTatCaCoVan();
+            tableModel.setRowCount(0);
+
+            dsCoVan.forEach(cv -> {
+                String gioiTinh = "";
+                if (cv.getGioiTinh() == 0) {
+                    gioiTinh = "Nam";
+                } else {
+                    gioiTinh = "Nữ";
+                }
+
+                tableModel.addRow(new Object[]{
+                    cv.getMaCoVan(), cv.getHoTen(),
+                    gioiTinh, cv.getNgaySinh(),
+                    cv.getCanCuoc(), cv.getQueQuan(),
+                    cv.getSoDienThoai(), cv.getEmail(),
+                    cv.getTenKhoa(), cv.getHocVi(),
+                    cv.getHocHam(), cv.getChuyenMon(),});
             });
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -70,6 +99,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
         btnSuaThongTin = new javax.swing.JButton();
         btnXoaCoVan = new javax.swing.JButton();
         btnThemCoVan = new javax.swing.JButton();
+        btnXuatDSBenhNhan = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtMaCoVan = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -90,8 +120,8 @@ public class DSCoVanTest extends javax.swing.JPanel {
         txtQueQuan = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        LocKhoaComboBox = new javax.swing.JComboBox<>();
-        TimKiemTextField = new javax.swing.JTextField();
+        cmbTKGioiTinh = new javax.swing.JComboBox<>();
+        txtTimKiem = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -153,6 +183,11 @@ public class DSCoVanTest extends javax.swing.JPanel {
         btnLamMoi.setText("Làm mới");
         btnLamMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLamMoi.setPreferredSize(new java.awt.Dimension(100, 25));
+        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLamMoiActionPerformed(evt);
+            }
+        });
 
         btnSuaThongTin.setBackground(new java.awt.Color(0, 102, 255));
         btnSuaThongTin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -160,6 +195,11 @@ public class DSCoVanTest extends javax.swing.JPanel {
         btnSuaThongTin.setText("Sửa thông tin");
         btnSuaThongTin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSuaThongTin.setPreferredSize(new java.awt.Dimension(125, 25));
+        btnSuaThongTin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaThongTinActionPerformed(evt);
+            }
+        });
 
         btnXoaCoVan.setBackground(new java.awt.Color(0, 102, 255));
         btnXoaCoVan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -167,6 +207,11 @@ public class DSCoVanTest extends javax.swing.JPanel {
         btnXoaCoVan.setText("Xóa cố vấn");
         btnXoaCoVan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnXoaCoVan.setPreferredSize(new java.awt.Dimension(98, 25));
+        btnXoaCoVan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaCoVanActionPerformed(evt);
+            }
+        });
 
         btnThemCoVan.setBackground(new java.awt.Color(0, 102, 255));
         btnThemCoVan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -180,6 +225,19 @@ public class DSCoVanTest extends javax.swing.JPanel {
             }
         });
 
+        btnXuatDSBenhNhan.setBackground(new java.awt.Color(0, 102, 255));
+        btnXuatDSBenhNhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXuatDSBenhNhan.setForeground(new java.awt.Color(255, 255, 255));
+        btnXuatDSBenhNhan.setText("Xuất danh sách");
+        btnXuatDSBenhNhan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatDSBenhNhan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXuatDSBenhNhan.setPreferredSize(new java.awt.Dimension(120, 25));
+        btnXuatDSBenhNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatDSBenhNhanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -187,7 +245,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 617, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 482, Short.MAX_VALUE)
                 .addComponent(btnThemCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnXoaCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,7 +253,9 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 .addComponent(btnSuaThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(25, 25, 25)
+                .addComponent(btnXuatDSBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +265,8 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSuaThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoaCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnThemCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnThemCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXuatDSBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -221,7 +282,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setText("Giới tính");
 
-        cmbGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác" }));
+        cmbGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel19.setText("Căn cước");
@@ -248,6 +309,19 @@ public class DSCoVanTest extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setText("DANH SÁCH CỐ VẤN");
 
+        cmbTKGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Giới tính---", "Nam", "Nữ" }));
+        cmbTKGioiTinh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTKGioiTinhActionPerformed(evt);
+            }
+        });
+
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyPressed(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Tìm kiếm");
 
@@ -264,11 +338,11 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 685, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TimKiemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LocKhoaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbTKGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
         jPanel8Layout.setVerticalGroup(
@@ -276,9 +350,9 @@ public class DSCoVanTest extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(7, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LocKhoaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTKGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(TimKiemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(8, 8, 8))
             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -289,17 +363,17 @@ public class DSCoVanTest extends javax.swing.JPanel {
 
         tblDSCoVan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã giảng viên", "Họ tên", "Giới tính", "Năm sinh", "Căn cước", "Địa chỉ", "Số điện thoại", "Email", "Chức vụ", "Trình độ", "Khoa"
+                "Mã cố vấn", "Họ tên", "Giới tính", "Ngày sinh", "Căn cước", "Quê quán", "Số điện thoại", "Email", "Khoa", "Học vị", "Học hàm", "Chuyên môn"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -307,6 +381,11 @@ public class DSCoVanTest extends javax.swing.JPanel {
             }
         });
         tblDSCoVan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tblDSCoVan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDSCoVanMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblDSCoVan);
 
         cmbHocVi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Học vị---", "Thạc sỹ", "Tiến sỹ" }));
@@ -441,20 +520,31 @@ public class DSCoVanTest extends javax.swing.JPanel {
 
     private void btnThemCoVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCoVanActionPerformed
         try {
-            String soLuongNguoiFormatted = String.format("%03d", (CoVanCtrlTest.timTatCaCoVan().size() + 1));
-            String maCoVan = "teacher" + soLuongNguoiFormatted;
+            int khoaIndex = cmbKhoa.getSelectedIndex();
+            int maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
+            String tenKhoa = cmbKhoa.getSelectedItem().toString();
+            String maCoVan = "cv" + GenerateCode.generateIdTaiKhoan();
             String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = txtHoTen.getText();
             java.util.Date ngaySinh = sdf.parse(txtNgaySinh.getText());
             java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
 
-            String gioiTinh = cmbGioiTinh.getSelectedItem().toString();
+            int gioiTinh = cmbGioiTinh.getSelectedIndex();
             String soDienThoai = txtSoDienThoai.getText();
             String canCuoc = txtCanCuoc.getText();
             String email = maCoVan.toLowerCase() + "@ptithcm.edu.vn";
             String matKhau = maCoVan.toLowerCase() + "#" + txtNgaySinh.getText().replace("/", "");
             String queQuan = txtQueQuan.getText();
             String chucVu = "CV";
+            String hocVi = cmbHocVi.getSelectedItem().toString();
+            if (hocVi.equals("---Học vị---")) {
+                hocVi = "";
+            }
+            String hocHam = cmbHocHam.getSelectedItem().toString();
+            if (hocHam.equals("---Học hàm---")) {
+                hocHam = "";
+            }
+            String chuyenMon = txtChuyenMon.getText();
 
             if (!txtMaCoVan.getText().isEmpty()) {
                 DialogHelper.showError("Cố vấn đã tồn tại. Vui lòng nhập mới");
@@ -473,30 +563,222 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maCoVan, matKhau, chucVu);
                     TaiKhoanCtrl.themTaiKhoan(tk);
 
-                    CoVanModelTest cv = new CoVanModelTest(maCoVan, maTaiKhoan, matKhau, hoTen, email, soDienThoai, canCuoc, queQuan, chucVu, hoTen, chucVu, ERROR, WIDTH, sqlNgaySinh);
+                    CoVanModelTest cv = new CoVanModelTest(maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh);
                     CoVanCtrlTest.themCoVan(cv);
                     lamMoi();
+                    hienThiDSCoVan();
                     DialogHelper.showMessage("Thêm cố vấn thành công");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        } catch (ParseException | ClassNotFoundException ex) {
+        } catch (ParseException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnThemCoVanActionPerformed
 
+    private void btnSuaThongTinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaThongTinActionPerformed
+        try {
+            boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin cố vấn này!");
+
+            if (flag) {
+                int khoaIndex = cmbKhoa.getSelectedIndex();
+                int maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
+                String tenKhoa = cmbKhoa.getSelectedItem().toString();
+                String maCoVan = txtMaCoVan.getText();
+                String hoTen = txtHoTen.getText();
+                java.util.Date ngaySinh = sdf.parse(txtNgaySinh.getText());
+                java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+
+                int gioiTinh = cmbGioiTinh.getSelectedIndex();
+                String soDienThoai = txtSoDienThoai.getText();
+                String canCuoc = txtCanCuoc.getText();
+                String email = txtEmail.getText();
+                String queQuan = txtQueQuan.getText();
+                String hocVi = cmbHocVi.getSelectedItem().toString();
+                if (hocVi.equals("---Học vị---")) {
+                    hocVi = "";
+                }
+                String hocHam = cmbHocHam.getSelectedItem().toString();
+                if (hocHam.equals("---Học hàm---")) {
+                    hocHam = "";
+                }
+                String chuyenMon = txtChuyenMon.getText();
+
+                if (hoTen.isEmpty()) {
+                    DialogHelper.showError("Họ tên không được để trống!");
+                } else if (txtNgaySinh.getText().isEmpty()) {
+                    DialogHelper.showError("Ngày sinh không được để trống!");
+                } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
+                    DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+                } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+                    DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+                } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+                    DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+                } else {
+                    CoVanModelTest cv = new CoVanModelTest(maCoVan, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh);
+                    CoVanCtrlTest.capNhatQuanLy(cv);
+                    lamMoi();
+                    hienThiDSCoVan();
+                    DialogHelper.showMessage("Thêm cố vấn thành công");
+                }
+            }
+        } catch (ParseException ex) {
+            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnSuaThongTinActionPerformed
+
+    private void btnXoaCoVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaCoVanActionPerformed
+        try {
+            String maCoVan = txtMaCoVan.getText();
+            if (maCoVan.isEmpty()) {
+                DialogHelper.showMessage("Chưa chọn cố vấn muốn xóa");
+            } else if (CoVanCtrlTest.kiemTraKhoaDaSuDung(maCoVan)) {
+                DialogHelper.showMessage("Cố vấn đã được phân công, không thể xóa");
+            } else {
+                boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa thông tin cố vấn này");
+                if (flag) {
+                    try {
+                        CoVanCtrlTest.xoaCoVan(maCoVan);
+                        hienThiDSCoVan();
+                        lamMoi();
+                    } catch (ClassNotFoundException | SQLException ex) {
+                        Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnXoaCoVanActionPerformed
+
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+        lamMoi();
+        hienThiDSCoVan();
+    }//GEN-LAST:event_btnLamMoiActionPerformed
+
+    private void btnXuatDSBenhNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatDSBenhNhanActionPerformed
+        CoVanCtrlTest.xuatFileExcel(dsCoVan, "src/main/java/files/DSCoVan.xlsx");
+        DialogHelper.showMessage("Xuất danh sách thành công!");
+    }//GEN-LAST:event_btnXuatDSBenhNhanActionPerformed
+
+    private void tblDSCoVanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSCoVanMouseClicked
+        int selectedIndex = tblDSCoVan.getSelectedRow();
+        if (selectedIndex >= 0) {
+            CoVanModelTest coVan = dsCoVan.get(selectedIndex);
+
+            txtMaCoVan.setText(coVan.getMaCoVan());
+            txtHoTen.setText(coVan.getHoTen());
+            txtNgaySinh.setText(sdf.format(coVan.getNgaySinh()));
+            cmbGioiTinh.setSelectedIndex(coVan.getGioiTinh());
+            txtSoDienThoai.setText(coVan.getSoDienThoai());
+            txtCanCuoc.setText(coVan.getCanCuoc());
+            txtEmail.setText(coVan.getEmail());
+            txtQueQuan.setText(coVan.getQueQuan());
+            cmbKhoa.setSelectedItem(coVan.getTenKhoa());
+            String hocVi = "";
+            if (coVan.getHocVi().isEmpty() || coVan.getHocVi() == null) {
+                hocVi = "---Học vị---";
+            } else {
+                hocVi = coVan.getHocVi();
+            }
+            cmbHocVi.setSelectedItem(hocVi);
+            String hocHam = "";
+            if (coVan.getHocHam().isEmpty() || coVan.getHocHam() == null) {
+                hocHam = "---Học hàm---";
+            } else {
+                hocHam = coVan.getHocHam();
+            }
+            cmbHocHam.setSelectedItem(hocHam);
+            txtChuyenMon.setText(coVan.getChuyenMon());
+        }
+    }//GEN-LAST:event_tblDSCoVanMouseClicked
+
+    private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
+        try {
+            String tuKhoa = txtTimKiem.getText();
+            String gioiTinh = cmbTKGioiTinh.getSelectedItem().toString();
+
+            if (gioiTinh.equals("---Giới tính---")) {
+                gioiTinh = "";
+            }
+
+            if (tuKhoa.isEmpty()) {
+                hienThiDSCoVan();
+            } else {
+                dsCoVan = CoVanCtrlTest.timCoVanTheoDK(tuKhoa, gioiTinh);
+                tableModel.setRowCount(0);
+
+                dsCoVan.forEach(cv -> {
+                    String gt = "";
+                    if (cv.getGioiTinh() == 0) {
+                        gt = "Nam";
+                    } else {
+                        gt = "Nữ";
+                    }
+
+                    tableModel.addRow(new Object[]{
+                        cv.getMaCoVan(), cv.getHoTen(),
+                        gt, cv.getNgaySinh(),
+                        cv.getCanCuoc(), cv.getQueQuan(),
+                        cv.getSoDienThoai(), cv.getEmail(),
+                        cv.getTenKhoa(), cv.getHocVi(),
+                        cv.getHocHam(), cv.getChuyenMon(),});
+                });
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_txtTimKiemKeyPressed
+
+    private void cmbTKGioiTinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKGioiTinhActionPerformed
+        try {
+            String tuKhoa = txtTimKiem.getText();
+            String gioiTinh = cmbTKGioiTinh.getSelectedItem().toString();
+
+            if (gioiTinh.equals("---Giới tính---")) {
+                gioiTinh = "";
+            }
+
+            if (tuKhoa.isEmpty()) {
+                hienThiDSCoVan();
+            } else {
+                dsCoVan = CoVanCtrlTest.timCoVanTheoDK(tuKhoa, gioiTinh);
+                tableModel.setRowCount(0);
+
+                dsCoVan.forEach(cv -> {
+                    String gt = "";
+                    if (cv.getGioiTinh() == 0) {
+                        gt = "Nam";
+                    } else {
+                        gt = "Nữ";
+                    }
+
+                    tableModel.addRow(new Object[]{
+                        cv.getMaCoVan(), cv.getHoTen(),
+                        gt, cv.getNgaySinh(),
+                        cv.getCanCuoc(), cv.getQueQuan(),
+                        cv.getSoDienThoai(), cv.getEmail(),
+                        cv.getTenKhoa(), cv.getHocVi(),
+                        cv.getHocHam(), cv.getChuyenMon(),});
+                });
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cmbTKGioiTinhActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> LocKhoaComboBox;
-    private javax.swing.JTextField TimKiemTextField;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnSuaThongTin;
     private javax.swing.JButton btnThemCoVan;
     private javax.swing.JButton btnXoaCoVan;
+    private javax.swing.JButton btnXuatDSBenhNhan;
     private javax.swing.JComboBox<String> cmbGioiTinh;
     private javax.swing.JComboBox<String> cmbHocHam;
     private javax.swing.JComboBox<String> cmbHocVi;
     private javax.swing.JComboBox<String> cmbKhoa;
+    private javax.swing.JComboBox<String> cmbTKGioiTinh;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -528,5 +810,6 @@ public class DSCoVanTest extends javax.swing.JPanel {
     private javax.swing.JTextField txtNgaySinh;
     private javax.swing.JTextField txtQueQuan;
     private javax.swing.JTextField txtSoDienThoai;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 }
