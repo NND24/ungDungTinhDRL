@@ -178,4 +178,24 @@ public class TaiKhoanCtrl {
             Logger.getLogger(TaiKhoanCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public static boolean kiemTraMatKhauCuSV(String maSinhVien, String matKhau) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = "SELECT MatKhau FROM SinhVien,TaiKhoan WHERE SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND MaSinhVien = ?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, maSinhVien);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    String storedPasswordHash = resultSet.getString("MatKhau");
+                    flag = PasswordHashing.checkPassword(matKhau, storedPasswordHash);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TaiKhoanCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return flag;
+    }
+
 }

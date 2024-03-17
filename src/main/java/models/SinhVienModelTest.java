@@ -78,9 +78,10 @@ public class SinhVienModelTest extends TaiKhoanModel {
         this.daNghiHoc = daNghiHoc;
     }
 
-    public SinhVienModelTest(String maSinhVien, String tenLop, String chucVu, String hoTen, String email, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan, String daNghiHoc) {
+    public SinhVienModelTest(String maSinhVien, String tenLop, int maLop, String chucVu, String hoTen, String email, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan, String daNghiHoc) {
         this.maSinhVien = maSinhVien;
         this.tenLop = tenLop;
+        this.maLop = maLop;
         this.chucVu = chucVu;
         this.hoTen = hoTen;
         this.email = email;

@@ -298,14 +298,18 @@ public class DSKhoaTest extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            String tenKhoa = txtTenKhoa.getText();
-            int trangThai = cmbTrangThai.getSelectedIndex();
+            if (!txtMaKhoa.getText().isEmpty()) {
+                DialogHelper.showError("Khoa đã tồn tại. Vui lòng nhập mới");
+            } else {
+                String tenKhoa = txtTenKhoa.getText();
+                int trangThai = cmbTrangThai.getSelectedIndex();
 
-            KhoaModelTest khoa = new KhoaModelTest(tenKhoa, trangThai);
-            KhoaCtrlTest.themKhoa(khoa);
-            DialogHelper.showMessage("Thêm khoa thành công!");
-            hienThiDSKhoa();
-            lamMoi();
+                KhoaModelTest khoa = new KhoaModelTest(tenKhoa, trangThai);
+                KhoaCtrlTest.themKhoa(khoa);
+                DialogHelper.showMessage("Thêm khoa thành công!");
+                hienThiDSKhoa();
+                lamMoi();
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSKhoaTest.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class DangNhap extends javax.swing.JFrame {
 
-    public static String currentUserId;
+    public static String username;
 
     public DangNhap() {
         initComponents();
@@ -39,7 +39,7 @@ public class DangNhap extends javax.swing.JFrame {
         lblTaiKhoan.setText("Tên đăng nhập");
 
         txtTenDangNhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTenDangNhap.setText("admin001");
+        txtTenDangNhap.setText("n21dccn013");
 
         lblMatKhau.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         lblMatKhau.setText("Mật khẩu");
@@ -174,19 +174,19 @@ public class DangNhap extends javax.swing.JFrame {
                     String chucVu = TaiKhoanCtrl.dangNhap(tenDangNhap, password);
 
                     if (chucVu.equalsIgnoreCase("SV")) {
-                        currentUserId = tenDangNhap;
+                        username = tenDangNhap;
                         new SinhVien().setVisible(true);
                         this.dispose();
                     } else if (chucVu.equalsIgnoreCase("BCS")) {
-                        currentUserId = tenDangNhap;
+                        username = tenDangNhap;
                         new BanCanSu().setVisible(true);
                         this.dispose();
                     } else if (chucVu.equalsIgnoreCase("CV")) {
-                        currentUserId = tenDangNhap;
+                        username = tenDangNhap;
                         new CoVan().setVisible(true);
                         this.dispose();
                     } else if (chucVu.equalsIgnoreCase("QL")) {
-                        currentUserId = tenDangNhap;
+                        username = tenDangNhap;
                         new QuanLy().setVisible(true);
                         this.dispose();
                     } else {

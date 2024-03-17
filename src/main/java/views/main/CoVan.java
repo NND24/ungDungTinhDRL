@@ -35,8 +35,10 @@ public class CoVan extends javax.swing.JFrame {
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 2) {
-                    new TaiKhoanCaNhan().setVisible(true);
-                    new TaiKhoanCaNhan().setAlwaysOnTop(true);
+                    LayeredPane.removeAll();
+                    LayeredPane.add(taiKhoanCoVanPanel);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
                 } else if (index == 3) {
                     new DangNhap().setVisible(true);
                     new DangNhap().setAlwaysOnTop(true);
@@ -103,6 +105,8 @@ public class CoVan extends javax.swing.JFrame {
         formChamDiemCVHT1 = new views.main.FormChamDiemCVHT();
         dsDiemToanTruongPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenToanTruong1 = new views.list.DSDiemRenLuyenToanTruong();
+        taiKhoanCoVanPanel = new javax.swing.JTabbedPane();
+        dSDiemRenLuyenToanTruong2 = new views.list.DSDiemRenLuyenToanTruong();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -140,6 +144,13 @@ public class CoVan extends javax.swing.JFrame {
         dsDiemToanTruongPanel.addTab("Danh sách điểm rèn luyện toàn trường", dSDiemRenLuyenToanTruong1);
 
         LayeredPane.add(dsDiemToanTruongPanel, "card2");
+
+        taiKhoanCoVanPanel.setBackground(new java.awt.Color(255, 255, 255));
+        taiKhoanCoVanPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        taiKhoanCoVanPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        taiKhoanCoVanPanel.addTab("Danh sách điểm rèn luyện toàn trường", dSDiemRenLuyenToanTruong2);
+
+        LayeredPane.add(taiKhoanCoVanPanel, "card2");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -308,6 +319,7 @@ public class CoVan extends javax.swing.JFrame {
     private javax.swing.JLabel MSSVLabel;
     private views.list.DSDiemRenLuyenCVHT dSDiemRenLuyenCVHT1;
     private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong1;
+    private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong2;
     private javax.swing.JTabbedPane dsDiemToanTruongPanel;
     private javax.swing.JTabbedPane dsLopSinhVienPanel;
     private views.main.FormChamDiemCVHT formChamDiemCVHT1;
@@ -318,6 +330,7 @@ public class CoVan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private view.custom.menu.MenuCoVan menuCoVan;
     private javax.swing.JPanel sideMenu;
+    private javax.swing.JTabbedPane taiKhoanCoVanPanel;
     // End of variables declaration//GEN-END:variables
 
 }

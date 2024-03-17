@@ -43,17 +43,20 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
     }
 
     private void hienThiTatCaDRL() throws ClassNotFoundException {
-        dsDiemRenLuyen = DiemRenLuyenCtrl.timTatCaDiemCuaSV(DangNhap.currentUserId);
-        tableModel.setRowCount(0);
+        SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
+        if (sv != null) {
+            dsDiemRenLuyen = DiemRenLuyenCtrl.timTatCaDiemCuaSV(sv.getMaSinhVien());
+            tableModel.setRowCount(0);
 
-        dsDiemRenLuyen.forEach(drl -> {
-            tableModel.addRow(new Object[]{
-                drl.getMaSinhVien(), drl.getHoTen(),
-                drl.getD1(), drl.getD2(), drl.getD3(),
-                drl.getD4(), drl.getD5(), drl.getTongDiem(),
-                drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
-                drl.getTrangThaiCham()});
-        });
+            dsDiemRenLuyen.forEach(drl -> {
+                tableModel.addRow(new Object[]{
+                    drl.getMaSinhVien(), drl.getHoTen(),
+                    drl.getD1(), drl.getD2(), drl.getD3(),
+                    drl.getD4(), drl.getD5(), drl.getTongDiem(),
+                    drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
+                    drl.getTrangThaiCham()});
+            });
+        }
     }
 
     void lamMoi() {
@@ -504,10 +507,10 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
         try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoMaSV(DangNhap.currentUserId);
+            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
 
             String lop = sv.getTenLop();
-            String tuKhoa = "";
+            String tuKhoa = sv.getMaSinhVien();
             String namHoc = cmbTKNamHoc.getSelectedItem().toString();
             String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
@@ -527,10 +530,10 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
         try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoMaSV(DangNhap.currentUserId);
+            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
 
             String lop = sv.getTenLop();
-            String tuKhoa = "";
+            String tuKhoa = sv.getMaSinhVien();
             String namHoc = cmbTKNamHoc.getSelectedItem().toString();
             String hocKy = cmbTKHocKy.getSelectedItem().toString();
 

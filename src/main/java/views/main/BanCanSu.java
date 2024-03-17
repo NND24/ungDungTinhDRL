@@ -38,8 +38,8 @@ public class BanCanSu extends javax.swing.JFrame {
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 3) {
-                    new TaiKhoanCaNhan().setVisible(true);
-                    new TaiKhoanCaNhan().setAlwaysOnTop(true);
+//                    new TaiKhoanSinh().setVisible(true);
+//                    new TaiKhoanSinh().setAlwaysOnTop(true);
                 } else if (index == 4) {
                     new DangNhap().setVisible(true);
                     new DangNhap().setAlwaysOnTop(true);
@@ -99,6 +99,8 @@ public class BanCanSu extends javax.swing.JFrame {
         formChamDiemBCS1 = new views.main.FormChamDiemBCS();
         dsDiemToanTruongPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenToanTruong1 = new views.list.DSDiemRenLuyenToanTruong();
+        taiKhoanSinhVienPanel = new javax.swing.JTabbedPane();
+        taiKhoanSinhVien1 = new views.main.TaiKhoanSinhVien();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -161,6 +163,13 @@ public class BanCanSu extends javax.swing.JFrame {
         dsDiemToanTruongPanel.addTab("Danh sách điểm rèn luyện toàn trường", dSDiemRenLuyenToanTruong1);
 
         LayeredPane.add(dsDiemToanTruongPanel, "card2");
+
+        taiKhoanSinhVienPanel.setBackground(new java.awt.Color(255, 255, 255));
+        taiKhoanSinhVienPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        taiKhoanSinhVienPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        taiKhoanSinhVienPanel.addTab("Tài khoản cá nhân", taiKhoanSinhVien1);
+
+        LayeredPane.add(taiKhoanSinhVienPanel, "card2");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -352,6 +361,8 @@ public class BanCanSu extends javax.swing.JFrame {
     private view.custom.menu.MenuBanCanSu menuBanCanSu1;
     private view.custom.scroll.ScrollPane scrollPaneWin112;
     private javax.swing.JPanel sideMenu;
+    private views.main.TaiKhoanSinhVien taiKhoanSinhVien1;
+    private javax.swing.JTabbedPane taiKhoanSinhVienPanel;
     // End of variables declaration//GEN-END:variables
 
 }

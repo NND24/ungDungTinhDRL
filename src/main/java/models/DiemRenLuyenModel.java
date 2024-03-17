@@ -12,8 +12,9 @@ public class DiemRenLuyenModel extends SinhVienModelTest {
     private float d1;
     private int d21, d21a, d21b, d22a, d22b, d23a, d23b, d2, d31, d32, d33, d34;
     private int d35, d3, d41, d42, d43, d44, d45, d46, d4, d51, d52, d53, d5;
+    private Date ngayBatDau, ngayKetThuc;
 
-    public DiemRenLuyenModel(String hocKy, String namHoc, String nguoiCham, String xepLoai, String trangThaiCham, float tongDiem, int d11, int d12a, int d12b, int d12c, int d12d, int d12e, int d12g, int d13, int d13a, int d13b, int d13c, int d13d, float d14, int d15, float d1, int d21, int d21a, int d21b, int d22a, int d22b, int d23a, int d23b, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5, String maSinhVien, String tenLop, String hoTen, Date ngaySinh) {
+    public DiemRenLuyenModel(String hocKy, String namHoc, String nguoiCham, String xepLoai, String trangThaiCham, float tongDiem, int d11, int d12a, int d12b, int d12c, int d12d, int d12e, int d12g, int d13, int d13a, int d13b, int d13c, int d13d, float d14, int d15, float d1, int d21, int d21a, int d21b, int d22a, int d22b, int d23a, int d23b, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5, String maSinhVien, String tenLop, String hoTen, Date ngaySinh, Date ngayKetThuc) {
         super(maSinhVien, tenLop, hoTen, ngaySinh);
         this.hocKy = hocKy;
         this.namHoc = namHoc;
@@ -61,6 +62,7 @@ public class DiemRenLuyenModel extends SinhVienModelTest {
         this.d52 = d52;
         this.d53 = d53;
         this.d5 = d5;
+        this.ngayKetThuc = ngayKetThuc;
     }
 
     public DiemRenLuyenModel(String hocKy, String namHoc, String xepLoai, String trangThaiCham, float tongDiem, float d1, int d2, int d3, int d4, int d5, String maSinhVien, String hoTen) {
@@ -500,6 +502,22 @@ public class DiemRenLuyenModel extends SinhVienModelTest {
 
     public void setD5(int d5) {
         this.d5 = d5;
+    }
+
+    public Date getNgayBatDau() {
+        return ngayBatDau;
+    }
+
+    public void setNgayBatDau(Date ngayBatDau) {
+        this.ngayBatDau = ngayBatDau;
+    }
+
+    public Date getNgayKetThuc() {
+        return ngayKetThuc;
+    }
+
+    public void setNgayKetThuc(Date ngayKetThuc) {
+        this.ngayKetThuc = ngayKetThuc;
     }
 
 }

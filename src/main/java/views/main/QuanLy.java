@@ -50,8 +50,10 @@ public class QuanLy extends javax.swing.JFrame {
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 5) {
-                    new TaiKhoanCaNhan().setVisible(true);
-                    new TaiKhoanCaNhan().setAlwaysOnTop(true);
+                    LayeredPane.removeAll();
+                    LayeredPane.add(taiKhoanQuanLyPanel);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
                 } else if (index == 6) {
                     new DangNhap().setVisible(true);
                     new DangNhap().setAlwaysOnTop(true);
@@ -112,6 +114,7 @@ public class QuanLy extends javax.swing.JFrame {
         dSQuanLy1 = new views.list.DSQuanLy();
         dsDiemToanTruongPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenToanTruong1 = new views.list.DSDiemRenLuyenToanTruong();
+        taiKhoanQuanLyPanel = new javax.swing.JTabbedPane();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -199,6 +202,11 @@ public class QuanLy extends javax.swing.JFrame {
         dsDiemToanTruongPanel.addTab("Danh sách điểm rèn luyện toàn trường", dSDiemRenLuyenToanTruong1);
 
         LayeredPane.add(dsDiemToanTruongPanel, "card2");
+
+        taiKhoanQuanLyPanel.setBackground(new java.awt.Color(255, 255, 255));
+        taiKhoanQuanLyPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        taiKhoanQuanLyPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        LayeredPane.add(taiKhoanQuanLyPanel, "card2");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -391,6 +399,7 @@ public class QuanLy extends javax.swing.JFrame {
     private view.custom.menu.MenuQuanLy menuQuanLy;
     private view.custom.scroll.ScrollPane scrollPaneWin112;
     private javax.swing.JPanel sideMenu;
+    private javax.swing.JTabbedPane taiKhoanQuanLyPanel;
     // End of variables declaration//GEN-END:variables
 
 }

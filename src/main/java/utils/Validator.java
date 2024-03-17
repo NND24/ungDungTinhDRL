@@ -138,4 +138,9 @@ public class Validator {
         // Nếu không thỏa mãn các điều kiện trên, trả về false
         return false;
     }
+
+    public static boolean isBeforeToday(Date providedDate) {
+        Date today = new Date();
+        return providedDate.before(today);
+    }
 }

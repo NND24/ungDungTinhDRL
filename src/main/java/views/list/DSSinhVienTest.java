@@ -21,7 +21,7 @@ import utils.Validator;
 public class DSSinhVienTest extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     List<SinhVienModelTest> dsSinhVien = new ArrayList<>();
     List<LopModelTest> dsLop = new ArrayList<>();
 
@@ -511,7 +511,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             String maSinhVien = "N" + khoa.substring(2) + "DC" + nganh + soLuongNguoiFormatted;
             String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = HoTenTextField.getText();
-            java.util.Date ngaySinh = sdf.parse(ngaySinhTextField.getText());
+            java.util.Date ngaySinh = dateFormat.parse(ngaySinhTextField.getText());
             java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
 
             String gioiTinh = Integer.toString(GioiTinhComboBox.getSelectedIndex());
@@ -571,7 +571,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             queQuanTextField.setText(sv.getQueQuan());
             GioiTinhComboBox.setSelectedIndex(Integer.parseInt(sv.getGioiTinh()));
             chucVuComboBox.setSelectedItem(sv.getChucVu());
-            ngaySinhTextField.setText(sdf.format(sv.getNgaySinh()));
+            ngaySinhTextField.setText(dateFormat.format(sv.getNgaySinh()));
             canCuocTextField.setText(sv.getCanCuoc());
             soDienThoaiTextField.setText(sv.getSoDienThoai());
             cmbDaNghiHoc.setSelectedIndex(Integer.parseInt(sv.getDaNghiHoc()));
@@ -586,7 +586,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
     private void xoaSinhVienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xoaSinhVienButtonActionPerformed
         try {
             String maSinhVien = txtMaSinhVien.getText();
-            String maTaiKhoan = SinhVienCtrlTest.layMaTaiKhoan(maSinhVien);
+            String maTaiKhoan = SinhVienCtrlTest.layMaTaiKhoanSV(maSinhVien);
             SinhVienCtrlTest.xoaSinhVien(maSinhVien);
             TaiKhoanCtrl.xoaTaiKhoan(maTaiKhoan);
 
@@ -601,7 +601,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
         try {
             String maSinhVien = txtMaSinhVien.getText();
             String hoTen = HoTenTextField.getText();
-            java.util.Date ngaySinh = sdf.parse(ngaySinhTextField.getText());
+            java.util.Date ngaySinh = dateFormat.parse(ngaySinhTextField.getText());
             java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
 
             String gioiTinh = Integer.toString(GioiTinhComboBox.getSelectedIndex());

@@ -2,11 +2,13 @@ package views.main;
 
 import controllers.DiemRenLuyenCtrl;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
 import models.DiemRenLuyenModel;
 import utils.DialogHelper;
+import utils.Validator;
 
 public class FormChamDiemCVHT extends javax.swing.JPanel {
 
@@ -18,6 +20,8 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     public JTextField scholasticTextField;
 
     private String trangThai = "";
+    Date ngayBatDau;
+    Date ngayKetThuc;
 
     public FormChamDiemCVHT() {
         initComponents();
@@ -2806,7 +2810,9 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void luuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButton1ActionPerformed
-        if (trangThai.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
+        if (Validator.isBeforeToday(ngayKetThuc)) {
+            DialogHelper.showMessage("Đã hết thời gian chấm điểm");
+        } else if (trangThai.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
             DialogHelper.showError("Đã hết thời gian chấm điểm");
         } else if (trangThai.equalsIgnoreCase("Cố vấn đã chấm")
                 || trangThai.equalsIgnoreCase("Ban cán sự đã chấm")
@@ -3004,6 +3010,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
             DiemRenLuyenModel diemRenLuyenSV = DiemRenLuyenCtrl.timDRLDayDu(maSinhVien, hocKy, namHoc, "SinhVien");
             if (diemRenLuyenSV != null) {
                 trangThai = diemRenLuyenSV.getTrangThaiCham();
+                ngayKetThuc = diemRenLuyenSV.getNgayKetThuc();
                 ngaySinhTextField.setText(sdf.format(diemRenLuyenSV.getNgaySinh()));
                 lopTextField.setText(diemRenLuyenSV.getTenLop());
 

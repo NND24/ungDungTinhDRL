@@ -25,7 +25,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     private void hienThiDSLop() {
         try {
-            List<String> dsLop = PhanCongCtrl.timDSLop(DangNhap.currentUserId);
+            List<String> dsLop = PhanCongCtrl.timDSLop(DangNhap.username);
 
 //            cmbTKLop.removeAllItems();
 //            cmbTKLop.addItem("---Lớp---");

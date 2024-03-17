@@ -45,7 +45,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }
 
     private void hienThiDRLHienTai() throws ClassNotFoundException {
-        SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoMaSV(DangNhap.currentUserId);
+        SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
         if (sv != null) {
             LocalDate currentDate = LocalDate.now();
             int currentMonth = currentDate.getMonthValue();
@@ -561,7 +561,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
         try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoMaSV(DangNhap.currentUserId);
+            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
 
             String lop = sv.getTenLop();
             String tuKhoa = txtTimKiem.getText();
@@ -654,7 +654,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
         try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoMaSV(DangNhap.currentUserId);
+            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
 
             String lop = sv.getTenLop();
             String tuKhoa = txtTimKiem.getText();
@@ -677,7 +677,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
         try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoMaSV(DangNhap.currentUserId);
+            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
 
             String lop = sv.getTenLop();
             String tuKhoa = txtTimKiem.getText();

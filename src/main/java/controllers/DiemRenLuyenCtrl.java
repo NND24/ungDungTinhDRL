@@ -213,7 +213,8 @@ public class DiemRenLuyenCtrl {
                             resultSet.getString("MaSinhVien"),
                             resultSet.getString("TenLop"),
                             resultSet.getString("HoTen"),
-                            resultSet.getDate("NgaySinh")
+                            resultSet.getDate("NgaySinh"),
+                            resultSet.getDate("NgayKetThuc")
                     );
                 }
             }
@@ -239,8 +240,8 @@ public class DiemRenLuyenCtrl {
                      INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
                      INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
-                    INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
-                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     INNER JOIN HocKy ON PhieuDRL.MaHocKy=HocKy.MaHocKy
+                     INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?) AND NguoiCham='CoVan'
                      AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                      """;
