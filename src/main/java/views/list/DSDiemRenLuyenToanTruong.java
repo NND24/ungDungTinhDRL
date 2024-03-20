@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.DiemRenLuyenModel;
 import models.LopModelTest;
-import views.main.DangNhap;
 
 public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
@@ -58,25 +57,10 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
             LocalDate currentDate = LocalDate.now();
             int currentMonth = currentDate.getMonthValue();
             int currentYear = currentDate.getYear();
-            String hocKy = "";
-            if (currentMonth == 9 || currentMonth == 10 || currentMonth == 11 || currentMonth == 12 || currentMonth == 1) {
-                hocKy = "1";
-            } else {
-                hocKy = "2";
-            }
-
-            String namHoc = "";
-            if (currentMonth == 9 || currentMonth == 10 || currentMonth == 11 || currentMonth == 12 || currentMonth == 1) {
-                if (currentMonth == 1) {
-                    namHoc = (currentYear - 1) + "-" + currentYear;
-
-                } else {
-                    namHoc = currentYear + "-" + (currentYear + 1);
-                }
-
-            } else {
-                namHoc = (currentYear - 1) + "-" + currentYear;
-            }
+            String hocKy = (currentMonth >= 9 || currentMonth <= 1) ? "1" : "2";
+            String namHoc = (currentMonth >= 9 || currentMonth <= 1)
+                    ? ((currentMonth == 1) ? (currentYear - 1) + "-" + currentYear : currentYear + "-" + (currentYear + 1))
+                    : (currentYear - 1) + "-" + currentYear;
 
             dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", tenLop, hocKy, namHoc);
             tableModel.setRowCount(0);
@@ -93,7 +77,6 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
                     coVanCham = drl.getTrangThaiCham();
                 }
             });
-
         } else {
             lamMoi();
             tblDSDiemRenLuyen.removeAll();
@@ -116,25 +99,22 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     private void timKiemDanhSachDRL() {
         try {
-            String tuKhoa = txtTimKiem.getText();
-            String lop = cmbTKLop.getSelectedItem().toString();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
+            if (cmbTKLop.getSelectedItem() != null) {
+                String tuKhoa = txtTimKiem.getText();
+                String lop = cmbTKLop.getSelectedItem().toString();
+                String namHoc = cmbTKNamHoc.getSelectedItem().toString();
+                String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
-            if (lop.equals("---Lớp---")) {
-                lop = "";
+                if (lop.equals("---Lớp---") || namHoc.equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
+                    dsDiemRenLuyen.clear();
+                    hienThiDSDiem();
+                } else {
+                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
+                    hienThiDSDiem();
+                }
             }
-            if (namHoc.equals("---Năm học---")) {
-                namHoc = "";
-            }
-            if (hocKy.equals("---Học kỳ---")) {
-                hocKy = "";
-            }
-
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-            hienThiDSDiem();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenToanTruong.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

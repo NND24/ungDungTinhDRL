@@ -68,7 +68,7 @@ public class SinhVienTestCtrl {
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
             String sql = """
-                     SELECT MaSinhVien, MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
+                     SELECT MaSinhVien, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
                      FROM SinhVien, Lop, TaiKhoan, ChucVu
                      WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
                      """;
@@ -133,7 +133,7 @@ public class SinhVienTestCtrl {
 
     public static SinhVienTestModel timSinhVienTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
         String sql = """
-                     SELECT MaSinhVien, MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
+                     SELECT MaSinhVien, SinhVien.MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
                      FROM SinhVien, Lop, TaiKhoan, ChucVu
                      WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
                      AND TenDangNhap=?
@@ -199,6 +199,35 @@ public class SinhVienTestCtrl {
             Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsSinhVien;
+    }
+
+    public static int layMaSinhVienCuoiCuaLop(String maLop) throws ClassNotFoundException {
+        int maSV = 0;
+        String sql = """
+                     SELECT TOP 1
+                         RIGHT(MaSinhVien, 3) AS MaSinhVien
+                     FROM
+                         SinhVien, Lop, TaiKhoan, ChucVu
+                     WHERE
+                         SinhVien.MaLop = Lop.MaLop
+                         AND SinhVien.MaTaiKhoan = TaiKhoan.MaTaiKhoan
+                         AND TaiKhoan.MaChucVu = ChucVu.MaChucVu
+                         AND Lop.MaLop = ?
+                     ORDER BY
+                         MaSinhVien DESC;
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maLop);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                maSV = resultSet.getInt("MaSinhVien");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return maSV;
     }
 
     public static void xoaSinhVien(String maSinhVien) throws ClassNotFoundException, SQLException {

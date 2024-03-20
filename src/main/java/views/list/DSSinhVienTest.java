@@ -508,8 +508,9 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             String maLop = cmbLop.getSelectedItem().toString();
             String khoa = dsLop.get(lopIndex).getKhoa();
             String nganh = dsLop.get(lopIndex).getNganh();
-            String soLuongNguoiFormatted = String.format("%03d", (SinhVienTestCtrl.timSinhVienTheoLop(maLop).size() + 1));
+            String soLuongNguoiFormatted = String.format("%03d", (SinhVienTestCtrl.layMaSinhVienCuoiCuaLop(maLop) + 1));
             String maSinhVien = "N" + khoa.substring(2) + "DC" + nganh + soLuongNguoiFormatted;
+            System.out.println(maSinhVien);
             String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = HoTenTextField.getText();
             java.util.Date ngaySinh = dateFormat.parse(ngaySinhTextField.getText());
@@ -541,8 +542,12 @@ public class DSSinhVienTest extends javax.swing.JPanel {
                 DialogHelper.showError("Ngày sinh không được để trống!");
             } else if (!Validator.isValidDate(ngaySinhTextField.getText())) {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+            } else if (soDienThoai.isEmpty()) {
+                DialogHelper.showError("Số điện không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+            } else if (canCuoc.isEmpty()) {
+                DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else {
@@ -621,8 +626,12 @@ public class DSSinhVienTest extends javax.swing.JPanel {
                 DialogHelper.showError("Ngày sinh không được để trống!");
             } else if (!Validator.isValidDate(ngaySinhTextField.getText())) {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+            } else if (soDienThoai.isEmpty()) {
+                DialogHelper.showError("Số điện không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+            } else if (canCuoc.isEmpty()) {
+                DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else {

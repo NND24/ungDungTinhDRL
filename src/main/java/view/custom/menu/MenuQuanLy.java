@@ -28,11 +28,11 @@ public class MenuQuanLy extends JComponent {
     private MenuEvent event;
     private MigLayout layout;
     private String[][] menuItems = new String[][]{
-        {"Chấm điểm rèn luyện"},
-        {"Quản lý sinh viên"},
-        {"Quản lý giảng viên", "Danh sách giảng viên", "Phân công"},
+        {"Xem điểm rèn luyện toàn trường"},
+        {"Phân công"},
+        {"Tạo phiếu điểm rèn luyện"},
+        {"Quản lý chung", "Danh sách giảng viên", "Danh sách sinh viên", "Danh sách ngành", "Danh sách khoa", "Danh sách lớp", "Danh sách năm học"},
         {"Quản lý admin"},
-        {"Xem  điểm rèn luyện toàn trường"},
         {"Tài khoản cá nhân"},
         {"Đăng xuất"}};
 

@@ -21,7 +21,7 @@ import utils.Validator;
 public class DSCoVanTest extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     List<KhoaTestModel> dsKhoa = new ArrayList<>();
     List<CoVanTestModel> dsCoVan = new ArrayList<>();
 
@@ -526,7 +526,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
             String maCoVan = "cv" + GenerateCode.generateIdTaiKhoan();
             String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = txtHoTen.getText();
-            java.util.Date ngaySinh = sdf.parse(txtNgaySinh.getText());
+            java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
             java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
 
             int gioiTinh = cmbGioiTinh.getSelectedIndex();
@@ -554,8 +554,12 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 DialogHelper.showError("Ngày sinh không được để trống!");
             } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+            } else if (soDienThoai.isEmpty()) {
+                DialogHelper.showError("Số điện thoại không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+            } else if (canCuoc.isEmpty()) {
+                DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else {
@@ -587,7 +591,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 String tenKhoa = cmbKhoa.getSelectedItem().toString();
                 String maCoVan = txtMaCoVan.getText();
                 String hoTen = txtHoTen.getText();
-                java.util.Date ngaySinh = sdf.parse(txtNgaySinh.getText());
+                java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
                 java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
 
                 int gioiTinh = cmbGioiTinh.getSelectedIndex();
@@ -611,8 +615,12 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     DialogHelper.showError("Ngày sinh không được để trống!");
                 } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                     DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+                } else if (soDienThoai.isEmpty()) {
+                    DialogHelper.showError("Số điện thoại không được để trống!");
                 } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                     DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+                } else if (canCuoc.isEmpty()) {
+                    DialogHelper.showError("Căn cước không được để trống!");
                 } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                     DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
                 } else {
@@ -669,7 +677,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
 
             txtMaCoVan.setText(coVan.getMaCoVan());
             txtHoTen.setText(coVan.getHoTen());
-            txtNgaySinh.setText(sdf.format(coVan.getNgaySinh()));
+            txtNgaySinh.setText(dateFormat.format(coVan.getNgaySinh()));
             cmbGioiTinh.setSelectedIndex(coVan.getGioiTinh());
             txtSoDienThoai.setText(coVan.getSoDienThoai());
             txtCanCuoc.setText(coVan.getCanCuoc());

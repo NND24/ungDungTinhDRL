@@ -12,7 +12,7 @@ import utils.Validator;
 
 public class FormChamDiemCVHT extends javax.swing.JPanel {
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     public static FormChamDiemCVHT Instance;
     public JTextField maSVTextField;
     public JTextField nameTextField;
@@ -2810,13 +2810,14 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void luuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButton1ActionPerformed
-        if (Validator.isBeforeToday(ngayKetThuc)) {
-            DialogHelper.showMessage("Đã hết thời gian chấm điểm");
-        } else if (trangThai.equalsIgnoreCase("Cố vấn kết thúc chấm")) {
-            DialogHelper.showError("Đã hết thời gian chấm điểm");
-        } else if (trangThai.equalsIgnoreCase("Cố vấn đã chấm")
-                || trangThai.equalsIgnoreCase("Ban cán sự đã chấm")
-                || trangThai.equalsIgnoreCase("Ban cán kết thúc chấm")) {
+        if (Validator.isBeforeToday(ngayKetThuc)
+                || trangThai.equalsIgnoreCase("Hết thời gian chấm")) {
+            DialogHelper.showMessage("Hết thời gian chấm điểm");
+        } else if (trangThai.equalsIgnoreCase("Sinh viên đang chấm")
+                || trangThai.equalsIgnoreCase("Sinh viên đã chấm")
+                || trangThai.equalsIgnoreCase("Sinh viên kết thúc chấm")) {
+            DialogHelper.showError("Ban cán sự chưa chấm điểm\nNếu muốn chấm điểm thay đổi trạng thái chấm điểm của ban cán sự");
+        } else {
             try {
                 dienDiem();
 
@@ -2996,8 +2997,6 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            DialogHelper.showError("Đã hết thời gian chấm điểm");
         }
     }//GEN-LAST:event_luuButton1ActionPerformed
 
@@ -3011,7 +3010,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
             if (diemRenLuyenSV != null) {
                 trangThai = diemRenLuyenSV.getTrangThaiCham();
                 ngayKetThuc = diemRenLuyenSV.getNgayKetThuc();
-                ngaySinhTextField.setText(sdf.format(diemRenLuyenSV.getNgaySinh()));
+                ngaySinhTextField.setText(dateFormat.format(diemRenLuyenSV.getNgaySinh()));
                 lopTextField.setText(diemRenLuyenSV.getMaLop());
 
                 sv11TextField.setText(Integer.toString(diemRenLuyenSV.getD11()));

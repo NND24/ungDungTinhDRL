@@ -104,7 +104,7 @@ public class DiemRenLuyenCtrl {
                      INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
                      INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
-                     AND (MaLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan')
+                     AND (SinhVien.MaLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan')
                      AND GETDATE() >= NgayBatDau
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -318,11 +318,12 @@ public class DiemRenLuyenCtrl {
         return idPhieuDRL;
     }
 
-    public static void themMoiDRL(String maPhieuDRL, String nguoiCham) throws ClassNotFoundException {
-        String sql = "INSERT INTO DiemRenLuyen (MaPhieuDRL, NguoiCham) VALUES (?, ?)";
+    public static void themMoiDRL(String maPhieuDRL, String nguoiCham, String trangThaiCham) throws ClassNotFoundException {
+        String sql = "INSERT INTO DiemRenLuyen (MaPhieuDRL, NguoiCham, TrangThaiCham) VALUES (?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, maPhieuDRL);
             statement.setString(2, nguoiCham);
+            statement.setString(3, trangThaiCham);
 
             statement.executeUpdate();
         } catch (SQLException ex) {

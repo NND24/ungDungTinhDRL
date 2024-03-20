@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import models.DiemRenLuyenModel;
 import utils.DialogHelper;
@@ -13,7 +12,7 @@ import utils.Validator;
 
 public class FormChamDiemBCS extends javax.swing.JPanel {
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     public static FormChamDiemBCS Instance;
     public JTextField maSVTextField;
     public JTextField nameTextField;
@@ -21,8 +20,8 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
     public JTextField scholasticTextField;
 
     private String trangThai = "";
-    Date ngayBatDau;
-    Date ngayKetThuc;
+    private Date ngayBatDau;
+    private Date ngayKetThuc;
 
     public FormChamDiemBCS() {
         initComponents();
@@ -2876,18 +2875,14 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void luuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButtonActionPerformed
-        if (Validator.isBeforeToday(ngayKetThuc)) {
-            DialogHelper.showMessage("Đã hết thời gian chấm điểm");
+        if (trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")
+                || trangThai.equalsIgnoreCase("Cố vấn đã chấm")
+                || trangThai.equalsIgnoreCase("Hết thời gian chấm")
+                || Validator.isBeforeToday(ngayKetThuc)) {
+            DialogHelper.showError("Hết thời gian chấm điểm");
         } else if (trangThai.equalsIgnoreCase("Sinh viên đang chấm")) {
-            DialogHelper.showError("Sinh viên vẫn còn đang trong thời gian chấm điểm");
-        } else if (trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")
-                || trangThai.equalsIgnoreCase("Cố vấn kết thúc chấm")
-                || trangThai.equalsIgnoreCase("Cố vấn đã chấm")) {
-            DialogHelper.showError("Đã hết thời gian chấm điểm");
-        } else if (trangThai.equalsIgnoreCase("Sinh viên đã chấm")
-                || trangThai.equalsIgnoreCase("Sinh viên kết thúc chấm")
-                || trangThai.equalsIgnoreCase("Ban cán sự đã chấm")
-                || trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
+            DialogHelper.showError("Sinh viên chưa chấm điểm");
+        } else {
             try {
                 String maSinhVien = maSinhVienTextField.getText();
                 String hocKy = hocKyTextField.getText();
@@ -3065,8 +3060,6 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(FormChamDiemBCS.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            DialogHelper.showError("Đã hết thời gian chấm điểm");
         }
     }//GEN-LAST:event_luuButtonActionPerformed
 
@@ -3319,7 +3312,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
             if (diemRenLuyenSV != null) {
                 trangThai = diemRenLuyenSV.getTrangThaiCham();
                 ngayKetThuc = diemRenLuyenSV.getNgayKetThuc();
-                ngaySinhTextField.setText(sdf.format(diemRenLuyenSV.getNgaySinh()));
+                ngaySinhTextField.setText(dateFormat.format(diemRenLuyenSV.getNgaySinh()));
                 lopTextField.setText(diemRenLuyenSV.getMaLop());
 
                 sv11TextField.setText(Integer.toString(diemRenLuyenSV.getD11()));

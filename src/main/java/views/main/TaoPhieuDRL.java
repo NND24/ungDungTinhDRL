@@ -461,9 +461,9 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
                         } else {
                             PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, sv.getMaSinhVien(), maNamHoc, hocKy, ngayBatDau, ngayKetThuc);
                             PhieuDRLCtrl.themPhieuDRL(phieu);
-                            DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "SinhVien");
-                            DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "BanCanSu");
-                            DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "CoVan");
+                            DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "SinhVien", "Sinh viên đang chấm");
+                            DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "BanCanSu", "Sinh viên đang chấm");
+                            DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "CoVan", "Sinh viên đang chấm");
                         }
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);

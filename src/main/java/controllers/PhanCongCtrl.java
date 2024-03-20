@@ -23,7 +23,7 @@ public class PhanCongCtrl {
 
     public static List<String> timDSLop(String maCoVan) throws ClassNotFoundException {
         List<String> dsDiemRenLuyen = new ArrayList<>();
-        String sql = "SELECT MaLop FROM PhanCong, Lop WHERE PhanCong.MaLop=Lop.MaLop AND maCoVan = ?";
+        String sql = "SELECT PhanCong.MaLop FROM PhanCong, Lop WHERE PhanCong.MaLop=Lop.MaLop AND maCoVan = ?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, maCoVan);
