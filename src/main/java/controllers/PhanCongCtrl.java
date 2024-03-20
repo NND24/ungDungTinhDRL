@@ -23,18 +23,18 @@ public class PhanCongCtrl {
 
     public static List<String> timDSLop(String maCoVan) throws ClassNotFoundException {
         List<String> dsDiemRenLuyen = new ArrayList<>();
-        String sql = "SELECT TenLop FROM PhanCong, Lop WHERE PhanCong.MaLop=Lop.MaLop AND maCoVan = ?";
+        String sql = "SELECT MaLop FROM PhanCong, Lop WHERE PhanCong.MaLop=Lop.MaLop AND maCoVan = ?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, maCoVan);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                String drl = resultSet.getString("TenLop");
+                String drl = resultSet.getString("MaLop");
                 dsDiemRenLuyen.add(drl);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsDiemRenLuyen;
     }
@@ -42,7 +42,7 @@ public class PhanCongCtrl {
     public static List<PhanCongModel> timTatCaPhanCong() throws ClassNotFoundException {
         List<PhanCongModel> dsPhanCong = new ArrayList<>();
         String sql = """
-                     SELECT DISTINCT PhanCong.MaPhanCong, PhanCong.MaCoVan, HoTen, TenLop, NamHoc, PhanCong.TrangThaiHienThi FROM PhanCong, CoVan, Lop, NamHoc
+                     SELECT DISTINCT PhanCong.MaPhanCong, PhanCong.MaCoVan, HoTen, MaLop, NamHoc, PhanCong.TrangThaiHienThi FROM PhanCong, CoVan, Lop, NamHoc
                      WHERE PhanCong.MaCoVan=CoVan.MaCoVan AND PhanCong.MaLop=Lop.MaLop
                      AND PhanCong.MaNamHoc=NamHoc.MaNamHoc
                      """;
@@ -55,13 +55,13 @@ public class PhanCongCtrl {
                         resultSet.getInt("MaPhanCong"),
                         resultSet.getString("MaCoVan"),
                         resultSet.getString("HoTen"),
-                        resultSet.getString("TenLop"),
+                        resultSet.getString("MaLop"),
                         resultSet.getString("NamHoc"),
                         resultSet.getInt("TrangThaiHienThi"));
                 dsPhanCong.add(drl);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsPhanCong;
     }
@@ -69,7 +69,7 @@ public class PhanCongCtrl {
     public static void themPhanCong(PhanCongModel phanCong) throws ClassNotFoundException {
         String sql = "INSERT INTO PhanCong (MaLop, MaNamHoc, MaCoVan, TrangThaiHienThi) VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, phanCong.getMaLop());
+            statement.setString(1, phanCong.getMaLop());
             statement.setInt(2, phanCong.getMaNamHoc());
             statement.setString(3, phanCong.getMaCoVan());
             statement.setInt(4, phanCong.getTrangThaiHienThi());
@@ -98,7 +98,7 @@ public class PhanCongCtrl {
     public static void capNhatPhanCong(PhanCongModel phanCong) throws ClassNotFoundException {
         String sql = "UPDATE PhanCong SET MaLop=?, MaNamHoc=?, MaCoVan=?, TrangThaiHienThi=? WHERE MaPhanCong=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, phanCong.getMaLop());
+            statement.setString(1, phanCong.getMaLop());
             statement.setInt(2, phanCong.getMaNamHoc());
             statement.setString(3, phanCong.getMaCoVan());
             statement.setInt(4, phanCong.getTrangThaiHienThi());
@@ -150,7 +150,7 @@ public class PhanCongCtrl {
             for (PhanCongModel cv : dsCoVan) {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(cv.getMaPhanCong());
-                row.createCell(1).setCellValue(cv.getTenLop());
+                row.createCell(1).setCellValue(cv.getMaLop());
                 row.createCell(2).setCellValue(cv.getNamHoc());
                 row.createCell(3).setCellValue(cv.getTenCoVan());
                 row.createCell(4).setCellValue(cv.getTrangThaiHienThi());

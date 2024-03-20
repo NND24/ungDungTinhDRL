@@ -1,6 +1,7 @@
 package views.list;
 
 import controllers.DiemRenLuyenCtrl;
+import controllers.LopTestCtrl;
 import controllers.PhanCongCtrl;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,12 +10,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.DiemRenLuyenModel;
+import models.LopModelTest;
 import views.main.DangNhap;
 
 public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
     List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+    List<LopModelTest> dsLop = new ArrayList<>();
     String coVanCham = "";
 
     public DSDiemRenLuyenToanTruong() {
@@ -25,15 +28,14 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     private void hienThiDSLop() {
         try {
-            List<String> dsLop = PhanCongCtrl.timDSLop(DangNhap.username);
-
-//            cmbTKLop.removeAllItems();
-//            cmbTKLop.addItem("---Lớp---");
-//            dsLop.forEach(lop -> {
-//                cmbTKLop.addItem(lop);
-//            });
+            dsLop = LopTestCtrl.timTatCaLopHienThi();
+            cmbTKLop.removeAllItems();
+            cmbTKLop.addItem("---Lớp---");
+            dsLop.forEach(lop -> {
+                cmbTKLop.addItem(lop.getMaLop());
+            });
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenToanTruong.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -110,6 +112,30 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         txtXepLoai.setText("");
         txtHocKy.setText("");
         txtNamHoc.setText("");
+    }
+
+    private void timKiemDanhSachDRL() {
+        try {
+            String tuKhoa = txtTimKiem.getText();
+            String lop = cmbTKLop.getSelectedItem().toString();
+            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
+            String hocKy = cmbTKHocKy.getSelectedItem().toString();
+
+            if (lop.equals("---Lớp---")) {
+                lop = "";
+            }
+            if (namHoc.equals("---Năm học---")) {
+                namHoc = "";
+            }
+            if (hocKy.equals("---Học kỳ---")) {
+                hocKy = "";
+            }
+
+            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
+            hienThiDSDiem();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenToanTruong.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -497,101 +523,19 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
     }//GEN-LAST:event_lamMoiButtonActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
-        try {
-            String tuKhoa = txtTimKiem.getText();
-            String lop = cmbTKLop.getSelectedItem().toString();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-            if (lop.equals("---Lớp---")) {
-                lop = "";
-            }
-            if (namHoc.equals("---Năm học---")) {
-                namHoc = "";
-            }
-            if (hocKy.equals("---Học kỳ---")) {
-                hocKy = "";
-            }
-
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-            hienThiDSDiem();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenToanTruong.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void cmbTKLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKLopActionPerformed
-        try {
-            if (cmbTKLop.getSelectedItem() != null) {
-                String tuKhoa = txtTimKiem.getText();
-                String lop = cmbTKLop.getSelectedItem().toString();
-                String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-                String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-                if (lop.equals("---Lớp---")) {
-                    lop = "";
-                }
-                if (namHoc.equals("---Năm học---")) {
-                    namHoc = "";
-                }
-                if (hocKy.equals("---Học kỳ---")) {
-                    hocKy = "";
-                }
-
-                dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-                hienThiDSDiem();
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenToanTruong.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_cmbTKLopActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
-        try {
-            String tuKhoa = txtTimKiem.getText();
-            String lop = cmbTKLop.getSelectedItem().toString();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-            if (lop.equals("---Lớp---")) {
-                lop = "";
-            }
-            if (namHoc.equals("---Năm học---")) {
-                namHoc = "";
-            }
-            if (hocKy.equals("---Học kỳ---")) {
-                hocKy = "";
-            }
-
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-            hienThiDSDiem();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenToanTruong.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_cmbTKHocKyActionPerformed
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
-        try {
-            String tuKhoa = txtTimKiem.getText();
-            String lop = cmbTKLop.getSelectedItem().toString();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-            if (lop.equals("---Lớp---")) {
-                lop = "";
-            }
-            if (namHoc.equals("---Năm học---")) {
-                namHoc = "";
-            }
-            if (hocKy.equals("---Học kỳ---")) {
-                hocKy = "";
-            }
-
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-            hienThiDSDiem();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenToanTruong.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_txtTimKiemKeyPressed
 
     private void cmbTKKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKKhoaActionPerformed

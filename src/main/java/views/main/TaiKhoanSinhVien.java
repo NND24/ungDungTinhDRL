@@ -1,31 +1,22 @@
 package views.main;
 
-import models.SinhVienModelTest;
-import controllers.SinhVienCtrlTest;
+import models.SinhVienTestModel;
+import controllers.SinhVienTestCtrl;
 import controllers.TaiKhoanCtrl;
-import controllers.LopCtrlTest;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import models.LopModelTest;
-import models.TaiKhoanModel;
 import utils.DialogHelper;
-import utils.GenerateCode;
 import utils.Validator;
 
 public class TaiKhoanSinhVien extends javax.swing.JPanel {
 
     private String tenDangNhap = DangNhap.username;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     private String daNghiHoc = "";
-    private int maLop;
-    String maTaiKhoan = "";
+    private String maTaiKhoan = "";
 
     public TaiKhoanSinhVien() {
         initComponents();
@@ -34,10 +25,10 @@ public class TaiKhoanSinhVien extends javax.swing.JPanel {
 
     private void hienThiThongTin() {
         try {
-            SinhVienModelTest sinhVien = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(tenDangNhap);
+            SinhVienTestModel sinhVien = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(tenDangNhap);
             if (sinhVien != null) {
                 txtMaSinhVien.setText(sinhVien.getMaSinhVien());
-                maTaiKhoan = SinhVienCtrlTest.layMaTaiKhoanSV(sinhVien.getMaSinhVien());
+                maTaiKhoan = SinhVienTestCtrl.layMaTaiKhoanSV(sinhVien.getMaSinhVien());
 
                 HoTenTextField.setText(sinhVien.getHoTen());
                 ngaySinhTextField.setText(dateFormat.format(sinhVien.getNgaySinh()));
@@ -49,8 +40,7 @@ public class TaiKhoanSinhVien extends javax.swing.JPanel {
                 }
                 txtGioiTinh.setText(gioiTinh);
                 txtEmail.setText(sinhVien.getEmail());
-                txtLop.setText(sinhVien.getTenLop());
-                maLop = sinhVien.getMaLop();
+                txtLop.setText(sinhVien.getMaLop());
 
                 txtChucVu.setText(sinhVien.getChucVu());
                 soDienThoaiTextField.setText(sinhVien.getSoDienThoai());
@@ -561,7 +551,7 @@ public class TaiKhoanSinhVien extends javax.swing.JPanel {
             System.out.println(maSinhVien + " " + matKhau + " " + tenDangNhap + " " + maTaiKhoan);
             try {
                 if (TaiKhoanCtrl.kiemTraMatKhauCuSV(maSinhVien, matKhau)) {
-                    SinhVienCtrlTest.doiTenDangNhapSV(tenDangNhap, maTaiKhoan);
+                    TaiKhoanCtrl.doiTenDangNhap(tenDangNhap, maTaiKhoan);
                     DialogHelper.showMessage("Đổi tên đăng nhập thành công");
                     txtTenDangNhap.setText("");
                     txtMatKhau.setText("");
@@ -589,12 +579,13 @@ public class TaiKhoanSinhVien extends javax.swing.JPanel {
             } else {
                 idGioiTinh = "1";
             }
+            String maLop = txtLop.getText();
             String soDienThoai = soDienThoaiTextField.getText();
             String canCuoc = canCuocTextField.getText();
             String queQuan = queQuanTextField.getText();
             String chucVu = txtChucVu.getText();
 
-            SinhVienModelTest sv = new SinhVienModelTest(maSinhVien, maLop, hoTen, chucVu, idGioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
+            SinhVienTestModel sv = new SinhVienTestModel(maSinhVien, maLop, hoTen, chucVu, idGioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
             if (hoTen.isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
             } else if (ngaySinhTextField.getText().isEmpty()) {
@@ -607,7 +598,7 @@ public class TaiKhoanSinhVien extends javax.swing.JPanel {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else {
                 try {
-                    SinhVienCtrlTest.capNhatSinhVien(sv);
+                    SinhVienTestCtrl.capNhatSinhVien(sv);
                     DialogHelper.showMessage("Thay đổi thông tin thành công!");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);

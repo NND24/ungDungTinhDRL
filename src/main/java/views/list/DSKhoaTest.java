@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import models.KhoaModelTest;
+import models.KhoaTestModel;
 import utils.DialogHelper;
 
 public class DSKhoaTest extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
-    List<KhoaModelTest> dsKhoa;
+    List<KhoaTestModel> dsKhoa;
 
     public DSKhoaTest() {
         initComponents();
@@ -304,7 +304,7 @@ public class DSKhoaTest extends javax.swing.JFrame {
                 String tenKhoa = txtTenKhoa.getText();
                 int trangThai = cmbTrangThai.getSelectedIndex();
 
-                KhoaModelTest khoa = new KhoaModelTest(tenKhoa, trangThai);
+                KhoaTestModel khoa = new KhoaTestModel(tenKhoa, trangThai);
                 KhoaCtrlTest.themKhoa(khoa);
                 DialogHelper.showMessage("Thêm khoa thành công!");
                 hienThiDSKhoa();
@@ -344,7 +344,7 @@ public class DSKhoaTest extends javax.swing.JFrame {
                 int maKhoa = Integer.parseInt(txtMaKhoa.getText());
                 String tenKhoa = txtTenKhoa.getText();
                 int trangThai = cmbTrangThai.getSelectedIndex();
-                KhoaModelTest khoa = new KhoaModelTest(maKhoa, tenKhoa, trangThai);
+                KhoaTestModel khoa = new KhoaTestModel(maKhoa, tenKhoa, trangThai);
                 KhoaCtrlTest.capNhatKhoa(khoa);
                 hienThiDSKhoa();
             } catch (ClassNotFoundException ex) {
@@ -361,7 +361,7 @@ public class DSKhoaTest extends javax.swing.JFrame {
     private void tblDSKhoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSKhoaMouseClicked
         int selectedIndex = tblDSKhoa.getSelectedRow();
         if (selectedIndex >= 0) {
-            KhoaModelTest khoa = dsKhoa.get(selectedIndex);
+            KhoaTestModel khoa = dsKhoa.get(selectedIndex);
 
             txtMaKhoa.setText(Integer.toString(khoa.getMaKhoa()));
             txtTenKhoa.setText(khoa.getTenKhoa());

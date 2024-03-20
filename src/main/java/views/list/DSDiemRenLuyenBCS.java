@@ -1,7 +1,7 @@
 package views.list;
 
 import controllers.DiemRenLuyenCtrl;
-import controllers.SinhVienCtrlTest;
+import controllers.SinhVienTestCtrl;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.DiemRenLuyenModel;
-import models.SinhVienModelTest;
+import models.SinhVienTestModel;
 import utils.DialogHelper;
 import views.main.DangNhap;
 import views.main.FormChamDiemBCS;
@@ -45,7 +45,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }
 
     private void hienThiDRLHienTai() throws ClassNotFoundException {
-        SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
+        SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
         if (sv != null) {
             LocalDate currentDate = LocalDate.now();
             int currentMonth = currentDate.getMonthValue();
@@ -73,7 +73,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             cmbTKNamHoc.setSelectedItem(namHoc);
             cmbTKHocKy.setSelectedItem(hocKy);
 
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", sv.getTenLop(), hocKy, namHoc);
+            dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", sv.getMaLop(), hocKy, namHoc);
             tableModel.setRowCount(0);
 
             for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
@@ -111,6 +111,29 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             hienThiDRLHienTai();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void timKiemDanhSachDRL() {
+        try {
+            SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+
+            String lop = sv.getMaLop();
+            String tuKhoa = txtTimKiem.getText();
+            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
+            String hocKy = cmbTKHocKy.getSelectedItem().toString();
+
+            if (namHoc.equals("---Năm học---")) {
+                namHoc = "";
+            }
+            if (hocKy.equals("---Học kỳ---")) {
+                hocKy = "";
+            }
+
+            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
+            hienThiDSDiem();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -560,26 +583,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }//GEN-LAST:event_lamMoiButtonActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
-        try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
-
-            String lop = sv.getTenLop();
-            String tuKhoa = txtTimKiem.getText();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-            if (namHoc.equals("---Năm học---")) {
-                namHoc = "";
-            }
-            if (hocKy.equals("---Học kỳ---")) {
-                hocKy = "";
-            }
-
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-            hienThiDSDiem();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_cmbTKHocKyActionPerformed
 
     private void ketThucChamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ketThucChamButtonActionPerformed
@@ -653,49 +657,11 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }//GEN-LAST:event_chamLaiButtonActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
-        try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
-
-            String lop = sv.getTenLop();
-            String tuKhoa = txtTimKiem.getText();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-            if (namHoc.equals("---Năm học---")) {
-                namHoc = "";
-            }
-            if (hocKy.equals("---Học kỳ---")) {
-                hocKy = "";
-            }
-
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-            hienThiDSDiem();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
-        try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
-
-            String lop = sv.getTenLop();
-            String tuKhoa = txtTimKiem.getText();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-            if (namHoc.equals("---Năm học---")) {
-                namHoc = "";
-            }
-            if (hocKy.equals("---Học kỳ---")) {
-                hocKy = "";
-            }
-
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-            hienThiDSDiem();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_txtTimKiemKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

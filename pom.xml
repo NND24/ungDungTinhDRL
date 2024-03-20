@@ -68,5 +68,13 @@
             <artifactId>jcalendar-1.4</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+
+        <!-- Thư viện in pdf -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext7-core</artifactId>
+            <version>7.2.4</version>
+            <type>pom</type>
+        </dependency>
     </dependencies>
 </project>

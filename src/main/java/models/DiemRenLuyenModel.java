@@ -2,7 +2,7 @@ package models;
 
 import java.sql.Date;
 
-public class DiemRenLuyenModel extends SinhVienModelTest {
+public class DiemRenLuyenModel extends SinhVienTestModel {
 
     private String maPhieuDRL, hocKy, namHoc, nguoiCham, xepLoai, trangThaiCham;
     private float tongDiem;

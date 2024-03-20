@@ -7,8 +7,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.DiemRenLuyenModel;
 import controllers.DiemRenLuyenCtrl;
-import controllers.SinhVienCtrlTest;
-import models.SinhVienModelTest;
+import controllers.SinhVienTestCtrl;
+import models.SinhVienTestModel;
 import utils.DialogHelper;
 import views.main.DangNhap;
 import views.main.FormChamDiemSV;
@@ -43,7 +43,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
     }
 
     private void hienThiTatCaDRL() throws ClassNotFoundException {
-        SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
+        SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
         if (sv != null) {
             dsDiemRenLuyen = DiemRenLuyenCtrl.timTatCaDiemCuaSV(sv.getMaSinhVien());
             tableModel.setRowCount(0);
@@ -73,6 +73,29 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
             hocKyTextField.setText("");
             namHocTextField.setText("");
             hienThiTatCaDRL();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void timKiemDanhSachDRL() {
+        try {
+            SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+
+            String lop = sv.getMaLop();
+            String tuKhoa = sv.getMaSinhVien();
+            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
+            String hocKy = cmbTKHocKy.getSelectedItem().toString();
+
+            if (namHoc.equals("---Năm học---")) {
+                namHoc = "";
+            }
+            if (hocKy.equals("---Học kỳ---")) {
+                hocKy = "";
+            }
+
+            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
+            hienThiDSDiem();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -195,9 +218,9 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(891, 891, 891)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 851, Short.MAX_VALUE)
                 .addComponent(xemDiemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addComponent(lamMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -506,49 +529,11 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
     }//GEN-LAST:event_lamMoiButtonActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
-        try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
-
-            String lop = sv.getTenLop();
-            String tuKhoa = sv.getMaSinhVien();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-            if (namHoc.equals("---Năm học---")) {
-                namHoc = "";
-            }
-            if (hocKy.equals("---Học kỳ---")) {
-                hocKy = "";
-            }
-
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-            hienThiDSDiem();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
-        try {
-            SinhVienModelTest sv = SinhVienCtrlTest.timSinhVienTheoTenDangNhap(DangNhap.username);
-
-            String lop = sv.getTenLop();
-            String tuKhoa = sv.getMaSinhVien();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-            if (namHoc.equals("---Năm học---")) {
-                namHoc = "";
-            }
-            if (hocKy.equals("---Học kỳ---")) {
-                hocKy = "";
-            }
-
-            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-            hienThiDSDiem();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_cmbTKHocKyActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

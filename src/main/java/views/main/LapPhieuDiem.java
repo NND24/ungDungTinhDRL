@@ -1,7 +1,7 @@
 package views.main;
 
-import models.SinhVienModelTest;
-import controllers.SinhVienCtrlTest;
+import models.SinhVienTestModel;
+import controllers.SinhVienTestCtrl;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ public class LapPhieuDiem extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    List<SinhVienModelTest> dsSinhVien = new ArrayList<>();
+    List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
 
     public LapPhieuDiem() {
         try {
@@ -28,7 +28,7 @@ public class LapPhieuDiem extends javax.swing.JPanel {
     }
 
     private void hienThiTatCaSinhVien() throws ClassNotFoundException {
-        dsSinhVien = SinhVienCtrlTest.timTatCaSinhVien();
+        dsSinhVien = SinhVienTestCtrl.timTatCaSinhVien();
         tableModel.setRowCount(0);
 
         dsSinhVien.forEach(sv -> {
@@ -303,7 +303,7 @@ public class LapPhieuDiem extends javax.swing.JPanel {
     private void dsSinhVienTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dsSinhVienTableMouseClicked
         int selectedIndex = dsSinhVienTable.getSelectedRow();
         if (selectedIndex >= 0) {
-            SinhVienModelTest sv = dsSinhVien.get(selectedIndex);
+            SinhVienTestModel sv = dsSinhVien.get(selectedIndex);
 
         }
     }//GEN-LAST:event_dsSinhVienTableMouseClicked

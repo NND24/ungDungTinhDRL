@@ -1,51 +1,37 @@
 package views.main;
 
-import controllers.CoVanCtrlTest;
-import controllers.PhanCongCtrl;
-import controllers.LopCtrlTest;
+import controllers.DiemRenLuyenCtrl;
+import controllers.PhieuDRLCtrl;
+import controllers.LopTestCtrl;
+import controllers.SinhVienTestCtrl;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import models.CoVanModelTest;
 import models.LopModelTest;
 import models.NamHocModel;
-import models.PhanCongModel;
+import models.PhieuDRLModel;
+import models.SinhVienTestModel;
 import utils.DialogHelper;
-import utils.Validator;
 
 public class TaoPhieuDRL extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
-    List<PhanCongModel> dsPhanCong = new ArrayList<>();
+    List<PhieuDRLModel> dsPhieuDRL = new ArrayList<>();
     List<LopModelTest> dsLop = new ArrayList<>();
-    List<CoVanModelTest> dsCoVan = new ArrayList<>();
     List<NamHocModel> dsNamHoc = new ArrayList<>();
+    List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
 
     public TaoPhieuDRL() {
         try {
             initComponents();
 
-            tableModel = (DefaultTableModel) tblDSPhanCong.getModel();
+            tableModel = (DefaultTableModel) tblDSPhieuDRL.getModel();
 
-            hienThiDSCoVan();
             hienThiDSLop();
-            hienThiTatCaPhanCong();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    private void hienThiDSCoVan() {
-        try {
-            dsCoVan = CoVanCtrlTest.timTatCaCoVan();
-            cmbHocKy.removeAllItems();
-
-            dsCoVan.forEach(cv -> {
-                cmbHocKy.addItem(cv.getHoTen());
-            });
+            hienThiTatCaPhieuDRL();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -53,11 +39,11 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
 
     private void hienThiDSLop() {
         try {
-            dsLop = LopCtrlTest.timTatCaLopHienThi();
+            dsLop = LopTestCtrl.timTatCaLopHienThi();
             cmbLop.removeAllItems();
 
             dsLop.forEach(lop -> {
-                cmbLop.addItem(lop.getTenLop());
+                cmbLop.addItem(lop.getMaLop());
             });
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,20 +63,14 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
 //        }
     }
 
-    private void hienThiTatCaPhanCong() throws ClassNotFoundException {
-        dsPhanCong = PhanCongCtrl.timTatCaPhanCong();
+    private void hienThiTatCaPhieuDRL() throws ClassNotFoundException {
+        dsPhieuDRL = PhieuDRLCtrl.timTatCaPhieuDRL();
 
         tableModel.setRowCount(0);
 
-        dsPhanCong.forEach(pc -> {
-            String trangThai = "";
-            if (pc.getTrangThaiHienThi() == 1) {
-                trangThai = "Hiển thị";
-            } else {
-                trangThai = "Ẩn";
-            }
-            tableModel.addRow(new Object[]{pc.getMaPhanCong(), pc.getTenCoVan(), pc.getTenLop(),
-                pc.getNamHoc(), trangThai});
+        dsPhieuDRL.forEach(phieu -> {
+            tableModel.addRow(new Object[]{phieu.getMaLop(), phieu.getNamHoc(), phieu.getHocKy(),
+                phieu.getNgayBatDau(), phieu.getNgayKetThuc()});
         });
     }
 
@@ -98,6 +78,8 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
         cmbHocKy.setSelectedIndex(0);
         cmbLop.setSelectedIndex(0);
         cmbNamHoc.setSelectedIndex(0);
+        dateChooserEnd.setCalendar(null);
+        dateChooserStart.setCalendar(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -107,10 +89,10 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblDSPhanCong = new javax.swing.JTable();
+        tblDSPhieuDRL = new javax.swing.JTable();
         ThemButton = new javax.swing.JButton();
         XoaButton = new javax.swing.JButton();
-        SuaButton = new javax.swing.JButton();
+        btnCapNhat = new javax.swing.JButton();
         xuatDSButton = new javax.swing.JButton();
         NhapMoiButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -121,8 +103,6 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
         cmbHocKy = new javax.swing.JComboBox<>();
         cmbNamHoc = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtMaPhanCong = new javax.swing.JTextField();
         dateChooserStart = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         dateChooserEnd = new com.toedter.calendar.JDateChooser();
@@ -136,7 +116,7 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Học kỳ");
 
-        tblDSPhanCong.setModel(new javax.swing.table.DefaultTableModel(
+        tblDSPhieuDRL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -144,7 +124,7 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Mã phân công", "Tên cố vấn", "Lớp", "Năm học", "Trạng thái"
+                "Lớp", "Năm học", "Học kỳ", "Ngày bắt đầu", "Ngày kết thúc"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -155,13 +135,13 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblDSPhanCong.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tblDSPhanCong.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblDSPhieuDRL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tblDSPhieuDRL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblDSPhanCongMouseClicked(evt);
+                tblDSPhieuDRLMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblDSPhanCong);
+        jScrollPane1.setViewportView(tblDSPhieuDRL);
 
         ThemButton.setBackground(new java.awt.Color(0, 102, 255));
         ThemButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -189,16 +169,16 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
             }
         });
 
-        SuaButton.setBackground(new java.awt.Color(0, 102, 255));
-        SuaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        SuaButton.setForeground(new java.awt.Color(255, 255, 255));
-        SuaButton.setText("Sửa");
-        SuaButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        SuaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SuaButton.setPreferredSize(new java.awt.Dimension(70, 30));
-        SuaButton.addActionListener(new java.awt.event.ActionListener() {
+        btnCapNhat.setBackground(new java.awt.Color(0, 102, 255));
+        btnCapNhat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCapNhat.setForeground(new java.awt.Color(255, 255, 255));
+        btnCapNhat.setText("Cập nhật");
+        btnCapNhat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCapNhat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCapNhat.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuaButtonActionPerformed(evt);
+                btnCapNhatActionPerformed(evt);
             }
         });
 
@@ -256,15 +236,12 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
+        cmbHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
+
         cmbNamHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022-2023", "2023-2024" }));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Ngày bắt đầu");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Mã phiếu");
-
-        txtMaPhanCong.setEditable(false);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Ngày kết thúc");
@@ -283,37 +260,34 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(SuaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
                         .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(xuatDSButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(dateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel2))
-                                .addGap(37, 37, 37)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtMaPhanCong, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel9))
-                        .addGap(15, 15, 15)
+                            .addComponent(jLabel1))
+                        .addGap(62, 62, 62)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbLop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)))
-                .addContainerGap())
+                            .addComponent(cmbLop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(46, 46, 46)
+                                .addComponent(cmbNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(dateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(dateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39))
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -321,32 +295,28 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtMaPhanCong, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbLop, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel1)
-                    .addComponent(cmbHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(cmbHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8))
+                    .addComponent(dateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel8)
-                        .addComponent(dateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(dateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9)
+                    .addComponent(dateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(xuatDSButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SuaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -376,90 +346,133 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
     private void NhapMoiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NhapMoiButtonActionPerformed
         try {
             lamMoi();
-            hienThiTatCaPhanCong();
+            hienThiTatCaPhieuDRL();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_NhapMoiButtonActionPerformed
 
     private void xuatDSButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xuatDSButtonActionPerformed
-        PhanCongCtrl.xuatFileExcel(dsPhanCong, "src/main/java/files/DSPhanCong.xlsx");
+        PhieuDRLCtrl.xuatFileExcel(dsPhieuDRL, "src/main/java/files/DSPhieuDRL.xlsx");
         DialogHelper.showMessage("Xuất danh sách thành công!");
     }//GEN-LAST:event_xuatDSButtonActionPerformed
 
-    private void SuaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuaButtonActionPerformed
+    private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
         try {
-            boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn sửa phân công này!");
-
-            if (flag) {
-                int maPhanCong = Integer.parseInt(txtMaPhanCong.getText());
-                int phanCongIndex = cmbHocKy.getSelectedIndex();
-                String maCoVan = dsCoVan.get(phanCongIndex).getMaCoVan();
-                int lopIndex = cmbLop.getSelectedIndex();
-                int maLop = Integer.parseInt(dsLop.get(lopIndex).getMaLop());
-                int namHocIndex = cmbNamHoc.getSelectedIndex();
-                // int maNamHoc = Integer.parseInt(dsNamHoc.get(namHocIndex).getMaNamHoc());
-                int maNamHoc = 2;
-
-                PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, maPhanCong, trangThai);
-                PhanCongCtrl.capNhatPhanCong(phanCong);
-                hienThiTatCaPhanCong();
+            String maLop = cmbLop.getSelectedItem().toString();
+            String namHoc = cmbNamHoc.getSelectedItem().toString();
+            int maNamHoc;
+            if (namHoc.equals("2022-2023")) {
+                maNamHoc = 1;
+            } else {
+                maNamHoc = 2;
             }
+            int hocKy = Integer.parseInt(cmbHocKy.getSelectedItem().toString());
+            java.util.Date ngayBatDauUtil = dateChooserStart.getDate();
+            java.util.Date ngayKetThucUtil = dateChooserEnd.getDate();
+            java.sql.Date ngayBatDau = new java.sql.Date(ngayBatDauUtil.getTime());
+            java.sql.Date ngayKetThuc = new java.sql.Date(ngayKetThucUtil.getTime());
+            dsSinhVien = SinhVienTestCtrl.timSinhVienTheoLop(maLop);
+
+            dsSinhVien.forEach(sv -> {
+                try {
+                    String maPhieuDRL = sv.getMaSinhVien() + maNamHoc + hocKy;
+                    PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, ngayBatDau, ngayKetThuc);
+                    PhieuDRLCtrl.capNhatPhieuDRL(phieu);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+
+            DialogHelper.showMessage("Cập nhật thành công");
+            hienThiTatCaPhieuDRL();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_SuaButtonActionPerformed
+    }//GEN-LAST:event_btnCapNhatActionPerformed
 
     private void XoaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaButtonActionPerformed
-        boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa phân công này!");
-
-        if (flag) {
-            try {
-                int maPhanCong = Integer.parseInt(txtMaPhanCong.getText());
-                PhanCongCtrl.xoaPhanCong(maPhanCong);
-                hienThiTatCaPhanCong();
-                DialogHelper.showMessage("Xóa phân công thành công");
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
+        try {
+            String maLop = cmbLop.getSelectedItem().toString();
+            String namHoc = cmbNamHoc.getSelectedItem().toString();
+            int maNamHoc;
+            if (namHoc.equals("2022-2023")) {
+                maNamHoc = 1;
+            } else {
+                maNamHoc = 2;
             }
+            int hocKy = Integer.parseInt(cmbHocKy.getSelectedItem().toString());
+            dsSinhVien = SinhVienTestCtrl.timSinhVienTheoLop(maLop);
+
+            dsSinhVien.forEach(sv -> {
+                try {
+                    String maPhieuDRL = sv.getMaSinhVien() + maNamHoc + hocKy;
+                    PhieuDRLCtrl.xoaPhieuDRL(maPhieuDRL);
+                } catch (ClassNotFoundException | SQLException ex) {
+                    Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+            DialogHelper.showMessage("Xóa phiếu điểm rèn luyện thành công");
+            hienThiTatCaPhieuDRL();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_XoaButtonActionPerformed
 
     private void ThemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemButtonActionPerformed
         try {
-            if (!txtMaPhanCong.getText().isEmpty()) {
-                DialogHelper.showError("Phân công đã tồn tại. Vui lòng nhập mới");
+            String maLop = cmbLop.getSelectedItem().toString();
+            String namHoc = cmbNamHoc.getSelectedItem().toString();
+            int maNamHoc;
+            if (namHoc.equals("2022-2023")) {
+                maNamHoc = 1;
             } else {
-                int phanCongIndex = cmbHocKy.getSelectedIndex();
-                String maCoVan = dsCoVan.get(phanCongIndex).getMaCoVan();
-                int lopIndex = cmbLop.getSelectedIndex();
-                int maLop = Integer.parseInt(dsLop.get(lopIndex).getMaLop());
-                int namHocIndex = cmbNamHoc.getSelectedIndex();
-                // int maNamHoc = Integer.parseInt(dsNamHoc.get(namHocIndex).getMaNamHoc());
-                int maNamHoc = 1;
-                int trangThai = cmbTrangThai.getSelectedIndex();
-
-                PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, trangThai);
-                PhanCongCtrl.themPhanCong(phanCong);
-                hienThiTatCaPhanCong();
+                maNamHoc = 2;
             }
+            int hocKy = Integer.parseInt(cmbHocKy.getSelectedItem().toString());
+            java.util.Date ngayBatDauUtil = dateChooserStart.getDate();
+            java.util.Date ngayKetThucUtil = dateChooserEnd.getDate();
+            java.sql.Date ngayBatDau = new java.sql.Date(ngayBatDauUtil.getTime());
+            java.sql.Date ngayKetThuc = new java.sql.Date(ngayKetThucUtil.getTime());
+            dsSinhVien = SinhVienTestCtrl.timSinhVienTheoLop(maLop);
+
+            dsSinhVien.forEach(sv -> {
+                try {
+                    String maPhieuDRL = sv.getMaSinhVien() + maNamHoc + hocKy;
+                    PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, sv.getMaSinhVien(), maNamHoc, hocKy, ngayBatDau, ngayKetThuc);
+                    PhieuDRLCtrl.themPhieuDRL(phieu);
+                    DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "SinhVien");
+                    DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "BanCanSu");
+                    DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "CoVan");
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+
+            hienThiTatCaPhieuDRL();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ThemButtonActionPerformed
 
-    private void tblDSPhanCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSPhanCongMouseClicked
+    private void tblDSPhieuDRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSPhieuDRLMouseClicked
         // TODO add your handling code here:
-        int selectedIndex = tblDSPhanCong.getSelectedRow();
+        int selectedIndex = tblDSPhieuDRL.getSelectedRow();
         if (selectedIndex >= 0) {
-            PhanCongModel pc = dsPhanCong.get(selectedIndex);
-            txtMaPhanCong.setText(Integer.toString(pc.getMaPhanCong()));
-            cmbHocKy.setSelectedItem(pc.getTenCoVan());
-            cmbLop.setSelectedItem(pc.getTenLop());
-            cmbNamHoc.setSelectedItem(pc.getNamHoc());
-            cmbTrangThai.setSelectedIndex(pc.getTrangThaiHienThi());
+            PhieuDRLModel phieu = dsPhieuDRL.get(selectedIndex);
+            cmbLop.setSelectedItem(phieu.getMaLop());
+            cmbNamHoc.setSelectedItem(phieu.getNamHoc());
+            int hocKyIndex;
+            if (phieu.getHocKy() == 1) {
+                hocKyIndex = 0;
+            } else {
+                hocKyIndex = 1;
+            }
+            cmbHocKy.setSelectedIndex(hocKyIndex);
+            dateChooserStart.setDate(phieu.getNgayBatDau());
+            dateChooserEnd.setDate(phieu.getNgayKetThuc());
         }
-    }//GEN-LAST:event_tblDSPhanCongMouseClicked
+    }//GEN-LAST:event_tblDSPhieuDRLMouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -471,16 +484,15 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton NhapMoiButton;
-    private javax.swing.JButton SuaButton;
     private javax.swing.JButton ThemButton;
     private javax.swing.JButton XoaButton;
+    private javax.swing.JButton btnCapNhat;
     private javax.swing.JComboBox<String> cmbHocKy;
     private javax.swing.JComboBox<String> cmbLop;
     private javax.swing.JComboBox<String> cmbNamHoc;
     private com.toedter.calendar.JDateChooser dateChooserEnd;
     private com.toedter.calendar.JDateChooser dateChooserStart;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -489,8 +501,7 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblDSPhanCong;
-    private javax.swing.JTextField txtMaPhanCong;
+    private javax.swing.JTable tblDSPhieuDRL;
     private javax.swing.JButton xuatDSButton;
     // End of variables declaration//GEN-END:variables
 }

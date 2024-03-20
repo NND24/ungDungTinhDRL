@@ -1,15 +1,15 @@
 package views.list;
 
-import controllers.CoVanCtrlTest;
+import controllers.CoVanTestCtrl;
 import controllers.PhanCongCtrl;
-import controllers.LopCtrlTest;
+import controllers.LopTestCtrl;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import models.CoVanModelTest;
+import models.CoVanTestModel;
 import models.LopModelTest;
 import models.NamHocModel;
 import models.PhanCongModel;
@@ -21,7 +21,7 @@ public class DSPhanCong extends javax.swing.JFrame {
     DefaultTableModel tableModel;
     List<PhanCongModel> dsPhanCong = new ArrayList<>();
     List<LopModelTest> dsLop = new ArrayList<>();
-    List<CoVanModelTest> dsCoVan = new ArrayList<>();
+    List<CoVanTestModel> dsCoVan = new ArrayList<>();
     List<NamHocModel> dsNamHoc = new ArrayList<>();
 
     public DSPhanCong() {
@@ -40,7 +40,7 @@ public class DSPhanCong extends javax.swing.JFrame {
 
     private void hienThiDSCoVan() {
         try {
-            dsCoVan = CoVanCtrlTest.timTatCaCoVan();
+            dsCoVan = CoVanTestCtrl.timTatCaCoVan();
             cmbCoVan.removeAllItems();
 
             dsCoVan.forEach(cv -> {
@@ -53,11 +53,11 @@ public class DSPhanCong extends javax.swing.JFrame {
 
     private void hienThiDSLop() {
         try {
-            dsLop = LopCtrlTest.timTatCaLopHienThi();
+            dsLop = LopTestCtrl.timTatCaLopHienThi();
             cmbLop.removeAllItems();
 
             dsLop.forEach(lop -> {
-                cmbLop.addItem(lop.getTenLop());
+                cmbLop.addItem(lop.getMaLop());
             });
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
@@ -89,7 +89,7 @@ public class DSPhanCong extends javax.swing.JFrame {
             } else {
                 trangThai = "Ẩn";
             }
-            tableModel.addRow(new Object[]{pc.getMaPhanCong(), pc.getTenCoVan(), pc.getTenLop(),
+            tableModel.addRow(new Object[]{pc.getMaPhanCong(), pc.getTenCoVan(),
                 pc.getNamHoc(), trangThai});
         });
     }
@@ -380,8 +380,7 @@ public class DSPhanCong extends javax.swing.JFrame {
             } else {
                 int phanCongIndex = cmbCoVan.getSelectedIndex();
                 String maCoVan = dsCoVan.get(phanCongIndex).getMaCoVan();
-                int lopIndex = cmbLop.getSelectedIndex();
-                int maLop = Integer.parseInt(dsLop.get(lopIndex).getMaLop());
+                String maLop = cmbLop.getSelectedItem().toString();
                 int namHocIndex = cmbNamHoc.getSelectedIndex();
                 // int maNamHoc = Integer.parseInt(dsNamHoc.get(namHocIndex).getMaNamHoc());
                 int maNamHoc = 1;
@@ -419,8 +418,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                 int maPhanCong = Integer.parseInt(txtMaPhanCong.getText());
                 int phanCongIndex = cmbCoVan.getSelectedIndex();
                 String maCoVan = dsCoVan.get(phanCongIndex).getMaCoVan();
-                int lopIndex = cmbLop.getSelectedIndex();
-                int maLop = Integer.parseInt(dsLop.get(lopIndex).getMaLop());
+                String maLop = cmbLop.getSelectedItem().toString();
                 int namHocIndex = cmbNamHoc.getSelectedIndex();
                 // int maNamHoc = Integer.parseInt(dsNamHoc.get(namHocIndex).getMaNamHoc());
                 int maNamHoc = 2;
@@ -442,7 +440,7 @@ public class DSPhanCong extends javax.swing.JFrame {
             PhanCongModel pc = dsPhanCong.get(selectedIndex);
             txtMaPhanCong.setText(Integer.toString(pc.getMaPhanCong()));
             cmbCoVan.setSelectedItem(pc.getTenCoVan());
-            cmbLop.setSelectedItem(pc.getTenLop());
+            cmbLop.setSelectedItem(pc.getMaLop());
             cmbNamHoc.setSelectedItem(pc.getNamHoc());
             cmbTrangThai.setSelectedIndex(pc.getTrangThaiHienThi());
         }

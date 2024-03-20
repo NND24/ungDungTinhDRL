@@ -18,28 +18,28 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class LopCtrlTest {
+public class LopTestCtrl {
 
     public static void themLop(LopModelTest lop) throws ClassNotFoundException {
-        String sql = "INSERT INTO Lop (MaNganh, TenLop, Khoa, TrangThaiHienThi) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Lop (MaNganh, MaLop, Khoa, TrangThaiHienThi) VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, lop.getNganh());
-            statement.setString(2, lop.getTenLop());
+            statement.setString(2, lop.getMaLop());
             statement.setString(3, lop.getKhoa());
             statement.setInt(4, Integer.parseInt(lop.getTrangThaiHienThi()));
 
             statement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(LopCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public static void capNhatLop(LopModelTest lop) throws ClassNotFoundException {
-        String sql = "UPDATE Lop SET MaNganh=?, TenLop=?, Khoa=?, TrangThaiHienThi=? WHERE MaLop=?";
+        String sql = "UPDATE Lop SET MaNganh=?, MaLop=?, Khoa=?, TrangThaiHienThi=? WHERE MaLop=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, lop.getNganh());
-            statement.setString(2, lop.getTenLop());
+            statement.setString(2, lop.getMaLop());
             statement.setString(3, lop.getKhoa());
             statement.setString(4, lop.getTrangThaiHienThi());
             statement.setString(5, lop.getMaLop());
@@ -47,7 +47,7 @@ public class LopCtrlTest {
             statement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(LopCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -65,14 +65,13 @@ public class LopCtrlTest {
                 LopModelTest lop = new LopModelTest(
                         resultSet.getString("MaLop"),
                         resultSet.getString("MaNganh"),
-                        resultSet.getString("TenLop"),
                         resultSet.getString("Khoa"),
                         resultSet.getString("TrangThaiHienThi")
                 );
                 dsLop.add(lop);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LopCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsLop;
     }
@@ -91,14 +90,13 @@ public class LopCtrlTest {
                 LopModelTest lop = new LopModelTest(
                         resultSet.getString("MaLop"),
                         resultSet.getString("MaNganh"),
-                        resultSet.getString("TenLop"),
                         resultSet.getString("Khoa"),
                         resultSet.getString("TrangThaiHienThi")
                 );
                 dsLop.add(lop);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LopCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsLop;
     }
@@ -129,7 +127,7 @@ public class LopCtrlTest {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(lop.getMaLop());
                 row.createCell(1).setCellValue(lop.getNganh());
-                row.createCell(2).setCellValue(lop.getTenLop());
+                row.createCell(2).setCellValue(lop.getMaLop());
                 row.createCell(3).setCellValue(lop.getKhoa());
                 row.createCell(4).setCellValue(lop.getTrangThaiHienThi());
             }

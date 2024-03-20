@@ -1,9 +1,9 @@
 package views.list;
 
-import models.SinhVienModelTest;
-import controllers.SinhVienCtrlTest;
+import models.SinhVienTestModel;
+import controllers.SinhVienTestCtrl;
 import controllers.TaiKhoanCtrl;
-import controllers.LopCtrlTest;
+import controllers.LopTestCtrl;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,7 +22,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    List<SinhVienModelTest> dsSinhVien = new ArrayList<>();
+    List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
     List<LopModelTest> dsLop = new ArrayList<>();
 
     public DSSinhVienTest() {
@@ -34,7 +34,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
 
     private void hienThiDSSinhVien() {
         try {
-            dsSinhVien = SinhVienCtrlTest.timTatCaSinhVien();
+            dsSinhVien = SinhVienTestCtrl.timTatCaSinhVien();
             tableModel.setRowCount(0);
 
             dsSinhVien.forEach(sv -> {
@@ -45,7 +45,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
                     trangThaiHoc = "Đã nghỉ";
                 }
                 tableModel.addRow(new Object[]{
-                    sv.getMaSinhVien(), sv.getTenLop(),
+                    sv.getMaSinhVien(), sv.getMaLop(),
                     sv.getHoTen(), sv.getChucVu(), sv.getGioiTinh(),
                     sv.getNgaySinh(), sv.getCanCuoc(),
                     sv.getQueQuan(), sv.getSoDienThoai(),
@@ -58,10 +58,10 @@ public class DSSinhVienTest extends javax.swing.JPanel {
 
     private void hienThiDSLop() {
         try {
-            dsLop = LopCtrlTest.timTatCaLopHienThi();
+            dsLop = LopTestCtrl.timTatCaLopHienThi();
             cmbLop.removeAllItems();
             dsLop.forEach(lop -> {
-                cmbLop.addItem(lop.getTenLop());
+                cmbLop.addItem(lop.getMaLop());
             });
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -299,6 +299,8 @@ public class DSSinhVienTest extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("DANH SÁCH SINH VIÊN");
 
+        LocKhoaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Tìm kiếm");
 
@@ -503,11 +505,10 @@ public class DSSinhVienTest extends javax.swing.JPanel {
     private void themSinhVienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themSinhVienButtonActionPerformed
         try {
             int lopIndex = cmbLop.getSelectedIndex();
-            int maLop = Integer.parseInt(dsLop.get(lopIndex).getMaLop());
-            String tenLop = cmbLop.getSelectedItem().toString();
+            String maLop = cmbLop.getSelectedItem().toString();
             String khoa = dsLop.get(lopIndex).getKhoa();
             String nganh = dsLop.get(lopIndex).getNganh();
-            String soLuongNguoiFormatted = String.format("%03d", (SinhVienCtrlTest.timSinhVienTheoLop(tenLop).size() + 1));
+            String soLuongNguoiFormatted = String.format("%03d", (SinhVienTestCtrl.timSinhVienTheoLop(maLop).size() + 1));
             String maSinhVien = "N" + khoa.substring(2) + "DC" + nganh + soLuongNguoiFormatted;
             String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = HoTenTextField.getText();
@@ -530,7 +531,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
 
             TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maSinhVien, matKhau, maChucVu);
-            SinhVienModelTest sv = new SinhVienModelTest(maSinhVien, maTaiKhoan, maLop, hoTen, email, gioiTinh, sqlNgaySinh, soDienThoai, canCuoc, queQuan, daNghiHoc);
+            SinhVienTestModel sv = new SinhVienTestModel(maSinhVien, maTaiKhoan, maLop, hoTen, email, gioiTinh, sqlNgaySinh, soDienThoai, canCuoc, queQuan, daNghiHoc);
 
             if (!txtMaSinhVien.getText().isEmpty()) {
                 DialogHelper.showError("Sinh viên đã tồn tại. Vui lòng nhập mới");
@@ -547,7 +548,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             } else {
                 try {
                     TaiKhoanCtrl.themTaiKhoan(tk);
-                    SinhVienCtrlTest.themSinhVien(sv);
+                    SinhVienTestCtrl.themSinhVien(sv);
                     hienThiDSSinhVien();
                     lamMoi();
                     DialogHelper.showMessage("Thêm sinh viên thành công!");
@@ -563,7 +564,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
     private void dsSinhVienTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dsSinhVienTableMouseClicked
         int selectedIndex = dsSinhVienTable.getSelectedRow();
         if (selectedIndex >= 0) {
-            SinhVienModelTest sv = dsSinhVien.get(selectedIndex);
+            SinhVienTestModel sv = dsSinhVien.get(selectedIndex);
 
             txtMaSinhVien.setText(sv.getMaSinhVien());
             txtEmail.setText(sv.getEmail());
@@ -579,15 +580,15 @@ public class DSSinhVienTest extends javax.swing.JPanel {
     }//GEN-LAST:event_dsSinhVienTableMouseClicked
 
     private void btnXuatDSBenhNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatDSBenhNhanActionPerformed
-        SinhVienCtrlTest.xuatFileExcel(dsSinhVien, "src/main/java/files/DSSinhVien.xlsx");
+        SinhVienTestCtrl.xuatFileExcel(dsSinhVien, "src/main/java/files/DSSinhVien.xlsx");
         DialogHelper.showMessage("Xuất danh sách thành công!");
     }//GEN-LAST:event_btnXuatDSBenhNhanActionPerformed
 
     private void xoaSinhVienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xoaSinhVienButtonActionPerformed
         try {
             String maSinhVien = txtMaSinhVien.getText();
-            String maTaiKhoan = SinhVienCtrlTest.layMaTaiKhoanSV(maSinhVien);
-            SinhVienCtrlTest.xoaSinhVien(maSinhVien);
+            String maTaiKhoan = SinhVienTestCtrl.layMaTaiKhoanSV(maSinhVien);
+            SinhVienTestCtrl.xoaSinhVien(maSinhVien);
             TaiKhoanCtrl.xoaTaiKhoan(maTaiKhoan);
 
             hienThiDSLop();
@@ -609,11 +610,11 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             String canCuoc = canCuocTextField.getText();
             String queQuan = queQuanTextField.getText();
             int lopIndex = cmbLop.getSelectedIndex();
-            int maLop = Integer.parseInt(dsLop.get(lopIndex).getMaLop());
+            String maLop = cmbLop.getSelectedItem().toString();
             String chucVu = chucVuComboBox.getSelectedItem().toString();
             String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
 
-            SinhVienModelTest sv = new SinhVienModelTest(maSinhVien, maLop, hoTen, chucVu, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
+            SinhVienTestModel sv = new SinhVienTestModel(maSinhVien, maLop, hoTen, chucVu, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
             if (hoTen.isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
             } else if (ngaySinhTextField.getText().isEmpty()) {
@@ -626,7 +627,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else {
                 try {
-                    SinhVienCtrlTest.capNhatSinhVien(sv);
+                    SinhVienTestCtrl.capNhatSinhVien(sv);
                     hienThiDSSinhVien();
                     DialogHelper.showMessage("Cập nhật sinh viên thành công!");
                 } catch (ClassNotFoundException ex) {

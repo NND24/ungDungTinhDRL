@@ -198,4 +198,33 @@ public class TaiKhoanCtrl {
         return flag;
     }
 
+    public static boolean kiemTraMatKhauCuCV(String maCoVan, String matKhau) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = "SELECT MatKhau FROM CoVan,TaiKhoan WHERE CoVan.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND MaCoVan = ?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, maCoVan);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    String storedPasswordHash = resultSet.getString("MatKhau");
+                    flag = PasswordHashing.checkPassword(matKhau, storedPasswordHash);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TaiKhoanCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return flag;
+    }
+
+    public static void doiTenDangNhap(String tenDangNhap, String maTaiKhoan) {
+        String sql = "UPDATE TaiKhoan SET TenDangNhap=? WHERE MaTaiKhoan=?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, tenDangNhap);
+            statement.setString(2, maTaiKhoan);
+            statement.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

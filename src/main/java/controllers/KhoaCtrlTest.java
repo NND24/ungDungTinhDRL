@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import models.KhoaModelTest;
+import models.KhoaTestModel;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -20,7 +20,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class KhoaCtrlTest {
 
-    public static void themKhoa(KhoaModelTest khoa) throws ClassNotFoundException {
+    public static void themKhoa(KhoaTestModel khoa) throws ClassNotFoundException {
         String sql = "INSERT INTO Khoa (TenKhoa, TrangThaiHienThi) VALUES (?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, khoa.getTenKhoa());
@@ -33,7 +33,7 @@ public class KhoaCtrlTest {
         }
     }
 
-    public static void capNhatKhoa(KhoaModelTest khoa) throws ClassNotFoundException {
+    public static void capNhatKhoa(KhoaTestModel khoa) throws ClassNotFoundException {
         String sql = "UPDATE Khoa SET TenKhoa=?, TrangThaiHienThi=? WHERE MaKhoa=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, khoa.getTenKhoa());
@@ -47,8 +47,8 @@ public class KhoaCtrlTest {
         }
     }
 
-    public static List<KhoaModelTest> timTatCaKhoa() throws ClassNotFoundException {
-        List<KhoaModelTest> dsKhoa = new ArrayList<>();
+    public static List<KhoaTestModel> timTatCaKhoa() throws ClassNotFoundException {
+        List<KhoaTestModel> dsKhoa = new ArrayList<>();
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
@@ -58,7 +58,7 @@ public class KhoaCtrlTest {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                KhoaModelTest khoa = new KhoaModelTest(
+                KhoaTestModel khoa = new KhoaTestModel(
                         resultSet.getInt("MaKhoa"),
                         resultSet.getString("TenKhoa"),
                         resultSet.getInt("TrangThaiHienThi")
@@ -71,8 +71,8 @@ public class KhoaCtrlTest {
         return dsKhoa;
     }
 
-    public static List<KhoaModelTest> timTatCaKhoaHienThi() throws ClassNotFoundException {
-        List<KhoaModelTest> dsKhoa = new ArrayList<>();
+    public static List<KhoaTestModel> timTatCaKhoaHienThi() throws ClassNotFoundException {
+        List<KhoaTestModel> dsKhoa = new ArrayList<>();
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
@@ -82,7 +82,7 @@ public class KhoaCtrlTest {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                KhoaModelTest khoa = new KhoaModelTest(
+                KhoaTestModel khoa = new KhoaTestModel(
                         resultSet.getInt("MaKhoa"),
                         resultSet.getString("TenKhoa"),
                         resultSet.getInt("TrangThaiHienThi")
@@ -129,7 +129,7 @@ public class KhoaCtrlTest {
         }
     }
 
-    public static void xuatFileExcel(List<KhoaModelTest> dsKhoa, String filePath) {
+    public static void xuatFileExcel(List<KhoaTestModel> dsKhoa, String filePath) {
         try (Workbook workbook = new XSSFWorkbook()) {
             Sheet sheet = workbook.createSheet("DanhSachKhoa");
 
@@ -141,7 +141,7 @@ public class KhoaCtrlTest {
 
             // Ghi dữ liệu vào sheet
             int rowNum = 1;
-            for (KhoaModelTest khoa : dsKhoa) {
+            for (KhoaTestModel khoa : dsKhoa) {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(khoa.getMaKhoa());
                 row.createCell(1).setCellValue(khoa.getTenKhoa());

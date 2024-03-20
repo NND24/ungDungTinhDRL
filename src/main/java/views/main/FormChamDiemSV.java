@@ -3218,7 +3218,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
                 trangThai = diemRenLuyenSV.getTrangThaiCham();
                 ngayKetThuc = diemRenLuyenSV.getNgayKetThuc();
                 ngaySinhTextField.setText(sdf.format(diemRenLuyenSV.getNgaySinh()));
-                lopTextField.setText(diemRenLuyenSV.getTenLop());
+                lopTextField.setText(diemRenLuyenSV.getMaLop());
 
                 sv11TextField.setText(Integer.toString(diemRenLuyenSV.getD11()));
                 sv12aTextField.setText(Integer.toString(diemRenLuyenSV.getD12a()));

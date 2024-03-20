@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import models.KhoaModelTest;
+import models.KhoaTestModel;
 import controllers.KhoaCtrlTest;
 import controllers.TaiKhoanCtrl;
-import controllers.CoVanCtrlTest;
+import controllers.CoVanTestCtrl;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import models.CoVanModelTest;
+import models.CoVanTestModel;
 import models.TaiKhoanModel;
 import utils.DialogHelper;
 import utils.GenerateCode;
@@ -22,8 +22,8 @@ public class DSCoVanTest extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    List<KhoaModelTest> dsKhoa = new ArrayList<>();
-    List<CoVanModelTest> dsCoVan = new ArrayList<>();
+    List<KhoaTestModel> dsKhoa = new ArrayList<>();
+    List<CoVanTestModel> dsCoVan = new ArrayList<>();
 
     public DSCoVanTest() {
         initComponents();
@@ -47,7 +47,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
 
     private void hienThiDSCoVan() {
         try {
-            dsCoVan = CoVanCtrlTest.timTatCaCoVan();
+            dsCoVan = CoVanTestCtrl.timTatCaCoVan();
             tableModel.setRowCount(0);
 
             dsCoVan.forEach(cv -> {
@@ -563,8 +563,8 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maCoVan, matKhau, chucVu);
                     TaiKhoanCtrl.themTaiKhoan(tk);
 
-                    CoVanModelTest cv = new CoVanModelTest(maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh);
-                    CoVanCtrlTest.themCoVan(cv);
+                    CoVanTestModel cv = new CoVanTestModel(maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh);
+                    CoVanTestCtrl.themCoVan(cv);
                     lamMoi();
                     hienThiDSCoVan();
                     DialogHelper.showMessage("Thêm cố vấn thành công");
@@ -616,8 +616,8 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                     DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
                 } else {
-                    CoVanModelTest cv = new CoVanModelTest(maCoVan, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh);
-                    CoVanCtrlTest.capNhatQuanLy(cv);
+                    CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh);
+                    CoVanTestCtrl.capNhatCoVan(cv);
                     lamMoi();
                     hienThiDSCoVan();
                     DialogHelper.showMessage("Thêm cố vấn thành công");
@@ -633,13 +633,13 @@ public class DSCoVanTest extends javax.swing.JPanel {
             String maCoVan = txtMaCoVan.getText();
             if (maCoVan.isEmpty()) {
                 DialogHelper.showMessage("Chưa chọn cố vấn muốn xóa");
-            } else if (CoVanCtrlTest.kiemTraKhoaDaSuDung(maCoVan)) {
+            } else if (CoVanTestCtrl.kiemTraKhoaDaSuDung(maCoVan)) {
                 DialogHelper.showMessage("Cố vấn đã được phân công, không thể xóa");
             } else {
                 boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa thông tin cố vấn này");
                 if (flag) {
                     try {
-                        CoVanCtrlTest.xoaCoVan(maCoVan);
+                        CoVanTestCtrl.xoaCoVan(maCoVan);
                         hienThiDSCoVan();
                         lamMoi();
                     } catch (ClassNotFoundException | SQLException ex) {
@@ -658,14 +658,14 @@ public class DSCoVanTest extends javax.swing.JPanel {
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void btnXuatDSBenhNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatDSBenhNhanActionPerformed
-        CoVanCtrlTest.xuatFileExcel(dsCoVan, "src/main/java/files/DSCoVan.xlsx");
+        CoVanTestCtrl.xuatFileExcel(dsCoVan, "src/main/java/files/DSCoVan.xlsx");
         DialogHelper.showMessage("Xuất danh sách thành công!");
     }//GEN-LAST:event_btnXuatDSBenhNhanActionPerformed
 
     private void tblDSCoVanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSCoVanMouseClicked
         int selectedIndex = tblDSCoVan.getSelectedRow();
         if (selectedIndex >= 0) {
-            CoVanModelTest coVan = dsCoVan.get(selectedIndex);
+            CoVanTestModel coVan = dsCoVan.get(selectedIndex);
 
             txtMaCoVan.setText(coVan.getMaCoVan());
             txtHoTen.setText(coVan.getHoTen());
@@ -706,7 +706,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
             if (tuKhoa.isEmpty()) {
                 hienThiDSCoVan();
             } else {
-                dsCoVan = CoVanCtrlTest.timCoVanTheoDK(tuKhoa, gioiTinh);
+                dsCoVan = CoVanTestCtrl.timCoVanTheoDK(tuKhoa, gioiTinh);
                 tableModel.setRowCount(0);
 
                 dsCoVan.forEach(cv -> {
@@ -743,7 +743,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
             if (tuKhoa.isEmpty()) {
                 hienThiDSCoVan();
             } else {
-                dsCoVan = CoVanCtrlTest.timCoVanTheoDK(tuKhoa, gioiTinh);
+                dsCoVan = CoVanTestCtrl.timCoVanTheoDK(tuKhoa, gioiTinh);
                 tableModel.setRowCount(0);
 
                 dsCoVan.forEach(cv -> {

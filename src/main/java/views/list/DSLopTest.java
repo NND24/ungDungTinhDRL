@@ -1,7 +1,7 @@
 package views.list;
 
 import models.LopModelTest;
-import controllers.LopCtrlTest;
+import controllers.LopTestCtrl;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,7 +23,7 @@ public class DSLopTest extends javax.swing.JFrame {
 
     private void hienThiDSLop() {
         try {
-            dsLop = LopCtrlTest.timTatCaLop();
+            dsLop = LopTestCtrl.timTatCaLop();
 
             tableModel.setRowCount(0);
             dsLop.forEach(lop -> {
@@ -35,8 +35,7 @@ public class DSLopTest extends javax.swing.JFrame {
                 }
 
                 tableModel.addRow(new Object[]{
-                    lop.getMaLop(), lop.getNganh(),
-                    lop.getTenLop(), lop.getKhoa(),
+                    lop.getMaLop(), lop.getNganh(), lop.getKhoa(),
                     trangThai});
             });
         } catch (ClassNotFoundException ex) {
@@ -46,7 +45,6 @@ public class DSLopTest extends javax.swing.JFrame {
 
     private void lamMoi() {
         txtMaLop.setText("");
-        txtTenLop.setText("");
         txtKhoa.setText("");
         cmbTrangThai.setSelectedIndex(0);
         cmbNganh.setSelectedIndex(0);
@@ -73,9 +71,7 @@ public class DSLopTest extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         timKiemTextField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtTenLop = new javax.swing.JTextField();
         txtKhoa = new javax.swing.JTextField();
         cmbNganh = new javax.swing.JComboBox<>();
         btnXuatDSBenhNhan = new javax.swing.JButton();
@@ -98,17 +94,17 @@ public class DSLopTest extends javax.swing.JFrame {
 
         tblDSLop.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Mã lớp", "Ngành", "Tên lớp", "Khóa", "Trạng thái"
+                "Mã lớp", "Ngành", "Khóa", "Trạng thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -211,9 +207,6 @@ public class DSLopTest extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Tên lớp");
-
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Khóa");
 
@@ -251,23 +244,23 @@ public class DSLopTest extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(cmbNganh, javax.swing.GroupLayout.Alignment.LEADING, 0, 250, Short.MAX_VALUE)
-                    .addComponent(txtMaLop, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbTrangThai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(35, 35, 35)
+                        .addComponent(txtMaLop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTenLop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
         );
@@ -278,18 +271,14 @@ public class DSLopTest extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtMaLop, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtTenLop, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
                     .addComponent(cmbNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5)
+                    .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,12 +313,11 @@ public class DSLopTest extends javax.swing.JFrame {
         try {
             String maLop = txtMaLop.getText();
             String maNganh = cmbNganh.getSelectedItem().toString();
-            String tenLop = txtTenLop.getText();
             String khoa = txtKhoa.getText();
             String trangThai = Integer.toString(cmbTrangThai.getSelectedIndex());
 
-            LopModelTest lop = new LopModelTest(maLop, maNganh, tenLop, khoa, trangThai);
-            LopCtrlTest.themLop(lop);
+            LopModelTest lop = new LopModelTest(maLop, maNganh, khoa, trangThai);
+            LopTestCtrl.themLop(lop);
             hienThiDSLop();
             lamMoi();
         } catch (ClassNotFoundException ex) {
@@ -341,12 +329,11 @@ public class DSLopTest extends javax.swing.JFrame {
         try {
             String maLop = txtMaLop.getText();
             String maNganh = cmbNganh.getSelectedItem().toString();
-            String tenLop = txtMaLop.getText();
             String khoa = txtKhoa.getText();
             String trangThai = Integer.toString(cmbTrangThai.getSelectedIndex());
 
-            LopModelTest lop = new LopModelTest(maLop, maNganh, tenLop, khoa, trangThai);
-            LopCtrlTest.capNhatLop(lop);
+            LopModelTest lop = new LopModelTest(maLop, maNganh, khoa, trangThai);
+            LopTestCtrl.capNhatLop(lop);
             hienThiDSLop();
             lamMoi();
         } catch (ClassNotFoundException ex) {
@@ -360,7 +347,7 @@ public class DSLopTest extends javax.swing.JFrame {
 
         if (flag) {
             try {
-                LopCtrlTest.xoaLop(maLop);
+                LopTestCtrl.xoaLop(maLop);
                 hienThiDSLop();
                 lamMoi();
             } catch (ClassNotFoundException | SQLException ex) {
@@ -370,7 +357,7 @@ public class DSLopTest extends javax.swing.JFrame {
     }//GEN-LAST:event_XoaButtonActionPerformed
 
     private void btnXuatDSBenhNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatDSBenhNhanActionPerformed
-        LopCtrlTest.xuatFileExcel(dsLop, "src/main/java/files/DSLop.xlsx");
+        LopTestCtrl.xuatFileExcel(dsLop, "src/main/java/files/DSLop.xlsx");
         DialogHelper.showMessage("Xuất danh sách thành công!");
     }//GEN-LAST:event_btnXuatDSBenhNhanActionPerformed
 
@@ -380,7 +367,6 @@ public class DSLopTest extends javax.swing.JFrame {
             LopModelTest lop = dsLop.get(selectedIndex);
 
             txtMaLop.setText(lop.getMaLop());
-            txtTenLop.setText(lop.getTenLop());
             txtKhoa.setText(lop.getKhoa());
             cmbTrangThai.setSelectedIndex(Integer.parseInt(lop.getTrangThaiHienThi()));
             cmbNganh.setSelectedItem(lop.getNganh());
@@ -412,7 +398,6 @@ public class DSLopTest extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -423,6 +408,5 @@ public class DSLopTest extends javax.swing.JFrame {
     private javax.swing.JTextField timKiemTextField;
     private javax.swing.JTextField txtKhoa;
     private javax.swing.JTextField txtMaLop;
-    private javax.swing.JTextField txtTenLop;
     // End of variables declaration//GEN-END:variables
 }

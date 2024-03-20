@@ -2,26 +2,25 @@ package models;
 
 public class PhanCongModel {
 
-    private String maCoVan, tenCoVan, tenLop, namHoc;
-    private int maLop, maNamHoc, maPhanCong, trangThaiHienThi;
+    private String maCoVan, tenCoVan, maLop, namHoc;
+    private int maNamHoc, maPhanCong, trangThaiHienThi;
 
-    public PhanCongModel(String maCoVan, int maLop, int maNamHoc, int trangThaiHienThi) {
+    public PhanCongModel(String maCoVan, String maLop, int maNamHoc, int trangThaiHienThi) {
         this.maCoVan = maCoVan;
         this.maLop = maLop;
         this.maNamHoc = maNamHoc;
         this.trangThaiHienThi = trangThaiHienThi;
     }
 
-    public PhanCongModel(int maPhanCong, String maCoVan, String tenCoVan, String tenLop, String namHoc, int trangThaiHienThi) {
+    public PhanCongModel(int maPhanCong, String maCoVan, String tenCoVan, String maLop, String namHoc, int trangThaiHienThi) {
         this.maPhanCong = maPhanCong;
         this.maCoVan = maCoVan;
         this.tenCoVan = tenCoVan;
-        this.tenLop = tenLop;
         this.namHoc = namHoc;
         this.trangThaiHienThi = trangThaiHienThi;
     }
 
-    public PhanCongModel(String maCoVan, int maLop, int maNamHoc, int maPhanCong, int trangThaiHienThi) {
+    public PhanCongModel(String maCoVan, String maLop, int maNamHoc, int maPhanCong, int trangThaiHienThi) {
         this.maCoVan = maCoVan;
         this.maLop = maLop;
         this.maNamHoc = maNamHoc;
@@ -53,20 +52,12 @@ public class PhanCongModel {
         this.tenCoVan = tenCoVan;
     }
 
-    public int getMaLop() {
+    public String getMaLop() {
         return maLop;
     }
 
-    public void setMaLop(int maLop) {
+    public void setMaLop(String maLop) {
         this.maLop = maLop;
-    }
-
-    public String getTenLop() {
-        return tenLop;
-    }
-
-    public void setTenLop(String tenLop) {
-        this.tenLop = tenLop;
     }
 
     public int getMaNamHoc() {

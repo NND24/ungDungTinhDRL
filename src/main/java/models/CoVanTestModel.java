@@ -2,13 +2,13 @@ package models;
 
 import java.sql.Date;
 
-public class CoVanModelTest {
+public class CoVanTestModel {
 
     private String maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon;
     private int maKhoa, gioiTinh;
     private Date ngaySinh;
 
-    public CoVanModelTest(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, int maKhoa, int gioiTinh, Date ngaySinh) {
+    public CoVanTestModel(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, int maKhoa, int gioiTinh, Date ngaySinh) {
         this.maCoVan = maCoVan;
         this.hoTen = hoTen;
         this.email = email;
@@ -23,7 +23,7 @@ public class CoVanModelTest {
         this.ngaySinh = ngaySinh;
     }
 
-    public CoVanModelTest(String maCoVan, String maTaiKhoan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, int maKhoa, int gioiTinh, Date ngaySinh) {
+    public CoVanTestModel(String maCoVan, String maTaiKhoan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, int maKhoa, int gioiTinh, Date ngaySinh) {
         this.maCoVan = maCoVan;
         this.maTaiKhoan = maTaiKhoan;
         this.tenKhoa = tenKhoa;

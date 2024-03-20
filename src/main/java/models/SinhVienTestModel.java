@@ -2,28 +2,27 @@ package models;
 
 import java.sql.Date;
 
-public class SinhVienModelTest extends TaiKhoanModel {
+public class SinhVienTestModel extends TaiKhoanModel {
 
-    private String maSinhVien, maTaiKhoan, tenLop, hoTen, chucVu, email, matKhau, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc;
+    private String maSinhVien, maTaiKhoan, maLop, hoTen, chucVu, email, matKhau, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc;
     private Date ngaySinh;
-    private int maLop;
 
-    public SinhVienModelTest() {
+    public SinhVienTestModel() {
         super();
     }
 
-    public SinhVienModelTest(String maSinhVien) {
+    public SinhVienTestModel(String maSinhVien) {
         this.maSinhVien = maSinhVien;
     }
 
-    public SinhVienModelTest(String maSinhVien, String chucVu, String email, String matKhau) {
+    public SinhVienTestModel(String maSinhVien, String chucVu, String email, String matKhau) {
         this.maSinhVien = maSinhVien;
         this.chucVu = chucVu;
         this.email = email;
         this.matKhau = matKhau;
     }
 
-    public SinhVienModelTest(String maSinhVien, int maLop, String hoTen, String chucVu, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, String daNghiHoc, Date ngaySinh) {
+    public SinhVienTestModel(String maSinhVien, String maLop, String hoTen, String chucVu, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, String daNghiHoc, Date ngaySinh) {
         this.maSinhVien = maSinhVien;
         this.maLop = maLop;
         this.hoTen = hoTen;
@@ -36,7 +35,7 @@ public class SinhVienModelTest extends TaiKhoanModel {
         this.ngaySinh = ngaySinh;
     }
 
-    public SinhVienModelTest(String maSinhVien, int maLop, String email, String hoTen, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh, String daNghiHoc, String maTaiKhoan) {
+    public SinhVienTestModel(String maSinhVien, String maLop, String email, String hoTen, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh, String daNghiHoc, String maTaiKhoan) {
         super(maTaiKhoan);
         this.maSinhVien = maSinhVien;
         this.maLop = maLop;
@@ -50,9 +49,9 @@ public class SinhVienModelTest extends TaiKhoanModel {
         this.ngaySinh = ngaySinh;
     }
 
-    public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, String chucVu, String email, String matKhau, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan) {
+    public SinhVienTestModel(String maSinhVien, String maLop, String hoTen, String chucVu, String email, String matKhau, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan) {
         this.maSinhVien = maSinhVien;
-        this.tenLop = tenLop;
+        this.maLop = maLop;
         this.hoTen = hoTen;
         this.chucVu = chucVu;
         this.email = email;
@@ -64,7 +63,7 @@ public class SinhVienModelTest extends TaiKhoanModel {
         this.queQuan = queQuan;
     }
 
-    public SinhVienModelTest(String maSinhVien, String maTaiKhoan, int maLop, String hoTen, String email, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan, String daNghiHoc) {
+    public SinhVienTestModel(String maSinhVien, String maTaiKhoan, String maLop, String hoTen, String email, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan, String daNghiHoc) {
         this.maSinhVien = maSinhVien;
         this.maTaiKhoan = maTaiKhoan;
         this.maLop = maLop;
@@ -78,29 +77,28 @@ public class SinhVienModelTest extends TaiKhoanModel {
         this.daNghiHoc = daNghiHoc;
     }
 
-    public SinhVienModelTest(String maSinhVien, String tenLop, int maLop, String chucVu, String hoTen, String email, String gioiTinh, Date ngaySinh, String soDienThoai, String canCuoc, String queQuan, String daNghiHoc) {
+    public SinhVienTestModel(String maSinhVien, String maLop, String hoTen, Date ngaySinh) {
         this.maSinhVien = maSinhVien;
-        this.tenLop = tenLop;
         this.maLop = maLop;
-        this.chucVu = chucVu;
         this.hoTen = hoTen;
+        this.ngaySinh = ngaySinh;
+    }
+
+    public SinhVienTestModel(String maSinhVien, String maLop, String hoTen, String chucVu, String email, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, String daNghiHoc, Date ngaySinh) {
+        this.maSinhVien = maSinhVien;
+        this.maLop = maLop;
+        this.hoTen = hoTen;
+        this.chucVu = chucVu;
         this.email = email;
         this.gioiTinh = gioiTinh;
-        this.ngaySinh = ngaySinh;
         this.soDienThoai = soDienThoai;
         this.canCuoc = canCuoc;
         this.queQuan = queQuan;
         this.daNghiHoc = daNghiHoc;
-    }
-
-    public SinhVienModelTest(String maSinhVien, String tenLop, String hoTen, Date ngaySinh) {
-        this.maSinhVien = maSinhVien;
-        this.tenLop = tenLop;
-        this.hoTen = hoTen;
         this.ngaySinh = ngaySinh;
     }
 
-    public SinhVienModelTest(String maSinhVien, String hoTen) {
+    public SinhVienTestModel(String maSinhVien, String hoTen) {
         this.maSinhVien = maSinhVien;
         this.hoTen = hoTen;
     }
@@ -127,14 +125,6 @@ public class SinhVienModelTest extends TaiKhoanModel {
 
     public void setMaTaiKhoan(String maTaiKhoan) {
         this.maTaiKhoan = maTaiKhoan;
-    }
-
-    public String getTenLop() {
-        return tenLop;
-    }
-
-    public void setTenLop(String tenLop) {
-        this.tenLop = tenLop;
     }
 
     public String getHoTen() {
@@ -209,11 +199,11 @@ public class SinhVienModelTest extends TaiKhoanModel {
         this.queQuan = queQuan;
     }
 
-    public int getMaLop() {
+    public String getMaLop() {
         return maLop;
     }
 
-    public void setMaLop(int maLop) {
+    public void setMaLop(String maLop) {
         this.maLop = maLop;
     }
 

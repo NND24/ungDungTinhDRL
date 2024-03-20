@@ -1,89 +1,56 @@
 package views.main;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
-import models.KhoaModelTest;
-import controllers.KhoaCtrlTest;
 import controllers.TaiKhoanCtrl;
-import controllers.CoVanCtrlTest;
-import java.sql.SQLException;
+import controllers.CoVanTestCtrl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import models.CoVanModelTest;
-import models.TaiKhoanModel;
+import javax.swing.JOptionPane;
+import models.CoVanTestModel;
 import utils.DialogHelper;
-import utils.GenerateCode;
 import utils.Validator;
 
 public class TaiKhoanCoVan extends javax.swing.JPanel {
 
-    DefaultTableModel tableModel;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    List<KhoaModelTest> dsKhoa = new ArrayList<>();
-    List<CoVanModelTest> dsCoVan = new ArrayList<>();
+    private String tenDangNhap = DangNhap.username;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private String maTaiKhoan = "";
+    private int maKhoa;
 
     public TaiKhoanCoVan() {
         initComponents();
-        tableModel = (DefaultTableModel) tblDSCoVan.getModel();
 
-        hienThiDSCoVan();
-        hienThiDSKhoa();
     }
 
-    private void hienThiDSKhoa() {
+    private void hienThiThongTin() {
         try {
-            dsKhoa = KhoaCtrlTest.timTatCaKhoaHienThi();
-            cmbKhoa.removeAllItems();
-            dsKhoa.forEach(khoa -> {
-                cmbKhoa.addItem(khoa.getTenKhoa());
-            });
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TaiKhoanCoVan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+            CoVanTestModel coVan = CoVanTestCtrl.timCoVanTheoTenDangNhap(tenDangNhap);
+            if (coVan != null) {
+                txtMaCoVan.setText(coVan.getMaCoVan());
+                maTaiKhoan = CoVanTestCtrl.layMaTaiKhoanCV(coVan.getMaCoVan());
 
-    private void hienThiDSCoVan() {
-        try {
-            dsCoVan = CoVanCtrlTest.timTatCaCoVan();
-            tableModel.setRowCount(0);
-
-            dsCoVan.forEach(cv -> {
+                txtHoTen.setText(coVan.getHoTen());
+                txtNgaySinh.setText(dateFormat.format(coVan.getNgaySinh()));
                 String gioiTinh = "";
-                if (cv.getGioiTinh() == 0) {
+                if (coVan.getGioiTinh() == 0) {
                     gioiTinh = "Nam";
                 } else {
                     gioiTinh = "Nữ";
                 }
-
-                tableModel.addRow(new Object[]{
-                    cv.getMaCoVan(), cv.getHoTen(),
-                    gioiTinh, cv.getNgaySinh(),
-                    cv.getCanCuoc(), cv.getQueQuan(),
-                    cv.getSoDienThoai(), cv.getEmail(),
-                    cv.getTenKhoa(), cv.getHocVi(),
-                    cv.getHocHam(), cv.getChuyenMon(),});
-            });
+                txtGioiTinh.setText(gioiTinh);
+                txtEmail.setText(coVan.getEmail());
+                txtSoDienThoai.setText(coVan.getSoDienThoai());
+                txtCanCuoc.setText(coVan.getCanCuoc());
+                txtQueQuan.setText(coVan.getQueQuan());
+                txtKhoa.setText("");
+                cmbHocVi.setSelectedItem(coVan.getHocVi());
+                cmbHocHam.setSelectedItem(coVan.getHocHam());
+                txtChuyenMon.setText(coVan.getChuyenMon());
+            }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TaiKhoanCoVan.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    private void lamMoi() {
-        txtMaCoVan.setText("");
-        txtHoTen.setText("");
-        txtNgaySinh.setText("");
-        cmbGioiTinh.setSelectedIndex(0);
-        txtSoDienThoai.setText("");
-        txtCanCuoc.setText("");
-        txtEmail.setText("");
-        txtQueQuan.setText("");
-        cmbKhoa.setSelectedIndex(0);
-        cmbHocVi.setSelectedIndex(0);
-        cmbHocHam.setSelectedIndex(0);
-        txtChuyenMon.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -95,11 +62,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnLamMoi = new javax.swing.JButton();
-        btnSuaThongTin = new javax.swing.JButton();
-        btnXoaCoVan = new javax.swing.JButton();
-        btnThemCoVan = new javax.swing.JButton();
-        btnXuatDSBenhNhan = new javax.swing.JButton();
+        btnDoiThongTin = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtMaCoVan = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -187,64 +150,16 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("THÔNG TIN CỐ VẤN");
 
-        btnLamMoi.setBackground(new java.awt.Color(0, 102, 255));
-        btnLamMoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
-        btnLamMoi.setText("Làm mới");
-        btnLamMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLamMoi.setPreferredSize(new java.awt.Dimension(100, 25));
-        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
+        btnDoiThongTin.setBackground(new java.awt.Color(0, 102, 255));
+        btnDoiThongTin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDoiThongTin.setForeground(new java.awt.Color(255, 255, 255));
+        btnDoiThongTin.setText("Thay đổi thông tin cá nhân");
+        btnDoiThongTin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDoiThongTin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDoiThongTin.setPreferredSize(new java.awt.Dimension(110, 25));
+        btnDoiThongTin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLamMoiActionPerformed(evt);
-            }
-        });
-
-        btnSuaThongTin.setBackground(new java.awt.Color(0, 102, 255));
-        btnSuaThongTin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSuaThongTin.setForeground(new java.awt.Color(255, 255, 255));
-        btnSuaThongTin.setText("Sửa thông tin");
-        btnSuaThongTin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSuaThongTin.setPreferredSize(new java.awt.Dimension(125, 25));
-        btnSuaThongTin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuaThongTinActionPerformed(evt);
-            }
-        });
-
-        btnXoaCoVan.setBackground(new java.awt.Color(0, 102, 255));
-        btnXoaCoVan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnXoaCoVan.setForeground(new java.awt.Color(255, 255, 255));
-        btnXoaCoVan.setText("Xóa cố vấn");
-        btnXoaCoVan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnXoaCoVan.setPreferredSize(new java.awt.Dimension(98, 25));
-        btnXoaCoVan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoaCoVanActionPerformed(evt);
-            }
-        });
-
-        btnThemCoVan.setBackground(new java.awt.Color(0, 102, 255));
-        btnThemCoVan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnThemCoVan.setForeground(new java.awt.Color(255, 255, 255));
-        btnThemCoVan.setText("Thêm cố vấn");
-        btnThemCoVan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnThemCoVan.setPreferredSize(new java.awt.Dimension(120, 25));
-        btnThemCoVan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemCoVanActionPerformed(evt);
-            }
-        });
-
-        btnXuatDSBenhNhan.setBackground(new java.awt.Color(0, 102, 255));
-        btnXuatDSBenhNhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnXuatDSBenhNhan.setForeground(new java.awt.Color(255, 255, 255));
-        btnXuatDSBenhNhan.setText("Xuất danh sách");
-        btnXuatDSBenhNhan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnXuatDSBenhNhan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnXuatDSBenhNhan.setPreferredSize(new java.awt.Dimension(120, 25));
-        btnXuatDSBenhNhan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXuatDSBenhNhanActionPerformed(evt);
+                btnDoiThongTinActionPerformed(evt);
             }
         });
 
@@ -255,30 +170,15 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 482, Short.MAX_VALUE)
-                .addComponent(btnThemCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnXoaCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnSuaThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnXuatDSBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 988, Short.MAX_VALUE)
+                .addComponent(btnDoiThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSuaThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoaCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnThemCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXuatDSBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addComponent(btnDoiThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -494,6 +394,8 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
 
         txtGioiTinh.setEditable(false);
 
+        txtKhoa.setEditable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -542,10 +444,10 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                         .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel26)
-                            .addComponent(jLabel25)
+                            .addComponent(jLabel17)
                             .addComponent(jLabel19)
-                            .addComponent(jLabel17))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel25))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtChuyenMon, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -569,19 +471,19 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(txtCanCuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtQueQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCanCuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -614,150 +516,6 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnThemCoVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCoVanActionPerformed
-        try {
-            int khoaIndex = cmbKhoa.getSelectedIndex();
-            int maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
-            String tenKhoa = cmbKhoa.getSelectedItem().toString();
-            String maCoVan = "cv" + GenerateCode.generateIdTaiKhoan();
-            String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
-            String hoTen = txtHoTen.getText();
-            java.util.Date ngaySinh = sdf.parse(txtNgaySinh.getText());
-            java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
-
-            int gioiTinh = cmbGioiTinh.getSelectedIndex();
-            String soDienThoai = txtSoDienThoai.getText();
-            String canCuoc = txtCanCuoc.getText();
-            String email = maCoVan.toLowerCase() + "@ptithcm.edu.vn";
-            String matKhau = maCoVan.toLowerCase() + "#" + txtNgaySinh.getText().replace("/", "");
-            String queQuan = txtQueQuan.getText();
-            String chucVu = "CV";
-            String hocVi = cmbHocVi.getSelectedItem().toString();
-            if (hocVi.equals("---Học vị---")) {
-                hocVi = "";
-            }
-            String hocHam = cmbHocHam.getSelectedItem().toString();
-            if (hocHam.equals("---Học hàm---")) {
-                hocHam = "";
-            }
-            String chuyenMon = txtChuyenMon.getText();
-
-            if (!txtMaCoVan.getText().isEmpty()) {
-                DialogHelper.showError("Cố vấn đã tồn tại. Vui lòng nhập mới");
-            } else if (hoTen.isEmpty()) {
-                DialogHelper.showError("Họ tên không được để trống!");
-            } else if (txtNgaySinh.getText().isEmpty()) {
-                DialogHelper.showError("Ngày sinh không được để trống!");
-            } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
-                DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-            } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
-                DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-            } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
-                DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else {
-                try {
-                    TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maCoVan, matKhau, chucVu);
-                    TaiKhoanCtrl.themTaiKhoan(tk);
-
-                    CoVanModelTest cv = new CoVanModelTest(maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh);
-                    CoVanCtrlTest.themCoVan(cv);
-                    lamMoi();
-                    hienThiDSCoVan();
-                    DialogHelper.showMessage("Thêm cố vấn thành công");
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        } catch (ParseException ex) {
-            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnThemCoVanActionPerformed
-
-    private void btnSuaThongTinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaThongTinActionPerformed
-        try {
-            boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin cố vấn này!");
-
-            if (flag) {
-                int khoaIndex = cmbKhoa.getSelectedIndex();
-                int maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
-                String tenKhoa = cmbKhoa.getSelectedItem().toString();
-                String maCoVan = txtMaCoVan.getText();
-                String hoTen = txtHoTen.getText();
-                java.util.Date ngaySinh = sdf.parse(txtNgaySinh.getText());
-                java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
-
-                int gioiTinh = cmbGioiTinh.getSelectedIndex();
-                String soDienThoai = txtSoDienThoai.getText();
-                String canCuoc = txtCanCuoc.getText();
-                String email = txtEmail.getText();
-                String queQuan = txtQueQuan.getText();
-                String hocVi = cmbHocVi.getSelectedItem().toString();
-                if (hocVi.equals("---Học vị---")) {
-                    hocVi = "";
-                }
-                String hocHam = cmbHocHam.getSelectedItem().toString();
-                if (hocHam.equals("---Học hàm---")) {
-                    hocHam = "";
-                }
-                String chuyenMon = txtChuyenMon.getText();
-
-                if (hoTen.isEmpty()) {
-                    DialogHelper.showError("Họ tên không được để trống!");
-                } else if (txtNgaySinh.getText().isEmpty()) {
-                    DialogHelper.showError("Ngày sinh không được để trống!");
-                } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
-                    DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-                } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
-                    DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-                } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
-                    DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-                } else {
-                    CoVanModelTest cv = new CoVanModelTest(maCoVan, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh);
-                    CoVanCtrlTest.capNhatQuanLy(cv);
-                    lamMoi();
-                    hienThiDSCoVan();
-                    DialogHelper.showMessage("Thêm cố vấn thành công");
-                }
-            }
-        } catch (ParseException ex) {
-            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnSuaThongTinActionPerformed
-
-    private void btnXoaCoVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaCoVanActionPerformed
-        try {
-            String maCoVan = txtMaCoVan.getText();
-            if (maCoVan.isEmpty()) {
-                DialogHelper.showMessage("Chưa chọn cố vấn muốn xóa");
-            } else if (CoVanCtrlTest.kiemTraKhoaDaSuDung(maCoVan)) {
-                DialogHelper.showMessage("Cố vấn đã được phân công, không thể xóa");
-            } else {
-                boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa thông tin cố vấn này");
-                if (flag) {
-                    try {
-                        CoVanCtrlTest.xoaCoVan(maCoVan);
-                        hienThiDSCoVan();
-                        lamMoi();
-                    } catch (ClassNotFoundException | SQLException ex) {
-                        Logger.getLogger(TaiKhoanCoVan.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TaiKhoanCoVan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnXoaCoVanActionPerformed
-
-    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
-        lamMoi();
-        hienThiDSCoVan();
-    }//GEN-LAST:event_btnLamMoiActionPerformed
-
-    private void btnXuatDSBenhNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatDSBenhNhanActionPerformed
-        CoVanCtrlTest.xuatFileExcel(dsCoVan, "src/main/java/files/DSCoVan.xlsx");
-        DialogHelper.showMessage("Xuất danh sách thành công!");
-    }//GEN-LAST:event_btnXuatDSBenhNhanActionPerformed
-
     private void btnDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMatKhauActionPerformed
         char[] oldPasswordChars = oldPasswordField.getPassword();
         String oldPassword = String.valueOf(oldPasswordChars);
@@ -765,7 +523,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         String newPassword = String.valueOf(newPasswordChars);
         char[] retypePasswordChars = retypePasswordField.getPassword();
         String retypePassword = String.valueOf(retypePasswordChars);
-        String maSinhVien = txtMaSinhVien.getText();
+        String maCoVan = txtMaCoVan.getText();
         if (newPassword.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Mật khẩu mới không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } else if (retypePassword.isEmpty()) {
@@ -776,7 +534,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Mật khẩu mới không giống nhập lại mật khẩu", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } else {
             try {
-                if (TaiKhoanCtrl.kiemTraMatKhauCuSV(maSinhVien, oldPassword)) {
+                if (TaiKhoanCtrl.kiemTraMatKhauCuCV(maCoVan, oldPassword)) {
                     TaiKhoanCtrl.doiMatKhau(maTaiKhoan, newPassword);
                     JOptionPane.showMessageDialog(null, "Đổi mật khẩu thành công");
                     oldPasswordField.setText("");
@@ -793,22 +551,21 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDoiMatKhauActionPerformed
 
     private void btnDoiTenDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiTenDangNhapActionPerformed
-        String maSinhVien = txtMaSinhVien.getText();
+        String maCoVan = txtMaCoVan.getText();
         String tenDangNhapMoi = txtTenDangNhap.getText();
         char[] matKhauChars = txtMatKhau.getPassword();
         String matKhau = String.valueOf(matKhauChars);
         if (matKhau.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Mật khẩu không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        } else if (maSinhVien.isEmpty()) {
+        } else if (maCoVan.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Mã sinh viên không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } else if (tenDangNhapMoi.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Tên đăng nhập không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } else {
 
-            System.out.println(maSinhVien + " " + matKhau + " " + tenDangNhap + " " + maTaiKhoan);
             try {
-                if (TaiKhoanCtrl.kiemTraMatKhauCuSV(maSinhVien, matKhau)) {
-                    SinhVienCtrlTest.doiTenDangNhapSV(tenDangNhap, maTaiKhoan);
+                if (TaiKhoanCtrl.kiemTraMatKhauCuCV(maCoVan, matKhau)) {
+                    TaiKhoanCtrl.doiTenDangNhap(tenDangNhap, maTaiKhoan);
                     DialogHelper.showMessage("Đổi tên đăng nhập thành công");
                     txtTenDangNhap.setText("");
                     txtMatKhau.setText("");
@@ -822,14 +579,57 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDoiTenDangNhapActionPerformed
 
+    private void btnDoiThongTinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiThongTinActionPerformed
+        try {
+            String maCoVan = txtMaCoVan.getText();
+            String hoTen = txtHoTen.getText();
+            java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
+            java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+
+            String gioiTinh = txtGioiTinh.getText();
+            int idGioiTinh;
+            if (gioiTinh.equals("Nam")) {
+                idGioiTinh = 0;
+            } else {
+                idGioiTinh = 1;
+            }
+            String soDienThoai = txtSoDienThoai.getText();
+            String canCuoc = txtCanCuoc.getText();
+            String queQuan = txtQueQuan.getText();
+            String hocVi = cmbHocVi.getSelectedItem().toString();
+            if (hocVi.equals("---Học vị---")) {
+                hocVi = "";
+            }
+            String hocHam = cmbHocHam.getSelectedItem().toString();
+            if (hocHam.equals("---Học hàm---")) {
+                hocHam = "";
+            }
+            String chuyenMon = txtChuyenMon.getText();
+
+            CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, hoTen, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, idGioiTinh, sqlNgaySinh);
+            if (hoTen.isEmpty()) {
+                DialogHelper.showError("Họ tên không được để trống!");
+            } else if (txtNgaySinh.getText().isEmpty()) {
+                DialogHelper.showError("Ngày sinh không được để trống!");
+            } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
+                DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+            } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+                DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+            } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+                DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+            } else {
+                CoVanTestCtrl.capNhatCoVan(cv);
+                DialogHelper.showMessage("Thay đổi thông tin thành công!");
+            }
+        } catch (ParseException ex) {
+            Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnDoiThongTinActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDoiMatKhau;
     private javax.swing.JButton btnDoiTenDangNhap;
-    private javax.swing.JButton btnLamMoi;
-    private javax.swing.JButton btnSuaThongTin;
-    private javax.swing.JButton btnThemCoVan;
-    private javax.swing.JButton btnXoaCoVan;
-    private javax.swing.JButton btnXuatDSBenhNhan;
+    private javax.swing.JButton btnDoiThongTin;
     private javax.swing.JComboBox<String> cmbHocHam;
     private javax.swing.JComboBox<String> cmbHocVi;
     private javax.swing.JFrame jFrame1;
