@@ -2,13 +2,14 @@ package models;
 
 public class LopModelTest {
 
-    String maLop, nganh, khoa, trangThaiHienThi;
+    private String maLop, nganh, khoa;
+    private int trangThaiHienThi;
 
     public LopModelTest(String maLop) {
         this.maLop = maLop;
     }
 
-    public LopModelTest(String maLop, String nganh, String khoa, String trangThaiHienThi) {
+    public LopModelTest(String maLop, String nganh, String khoa, int trangThaiHienThi) {
         this.maLop = maLop;
         this.nganh = nganh;
         this.khoa = khoa;
@@ -39,11 +40,11 @@ public class LopModelTest {
         this.khoa = khoa;
     }
 
-    public String getTrangThaiHienThi() {
+    public int getTrangThaiHienThi() {
         return trangThaiHienThi;
     }
 
-    public void setTrangThaiHienThi(String trangThaiHienThi) {
+    public void setTrangThaiHienThi(int trangThaiHienThi) {
         this.trangThaiHienThi = trangThaiHienThi;
     }
 

@@ -28,7 +28,7 @@ public class DSLopTest extends javax.swing.JFrame {
             tableModel.setRowCount(0);
             dsLop.forEach(lop -> {
                 String trangThai = "";
-                if (lop.getTrangThaiHienThi().equals("0")) {
+                if (lop.getTrangThaiHienThi() == 0) {
                     trangThai = "Ẩn";
                 } else {
                     trangThai = "Hiển thị";
@@ -314,7 +314,7 @@ public class DSLopTest extends javax.swing.JFrame {
             String maLop = txtMaLop.getText();
             String maNganh = cmbNganh.getSelectedItem().toString();
             String khoa = txtKhoa.getText();
-            String trangThai = Integer.toString(cmbTrangThai.getSelectedIndex());
+            int trangThai = cmbTrangThai.getSelectedIndex();
 
             LopModelTest lop = new LopModelTest(maLop, maNganh, khoa, trangThai);
             LopTestCtrl.themLop(lop);
@@ -330,7 +330,7 @@ public class DSLopTest extends javax.swing.JFrame {
             String maLop = txtMaLop.getText();
             String maNganh = cmbNganh.getSelectedItem().toString();
             String khoa = txtKhoa.getText();
-            String trangThai = Integer.toString(cmbTrangThai.getSelectedIndex());
+            int trangThai = cmbTrangThai.getSelectedIndex();
 
             LopModelTest lop = new LopModelTest(maLop, maNganh, khoa, trangThai);
             LopTestCtrl.capNhatLop(lop);
@@ -368,7 +368,7 @@ public class DSLopTest extends javax.swing.JFrame {
 
             txtMaLop.setText(lop.getMaLop());
             txtKhoa.setText(lop.getKhoa());
-            cmbTrangThai.setSelectedIndex(Integer.parseInt(lop.getTrangThaiHienThi()));
+            cmbTrangThai.setSelectedIndex(lop.getTrangThaiHienThi());
             cmbNganh.setSelectedItem(lop.getNganh());
         }
     }//GEN-LAST:event_tblDSLopMouseClicked

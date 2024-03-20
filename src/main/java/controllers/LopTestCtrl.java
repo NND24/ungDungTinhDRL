@@ -26,7 +26,7 @@ public class LopTestCtrl {
             statement.setString(1, lop.getNganh());
             statement.setString(2, lop.getMaLop());
             statement.setString(3, lop.getKhoa());
-            statement.setInt(4, Integer.parseInt(lop.getTrangThaiHienThi()));
+            statement.setInt(4, lop.getTrangThaiHienThi());
 
             statement.executeUpdate();
 
@@ -41,7 +41,7 @@ public class LopTestCtrl {
             statement.setString(1, lop.getNganh());
             statement.setString(2, lop.getMaLop());
             statement.setString(3, lop.getKhoa());
-            statement.setString(4, lop.getTrangThaiHienThi());
+            statement.setInt(4, lop.getTrangThaiHienThi());
             statement.setString(5, lop.getMaLop());
 
             statement.executeUpdate();
@@ -66,7 +66,7 @@ public class LopTestCtrl {
                         resultSet.getString("MaLop"),
                         resultSet.getString("MaNganh"),
                         resultSet.getString("Khoa"),
-                        resultSet.getString("TrangThaiHienThi")
+                        resultSet.getInt("TrangThaiHienThi")
                 );
                 dsLop.add(lop);
             }
@@ -91,7 +91,7 @@ public class LopTestCtrl {
                         resultSet.getString("MaLop"),
                         resultSet.getString("MaNganh"),
                         resultSet.getString("Khoa"),
-                        resultSet.getString("TrangThaiHienThi")
+                        resultSet.getInt("TrangThaiHienThi")
                 );
                 dsLop.add(lop);
             }
@@ -129,7 +129,13 @@ public class LopTestCtrl {
                 row.createCell(1).setCellValue(lop.getNganh());
                 row.createCell(2).setCellValue(lop.getMaLop());
                 row.createCell(3).setCellValue(lop.getKhoa());
-                row.createCell(4).setCellValue(lop.getTrangThaiHienThi());
+                String trangThai = "";
+                if (lop.getTrangThaiHienThi() == 0) {
+                    trangThai = "Ẩn";
+                } else {
+                    trangThai = "Hiển thị";
+                }
+                row.createCell(4).setCellValue(trangThai);
             }
 
             // Xuất workbook ra file Excel

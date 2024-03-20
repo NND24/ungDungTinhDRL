@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -95,7 +96,7 @@ public class PhieuDRLCtrl {
             headerRow.createCell(1).setCellValue("Năm học");
             headerRow.createCell(2).setCellValue("Học kỳ");
             headerRow.createCell(3).setCellValue("Ngày bắt đầu");
-            headerRow.createCell(4).setCellValue("Ngày kết thuc");
+            headerRow.createCell(4).setCellValue("Ngày kết thúc");
 
             // Ghi dữ liệu vào sheet
             int rowNum = 1;
@@ -104,8 +105,11 @@ public class PhieuDRLCtrl {
                 row.createCell(0).setCellValue(phieu.getMaLop());
                 row.createCell(1).setCellValue(phieu.getNamHoc());
                 row.createCell(2).setCellValue(Integer.toString(phieu.getHocKy()));
-                row.createCell(3).setCellValue(phieu.getNgayBatDau());
-                row.createCell(4).setCellValue(phieu.getNgayKetThuc());
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                String ngayBatDauString = sdf.format(phieu.getNgayBatDau());
+                String ngayKetThucString = sdf.format(phieu.getNgayKetThuc());
+                row.createCell(3).setCellValue(ngayBatDauString);
+                row.createCell(4).setCellValue(ngayKetThucString);
             }
 
             // Xuất workbook ra file Excel
@@ -115,5 +119,44 @@ public class PhieuDRLCtrl {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean kiemTraPhieuDaTonTai(String maPhieuDRL) throws ClassNotFoundException {
+        String sql = """
+                 SELECT MaPhieuDRL FROM PhieuDRL
+                 WHERE MaPhieuDRL=?
+                 """;
+        boolean flag = false;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, maPhieuDRL);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+
+    public static boolean kiemTraDaChamDiem(String maPhieuDRL) throws ClassNotFoundException {
+        String sql = """
+                 SELECT DiemRenLuyen.MaPhieuDRL FROM PhieuDRL
+                 JOIN DiemRenLuyen ON PhieuDRL.MaPhieuDRL=DiemRenLuyen.MaPhieuDRL
+                 WHERE DiemRenLuyen.MaPhieuDRL=? AND TongDiem IS NOT NULL
+                 """;
+        boolean flag = false;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, maPhieuDRL);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
     }
 }

@@ -217,7 +217,7 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
         jPanel6.setPreferredSize(new java.awt.Dimension(88, 35));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("DANH SÁCH PHÂN CÔNG");
+        jLabel7.setText("DANH SÁCH PHIẾU ĐIỂM RÈN LUYỆN");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -230,10 +230,7 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel7)
-                .addGap(15, 15, 15))
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         cmbHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
@@ -250,21 +247,27 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(55, 55, 55)
+                                .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59)
+                                .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(dateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(xuatDSButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addComponent(xuatDSButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -282,13 +285,9 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(dateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(39, 39, 39))
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE)
+                                .addComponent(dateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(25, 25, 25))))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,11 +305,11 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
                         .addComponent(cmbHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8))
                     .addComponent(dateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
                     .addComponent(dateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,8 +319,7 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -329,14 +327,12 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 813, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
         );
 
         pack();
@@ -403,17 +399,25 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
             }
             int hocKy = Integer.parseInt(cmbHocKy.getSelectedItem().toString());
             dsSinhVien = SinhVienTestCtrl.timSinhVienTheoLop(maLop);
-
-            dsSinhVien.forEach(sv -> {
+            boolean flagCheckExist = false;
+            for (SinhVienTestModel sv : dsSinhVien) {
                 try {
                     String maPhieuDRL = sv.getMaSinhVien() + maNamHoc + hocKy;
-                    PhieuDRLCtrl.xoaPhieuDRL(maPhieuDRL);
+                    if (PhieuDRLCtrl.kiemTraDaChamDiem(maPhieuDRL)) {
+                        DialogHelper.showError("Đã có sinh viên chấm điểm. Không thể xóa");
+                        flagCheckExist = true;
+                        break;
+                    } else {
+                        PhieuDRLCtrl.xoaPhieuDRL(maPhieuDRL);
+                    }
                 } catch (ClassNotFoundException | SQLException ex) {
                     Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            });
-            DialogHelper.showMessage("Xóa phiếu điểm rèn luyện thành công");
-            hienThiTatCaPhieuDRL();
+            }
+            if (!flagCheckExist) {
+                DialogHelper.showMessage("Xóa phiếu điểm rèn luyện thành công");
+                hienThiTatCaPhieuDRL();
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -432,24 +436,44 @@ public class TaoPhieuDRL extends javax.swing.JFrame {
             int hocKy = Integer.parseInt(cmbHocKy.getSelectedItem().toString());
             java.util.Date ngayBatDauUtil = dateChooserStart.getDate();
             java.util.Date ngayKetThucUtil = dateChooserEnd.getDate();
+
+            // Kiểm tra nếu một trong hai ngày bắt đầu hoặc kết thúc là null
+            if (ngayBatDauUtil == null || ngayKetThucUtil == null) {
+                DialogHelper.showError("Vui lòng chọn ngày bắt đầu và kết thúc.");
+                return;
+            }
+
             java.sql.Date ngayBatDau = new java.sql.Date(ngayBatDauUtil.getTime());
             java.sql.Date ngayKetThuc = new java.sql.Date(ngayKetThucUtil.getTime());
-            dsSinhVien = SinhVienTestCtrl.timSinhVienTheoLop(maLop);
 
-            dsSinhVien.forEach(sv -> {
-                try {
-                    String maPhieuDRL = sv.getMaSinhVien() + maNamHoc + hocKy;
-                    PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, sv.getMaSinhVien(), maNamHoc, hocKy, ngayBatDau, ngayKetThuc);
-                    PhieuDRLCtrl.themPhieuDRL(phieu);
-                    DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "SinhVien");
-                    DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "BanCanSu");
-                    DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "CoVan");
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
+            if (ngayBatDau.after(ngayKetThuc)) {
+                DialogHelper.showError("Ngày bắt đầu phải trước ngày kết thúc.");
+            } else {
+                dsSinhVien = SinhVienTestCtrl.timSinhVienTheoLop(maLop);
+                boolean flagCheckExist = false;
+                for (SinhVienTestModel sv : dsSinhVien) {
+                    try {
+                        String maPhieuDRL = sv.getMaSinhVien() + maNamHoc + hocKy;
+                        if (PhieuDRLCtrl.kiemTraPhieuDaTonTai(maPhieuDRL)) {
+                            DialogHelper.showError("Lớp: " + maLop + " đã được tạo phiếu chấm điểm cho học kỳ: " + hocKy + " năm học:" + namHoc);
+                            flagCheckExist = true;
+                            break;
+                        } else {
+                            PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, sv.getMaSinhVien(), maNamHoc, hocKy, ngayBatDau, ngayKetThuc);
+                            PhieuDRLCtrl.themPhieuDRL(phieu);
+                            DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "SinhVien");
+                            DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "BanCanSu");
+                            DiemRenLuyenCtrl.themMoiDRL(maPhieuDRL, "CoVan");
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            });
-
-            hienThiTatCaPhieuDRL();
+                if (!flagCheckExist) {
+                    DialogHelper.showMessage("Tạo phiếu chấm điểm thành công");
+                    hienThiTatCaPhieuDRL();
+                }
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }

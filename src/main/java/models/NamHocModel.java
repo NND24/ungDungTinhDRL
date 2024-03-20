@@ -9,11 +9,28 @@ package models;
  * @author quang
  */
 public class NamHocModel {
-    private String namHoc, trangThaiNamHoc;
 
-    public NamHocModel(String namHoc, String trangThaiNamHoc) {
+    private int maNamHoc;
+    private String namHoc;
+    private int trangThaiHienThi;
+
+    public NamHocModel(String namHoc, int trangThaiHienThi) {
         this.namHoc = namHoc;
-        this.trangThaiNamHoc = trangThaiNamHoc;
+        this.trangThaiHienThi = trangThaiHienThi;
+    }
+
+    public NamHocModel(int maNamHoc, String namHoc, int trangThaiHienThi) {
+        this.maNamHoc = maNamHoc;
+        this.namHoc = namHoc;
+        this.trangThaiHienThi = trangThaiHienThi;
+    }
+
+    public int getMaNamHoc() {
+        return maNamHoc;
+    }
+
+    public void setMaNamHoc(int maNamHoc) {
+        this.maNamHoc = maNamHoc;
     }
 
     public String getNamHoc() {
@@ -24,12 +41,12 @@ public class NamHocModel {
         this.namHoc = namHoc;
     }
 
-    public String getTrangThaiNamHoc() {
-        return trangThaiNamHoc;
+    public int getTrangThaiHienThi() {
+        return trangThaiHienThi;
     }
 
-    public void setTrangThaiNamHoc(String trangThaiNamHoc) {
-        this.trangThaiNamHoc = trangThaiNamHoc;
+    public void setTrangThaiHienThi(int trangThaiHienThi) {
+        this.trangThaiHienThi = trangThaiHienThi;
     }
-    
+
 }

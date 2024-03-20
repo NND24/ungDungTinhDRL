@@ -143,4 +143,13 @@ public class Validator {
         Date today = new Date();
         return providedDate.before(today);
     }
+
+    public static boolean kiemTraNamHoc(String namHoc) {
+        String regex = "\\d{4}-\\d{4}";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(namHoc);
+
+        return matcher.matches();
+    }
 }
