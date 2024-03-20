@@ -1,42 +1,41 @@
 package views.list;
 
-import controllers.NamHocCtrl;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import models.NamHocModel;
+import models.ChucVuModel;
+import controllers.ChucVuCtrl;
 import utils.DialogHelper;
-import utils.Validator;
 
-public class DSNamHoc extends javax.swing.JFrame {
+public class DSChucVu extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
-    List<NamHocModel> dsNamHoc;
+    List<ChucVuModel> dsChucVu;
 
-    public DSNamHoc() {
+    public DSChucVu() {
         initComponents();
-        tableModel = (DefaultTableModel) tblDSNamHoc.getModel();
+        tableModel = (DefaultTableModel) tblDSChucVu.getModel();
 
-        hienThiDSNamHoc();
+        hienThiDSChucVu();
     }
 
-    private void hienThiDSNamHoc() {
+    private void hienThiDSChucVu() {
         try {
-            dsNamHoc = NamHocCtrl.timTatCaNamHoc();
+            dsChucVu = ChucVuCtrl.timTatCaChuVu();
 
             tableModel.setRowCount(0);
-            dsNamHoc.forEach(namHoc -> {
+            dsChucVu.forEach(chucVu -> {
                 String trangThai = "";
-                if (namHoc.getTrangThaiHienThi() == 0) {
+                if (chucVu.getTrangThaiHienThi() == 0) {
                     trangThai = "Ẩn";
                 } else {
                     trangThai = "Hiển thị";
                 }
 
                 tableModel.addRow(new Object[]{
-                    namHoc.getMaNamHoc(), namHoc.getNamHoc(), trangThai});
+                    chucVu.getMaChucVu(), chucVu.getTenChucVu(), trangThai});
             });
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -44,9 +43,10 @@ public class DSNamHoc extends javax.swing.JFrame {
     }
 
     private void lamMoi() {
-        txtMaNamHoc.setText("");
-        txtNamHoc.setText("");
+        txtMaChucVu.setText("");
+        txtTenChucVu.setText("");
         cmbTrangThaiHienThi.setSelectedIndex(0);
+        txtMaChucVu.setEnabled(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -62,12 +62,12 @@ public class DSNamHoc extends javax.swing.JFrame {
         btnSua = new javax.swing.JButton();
         btnLamMoi = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblDSNamHoc = new javax.swing.JTable();
+        tblDSChucVu = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        txtNamHoc = new javax.swing.JTextField();
+        txtTenChucVu = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtMaNamHoc = new javax.swing.JTextField();
+        txtMaChucVu = new javax.swing.JTextField();
         btnXuat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,7 +75,7 @@ public class DSNamHoc extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Năm học");
+        jLabel1.setText("Tên chức vụ");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Trạng thái");
@@ -134,7 +134,7 @@ public class DSNamHoc extends javax.swing.JFrame {
             }
         });
 
-        tblDSNamHoc.setModel(new javax.swing.table.DefaultTableModel(
+        tblDSChucVu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -142,7 +142,7 @@ public class DSNamHoc extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Mã năm học", "Năm học", "Trạng thái"
+                "Mã chức vụ", "Tên chức vụ", "Trạng thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -153,17 +153,17 @@ public class DSNamHoc extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblDSNamHoc.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblDSChucVu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblDSNamHocMouseClicked(evt);
+                tblDSChucVuMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblDSNamHoc);
+        jScrollPane1.setViewportView(tblDSChucVu);
 
         jPanel6.setPreferredSize(new java.awt.Dimension(88, 35));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("DANH SÁCH NĂM HỌC");
+        jLabel7.setText("DANH SÁCH CHỨC VỤ");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -180,9 +180,7 @@ public class DSNamHoc extends javax.swing.JFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Mã năm học");
-
-        txtMaNamHoc.setEditable(false);
+        jLabel3.setText("Mã chức vụ");
 
         btnXuat.setBackground(new java.awt.Color(0, 102, 255));
         btnXuat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -202,7 +200,7 @@ public class DSNamHoc extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,9 +210,9 @@ public class DSNamHoc extends javax.swing.JFrame {
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTenChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbTrangThaiHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMaNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMaChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
@@ -231,11 +229,11 @@ public class DSNamHoc extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtMaNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTenChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -272,37 +270,38 @@ public class DSNamHoc extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            String maNamHoc = txtMaNamHoc.getText();
-            String namHoc = txtNamHoc.getText();
+            String maChucVu = txtMaChucVu.getText();
+            String tenChucVu = txtTenChucVu.getText();
             int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
 
-            if (!maNamHoc.isEmpty()) {
-                DialogHelper.showError("Năm học đã tồn tại. Vui lòng nhập mới");
-            } else if (namHoc.isEmpty()) {
-                DialogHelper.showError("Năm học không được bỏ trống");
-            } else if (!Validator.kiemTraNamHoc(namHoc)) {
-                DialogHelper.showError("Năm học không đúng định dạng");
+            if (maChucVu.isEmpty()) {
+                DialogHelper.showError("Mã chức vụ không được bỏ trống");
+            } else if (tenChucVu.isEmpty()) {
+                DialogHelper.showError("Tên chức vụ không được bỏ trống");
+            } else if (!tenChucVu.isEmpty() && ChucVuCtrl.kiemTraMaChuVuDaTonTai(maChucVu)) {
+                DialogHelper.showError("Mã chức vụ đã tồn tại. Vui lòng nhập lại");
             } else {
-                NamHocModel nh = new NamHocModel(namHoc, trangThai);
-                NamHocCtrl.themNamHoc(nh);
-                DialogHelper.showMessage("Thêm năm học thành công!");
-                hienThiDSNamHoc();
+                ChucVuModel chucVu = new ChucVuModel(maChucVu, tenChucVu, trangThai);
+                ChucVuCtrl.themChucVu(chucVu);
+                DialogHelper.showMessage("Thêm chức vụ thành công!");
+                hienThiDSChucVu();
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSNamHoc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSChucVu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        String maNamHoc = txtMaNamHoc.getText();
-        boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa năm học này");
+        String maChucVu = txtMaChucVu.getText();
+        boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa chức vụ này");
 
         if (flag) {
             try {
-                NamHocCtrl.xoaNamHoc(maNamHoc);
-                hienThiDSNamHoc();
+                ChucVuCtrl.xoaNamHoc(maChucVu);
+                hienThiDSChucVu();
                 lamMoi();
-                DialogHelper.showMessage("Xóa năm học thành công");
+                DialogHelper.showMessage("Xóa chức vụ thành công");
+                txtMaChucVu.setEnabled(true);
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -311,50 +310,52 @@ public class DSNamHoc extends javax.swing.JFrame {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            int maNamHoc = Integer.parseInt(txtMaNamHoc.getText());
-            String namHoc = txtNamHoc.getText();
+            String maChucVu = txtMaChucVu.getText();
+            String tenChucVu = txtTenChucVu.getText();
             int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
 
-            if (namHoc.isEmpty()) {
-                DialogHelper.showError("Năm học không được bỏ trống");
-            } else if (!Validator.kiemTraNamHoc(namHoc)) {
-                DialogHelper.showError("Năm học không đúng định dạng");
+            if (maChucVu.isEmpty()) {
+                DialogHelper.showError("Mã chức vụ không được bỏ trống");
+            } else if (tenChucVu.isEmpty()) {
+                DialogHelper.showError("Tên chức vụ không được bỏ trống");
             } else {
-                NamHocModel nh = new NamHocModel(maNamHoc, namHoc, trangThai);
-                NamHocCtrl.capNhatNamHoc(nh);
-                DialogHelper.showMessage("Cập nhật năm học thành công!");
-                hienThiDSNamHoc();
+                ChucVuModel chucVu = new ChucVuModel(maChucVu, tenChucVu, trangThai);
+                ChucVuCtrl.capNhatChucVu(chucVu);
+                DialogHelper.showMessage("Cập nhật chức vụ thành công!");
+                hienThiDSChucVu();
+                txtMaChucVu.setEnabled(true);
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSNamHoc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSChucVu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSuaActionPerformed
 
-    private void tblDSNamHocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSNamHocMouseClicked
-        int selectedIndex = tblDSNamHoc.getSelectedRow();
+    private void tblDSChucVuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSChucVuMouseClicked
+        txtMaChucVu.setEnabled(false);
+        int selectedIndex = tblDSChucVu.getSelectedRow();
         if (selectedIndex >= 0) {
-            NamHocModel namHoc = dsNamHoc.get(selectedIndex);
+            ChucVuModel chucVu = dsChucVu.get(selectedIndex);
 
-            txtMaNamHoc.setText(Integer.toString(namHoc.getMaNamHoc()));
-            txtNamHoc.setText(namHoc.getNamHoc());
-            cmbTrangThaiHienThi.setSelectedIndex(namHoc.getTrangThaiHienThi());
+            txtMaChucVu.setText(chucVu.getMaChucVu());
+            txtTenChucVu.setText(chucVu.getTenChucVu());
+            cmbTrangThaiHienThi.setSelectedIndex(chucVu.getTrangThaiHienThi());
         }
-    }//GEN-LAST:event_tblDSNamHocMouseClicked
+    }//GEN-LAST:event_tblDSChucVuMouseClicked
 
     private void btnXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatActionPerformed
-        NamHocCtrl.xuatFileExcel(dsNamHoc, "src/main/java/files/DSNamHoc.xlsx");
+        ChucVuCtrl.xuatFileExcel(dsChucVu, "src/main/java/files/DSChucVu.xlsx");
         DialogHelper.showMessage("Xuất danh sách thành công!");
     }//GEN-LAST:event_btnXuatActionPerformed
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         lamMoi();
-        hienThiDSNamHoc();
+        hienThiDSChucVu();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DSNamHoc().setVisible(true);
+                new DSChucVu().setVisible(true);
             }
         });
     }
@@ -373,8 +374,8 @@ public class DSNamHoc extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblDSNamHoc;
-    private javax.swing.JTextField txtMaNamHoc;
-    private javax.swing.JTextField txtNamHoc;
+    private javax.swing.JTable tblDSChucVu;
+    private javax.swing.JTextField txtMaChucVu;
+    private javax.swing.JTextField txtTenChucVu;
     // End of variables declaration//GEN-END:variables
 }
