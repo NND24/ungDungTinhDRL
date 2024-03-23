@@ -73,9 +73,9 @@
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="txtHocKy" min="-2" pref="300" max="-2" attributes="0"/>
-                                              <Component id="txtTieuChi2" min="-2" pref="300" max="-2" attributes="0"/>
+                                              <Component id="btnDiemTieuChi2" min="-2" pref="300" max="-2" attributes="0"/>
                                               <Component id="txtMaSinhVien" min="-2" pref="300" max="-2" attributes="0"/>
-                                              <Component id="txtTieuChi5" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                              <Component id="btnDiemTieuChi5" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -88,7 +88,7 @@
                                           </Group>
                                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtTieuChi3" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
+                                              <Component id="btnDiemTieuChi3" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                                               <Component id="txtTongDiem" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                                               <Component id="txtHoTen" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                                               <Component id="txtNamHoc" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
@@ -105,8 +105,8 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtTieuChi4" min="-2" pref="300" max="-2" attributes="0"/>
-                                      <Component id="txtTieuChi1" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="btnDiemTieuChi4" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="btnDiemTieuChi1" min="-2" pref="300" max="-2" attributes="0"/>
                                       <Component id="txtXepLoai" min="-2" pref="300" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -154,22 +154,22 @@
                       <Component id="txtMaSinhVien" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtHoTen" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="txtTieuChi1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTieuChi2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTieuChi3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTieuChi4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTieuChi5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTongDiem" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -201,8 +201,7 @@
                       <Component id="cmbTKHocKy" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="258" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" pref="305" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -222,7 +221,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="1048" max="32767" attributes="0"/>
-                      <Component id="lamMoiButton" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="btnLamMoi" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -231,7 +230,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" pref="40" max="32767" attributes="0"/>
-                      <Component id="lamMoiButton" alignment="3" max="-2" attributes="0"/>
+                      <Component id="btnLamMoi" alignment="3" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -245,7 +244,7 @@
                 <Property name="text" type="java.lang.String" value="TH&#xd4;NG TIN &#x110;I&#x1ec2;M R&#xc8;N LUY&#x1ec6;N "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="lamMoiButton">
+            <Component class="javax.swing.JButton" name="btnLamMoi">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -265,7 +264,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lamMoiButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLamMoiActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -397,9 +396,9 @@
             <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTieuChi1">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi1">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTieuChi2">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi2">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
@@ -417,7 +416,7 @@
             <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTieuChi3">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi3">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
@@ -427,7 +426,7 @@
             <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 4"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTieuChi4">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi4">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
@@ -437,7 +436,7 @@
             <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 5"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTieuChi5">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi5">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>

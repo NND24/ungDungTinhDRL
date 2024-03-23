@@ -3,6 +3,7 @@ package views.list;
 import controllers.CoVanTestCtrl;
 import controllers.PhanCongCtrl;
 import controllers.LopTestCtrl;
+import controllers.NamHocCtrl;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class DSPhanCong extends javax.swing.JFrame {
 
             hienThiDSCoVan();
             hienThiDSLop();
+            hienThiDSNamHoc();
             hienThiTatCaPhanCong();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,16 +67,16 @@ public class DSPhanCong extends javax.swing.JFrame {
     }
 
     private void hienThiDSNamHoc() {
-//        try {
-//            dsNamHoc = NamHocModel.timTatCaLopHienThi();
-//            cmbLop.removeAllItems();
-//
-//            dsLop.forEach(lop -> {
-//                cmbLop.addItem(lop.getTenLop());
-//            });
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            dsNamHoc = NamHocCtrl.timTatCaNamHoc();
+            cmbNamHoc.removeAllItems();
+
+            dsNamHoc.forEach(namHoc -> {
+                cmbNamHoc.addItem(namHoc.getNamHoc());
+            });
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void hienThiTatCaPhanCong() throws ClassNotFoundException {
@@ -90,7 +92,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                 trangThai = "Ẩn";
             }
             tableModel.addRow(new Object[]{pc.getMaPhanCong(), pc.getTenCoVan(),
-                pc.getNamHoc(), trangThai});
+                pc.getMaLop(), pc.getNamHoc(), trangThai});
         });
     }
 
@@ -126,7 +128,8 @@ public class DSPhanCong extends javax.swing.JFrame {
         txtMaPhanCong = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Danh sách dịch vụ cận lâm sàn");
+        setTitle("Danh sách phân công");
+        setPreferredSize(new java.awt.Dimension(780, 451));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(650, 436));
@@ -271,28 +274,23 @@ public class DSPhanCong extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
+                                .addGap(40, 40, 40)
                                 .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
+                                .addGap(40, 40, 40)
                                 .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
+                                .addGap(40, 40, 40)
                                 .addComponent(SuaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
+                                .addGap(40, 40, 40)
                                 .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
+                                .addGap(40, 40, 40)
                                 .addComponent(xuatDSButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel8))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,7 +302,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cmbLop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtMaPhanCong, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel6))
@@ -312,7 +310,10 @@ public class DSPhanCong extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(320, 320, 320))))
+                        .addGap(25, 25, 25)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,14 +345,14 @@ public class DSPhanCong extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 738, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,8 +383,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                 String maCoVan = dsCoVan.get(phanCongIndex).getMaCoVan();
                 String maLop = cmbLop.getSelectedItem().toString();
                 int namHocIndex = cmbNamHoc.getSelectedIndex();
-                // int maNamHoc = Integer.parseInt(dsNamHoc.get(namHocIndex).getMaNamHoc());
-                int maNamHoc = 1;
+                int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                 int trangThai = cmbTrangThai.getSelectedIndex();
 
                 PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, trangThai);

@@ -106,7 +106,7 @@ public class CoVan extends javax.swing.JFrame {
         dsDiemToanTruongPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenToanTruong1 = new views.list.DSDiemRenLuyenToanTruong();
         taiKhoanCoVanPanel = new javax.swing.JTabbedPane();
-        dSDiemRenLuyenToanTruong2 = new views.list.DSDiemRenLuyenToanTruong();
+        taiKhoanCoVan1 = new views.main.TaiKhoanCoVan();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -145,7 +145,7 @@ public class CoVan extends javax.swing.JFrame {
         taiKhoanCoVanPanel.setBackground(new java.awt.Color(255, 255, 255));
         taiKhoanCoVanPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         taiKhoanCoVanPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
-        taiKhoanCoVanPanel.addTab("Danh sách điểm rèn luyện toàn trường", dSDiemRenLuyenToanTruong2);
+        taiKhoanCoVanPanel.addTab("Tài khoản cá nhân", taiKhoanCoVan1);
 
         LayeredPane.add(taiKhoanCoVanPanel, "card2");
 
@@ -283,7 +283,6 @@ public class CoVan extends javax.swing.JFrame {
     private javax.swing.JLayeredPane LayeredPane;
     private views.list.DSDiemRenLuyenCVHT dSDiemRenLuyenCVHT1;
     private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong1;
-    private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong2;
     private javax.swing.JTabbedPane dsDiemToanTruongPanel;
     private javax.swing.JTabbedPane dsLopSinhVienPanel;
     private views.main.FormChamDiemCVHT formChamDiemCVHT1;
@@ -293,6 +292,7 @@ public class CoVan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private view.custom.menu.MenuCoVan menuCoVan;
     private javax.swing.JPanel sideMenu;
+    private views.main.TaiKhoanCoVan taiKhoanCoVan1;
     private javax.swing.JTabbedPane taiKhoanCoVanPanel;
     // End of variables declaration//GEN-END:variables
 

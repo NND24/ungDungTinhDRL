@@ -19,6 +19,7 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
 
     public TaiKhoanQuanLy() {
         initComponents();
+        hienThiThongTin();
     }
 
     private void hienThiThongTin() {
@@ -350,7 +351,7 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                             .addComponent(oldPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(129, 129, 129))
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -495,7 +496,7 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Mật khẩu mới không giống nhập lại mật khẩu", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } else {
             try {
-                if (TaiKhoanCtrl.kiemTraMatKhauCuSV(maQuanLy, oldPassword)) {
+                if (TaiKhoanCtrl.kiemTraMatKhauCu(maTaiKhoan, oldPassword)) {
                     TaiKhoanCtrl.doiMatKhau(maTaiKhoan, newPassword);
                     JOptionPane.showMessageDialog(null, "Đổi mật khẩu thành công");
                     oldPasswordField.setText("");
@@ -524,8 +525,8 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Tên đăng nhập không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } else {
             try {
-                if (TaiKhoanCtrl.kiemTraMatKhauCuSV(maQuanLy, matKhau)) {
-                    TaiKhoanCtrl.doiTenDangNhap(tenDangNhap, maTaiKhoan);
+                if (TaiKhoanCtrl.kiemTraMatKhauCu(maTaiKhoan, matKhau)) {
+                    TaiKhoanCtrl.doiTenDangNhap(tenDangNhapMoi, maTaiKhoan);
                     DialogHelper.showMessage("Đổi tên đăng nhập thành công");
                     txtTenDangNhap.setText("");
                     txtMatKhau.setText("");
@@ -558,18 +559,22 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
             String queQuan = queQuanTextField.getText();
             String email = txtEmail.getText();
 
-            QuanLyModel ql = new QuanLyModel(maQuanLy, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh);
             if (hoTen.isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
             } else if (ngaySinhTextField.getText().isEmpty()) {
                 DialogHelper.showError("Ngày sinh không được để trống!");
             } else if (!Validator.isValidDate(ngaySinhTextField.getText())) {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+            } else if (soDienThoai.isEmpty()) {
+                DialogHelper.showError("Số điện thoại không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+            } else if (canCuoc.isEmpty()) {
+                DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else {
+                QuanLyModel ql = new QuanLyModel(maQuanLy, hoTen, email, idGioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh);
                 QuanLyCtrl.capNhatQuanLy(ql);
                 DialogHelper.showMessage("Thay đổi thông tin thành công!");
             }

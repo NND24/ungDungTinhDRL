@@ -69,9 +69,9 @@ public class QuanLyCtrl {
 
     public static QuanLyModel timQuanLyTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
         String sql = """
-                     SELECT MaSinhVien, MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
-                     FROM SinhVien, Lop, TaiKhoan, ChucVu
-                     WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
+                     SELECT MaQuanLy, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, TenChucVu
+                     FROM QuanLy, TaiKhoan, ChucVu
+                     WHERE  QuanLy.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
                      AND TenDangNhap=?
                      """;
         QuanLyModel quanLy = null;
@@ -244,6 +244,29 @@ public class QuanLyCtrl {
         }
 
         return maTaiKhoan;
+    }
+
+    public static int layMaQuanLyCuoiCung() throws ClassNotFoundException {
+        int maQL = 0;
+        String sql = """
+                     SELECT TOP 1
+                    RIGHT(MaQuanLy, 3) AS MaQuanLy
+                    FROM
+                    QuanLy
+                    ORDER BY
+                    MaQuanLy DESC;
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
+
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                maQL = resultSet.getInt("MaQuanLy");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return maQL;
     }
 
     public static void xuatFileExcel(List<QuanLyModel> dsDichVu, String filePath) {

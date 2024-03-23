@@ -2,11 +2,10 @@ package models;
 
 public class KhoaTestModel {
 
-    private int maKhoa;
-    private String tenKhoa;
+    private String maKhoa, tenKhoa;
     private int trangThaiHienThi;
 
-    public KhoaTestModel(int maKhoa, String tenKhoa, int trangThaiHienThi) {
+    public KhoaTestModel(String maKhoa, String tenKhoa, int trangThaiHienThi) {
         this.maKhoa = maKhoa;
         this.tenKhoa = tenKhoa;
         this.trangThaiHienThi = trangThaiHienThi;
@@ -17,11 +16,11 @@ public class KhoaTestModel {
         this.trangThaiHienThi = trangThaiHienThi;
     }
 
-    public int getMaKhoa() {
+    public String getMaKhoa() {
         return maKhoa;
     }
 
-    public void setMaKhoa(int maKhoa) {
+    public void setMaKhoa(String maKhoa) {
         this.maKhoa = maKhoa;
     }
 

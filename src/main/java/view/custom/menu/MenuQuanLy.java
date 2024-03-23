@@ -31,8 +31,8 @@ public class MenuQuanLy extends JComponent {
         {"Xem điểm rèn luyện toàn trường"},
         {"Phân công"},
         {"Tạo phiếu điểm rèn luyện"},
-        {"Quản lý chung", "Danh sách giảng viên", "Danh sách sinh viên", "Danh sách ngành", "Danh sách khoa", "Danh sách lớp", "Danh sách năm học"},
-        {"Quản lý admin"},
+        {"Quản lý chung", "Danh sách cố vấn", "Danh sách sinh viên", "Danh sách khoa", "Danh sách ngành", "Danh sách lớp", "Danh sách năm học"},
+        {"Quản lý admin", "Danh sách quản lý", "Danh sách chức vụ"},
         {"Tài khoản cá nhân"},
         {"Đăng xuất"}};
 

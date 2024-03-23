@@ -4,11 +4,27 @@ import java.sql.Date;
 
 public class CoVanTestModel {
 
-    private String maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon;
-    private int maKhoa, gioiTinh;
+    private String maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa;
+    private int gioiTinh, daNghi;
     private Date ngaySinh;
 
-    public CoVanTestModel(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, int maKhoa, int gioiTinh, Date ngaySinh) {
+    public CoVanTestModel(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh, int daNghi) {
+        this.maCoVan = maCoVan;
+        this.hoTen = hoTen;
+        this.email = email;
+        this.soDienThoai = soDienThoai;
+        this.canCuoc = canCuoc;
+        this.queQuan = queQuan;
+        this.hocVi = hocVi;
+        this.hocHam = hocHam;
+        this.chuyenMon = chuyenMon;
+        this.maKhoa = maKhoa;
+        this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
+        this.daNghi = daNghi;
+    }
+
+    public CoVanTestModel(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh) {
         this.maCoVan = maCoVan;
         this.hoTen = hoTen;
         this.email = email;
@@ -23,7 +39,7 @@ public class CoVanTestModel {
         this.ngaySinh = ngaySinh;
     }
 
-    public CoVanTestModel(String maCoVan, String maTaiKhoan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, int maKhoa, int gioiTinh, Date ngaySinh) {
+    public CoVanTestModel(String maCoVan, String maTaiKhoan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh, int daNghi) {
         this.maCoVan = maCoVan;
         this.maTaiKhoan = maTaiKhoan;
         this.tenKhoa = tenKhoa;
@@ -38,6 +54,24 @@ public class CoVanTestModel {
         this.maKhoa = maKhoa;
         this.gioiTinh = gioiTinh;
         this.ngaySinh = ngaySinh;
+        this.daNghi = daNghi;
+    }
+
+    public CoVanTestModel(String maCoVan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh, int daNghi) {
+        this.maCoVan = maCoVan;
+        this.tenKhoa = tenKhoa;
+        this.hoTen = hoTen;
+        this.email = email;
+        this.soDienThoai = soDienThoai;
+        this.canCuoc = canCuoc;
+        this.queQuan = queQuan;
+        this.hocVi = hocVi;
+        this.hocHam = hocHam;
+        this.chuyenMon = chuyenMon;
+        this.maKhoa = maKhoa;
+        this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
+        this.daNghi = daNghi;
     }
 
     public String getMaCoVan() {
@@ -128,11 +162,11 @@ public class CoVanTestModel {
         this.chuyenMon = chuyenMon;
     }
 
-    public int getMaKhoa() {
+    public String getMaKhoa() {
         return maKhoa;
     }
 
-    public void setMaKhoa(int maKhoa) {
+    public void setMaKhoa(String maKhoa) {
         this.maKhoa = maKhoa;
     }
 
@@ -150,6 +184,14 @@ public class CoVanTestModel {
 
     public void setNgaySinh(Date ngaySinh) {
         this.ngaySinh = ngaySinh;
+    }
+
+    public int getDaNghi() {
+        return daNghi;
+    }
+
+    public void setDaNghi(int daNghi) {
+        this.daNghi = daNghi;
     }
 
 }

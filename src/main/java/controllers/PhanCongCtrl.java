@@ -42,7 +42,7 @@ public class PhanCongCtrl {
     public static List<PhanCongModel> timTatCaPhanCong() throws ClassNotFoundException {
         List<PhanCongModel> dsPhanCong = new ArrayList<>();
         String sql = """
-                     SELECT DISTINCT PhanCong.MaPhanCong, PhanCong.MaCoVan, HoTen, MaLop, NamHoc, PhanCong.TrangThaiHienThi FROM PhanCong, CoVan, Lop, NamHoc
+                     SELECT DISTINCT PhanCong.MaPhanCong, PhanCong.MaCoVan, HoTen, PhanCong.MaLop, NamHoc, PhanCong.TrangThaiHienThi FROM PhanCong, CoVan, Lop, NamHoc
                      WHERE PhanCong.MaCoVan=CoVan.MaCoVan AND PhanCong.MaLop=Lop.MaLop
                      AND PhanCong.MaNamHoc=NamHoc.MaNamHoc
                      """;

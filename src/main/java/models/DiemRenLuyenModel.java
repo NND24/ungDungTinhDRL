@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class DiemRenLuyenModel extends SinhVienTestModel {
 
-    private String maPhieuDRL, hocKy, namHoc, nguoiCham, xepLoai, trangThaiCham;
+    private String maPhieuDRL, hocKy, namHoc, nguoiCham, maNguoiCham, xepLoai, trangThaiCham;
     private float tongDiem;
     private int d11, d12a, d12b, d12c, d12d, d12e, d12g, d13, d13a, d13b, d13c, d13d;
     private float d14;
@@ -76,6 +76,70 @@ public class DiemRenLuyenModel extends SinhVienTestModel {
         this.d2 = d2;
         this.d3 = d3;
         this.d4 = d4;
+        this.d5 = d5;
+    }
+
+    public DiemRenLuyenModel(String hocKy, String namHoc, String xepLoai, String trangThaiCham, float tongDiem, float d1, int d2, int d3, int d4, int d5, String maSinhVien, String hoTen, Date ngayBatDau, Date ngayKetThuc) {
+        super(maSinhVien, hoTen);
+        this.hocKy = hocKy;
+        this.namHoc = namHoc;
+        this.xepLoai = xepLoai;
+        this.trangThaiCham = trangThaiCham;
+        this.tongDiem = tongDiem;
+        this.d1 = d1;
+        this.d2 = d2;
+        this.d3 = d3;
+        this.d4 = d4;
+        this.d5 = d5;
+        this.ngayBatDau = ngayBatDau;
+        this.ngayKetThuc = ngayKetThuc;
+    }
+
+    public DiemRenLuyenModel(String maPhieuDRL, String nguoiCham, String xepLoai, float tongDiem, int d11, int d12a, int d12b, int d12c, int d12d, int d12e, int d12g, int d13, int d13a, int d13b, int d13c, int d13d, float d14, int d15, float d1, int d21, int d21a, int d21b, int d22a, int d22b, int d23a, int d23b, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5) {
+        super();
+        this.maPhieuDRL = maPhieuDRL;
+        this.nguoiCham = nguoiCham;
+        this.xepLoai = xepLoai;
+        this.tongDiem = tongDiem;
+        this.d11 = d11;
+        this.d12a = d12a;
+        this.d12b = d12b;
+        this.d12c = d12c;
+        this.d12d = d12d;
+        this.d12e = d12e;
+        this.d12g = d12g;
+        this.d13 = d13;
+        this.d13a = d13a;
+        this.d13b = d13b;
+        this.d13c = d13c;
+        this.d13d = d13d;
+        this.d14 = d14;
+        this.d15 = d15;
+        this.d1 = d1;
+        this.d21 = d21;
+        this.d21a = d21a;
+        this.d21b = d21b;
+        this.d22a = d22a;
+        this.d22b = d22b;
+        this.d23a = d23a;
+        this.d23b = d23b;
+        this.d2 = d2;
+        this.d31 = d31;
+        this.d32 = d32;
+        this.d33 = d33;
+        this.d34 = d34;
+        this.d35 = d35;
+        this.d3 = d3;
+        this.d41 = d41;
+        this.d42 = d42;
+        this.d43 = d43;
+        this.d44 = d44;
+        this.d45 = d45;
+        this.d46 = d46;
+        this.d4 = d4;
+        this.d51 = d51;
+        this.d52 = d52;
+        this.d53 = d53;
         this.d5 = d5;
     }
 
@@ -518,6 +582,14 @@ public class DiemRenLuyenModel extends SinhVienTestModel {
 
     public void setNgayKetThuc(Date ngayKetThuc) {
         this.ngayKetThuc = ngayKetThuc;
+    }
+
+    public String getMaNguoiCham() {
+        return maNguoiCham;
+    }
+
+    public void setMaNguoiCham(String maNguoiCham) {
+        this.maNguoiCham = maNguoiCham;
     }
 
 }

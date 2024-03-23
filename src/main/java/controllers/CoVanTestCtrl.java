@@ -21,12 +21,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class CoVanTestCtrl {
 
     public static void themCoVan(CoVanTestModel coVan) throws ClassNotFoundException {
-        String sql = "INSERT INTO CoVan (MaCoVan, MaTaiKhoan, MaKhoa, HoTen, Email, NgaySinh, GioiTinh, SoDienThoai, CanCuoc, QueQuan, HocVi, HocHam, ChuyenMon) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO CoVan (MaCoVan, MaTaiKhoan, MaKhoa, HoTen, Email, NgaySinh, GioiTinh, SoDienThoai, CanCuoc, QueQuan, HocVi, HocHam, ChuyenMon, DaNghi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, coVan.getMaCoVan());
             statement.setString(2, coVan.getMaTaiKhoan());
-            statement.setInt(3, coVan.getMaKhoa());
+            statement.setString(3, coVan.getMaKhoa());
             statement.setString(4, coVan.getHoTen());
             statement.setString(5, coVan.getEmail());
             statement.setDate(6, coVan.getNgaySinh());
@@ -37,6 +37,7 @@ public class CoVanTestCtrl {
             statement.setString(11, coVan.getHocVi());
             statement.setString(12, coVan.getHocHam());
             statement.setString(13, coVan.getChuyenMon());
+            statement.setInt(14, coVan.getDaNghi());
 
             statement.executeUpdate();
         } catch (SQLException ex) {
@@ -55,7 +56,6 @@ public class CoVanTestCtrl {
             while (resultSet.next()) {
                 CoVanTestModel coVan = new CoVanTestModel(
                         resultSet.getString("MaCoVan"),
-                        resultSet.getString("MaTaiKhoan"),
                         resultSet.getString("TenKhoa"),
                         resultSet.getString("HoTen"),
                         resultSet.getString("Email"),
@@ -65,9 +65,10 @@ public class CoVanTestCtrl {
                         resultSet.getString("HocVi"),
                         resultSet.getString("HocHam"),
                         resultSet.getString("ChuyenMon"),
-                        resultSet.getInt("MaKhoa"),
+                        resultSet.getString("MaKhoa"),
                         resultSet.getInt("GioiTinh"),
-                        resultSet.getDate("NgaySinh")
+                        resultSet.getDate("NgaySinh"),
+                        resultSet.getInt("DaNghi")
                 );
                 dsCoVan.add(coVan);
             }
@@ -98,7 +99,6 @@ public class CoVanTestCtrl {
                 while (resultSet.next()) {
                     CoVanTestModel coVan = new CoVanTestModel(
                             resultSet.getString("MaCoVan"),
-                            resultSet.getString("MaTaiKhoan"),
                             resultSet.getString("TenKhoa"),
                             resultSet.getString("HoTen"),
                             resultSet.getString("Email"),
@@ -108,9 +108,10 @@ public class CoVanTestCtrl {
                             resultSet.getString("HocVi"),
                             resultSet.getString("HocHam"),
                             resultSet.getString("ChuyenMon"),
-                            resultSet.getInt("MaKhoa"),
+                            resultSet.getString("MaKhoa"),
                             resultSet.getInt("GioiTinh"),
-                            resultSet.getDate("NgaySinh")
+                            resultSet.getDate("NgaySinh"),
+                            resultSet.getInt("DaNghi")
                     );
                     dsCoVan.add(coVan);
                 }
@@ -124,7 +125,6 @@ public class CoVanTestCtrl {
                 while (resultSet.next()) {
                     CoVanTestModel coVan = new CoVanTestModel(
                             resultSet.getString("MaCoVan"),
-                            resultSet.getString("MaTaiKhoan"),
                             resultSet.getString("TenKhoa"),
                             resultSet.getString("HoTen"),
                             resultSet.getString("Email"),
@@ -134,9 +134,10 @@ public class CoVanTestCtrl {
                             resultSet.getString("HocVi"),
                             resultSet.getString("HocHam"),
                             resultSet.getString("ChuyenMon"),
-                            resultSet.getInt("MaKhoa"),
+                            resultSet.getString("MaKhoa"),
                             resultSet.getInt("GioiTinh"),
-                            resultSet.getDate("NgaySinh")
+                            resultSet.getDate("NgaySinh"),
+                            resultSet.getInt("DaNghi")
                     );
                     dsCoVan.add(coVan);
                 }
@@ -155,7 +156,6 @@ public class CoVanTestCtrl {
                 while (resultSet.next()) {
                     CoVanTestModel coVan = new CoVanTestModel(
                             resultSet.getString("MaCoVan"),
-                            resultSet.getString("MaTaiKhoan"),
                             resultSet.getString("TenKhoa"),
                             resultSet.getString("HoTen"),
                             resultSet.getString("Email"),
@@ -165,9 +165,10 @@ public class CoVanTestCtrl {
                             resultSet.getString("HocVi"),
                             resultSet.getString("HocHam"),
                             resultSet.getString("ChuyenMon"),
-                            resultSet.getInt("MaKhoa"),
+                            resultSet.getString("MaKhoa"),
                             resultSet.getInt("GioiTinh"),
-                            resultSet.getDate("NgaySinh")
+                            resultSet.getDate("NgaySinh"),
+                            resultSet.getInt("DaNghi")
                     );
                     dsCoVan.add(coVan);
                 }
@@ -197,9 +198,9 @@ public class CoVanTestCtrl {
 
     public static CoVanTestModel timCoVanTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
         String sql = """
-                     SELECT MaSinhVien, TenLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
-                     FROM SinhVien, Lop, TaiKhoan, ChucVu
-                     WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
+                     SELECT MaCoVan, Khoa.TenKhoa, Khoa.MaKhoa, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghi, TenChucVu, HocVi, HocHam, ChuyenMon
+                     FROM CoVan, Khoa, TaiKhoan, ChucVu
+                     WHERE CoVan.MaKhoa=Khoa.MaKhoa AND CoVan.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
                      AND TenDangNhap=?
                      """;
         CoVanTestModel coVan = null;
@@ -211,7 +212,6 @@ public class CoVanTestCtrl {
             while (resultSet.next()) {
                 CoVanTestModel cv = new CoVanTestModel(
                         resultSet.getString("MaCoVan"),
-                        resultSet.getString("MaTaiKhoan"),
                         resultSet.getString("TenKhoa"),
                         resultSet.getString("HoTen"),
                         resultSet.getString("Email"),
@@ -221,9 +221,10 @@ public class CoVanTestCtrl {
                         resultSet.getString("HocVi"),
                         resultSet.getString("HocHam"),
                         resultSet.getString("ChuyenMon"),
-                        resultSet.getInt("MaKhoa"),
+                        resultSet.getString("MaKhoa"),
                         resultSet.getInt("GioiTinh"),
-                        resultSet.getDate("NgaySinh")
+                        resultSet.getDate("NgaySinh"),
+                        resultSet.getInt("DaNghi")
                 );
                 coVan = cv;
             }
@@ -234,7 +235,7 @@ public class CoVanTestCtrl {
     }
 
     public static void capNhatCoVan(CoVanTestModel coVan) {
-        String sql = "UPDATE CoVan SET HoTen=?, Email=?, NgaySinh=?, GioiTinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=?, HocVi=?, HocHam=?, ChuyenMon=?, MaKhoa=? WHERE MaCoVan=?";
+        String sql = "UPDATE CoVan SET HoTen=?, Email=?, NgaySinh=?, GioiTinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=?, HocVi=?, HocHam=?, ChuyenMon=?, MaKhoa=?, DaNghi=? WHERE MaCoVan=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, coVan.getHoTen());
             statement.setString(2, coVan.getEmail());
@@ -246,8 +247,9 @@ public class CoVanTestCtrl {
             statement.setString(8, coVan.getHocVi());
             statement.setString(9, coVan.getHocHam());
             statement.setString(10, coVan.getChuyenMon());
-            statement.setInt(11, coVan.getMaKhoa());
-            statement.setString(12, coVan.getMaCoVan());
+            statement.setString(11, coVan.getMaKhoa());
+            statement.setInt(12, coVan.getDaNghi());
+            statement.setString(13, coVan.getMaCoVan());
 
             statement.executeUpdate();
         } catch (Exception ex) {
@@ -263,11 +265,32 @@ public class CoVanTestCtrl {
         }
     }
 
-    public static boolean kiemTraKhoaDaSuDung(String maCoVan) throws ClassNotFoundException {
+    public static boolean kiemTraCoVanDaPhanCong(String maCoVan) throws ClassNotFoundException {
         boolean flag = false;
         String sql = """
                      SELECT CoVan.MaCoVan FROM CoVan
                      JOIN PhanCong ON PhanCong.MaCoVan=CoVan.MaCoVan
+                     WHERE CoVan.MaCoVan=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maCoVan);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+
+    public static boolean kiemTraCoVanDaChamDiem(String maCoVan) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT CoVan.MaCoVan FROM CoVan
+                     JOIN DiemRenLuyen ON DiemRenLuyen.MaCoVanCham=CoVan.MaCoVan
                      WHERE CoVan.MaCoVan=?
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -292,7 +315,7 @@ public class CoVanTestCtrl {
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    maTaiKhoan = resultSet.getString("MaCoVan");
+                    maTaiKhoan = resultSet.getString("MaTaiKhoan");
                 }
             }
         } catch (SQLException ex) {
@@ -300,6 +323,29 @@ public class CoVanTestCtrl {
         }
 
         return maTaiKhoan;
+    }
+
+    public static int layMaCoVanCuoiCung() throws ClassNotFoundException {
+        int maCV = 0;
+        String sql = """
+                     SELECT TOP 1
+                    RIGHT(MaCoVan, 3) AS MaCoVan
+                    FROM
+                    CoVan
+                    ORDER BY
+                    MaCoVan DESC;
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
+
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                maCV = resultSet.getInt("MaCoVan");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return maCV;
     }
 
     public static void xuatFileExcel(List<CoVanTestModel> dsCoVan, String filePath) {
@@ -316,9 +362,10 @@ public class CoVanTestCtrl {
             headerRow.createCell(5).setCellValue("Số điện thoại");
             headerRow.createCell(6).setCellValue("Căn cước");
             headerRow.createCell(7).setCellValue("Quê quán");
-            headerRow.createCell(7).setCellValue("Học vị");
-            headerRow.createCell(7).setCellValue("Học hàm");
-            headerRow.createCell(7).setCellValue("Chuyên môn");
+            headerRow.createCell(8).setCellValue("Học vị");
+            headerRow.createCell(9).setCellValue("Học hàm");
+            headerRow.createCell(10).setCellValue("Chuyên môn");
+            headerRow.createCell(11).setCellValue("Trạng thái");
 
             // Ghi dữ liệu vào sheet
             int rowNum = 1;
@@ -332,6 +379,16 @@ public class CoVanTestCtrl {
                 row.createCell(5).setCellValue(coVan.getSoDienThoai());
                 row.createCell(6).setCellValue(coVan.getCanCuoc());
                 row.createCell(7).setCellValue(coVan.getQueQuan());
+                row.createCell(8).setCellValue(coVan.getHocVi());
+                row.createCell(9).setCellValue(coVan.getHocHam());
+                row.createCell(10).setCellValue(coVan.getChuyenMon());
+                String trangThai = "";
+                if (coVan.getDaNghi() == 0) {
+                    trangThai = "Còn làm";
+                } else {
+                    trangThai = "Đã nghỉ";
+                }
+                row.createCell(11).setCellValue(trangThai);
             }
 
             // Xuất workbook ra file Excel

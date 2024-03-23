@@ -128,10 +128,10 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="hocKyTextField" min="-2" pref="300" max="-2" attributes="0"/>
-                                      <Component id="diemTieuChi2TextField" min="-2" pref="300" max="-2" attributes="0"/>
-                                      <Component id="maSinhVienTextField" min="-2" pref="300" max="-2" attributes="0"/>
-                                      <Component id="diemTieuChi5TextField" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="txtHocKy" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="btnDiemTieuChi2" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="txtMaSinhVien" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="btnDiemTieuChi5" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -144,7 +144,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="diemTieuChi3TextField" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="btnDiemTieuChi3" min="-2" pref="300" max="-2" attributes="0"/>
                                       <Component id="hoTenTextField" min="-2" pref="300" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -155,8 +155,8 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tongDiemTextField" min="-2" pref="300" max="-2" attributes="0"/>
-                                      <Component id="namHocTextField" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="txtTongDiem" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="txtNamHoc" min="-2" pref="300" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -168,9 +168,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="xepLoaiTextField" min="-2" pref="300" max="-2" attributes="0"/>
-                              <Component id="diemTieuChi4TextField" min="-2" pref="300" max="-2" attributes="0"/>
-                              <Component id="diemTieuChi1TextField" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Component id="txtXepLoai" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Component id="btnDiemTieuChi4" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Component id="btnDiemTieuChi1" min="-2" pref="300" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -185,36 +185,36 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="maSinhVienTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtMaSinhVien" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="hoTenTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="diemTieuChi1TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="diemTieuChi2TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="diemTieuChi3TextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="diemTieuChi4TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="diemTieuChi5TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDiemTieuChi5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tongDiemTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="xepLoaiTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTongDiem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtXepLoai" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="hocKyTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtHocKy" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="namHocTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNamHoc" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jPanel8" min="-2" pref="40" max="-2" attributes="0"/>
@@ -239,9 +239,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="851" max="32767" attributes="0"/>
-                      <Component id="xemDiemButton" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="btnXemDiem" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="lamMoiButton" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="btnLamMoi" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -250,8 +250,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" pref="40" max="32767" attributes="0"/>
-                      <Component id="xemDiemButton" alignment="3" max="-2" attributes="0"/>
-                      <Component id="lamMoiButton" alignment="3" max="-2" attributes="0"/>
+                      <Component id="btnXemDiem" alignment="3" max="-2" attributes="0"/>
+                      <Component id="btnLamMoi" alignment="3" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -265,7 +265,7 @@
                 <Property name="text" type="java.lang.String" value="TH&#xd4;NG TIN &#x110;I&#x1ec2;M R&#xc8;N LUY&#x1ec6;N "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="xemDiemButton">
+            <Component class="javax.swing.JButton" name="btnXemDiem">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -285,10 +285,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xemDiemButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXemDiemActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="lamMoiButton">
+            <Component class="javax.swing.JButton" name="btnLamMoi">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -308,7 +308,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lamMoiButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLamMoiActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -321,7 +321,7 @@
             <Property name="text" type="java.lang.String" value="M&#xe3; sinh vi&#xea;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="maSinhVienTextField">
+        <Component class="javax.swing.JTextField" name="txtMaSinhVien">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -454,7 +454,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="dsDiemRenLuyenTable">
+            <Component class="javax.swing.JTable" name="tblDSDiemRenLuyen">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="12" rowCount="4">
@@ -544,7 +544,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dsDiemRenLuyenTableMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblDSDiemRenLuyenMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
@@ -557,7 +557,7 @@
             <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="diemTieuChi1TextField">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi1">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -565,7 +565,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="diemTieuChi2TextField">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi2">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -589,7 +589,7 @@
             <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="diemTieuChi3TextField">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi3">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -605,7 +605,7 @@
             <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 4"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="diemTieuChi4TextField">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi4">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -621,7 +621,7 @@
             <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 5"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="diemTieuChi5TextField">
+        <Component class="javax.swing.JTextField" name="btnDiemTieuChi5">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -637,7 +637,7 @@
             <Property name="text" type="java.lang.String" value="T&#x1ed5;ng &#x111;i&#x1ec3;m"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="namHocTextField">
+        <Component class="javax.swing.JTextField" name="txtNamHoc">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -653,7 +653,7 @@
             <Property name="text" type="java.lang.String" value="X&#x1ebf;p lo&#x1ea1;i"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="xepLoaiTextField">
+        <Component class="javax.swing.JTextField" name="txtXepLoai">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -669,7 +669,7 @@
             <Property name="text" type="java.lang.String" value="H&#x1ecd;c k&#x1ef3;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="hocKyTextField">
+        <Component class="javax.swing.JTextField" name="txtHocKy">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -685,7 +685,7 @@
             <Property name="text" type="java.lang.String" value="N&#x103;m h&#x1ecd;c"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tongDiemTextField">
+        <Component class="javax.swing.JTextField" name="txtTongDiem">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

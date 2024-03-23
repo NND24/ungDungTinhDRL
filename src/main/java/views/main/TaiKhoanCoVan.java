@@ -15,12 +15,11 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
 
     private String tenDangNhap = DangNhap.username;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    private String maTaiKhoan = "";
-    private int maKhoa;
+    private String maTaiKhoan = "", maKhoa;
 
     public TaiKhoanCoVan() {
         initComponents();
-
+        hienThiThongTin();
     }
 
     private void hienThiThongTin() {
@@ -43,10 +42,11 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                 txtSoDienThoai.setText(coVan.getSoDienThoai());
                 txtCanCuoc.setText(coVan.getCanCuoc());
                 txtQueQuan.setText(coVan.getQueQuan());
-                txtKhoa.setText("");
+                txtKhoa.setText(coVan.getTenKhoa());
                 cmbHocVi.setSelectedItem(coVan.getHocVi());
                 cmbHocHam.setSelectedItem(coVan.getHocHam());
                 txtChuyenMon.setText(coVan.getChuyenMon());
+                maKhoa = coVan.getMaKhoa();
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);
@@ -342,7 +342,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 384, Short.MAX_VALUE)
                 .addComponent(btnDoiTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -374,7 +374,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                     .addComponent(txtTenDangNhap))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -401,16 +401,22 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, 0)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel22)
@@ -423,11 +429,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel16)
                             .addGap(41, 41, 41)
-                            .addComponent(txtGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -476,7 +478,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQueQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -534,7 +536,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Mật khẩu mới không giống nhập lại mật khẩu", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } else {
             try {
-                if (TaiKhoanCtrl.kiemTraMatKhauCuCV(maCoVan, oldPassword)) {
+                if (TaiKhoanCtrl.kiemTraMatKhauCu(maTaiKhoan, oldPassword)) {
                     TaiKhoanCtrl.doiMatKhau(maTaiKhoan, newPassword);
                     JOptionPane.showMessageDialog(null, "Đổi mật khẩu thành công");
                     oldPasswordField.setText("");
@@ -564,8 +566,8 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         } else {
 
             try {
-                if (TaiKhoanCtrl.kiemTraMatKhauCuCV(maCoVan, matKhau)) {
-                    TaiKhoanCtrl.doiTenDangNhap(tenDangNhap, maTaiKhoan);
+                if (TaiKhoanCtrl.kiemTraMatKhauCu(maTaiKhoan, matKhau)) {
+                    TaiKhoanCtrl.doiTenDangNhap(tenDangNhapMoi, maTaiKhoan);
                     DialogHelper.showMessage("Đổi tên đăng nhập thành công");
                     txtTenDangNhap.setText("");
                     txtMatKhau.setText("");
@@ -606,18 +608,22 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
             }
             String chuyenMon = txtChuyenMon.getText();
 
-            CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, hoTen, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, idGioiTinh, sqlNgaySinh);
             if (hoTen.isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
             } else if (txtNgaySinh.getText().isEmpty()) {
                 DialogHelper.showError("Ngày sinh không được để trống!");
             } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+            } else if (soDienThoai.isEmpty()) {
+                DialogHelper.showError("Số điện thoại không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+            } else if (canCuoc.isEmpty()) {
+                DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else {
+                CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, hoTen, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, idGioiTinh, sqlNgaySinh, 0);
                 CoVanTestCtrl.capNhatCoVan(cv);
                 DialogHelper.showMessage("Thay đổi thông tin thành công!");
             }

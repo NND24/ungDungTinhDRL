@@ -223,26 +223,21 @@ public class DiemRenLuyenCtrl {
 
     public static List<DiemRenLuyenModel> timKiemDRL(String tuKhoa, String lop, String namHoc, String hocKy) throws ClassNotFoundException {
         List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
-        Connection connection = null;
-        PreparedStatement statement = null;
+        String sql = """
+                    SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
+                    TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, NgayBatDau, NgayKetThuc
+                    FROM DiemRenLuyen
+                    INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
+                    INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                    INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
+                    INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                    WHERE NguoiCham='CoVan'
+                    AND (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
+                    AND (Lop.MaLop=? OR ?='') AND (NamHoc=? OR ?='') AND (HocKy=? OR ?='')
+                    AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
+                    """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-        try {
-            connection = ConnectDB.getConnection();
-            String sql = """
-            SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
-            TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
-            FROM DiemRenLuyen
-            INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
-            INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
-            INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
-            INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
-            WHERE NguoiCham='CoVan'
-            AND (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
-            AND (Lop.MaLop=? OR ?='') AND (NamHoc=? OR ?='') AND (HocKy=? OR ?='')
-            AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
-            """;
-
-            statement = connection.prepareStatement(sql);
             statement.setString(1, "%" + tuKhoa + "%");
             statement.setString(2, "%" + tuKhoa + "%");
             statement.setString(3, lop);
@@ -252,46 +247,30 @@ public class DiemRenLuyenCtrl {
             statement.setString(7, hocKy);
             statement.setString(8, hocKy);
 
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                DiemRenLuyenModel drl = new DiemRenLuyenModel(
-                        resultSet.getString("HocKy"),
-                        resultSet.getString("NamHoc"),
-                        resultSet.getString("XepLoai"),
-                        resultSet.getString("TrangThaiCham"),
-                        resultSet.getFloat("TongDiem"),
-                        resultSet.getFloat("d1"),
-                        resultSet.getInt("d2"),
-                        resultSet.getInt("d3"),
-                        resultSet.getInt("d4"),
-                        resultSet.getInt("d5"),
-                        resultSet.getString("MaSinhVien"),
-                        resultSet.getString("HoTen")
-                );
-                dsDiemRenLuyen.add(drl);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    DiemRenLuyenModel drl = new DiemRenLuyenModel(
+                            resultSet.getString("HocKy"),
+                            resultSet.getString("NamHoc"),
+                            resultSet.getString("XepLoai"),
+                            resultSet.getString("TrangThaiCham"),
+                            resultSet.getFloat("TongDiem"),
+                            resultSet.getFloat("d1"),
+                            resultSet.getInt("d2"),
+                            resultSet.getInt("d3"),
+                            resultSet.getInt("d4"),
+                            resultSet.getInt("d5"),
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("HoTen"),
+                            resultSet.getDate("NgayBatDau"),
+                            resultSet.getDate("NgayKetThuc")
+                    );
+                    dsDiemRenLuyen.add(drl);
+                }
             }
-
         } catch (SQLException ex) {
             Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            // Close resources
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
         }
-
         return dsDiemRenLuyen;
     }
 
@@ -318,12 +297,11 @@ public class DiemRenLuyenCtrl {
         return idPhieuDRL;
     }
 
-    public static void themMoiDRL(String maPhieuDRL, String nguoiCham, String trangThaiCham) throws ClassNotFoundException {
-        String sql = "INSERT INTO DiemRenLuyen (MaPhieuDRL, NguoiCham, TrangThaiCham) VALUES (?, ?, ?)";
+    public static void themMoiDRL(String maPhieuDRL, String nguoiCham) throws ClassNotFoundException {
+        String sql = "INSERT INTO DiemRenLuyen (MaPhieuDRL, NguoiCham) VALUES (?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, maPhieuDRL);
             statement.setString(2, nguoiCham);
-            statement.setString(3, trangThaiCham);
 
             statement.executeUpdate();
         } catch (SQLException ex) {
@@ -387,11 +365,111 @@ public class DiemRenLuyenCtrl {
         }
     }
 
-    public static void thayDoiTrangThaiCham(String trangThaiCham, String maPhieuDRL) throws ClassNotFoundException {
-        String sql = "UPDATE DiemRenLuyen SET TrangThaiCham=? WHERE MaPhieuDRL=?";
+    public static void chamDiemBCS(DiemRenLuyenModel drl) throws ClassNotFoundException {
+        String sql = "UPDATE DiemRenLuyen SET TongDiem=?, XepLoai=?, d11=?, d12a=?, d12b=?, d12c=?, d12d=?, d12e=?, d12g=?, d13=?, d13a=?, d13b=?, d13c=?, d13d=?, d14=?, d15=?, d1=?, d21=?, d21a=?, d21b=?, d22a=?, d22b=?, d23a=?, d23b=?, d2=?, d31=?, d32=?, d33=?, d34=?, d35=?, d3=?, d41=?, d42=?, d43=?, d44=?, d45=?, d46=?, d4=?, d51=?, d52=?, d53=?, d5=? WHERE MaPhieuDRL=? AND NguoiCham=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, trangThaiCham);
-            statement.setString(2, maPhieuDRL);
+            statement.setFloat(1, drl.getTongDiem());
+            statement.setString(2, drl.getXepLoai());
+            statement.setFloat(3, drl.getD11());
+            statement.setInt(4, drl.getD12a());
+            statement.setInt(5, drl.getD12b());
+            statement.setInt(6, drl.getD12c());
+            statement.setInt(7, drl.getD12d());
+            statement.setInt(8, drl.getD12e());
+            statement.setInt(9, drl.getD12g());
+            statement.setInt(10, drl.getD13());
+            statement.setInt(11, drl.getD13a());
+            statement.setInt(12, drl.getD13b());
+            statement.setInt(13, drl.getD13c());
+            statement.setInt(14, drl.getD13d());
+            statement.setFloat(15, drl.getD14());
+            statement.setInt(16, drl.getD15());
+            statement.setFloat(17, drl.getD1());
+            statement.setInt(18, drl.getD21());
+            statement.setInt(19, drl.getD21a());
+            statement.setInt(20, drl.getD21b());
+            statement.setInt(21, drl.getD22a());
+            statement.setInt(22, drl.getD22b());
+            statement.setInt(23, drl.getD23a());
+            statement.setInt(24, drl.getD23b());
+            statement.setInt(25, drl.getD2());
+            statement.setInt(26, drl.getD31());
+            statement.setInt(27, drl.getD32());
+            statement.setInt(28, drl.getD33());
+            statement.setInt(29, drl.getD34());
+            statement.setInt(30, drl.getD35());
+            statement.setInt(31, drl.getD3());
+            statement.setInt(32, drl.getD41());
+            statement.setInt(33, drl.getD42());
+            statement.setInt(34, drl.getD43());
+            statement.setInt(35, drl.getD44());
+            statement.setInt(36, drl.getD45());
+            statement.setInt(37, drl.getD46());
+            statement.setInt(38, drl.getD4());
+            statement.setInt(39, drl.getD51());
+            statement.setInt(40, drl.getD52());
+            statement.setInt(41, drl.getD53());
+            statement.setInt(42, drl.getD5());
+            statement.setString(43, drl.getMaPhieuDRL());
+            statement.setString(44, drl.getNguoiCham());
+
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DiemRenLuyenCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void chamDiemCV(DiemRenLuyenModel drl) throws ClassNotFoundException {
+        String sql = "UPDATE DiemRenLuyen SET TongDiem=?, XepLoai=?, TrangThaiCham=?, d11=?, d12a=?, d12b=?, d12c=?, d12d=?, d12e=?, d12g=?, d13=?, d13a=?, d13b=?, d13c=?, d13d=?, d14=?, d15=?, d1=?, d21=?, d21a=?, d21b=?, d22a=?, d22b=?, d23a=?, d23b=?, d2=?, d31=?, d32=?, d33=?, d34=?, d35=?, d3=?, d41=?, d42=?, d43=?, d44=?, d45=?, d46=?, d4=?, d51=?, d52=?, d53=?, d5=?, MaCoVanCham=? WHERE MaPhieuDRL=? AND NguoiCham=?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setFloat(1, drl.getTongDiem());
+            statement.setString(2, drl.getXepLoai());
+            statement.setString(3, drl.getTrangThaiCham());
+            statement.setFloat(4, drl.getD11());
+            statement.setInt(5, drl.getD12a());
+            statement.setInt(6, drl.getD12b());
+            statement.setInt(7, drl.getD12c());
+            statement.setInt(8, drl.getD12d());
+            statement.setInt(9, drl.getD12e());
+            statement.setInt(10, drl.getD12g());
+            statement.setInt(11, drl.getD13());
+            statement.setInt(12, drl.getD13a());
+            statement.setInt(13, drl.getD13b());
+            statement.setInt(14, drl.getD13c());
+            statement.setInt(15, drl.getD13d());
+            statement.setFloat(16, drl.getD14());
+            statement.setInt(17, drl.getD15());
+            statement.setFloat(18, drl.getD1());
+            statement.setInt(19, drl.getD21());
+            statement.setInt(20, drl.getD21a());
+            statement.setInt(21, drl.getD21b());
+            statement.setInt(22, drl.getD22a());
+            statement.setInt(23, drl.getD22b());
+            statement.setInt(24, drl.getD23a());
+            statement.setInt(25, drl.getD23b());
+            statement.setInt(26, drl.getD2());
+            statement.setInt(27, drl.getD31());
+            statement.setInt(28, drl.getD32());
+            statement.setInt(29, drl.getD33());
+            statement.setInt(30, drl.getD34());
+            statement.setInt(31, drl.getD35());
+            statement.setInt(32, drl.getD3());
+            statement.setInt(33, drl.getD41());
+            statement.setInt(34, drl.getD42());
+            statement.setInt(35, drl.getD43());
+            statement.setInt(36, drl.getD44());
+            statement.setInt(37, drl.getD45());
+            statement.setInt(38, drl.getD46());
+            statement.setInt(39, drl.getD4());
+            statement.setInt(40, drl.getD51());
+            statement.setInt(41, drl.getD52());
+            statement.setInt(42, drl.getD53());
+            statement.setInt(43, drl.getD5());
+            statement.setString(44, drl.getMaNguoiCham());
+            statement.setString(45, drl.getMaPhieuDRL());
+            statement.setString(46, drl.getNguoiCham());
+
             statement.executeUpdate();
 
         } catch (SQLException ex) {

@@ -1,12 +1,16 @@
 package views.main;
 
 import controllers.DiemRenLuyenCtrl;
+import controllers.CoVanTestCtrl;
+import controllers.PhieuDRLCtrl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
 import models.DiemRenLuyenModel;
+import models.CoVanTestModel;
+import models.PhieuDRLModel;
 import utils.DialogHelper;
 import utils.Validator;
 
@@ -27,10 +31,10 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         initComponents();
 
         Instance = this;
-        maSVTextField = maSinhVienTextField;
-        nameTextField = hoTenTextField;
-        semesterTextField = hocKyTextField;
-        scholasticTextField = namHocTextField;
+        maSVTextField = txtMaSinhVien;
+        nameTextField = txtHoTen;
+        semesterTextField = txtHocKy;
+        scholasticTextField = txtNamHoc;
     }
 
     private void lamMoi() {
@@ -386,10 +390,10 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel62 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
-        hoTenTextField = new javax.swing.JTextField();
-        maSinhVienTextField = new javax.swing.JTextField();
-        ngaySinhTextField = new javax.swing.JTextField();
-        lopTextField = new javax.swing.JTextField();
+        txtHoTen = new javax.swing.JTextField();
+        txtMaSinhVien = new javax.swing.JTextField();
+        txtNgaySinh = new javax.swing.JTextField();
+        txtLop = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
@@ -571,9 +575,9 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         cv52TextField = new javax.swing.JTextField();
         cv53TextField = new javax.swing.JTextField();
         jLabel139 = new javax.swing.JLabel();
-        hocKyTextField = new javax.swing.JTextField();
+        txtHocKy = new javax.swing.JTextField();
         jLabel140 = new javax.swing.JLabel();
-        namHocTextField = new javax.swing.JTextField();
+        txtNamHoc = new javax.swing.JTextField();
         cv13aTextFiel1 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
         sv13TextField = new javax.swing.JTextField();
@@ -585,7 +589,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         cv13dTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        luuButton1 = new javax.swing.JButton();
+        btnDuyet = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1360, 2820));
@@ -1013,15 +1017,26 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel70.setText("Lớp:");
 
-        maSinhVienTextField.addAncestorListener(new javax.swing.event.AncestorListener() {
+        txtHoTen.setEditable(false);
+        txtHoTen.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtMaSinhVien.setEditable(false);
+        txtMaSinhVien.setBackground(new java.awt.Color(255, 255, 255));
+        txtMaSinhVien.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                maSinhVienTextFieldAncestorAdded(evt);
+                txtMaSinhVienAncestorAdded(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+
+        txtNgaySinh.setEditable(false);
+        txtNgaySinh.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtLop.setEditable(false);
+        txtLop.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel71.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1702,8 +1717,14 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel139.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel139.setText("Học kỳ:");
 
+        txtHocKy.setEditable(false);
+        txtHocKy.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel140.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel140.setText("Năm học:");
+
+        txtNamHoc.setEditable(false);
+        txtNamHoc.setBackground(new java.awt.Color(255, 255, 255));
 
         cv13aTextFiel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         cv13aTextFiel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1741,13 +1762,13 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setText("CHI TIẾT ĐIỂM RÈN LUYỆN ");
 
-        luuButton1.setBackground(new java.awt.Color(0, 102, 255));
-        luuButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        luuButton1.setForeground(new java.awt.Color(255, 255, 255));
-        luuButton1.setText("Duyệt điểm");
-        luuButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnDuyet.setBackground(new java.awt.Color(0, 102, 255));
+        btnDuyet.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDuyet.setForeground(new java.awt.Color(255, 255, 255));
+        btnDuyet.setText("Duyệt điểm");
+        btnDuyet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                luuButton1ActionPerformed(evt);
+                btnDuyetActionPerformed(evt);
             }
         });
 
@@ -1759,14 +1780,14 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1016, Short.MAX_VALUE)
-                .addComponent(luuButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDuyet, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addComponent(luuButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnDuyet, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -2226,8 +2247,8 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                                             .addComponent(jLabel62))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(hoTenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(maSinhVienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtMaSinhVien, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(40, 40, 40)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel70)
@@ -2235,20 +2256,20 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(11, 11, 11)
-                                                .addComponent(lopTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(txtLop, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(12, 12, 12)
-                                                .addComponent(ngaySinhTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(49, 49, 49)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel139)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(hocKyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(txtHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel140)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(namHocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
@@ -2340,18 +2361,18 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel69)
-                    .addComponent(maSinhVienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ngaySinhTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMaSinhVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel139)
-                    .addComponent(hocKyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel62)
                     .addComponent(jLabel70)
-                    .addComponent(hoTenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lopTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel140)
-                    .addComponent(namHocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -2809,7 +2830,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void luuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuButton1ActionPerformed
+    private void btnDuyetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDuyetActionPerformed
         if (Validator.isBeforeToday(ngayKetThuc)
                 || trangThai.equalsIgnoreCase("Hết thời gian chấm")) {
             DialogHelper.showMessage("Hết thời gian chấm điểm");
@@ -2821,13 +2842,16 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
             try {
                 dienDiem();
 
-                String maSinhVien = maSinhVienTextField.getText();
-                String hocKy = hocKyTextField.getText();
-                String namHoc = namHocTextField.getText();
+                String maSinhVien = txtMaSinhVien.getText();
+                String hocKy = txtHocKy.getText();
+                String namHoc = txtNamHoc.getText();
                 String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(maSinhVien, hocKy, namHoc);
 
                 String nguoiCham = "CoVan";
                 String trangThaiCham = "Cố vấn đã chấm";
+                CoVanTestModel cv = CoVanTestCtrl.timCoVanTheoTenDangNhap(DangNhap.username);
+                String maCoVanCham = cv.getMaCoVan();
+
                 float bcs1 = Float.parseFloat(bcs1TextField.getText());
                 int bcs2 = Integer.parseInt(bcs2TextField.getText());
                 int bcs3 = Integer.parseInt(bcs3TextField.getText());
@@ -2898,7 +2922,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                     DialogHelper.showError("Người chấm không được để trống");
                 } else if (xepLoai.isEmpty()) {
                     DialogHelper.showError("Xếp loại không được để trống");
-                } else if (bcs11 != 0 && (bcs1 != 3)) {
+                } else if (bcs11 != 0 && (bcs11 != 3)) {
                     DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs12a != 0 && (bcs12a != 10)) {
                     DialogHelper.showError("Mục 1.2a không hợp lệ. Vui lòng nhập lại!");
@@ -2986,9 +3010,10 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                     DialogHelper.showError("Chưa nhập điểm. Vui lòng nhập lại!");
                 } else {
                     try {
-                        DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, trangThaiCham, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5);
-                        DiemRenLuyenCtrl.chamDiemSV(drl);
-                        DiemRenLuyenCtrl.thayDoiTrangThaiCham(trangThaiCham, maPhieuDRL);
+                        DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5);
+                        DiemRenLuyenCtrl.chamDiemCV(drl);
+                        PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, maCoVanCham, trangThaiCham);
+                        PhieuDRLCtrl.capNhatPhieuCV(phieu);
                         DialogHelper.showMessage("Duyệt điểm thành công!");
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
@@ -2998,20 +3023,20 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                 Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_luuButton1ActionPerformed
+    }//GEN-LAST:event_btnDuyetActionPerformed
 
-    private void maSinhVienTextFieldAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_maSinhVienTextFieldAncestorAdded
+    private void txtMaSinhVienAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtMaSinhVienAncestorAdded
         try {
-            String maSinhVien = maSinhVienTextField.getText();
-            String hocKy = hocKyTextField.getText();
-            String namHoc = namHocTextField.getText();
+            String maSinhVien = txtMaSinhVien.getText();
+            String hocKy = txtHocKy.getText();
+            String namHoc = txtNamHoc.getText();
             lamMoi();
             DiemRenLuyenModel diemRenLuyenSV = DiemRenLuyenCtrl.timDRLDayDu(maSinhVien, hocKy, namHoc, "SinhVien");
             if (diemRenLuyenSV != null) {
                 trangThai = diemRenLuyenSV.getTrangThaiCham();
                 ngayKetThuc = diemRenLuyenSV.getNgayKetThuc();
-                ngaySinhTextField.setText(dateFormat.format(diemRenLuyenSV.getNgaySinh()));
-                lopTextField.setText(diemRenLuyenSV.getMaLop());
+                txtNgaySinh.setText(dateFormat.format(diemRenLuyenSV.getNgaySinh()));
+                txtLop.setText(diemRenLuyenSV.getMaLop());
 
                 sv11TextField.setText(Integer.toString(diemRenLuyenSV.getD11()));
                 sv12aTextField.setText(Integer.toString(diemRenLuyenSV.getD12a()));
@@ -3163,7 +3188,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(FormChamDiemSV.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_maSinhVienTextFieldAncestorAdded
+    }//GEN-LAST:event_txtMaSinhVienAncestorAdded
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bcs11TextField;
@@ -3207,6 +3232,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     private javax.swing.JTextField bcs53TextField;
     private javax.swing.JTextField bcs5TextField;
     private javax.swing.JTextField bcsTongTextField;
+    private javax.swing.JButton btnDuyet;
     private javax.swing.JTextField cv11TextField;
     private javax.swing.JTextField cv12aTextField;
     private javax.swing.JTextField cv12bTextField;
@@ -3249,8 +3275,6 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     private javax.swing.JTextField cv53TextField;
     private javax.swing.JTextField cv5TextField;
     private javax.swing.JTextField cvTongTextField;
-    private javax.swing.JTextField hoTenTextField;
-    private javax.swing.JTextField hocKyTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -3430,11 +3454,6 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea7;
     private javax.swing.JTextArea jTextArea8;
     private javax.swing.JTextArea jTextArea9;
-    private javax.swing.JTextField lopTextField;
-    private javax.swing.JButton luuButton1;
-    private javax.swing.JTextField maSinhVienTextField;
-    private javax.swing.JTextField namHocTextField;
-    private javax.swing.JTextField ngaySinhTextField;
     private javax.swing.JTextField sv11TextField;
     private javax.swing.JTextField sv12aTextField;
     private javax.swing.JTextField sv12bTextField;
@@ -3476,5 +3495,11 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     private javax.swing.JTextField sv53TextField;
     private javax.swing.JTextField sv5TextField;
     private javax.swing.JTextField svTongTextField;
+    private javax.swing.JTextField txtHoTen;
+    private javax.swing.JTextField txtHocKy;
+    private javax.swing.JTextField txtLop;
+    private javax.swing.JTextField txtMaSinhVien;
+    private javax.swing.JTextField txtNamHoc;
+    private javax.swing.JTextField txtNgaySinh;
     // End of variables declaration//GEN-END:variables
 }

@@ -163,11 +163,11 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Component class="views.list.DSDiemRenLuyenToanTruong" name="dSDiemRenLuyenToanTruong2">
+            <Component class="views.main.TaiKhoanCoVan" name="taiKhoanCoVan1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Danh s&#xe1;ch &#x111;i&#x1ec3;m r&#xe8;n luy&#x1ec7;n to&#xe0;n tr&#x1b0;&#x1edd;ng">
-                    <Property name="tabTitle" type="java.lang.String" value="Danh s&#xe1;ch &#x111;i&#x1ec3;m r&#xe8;n luy&#x1ec7;n to&#xe0;n tr&#x1b0;&#x1edd;ng"/>
+                  <JTabbedPaneConstraints tabName="T&#xe0;i kho&#x1ea3;n c&#xe1; nh&#xe2;n">
+                    <Property name="tabTitle" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n c&#xe1; nh&#xe2;n"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>

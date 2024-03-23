@@ -32,8 +32,10 @@ public class QuanLy extends javax.swing.JFrame {
                     new DSPhanCong().setVisible(true);
                     new DSPhanCong().setAlwaysOnTop(true);
                 } else if (index == 2) {
-                    new TaoPhieuDRL().setVisible(true);
-                    new TaoPhieuDRL().setAlwaysOnTop(true);
+                    LayeredPane.removeAll();
+                    LayeredPane.add(taoPhieuDRLPanel);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
                 } else if (index == 3) {
                     if (subIndex == 1) {
                         LayeredPane.removeAll();
@@ -45,12 +47,29 @@ public class QuanLy extends javax.swing.JFrame {
                         LayeredPane.add(dsSinhVienPanel);
                         LayeredPane.repaint();
                         LayeredPane.revalidate();
+                    } else if (subIndex == 3) {
+                        new DSKhoaTest().setVisible(true);
+                        new DSKhoaTest().setAlwaysOnTop(true);
+                    } else if (subIndex == 4) {
+                        new DSNganh().setVisible(true);
+                        new DSNganh().setAlwaysOnTop(true);
+                    } else if (subIndex == 5) {
+                        new DSLopTest().setVisible(true);
+                        new DSLopTest().setAlwaysOnTop(true);
+                    } else if (subIndex == 6) {
+                        new DSNamHoc().setVisible(true);
+                        new DSNamHoc().setAlwaysOnTop(true);
                     }
                 } else if (index == 4) {
-                    LayeredPane.removeAll();
-                    LayeredPane.add(dsQuanLyPanel);
-                    LayeredPane.repaint();
-                    LayeredPane.revalidate();
+                    if (subIndex == 1) {
+                        LayeredPane.removeAll();
+                        LayeredPane.add(dsQuanLyPanel);
+                        LayeredPane.repaint();
+                        LayeredPane.revalidate();
+                    } else if (subIndex == 2) {
+                        new DSChucVu().setVisible(true);
+                        new DSChucVu().setAlwaysOnTop(true);
+                    }
                 } else if (index == 5) {
                     LayeredPane.removeAll();
                     LayeredPane.add(taiKhoanQuanLyPanel);
@@ -115,6 +134,9 @@ public class QuanLy extends javax.swing.JFrame {
         dsQuanLyPanel = new javax.swing.JPanel();
         dSQuanLy1 = new views.list.DSQuanLy();
         taiKhoanQuanLyPanel = new javax.swing.JTabbedPane();
+        taiKhoanQuanLy1 = new views.main.TaiKhoanQuanLy();
+        taoPhieuDRLPanel = new javax.swing.JTabbedPane();
+        taoPhieuDRL1 = new views.main.TaoPhieuDRL();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -199,7 +221,16 @@ public class QuanLy extends javax.swing.JFrame {
         taiKhoanQuanLyPanel.setBackground(new java.awt.Color(255, 255, 255));
         taiKhoanQuanLyPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         taiKhoanQuanLyPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        taiKhoanQuanLyPanel.addTab("Tài khoản cá nhân", taiKhoanQuanLy1);
+
         LayeredPane.add(taiKhoanQuanLyPanel, "card2");
+
+        taoPhieuDRLPanel.setBackground(new java.awt.Color(255, 255, 255));
+        taoPhieuDRLPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        taoPhieuDRLPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        taoPhieuDRLPanel.addTab("Tạo phiếu điểm rèn luyện", taoPhieuDRL1);
+
+        LayeredPane.add(taoPhieuDRLPanel, "card2");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -296,7 +327,7 @@ public class QuanLy extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(LayeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -356,7 +387,10 @@ public class QuanLy extends javax.swing.JFrame {
     private view.custom.menu.MenuQuanLy menuQuanLy;
     private view.custom.scroll.ScrollPane scrollPaneWin112;
     private javax.swing.JPanel sideMenu;
+    private views.main.TaiKhoanQuanLy taiKhoanQuanLy1;
     private javax.swing.JTabbedPane taiKhoanQuanLyPanel;
+    private views.main.TaoPhieuDRL taoPhieuDRL1;
+    private javax.swing.JTabbedPane taoPhieuDRLPanel;
     // End of variables declaration//GEN-END:variables
 
 }

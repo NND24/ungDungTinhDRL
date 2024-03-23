@@ -70,7 +70,8 @@ public class DSNamHoc extends javax.swing.JFrame {
         txtMaNamHoc = new javax.swing.JTextField();
         btnXuat = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Danh sách năm học");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

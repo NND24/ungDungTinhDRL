@@ -47,6 +47,43 @@ public class PhieuDRLCtrl {
         return dsPhanCong;
     }
 
+    public static List<PhieuDRLModel> timChiTietPhieu(String maLop, String namHoc, int hocKy) throws ClassNotFoundException {
+        String sql = """
+                     SELECT SinhVien.MaSinhVien, SinhVien.HoTen TenSinhVien, BCS.MaSinhVien MaBanCanSu, BCS.HoTen TenBanCanSu,
+                     CoVan.MaCoVan, CoVan.HoTen TenCoVan, SinhVien.MaLop, TrangThaiCham  FROM PhieuDRL
+                     JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     JOIN SinhVien ON PhieuDRL.MaSinhVien = SinhVien.MaSinhVien
+                     JOIN SinhVien BCS ON PhieuDRL.MaBanCanSuCham = BCS.MaSinhVien
+                     JOIN CoVan ON PhieuDRL.MaCoVanCham=CoVan.MaCoVan
+                     WHERE SinhVien.MaLop=? AND NamHoc=? AND HocKy=?
+                     """;
+        List<PhieuDRLModel> dsPhieu = new ArrayList<>();
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maLop);
+            statement.setString(2, namHoc);
+            statement.setInt(3, hocKy);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                PhieuDRLModel phieu = new PhieuDRLModel(
+                        resultSet.getString("MaSinhVien"),
+                        resultSet.getString("TenSinhVien"),
+                        resultSet.getString("MaBanCanSu"),
+                        resultSet.getString("TenBanCanSu"),
+                        resultSet.getString("MaCoVan"),
+                        resultSet.getString("TenCoVan"),
+                        resultSet.getString("MaLop"),
+                        resultSet.getString("TrangThaiCham")
+                );
+                dsPhieu.add(phieu);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsPhieu;
+    }
+
     public static void themPhieuDRL(PhieuDRLModel phieu) throws ClassNotFoundException {
         String sql = "INSERT INTO PhieuDRL (MaPhieuDRL, MaSinhVien, MaNamHoc, HocKy, NgayBatDau, NgayKetThuc) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -69,6 +106,47 @@ public class PhieuDRLCtrl {
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setDate(1, phieu.getNgayBatDau());
             statement.setDate(2, phieu.getNgayKetThuc());
+            statement.setString(3, phieu.getMaPhieuDRL());
+
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void capNhatTrangThaiCham(PhieuDRLModel phieu) throws ClassNotFoundException {
+        String sql = "UPDATE PhieuDRL SET TrangThaiCham=? WHERE MaPhieuDRL=?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, phieu.getTrangThaiCham());
+            statement.setString(2, phieu.getMaPhieuDRL());
+
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void capNhatPhieuBSC(PhieuDRLModel phieu) throws ClassNotFoundException {
+        String sql = "UPDATE PhieuDRL SET MaBanCanSuCham=?, TrangThaiCham=? WHERE MaPhieuDRL=?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, phieu.getMaNguoiCham());
+            statement.setString(2, phieu.getTrangThaiCham());
+            statement.setString(3, phieu.getMaPhieuDRL());
+
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void capNhatPhieuCV(PhieuDRLModel phieu) throws ClassNotFoundException {
+        String sql = "UPDATE PhieuDRL SET MaCoVanCham=?, TrangThaiCham=? WHERE MaPhieuDRL=?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, phieu.getMaNguoiCham());
+            statement.setString(2, phieu.getTrangThaiCham());
             statement.setString(3, phieu.getMaPhieuDRL());
 
             statement.executeUpdate();

@@ -169,6 +169,8 @@ public class DangNhap extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Tên đăng nhập hoặc mật khẩu không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             } else if (TaiKhoanCtrl.kiemTraTaiKhoanCoTonTai(tenDangNhap) == false) {
                 JOptionPane.showMessageDialog(this, "Tên đăng nhập không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+            } else if (TaiKhoanCtrl.kiemTraTaiKhoanConSuDung(tenDangNhap) == false) {
+                JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại!", "Thông báo", JOptionPane.ERROR_MESSAGE);
             } else {
                 try {
                     String chucVu = TaiKhoanCtrl.dangNhap(tenDangNhap, password);

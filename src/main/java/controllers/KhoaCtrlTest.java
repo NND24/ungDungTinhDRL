@@ -38,7 +38,7 @@ public class KhoaCtrlTest {
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, khoa.getTenKhoa());
             statement.setInt(2, khoa.getTrangThaiHienThi());
-            statement.setInt(3, khoa.getMaKhoa());
+            statement.setString(3, khoa.getMaKhoa());
 
             statement.executeUpdate();
 
@@ -59,7 +59,7 @@ public class KhoaCtrlTest {
 
             while (resultSet.next()) {
                 KhoaTestModel khoa = new KhoaTestModel(
-                        resultSet.getInt("MaKhoa"),
+                        resultSet.getString("MaKhoa"),
                         resultSet.getString("TenKhoa"),
                         resultSet.getInt("TrangThaiHienThi")
                 );
@@ -83,7 +83,7 @@ public class KhoaCtrlTest {
 
             while (resultSet.next()) {
                 KhoaTestModel khoa = new KhoaTestModel(
-                        resultSet.getInt("MaKhoa"),
+                        resultSet.getString("MaKhoa"),
                         resultSet.getString("TenKhoa"),
                         resultSet.getInt("TrangThaiHienThi")
                 );
