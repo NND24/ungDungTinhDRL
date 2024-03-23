@@ -1,5 +1,6 @@
 package views.list;
 
+import controllers.KhoaCtrlTest;
 import models.SinhVienTestModel;
 import controllers.SinhVienTestCtrl;
 import controllers.TaiKhoanCtrl;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import models.KhoaTestModel;
 import models.LopModelTest;
 import models.TaiKhoanModel;
 import utils.DialogHelper;
@@ -24,67 +26,111 @@ public class DSSinhVienTest extends javax.swing.JPanel {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
     List<LopModelTest> dsLop = new ArrayList<>();
+    List<KhoaTestModel> dsKhoa = new ArrayList<>();
 
     public DSSinhVienTest() {
-        initComponents();
-        tableModel = (DefaultTableModel) tblDSSinhVien.getModel();
-        hienThiDSSinhVien();
-        hienThiDSLop();
-    }
-
-    private void hienThiDSSinhVien() {
         try {
+            initComponents();
+            tableModel = (DefaultTableModel) tblDSSinhVien.getModel();
+            hienThiDSKhoa();
             dsSinhVien = SinhVienTestCtrl.timTatCaSinhVien();
-            tableModel.setRowCount(0);
-
-            dsSinhVien.forEach(sv -> {
-                String trangThaiHoc = "";
-                if (sv.getDaNghiHoc().equals("0")) {
-                    trangThaiHoc = "Còn học";
-                } else {
-                    trangThaiHoc = "Đã nghỉ";
-                }
-                String gioiTinh = "";
-                if (sv.getGioiTinh().equals("0")) {
-                    gioiTinh = "Nam";
-                } else {
-                    gioiTinh = "Nữ";
-                }
-                tableModel.addRow(new Object[]{
-                    sv.getMaSinhVien(), sv.getMaLop(),
-                    sv.getHoTen(), sv.getChucVu(), gioiTinh,
-                    sv.getNgaySinh(), sv.getCanCuoc(),
-                    sv.getQueQuan(), sv.getSoDienThoai(),
-                    sv.getEmail(), trangThaiHoc});
-            });
+            hienThiDSSinhVien();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void hienThiDSLop() {
+    private void hienThiDSSinhVien() {
+        tableModel.setRowCount(0);
+        dsSinhVien.forEach(sv -> {
+            String trangThaiHoc = "";
+            if (sv.getDaNghiHoc().equals("0")) {
+                trangThaiHoc = "Còn học";
+            } else {
+                trangThaiHoc = "Đã nghỉ";
+            }
+            String gioiTinh = "";
+            if (sv.getGioiTinh().equals("0")) {
+                gioiTinh = "Nam";
+            } else {
+                gioiTinh = "Nữ";
+            }
+            tableModel.addRow(new Object[]{
+                sv.getMaSinhVien(), sv.getMaLop(),
+                sv.getHoTen(), sv.getChucVu(), gioiTinh,
+                sv.getNgaySinh(), sv.getCanCuoc(),
+                sv.getQueQuan(), sv.getSoDienThoai(),
+                sv.getEmail(), trangThaiHoc});
+        });
+    }
+
+    private void hienThiDSLop(String maKhoa) {
         try {
-            dsLop = LopTestCtrl.timTatCaLopHienThi();
-            cmbLop.removeAllItems();
+            dsLop = LopTestCtrl.timLopTheoKhoa(maKhoa);
+            cmbTKLop.removeAllItems();
+            cmbTKLop.addItem("---Lớp---");
             dsLop.forEach(lop -> {
-                cmbLop.addItem(lop.getMaLop());
+                cmbTKLop.addItem(lop.getMaLop());
             });
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void hienThiDSKhoa() {
+        try {
+            dsKhoa = KhoaCtrlTest.timTatCaKhoaHienThi();
+            cmbTKKhoa.removeAllItems();
+            dsKhoa.forEach(khoa -> {
+                cmbTKKhoa.addItem(khoa.getMaKhoa());
+            });
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     private void lamMoi() {
-        txtMaSinhVien.setText("");
-        txtHoTen.setText("");
-        txtEmail.setText("");
-        txtQueQuan.setText("");
-        cmbGioiTinh.setSelectedIndex(0);
-        cmbChucVu.setSelectedIndex(0);
-        txtNgaySinh.setText("");
-        txtCanCuoc.setText("");
-        txtSoDienThoai.setText("");
-        cmbDaNghiHoc.setSelectedIndex(0);
+        try {
+            dsSinhVien = SinhVienTestCtrl.timTatCaSinhVien();
+            txtMaSinhVien.setText("");
+            txtHoTen.setText("");
+            txtEmail.setText("");
+            txtQueQuan.setText("");
+            cmbGioiTinh.setSelectedIndex(0);
+            cmbChucVu.setSelectedIndex(0);
+            txtNgaySinh.setText("");
+            txtCanCuoc.setText("");
+            txtSoDienThoai.setText("");
+            cmbDaNghiHoc.setSelectedIndex(0);
+            txtTimKiem.setText("");
+            cmbTKLop.setSelectedIndex(0);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void timKiemDanhSachDRL() {
+        try {
+            if (cmbTKLop.getSelectedItem() != null) {
+                String tuKhoa = txtTimKiem.getText();
+                String lop = cmbTKLop.getSelectedItem().toString();
+
+                if (lop.equals("---Lớp---")) {
+                    lop = "";
+                }
+
+                if (tuKhoa.isEmpty() && lop.isEmpty()) {
+                    dsSinhVien = SinhVienTestCtrl.timTatCaSinhVien();
+                    hienThiDSSinhVien();
+                    return;
+                }
+
+                dsSinhVien = SinhVienTestCtrl.timKiemSinhVien(tuKhoa, lop);
+                hienThiDSSinhVien();
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -119,10 +165,12 @@ public class DSSinhVienTest extends javax.swing.JPanel {
         txtQueQuan = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        cmbLoc = new javax.swing.JComboBox<>();
         txtTimKiem = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        cmbTKKhoa = new javax.swing.JComboBox<>();
+        cmbTKLop = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDSSinhVien = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
@@ -266,8 +314,8 @@ public class DSSinhVienTest extends javax.swing.JPanel {
                     .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXuatDSBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -305,13 +353,32 @@ public class DSSinhVienTest extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("DANH SÁCH SINH VIÊN");
 
-        cmbLoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
+        txtTimKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimKiemActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Tìm kiếm");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Lọc");
+        jLabel2.setText("Lớp");
+
+        cmbTKKhoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTKKhoaActionPerformed(evt);
+            }
+        });
+
+        cmbTKLop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTKLopActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setText("Khoa");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -320,25 +387,31 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 691, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 503, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbTKKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbTKLop, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(cmbTKKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTKLop, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(8, 8, 8))
             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -513,7 +586,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             int lopIndex = cmbLop.getSelectedIndex();
             String maLop = cmbLop.getSelectedItem().toString();
             String khoa = dsLop.get(lopIndex).getKhoa();
-            String nganh = dsLop.get(lopIndex).getNganh();
+            String nganh = dsLop.get(lopIndex).getMaNganh();
             String soLuongNguoiFormatted = String.format("%03d", (SinhVienTestCtrl.layMaSinhVienCuoiCuaLop(maLop) + 1));
             String maSinhVien = "N" + khoa.substring(2) + "DC" + nganh + soLuongNguoiFormatted;
             String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
@@ -551,16 +624,20 @@ public class DSSinhVienTest extends javax.swing.JPanel {
                 DialogHelper.showError("Số điện không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+            } else if (SinhVienTestCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+                DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (canCuoc.isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+            } else if (SinhVienTestCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+                DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 try {
                     TaiKhoanCtrl.themTaiKhoan(tk);
                     SinhVienTestCtrl.themSinhVien(sv);
-                    hienThiDSSinhVien();
                     lamMoi();
+                    hienThiDSSinhVien();
                     DialogHelper.showMessage("Thêm sinh viên thành công!");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -597,12 +674,18 @@ public class DSSinhVienTest extends javax.swing.JPanel {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         try {
             String maSinhVien = txtMaSinhVien.getText();
-            String maTaiKhoan = SinhVienTestCtrl.layMaTaiKhoanSV(maSinhVien);
-            SinhVienTestCtrl.xoaSinhVien(maSinhVien);
-            TaiKhoanCtrl.xoaTaiKhoan(maTaiKhoan);
-
-            hienThiDSLop();
-            DialogHelper.showMessage("Xóa sinh viên thành công!");
+            if (SinhVienTestCtrl.kiemTraSinhVienDaChamDiem(maSinhVien)) {
+                DialogHelper.showError("Sinh viên đã chấm điểm. Không thể xóa");
+            } else {
+                if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa sinh viên này?")) {
+                    String maTaiKhoan = SinhVienTestCtrl.layMaTaiKhoanSV(maSinhVien);
+                    SinhVienTestCtrl.xoaSinhVien(maSinhVien);
+                    TaiKhoanCtrl.xoaTaiKhoan(maTaiKhoan);
+                    DialogHelper.showMessage("Xóa sinh viên thành công!");
+                    lamMoi();
+                    hienThiDSSinhVien();
+                }
+            }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -610,45 +693,53 @@ public class DSSinhVienTest extends javax.swing.JPanel {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            String maSinhVien = txtMaSinhVien.getText();
-            String hoTen = txtHoTen.getText();
-            java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
-            java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+            if (DialogHelper.showConfirmation("Bạn có chắc muốn chỉnh sửa thông tin cho sinh viên này?")) {
+                String maSinhVien = txtMaSinhVien.getText();
+                String hoTen = txtHoTen.getText();
+                java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
+                java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
 
-            String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
-            String soDienThoai = txtSoDienThoai.getText();
-            String canCuoc = txtCanCuoc.getText();
-            String queQuan = txtQueQuan.getText();
-            int lopIndex = cmbLop.getSelectedIndex();
-            String maLop = cmbLop.getSelectedItem().toString();
-            String chucVu = cmbChucVu.getSelectedItem().toString();
-            String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
+                String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
+                String soDienThoai = txtSoDienThoai.getText();
+                String canCuoc = txtCanCuoc.getText();
+                String queQuan = txtQueQuan.getText();
+                int lopIndex = cmbLop.getSelectedIndex();
+                String maLop = cmbLop.getSelectedItem().toString();
+                String chucVu = cmbChucVu.getSelectedItem().toString();
+                String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
 
-            SinhVienTestModel sv = new SinhVienTestModel(maSinhVien, maLop, hoTen, chucVu, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
-            if (hoTen.isEmpty()) {
-                DialogHelper.showError("Họ tên không được để trống!");
-            } else if (txtNgaySinh.getText().isEmpty()) {
-                DialogHelper.showError("Ngày sinh không được để trống!");
-            } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
-                DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-            } else if (soDienThoai.isEmpty()) {
-                DialogHelper.showError("Số điện không được để trống!");
-            } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
-                DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-            } else if (canCuoc.isEmpty()) {
-                DialogHelper.showError("Căn cước không được để trống!");
-            } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
-                DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else {
-                try {
-                    SinhVienTestCtrl.capNhatSinhVien(sv);
-                    hienThiDSSinhVien();
-                    DialogHelper.showMessage("Cập nhật sinh viên thành công!");
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
+                SinhVienTestModel sv = new SinhVienTestModel(maSinhVien, maLop, hoTen, chucVu, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
+                if (hoTen.isEmpty()) {
+                    DialogHelper.showError("Họ tên không được để trống!");
+                } else if (txtNgaySinh.getText().isEmpty()) {
+                    DialogHelper.showError("Ngày sinh không được để trống!");
+                } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
+                    DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+                } else if (soDienThoai.isEmpty()) {
+                    DialogHelper.showError("Số điện không được để trống!");
+                } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+                    DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+                } else if (SinhVienTestCtrl.kiemTraSoDienThoaiTrung(maSinhVien, soDienThoai)) {
+                    DialogHelper.showError("Số điện thoại đã tồn tại!");
+                } else if (canCuoc.isEmpty()) {
+                    DialogHelper.showError("Căn cước không được để trống!");
+                } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+                    DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+                } else if (SinhVienTestCtrl.kiemTraCanCuocTrung(maSinhVien, canCuoc)) {
+                    DialogHelper.showError("Căn cước đã tồn tại!");
+                } else {
+                    try {
+                        SinhVienTestCtrl.capNhatSinhVien(sv);
+                        hienThiDSSinhVien();
+                        DialogHelper.showMessage("Cập nhật sinh viên thành công!");
+                        lamMoi();
+                        hienThiDSSinhVien();
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
-        } catch (ParseException ex) {
+        } catch (ParseException | ClassNotFoundException ex) {
             Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSuaActionPerformed
@@ -659,8 +750,22 @@ public class DSSinhVienTest extends javax.swing.JPanel {
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         lamMoi();
-        hienThiDSLop();
+        hienThiDSSinhVien();
     }//GEN-LAST:event_btnLamMoiActionPerformed
+
+    private void txtTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemActionPerformed
+        timKiemDanhSachDRL();
+    }//GEN-LAST:event_txtTimKiemActionPerformed
+
+    private void cmbTKKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKKhoaActionPerformed
+        int khoaIndex = cmbTKKhoa.getSelectedIndex();
+        String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
+        hienThiDSLop(maKhoa);
+    }//GEN-LAST:event_cmbTKKhoaActionPerformed
+
+    private void cmbTKLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKLopActionPerformed
+        timKiemDanhSachDRL();
+    }//GEN-LAST:event_cmbTKLopActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLamMoi;
@@ -671,8 +776,9 @@ public class DSSinhVienTest extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbChucVu;
     private javax.swing.JComboBox<String> cmbDaNghiHoc;
     private javax.swing.JComboBox<String> cmbGioiTinh;
-    private javax.swing.JComboBox<String> cmbLoc;
     private javax.swing.JComboBox<String> cmbLop;
+    private javax.swing.JComboBox<String> cmbTKKhoa;
+    private javax.swing.JComboBox<String> cmbTKLop;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -688,6 +794,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

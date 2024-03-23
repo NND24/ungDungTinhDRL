@@ -201,6 +201,49 @@ public class SinhVienTestCtrl {
         return dsSinhVien;
     }
 
+    public static List<SinhVienTestModel> timKiemSinhVien(String tuKhoa, String lop) throws ClassNotFoundException {
+        List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(
+                "SELECT MaSinhVien, Lop.MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu "
+                + "FROM SinhVien "
+                + "JOIN Lop ON Lop.MaLop = SinhVien.MaLop "
+                + "JOIN TaiKhoan ON SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan "
+                + "JOIN ChucVu ON TaiKhoan.MaChucVu=ChucVu.MaChucVu "
+                + "WHERE Lop.TrangThaiHienThi = 1 "
+                + "AND (MaSinhVien LIKE ? OR HoTen LIKE ? OR Email LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ?) "
+                + (lop.isEmpty() ? "" : "AND SinhVien.MaLop=?"))) {
+            statement.setString(1, "%" + tuKhoa + "%");
+            statement.setString(2, "%" + tuKhoa + "%");
+            statement.setString(3, "%" + tuKhoa + "%");
+            statement.setString(4, "%" + tuKhoa + "%");
+            statement.setString(5, "%" + tuKhoa + "%");
+            if (!lop.isEmpty()) {
+                statement.setString(6, lop);
+            }
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    SinhVienTestModel sv = new SinhVienTestModel(
+                            resultSet.getString("MaSinhVien"),
+                            resultSet.getString("MaLop"),
+                            resultSet.getString("HoTen"),
+                            resultSet.getString("TenChucVu"),
+                            resultSet.getString("Email"),
+                            resultSet.getString("GioiTinh"),
+                            resultSet.getString("SoDienThoai"),
+                            resultSet.getString("CanCuoc"),
+                            resultSet.getString("QueQuan"),
+                            resultSet.getString("DaNghiHoc"),
+                            resultSet.getDate("NgaySinh")
+                    );
+                    dsSinhVien.add(sv);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsSinhVien;
+    }
+
     public static int layMaSinhVienCuoiCuaLop(String maLop) throws ClassNotFoundException {
         int maSV = 0;
         String sql = """
@@ -254,6 +297,69 @@ public class SinhVienTestCtrl {
         }
 
         return maTaiKhoan;
+    }
+
+    public static boolean kiemTraSinhVienDaChamDiem(String maSinhVien) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT DISTINCT SinhVien.MaSinhVien FROM SinhVien
+                     JOIN PhieuDRL ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     WHERE SinhVien.MaSinhVien=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maSinhVien);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+
+    public static boolean kiemTraCanCuocTrung(String maSinhVien, String canCuoc) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT MaSinhVien FROM SinhVien
+                     WHERE MaSinhVien!=? AND CanCuoc=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maSinhVien);
+            statement.setString(2, canCuoc);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+
+    public static boolean kiemTraSoDienThoaiTrung(String maSinhVien, String soDienThoai) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT MaSinhVien FROM SinhVien
+                     WHERE MaSinhVien!=? AND SoDienThoai=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maSinhVien);
+            statement.setString(2, soDienThoai);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
     }
 
     public static void xuatFileExcel(List<SinhVienTestModel> dsSinhVien, String filePath) {

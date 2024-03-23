@@ -26,6 +26,7 @@ public class DSQuanLy extends javax.swing.JPanel {
             initComponents();
 
             tableModel = (DefaultTableModel) tblDSQuanLy.getModel();
+            dsQuanLy = QuanLyCtrl.timTatCaQuanLy();
             hienThiDSQuanLy();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
@@ -33,18 +34,23 @@ public class DSQuanLy extends javax.swing.JPanel {
     }
 
     void lamMoi() {
-        txtMaQuanLy.setText("");
-        txtHoTen.setText("");
-        txtEmail.setText("");
-        txtQueQuan.setText("");
-        cmbGioiTinh.setSelectedIndex(0);
-        txtNgaySinh.setText("");
-        txtCanCuoc.setText("");
-        txtSoDienThoai.setText("");
+        try {
+            dsQuanLy = QuanLyCtrl.timTatCaQuanLy();
+            txtMaQuanLy.setText("");
+            txtHoTen.setText("");
+            txtEmail.setText("");
+            txtQueQuan.setText("");
+            cmbGioiTinh.setSelectedIndex(0);
+            txtNgaySinh.setText("");
+            txtCanCuoc.setText("");
+            txtSoDienThoai.setText("");
+            txtTimKiem.setText("");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void hienThiDSQuanLy() throws ClassNotFoundException {
-        dsQuanLy = QuanLyCtrl.timTatCaQuanLy();
         tableModel.setRowCount(0);
 
         dsQuanLy.forEach(ql -> {
@@ -53,6 +59,23 @@ public class DSQuanLy extends javax.swing.JPanel {
                 ql.getEmail(), ql.getGioiTinh(), ql.getSoDienThoai(),
                 ql.getNgaySinh(), ql.getCanCuoc(), ql.getQueQuan(),});
         });
+    }
+
+    private void timKiemQuanLy() {
+        try {
+            String tuKhoa = txtTimKiem.getText();
+
+            if (tuKhoa.isEmpty()) {
+                dsQuanLy = QuanLyCtrl.timTatCaQuanLy();
+                hienThiDSQuanLy();
+                return;
+            }
+
+            dsQuanLy = QuanLyCtrl.timKiemQuanLy(tuKhoa);
+            hienThiDSQuanLy();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -86,10 +109,8 @@ public class DSQuanLy extends javax.swing.JPanel {
         txtQueQuan = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        cmbTKGioiTinh = new javax.swing.JComboBox<>();
         txtTimKiem = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDSQuanLy = new javax.swing.JTable();
         cmbGioiTinh = new javax.swing.JComboBox<>();
@@ -271,13 +292,6 @@ public class DSQuanLy extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("DANH SÁCH QUẢN LÝ");
 
-        cmbTKGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Giới tính---", "Nam", "Nữ" }));
-        cmbTKGioiTinh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbTKGioiTinhActionPerformed(evt);
-            }
-        });
-
         txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtTimKiemKeyPressed(evt);
@@ -287,9 +301,6 @@ public class DSQuanLy extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Tìm kiếm");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Lọc");
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -297,14 +308,10 @@ public class DSQuanLy extends javax.swing.JPanel {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 699, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 922, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbTKGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         jPanel8Layout.setVerticalGroup(
@@ -312,8 +319,6 @@ public class DSQuanLy extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbTKGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
                     .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(9, 9, 9))
@@ -449,7 +454,7 @@ public class DSQuanLy extends javax.swing.JPanel {
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
             String soLuongNguoiFormatted = String.format("%03d", (QuanLyCtrl.layMaQuanLyCuoiCung() + 1));
-            String maQuanLy = "admin" + GenerateCode.generateIdTaiKhoan();
+            String maQuanLy = "admin" + soLuongNguoiFormatted;
             String idTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = txtHoTen.getText();
             java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
@@ -475,10 +480,14 @@ public class DSQuanLy extends javax.swing.JPanel {
                 DialogHelper.showError("Số điện thoại không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+            } else if (QuanLyCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+                DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (canCuoc.isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+            } else if (QuanLyCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+                DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 try {
                     TaiKhoanModel tk = new TaiKhoanModel(idTaiKhoan, maQuanLy, matKhau, chucVu);
@@ -515,9 +524,7 @@ public class DSQuanLy extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         try {
-            boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa quản lý này");
-
-            if (flag) {
+            if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa quản lý này?")) {
                 String maQuanLy = txtMaQuanLy.getText();
                 QuanLyCtrl.xoaQuanLy(maQuanLy);
                 TaiKhoanCtrl.xoaTaiKhoan(maQuanLy);
@@ -532,39 +539,45 @@ public class DSQuanLy extends javax.swing.JPanel {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            String maQuanLy = txtMaQuanLy.getText();
-            String hoTen = txtHoTen.getText();
-            String email = txtEmail.getText();
-            java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
-            java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
-            String gioiTinh = cmbGioiTinh.getSelectedItem().toString();
-            String soDienThoai = txtSoDienThoai.getText();
-            String canCuoc = txtCanCuoc.getText();
-            String queQuan = txtQueQuan.getText();
+            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin quản lý này?")) {
+                String maQuanLy = txtMaQuanLy.getText();
+                String hoTen = txtHoTen.getText();
+                String email = txtEmail.getText();
+                java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
+                java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+                String gioiTinh = cmbGioiTinh.getSelectedItem().toString();
+                String soDienThoai = txtSoDienThoai.getText();
+                String canCuoc = txtCanCuoc.getText();
+                String queQuan = txtQueQuan.getText();
 
-            if (hoTen.isEmpty()) {
-                DialogHelper.showError("Họ tên không được để trống!");
-            } else if (txtNgaySinh.getText().isEmpty()) {
-                DialogHelper.showError("Ngày sinh không được để trống!");
-            } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
-                DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-            } else if (soDienThoai.isEmpty()) {
-                DialogHelper.showError("Số điện thoại không được để trống!");
-            } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
-                DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-            } else if (canCuoc.isEmpty()) {
-                DialogHelper.showError("Căn cước không được để trống!");
-            } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
-                DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else {
-                boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn sửa quản lý này");
+                if (hoTen.isEmpty()) {
+                    DialogHelper.showError("Họ tên không được để trống!");
+                } else if (txtNgaySinh.getText().isEmpty()) {
+                    DialogHelper.showError("Ngày sinh không được để trống!");
+                } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
+                    DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
+                } else if (soDienThoai.isEmpty()) {
+                    DialogHelper.showError("Số điện thoại không được để trống!");
+                } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+                    DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
+                } else if (QuanLyCtrl.kiemTraSoDienThoaiTrung(maQuanLy, soDienThoai)) {
+                    DialogHelper.showError("Số điện thoại đã tồn tại!");
+                } else if (canCuoc.isEmpty()) {
+                    DialogHelper.showError("Căn cước không được để trống!");
+                } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+                    DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+                } else if (QuanLyCtrl.kiemTraCanCuocTrung(maQuanLy, canCuoc)) {
+                    DialogHelper.showError("Căn cước đã tồn tại!");
+                } else {
+                    boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn sửa quản lý này");
 
-                if (flag) {
-                    QuanLyModel ql = new QuanLyModel(maQuanLy, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh);
-                    QuanLyCtrl.capNhatQuanLy(ql);
-                    lamMoi();
-                    hienThiDSQuanLy();
-                    DialogHelper.showMessage("Sửa quản lý thành công");
+                    if (flag) {
+                        QuanLyModel ql = new QuanLyModel(maQuanLy, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh);
+                        QuanLyCtrl.capNhatQuanLy(ql);
+                        lamMoi();
+                        hienThiDSQuanLy();
+                        DialogHelper.showMessage("Sửa quản lý thành công");
+                    }
                 }
             }
         } catch (ParseException | ClassNotFoundException ex) {
@@ -594,58 +607,8 @@ public class DSQuanLy extends javax.swing.JPanel {
     }//GEN-LAST:event_btnXuatActionPerformed
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
-        try {
-            String tuKhoa = txtTimKiem.getText();
-            String gioiTinh = cmbTKGioiTinh.getSelectedItem().toString();
-
-            if (gioiTinh.equals("---Giới tính---")) {
-                gioiTinh = "";
-            }
-
-            if (tuKhoa.isEmpty()) {
-                hienThiDSQuanLy();
-            } else {
-                dsQuanLy = QuanLyCtrl.timQuanLyTheoDK(tuKhoa, gioiTinh);
-                tableModel.setRowCount(0);
-
-                dsQuanLy.forEach(ql -> {
-                    tableModel.addRow(new Object[]{
-                        ql.getMaQuanLy(), ql.getHoTen(),
-                        ql.getEmail(), ql.getGioiTinh(), ql.getSoDienThoai(),
-                        ql.getNgaySinh(), ql.getCanCuoc(), ql.getQueQuan(),});
-                });
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemQuanLy();
     }//GEN-LAST:event_txtTimKiemKeyPressed
-
-    private void cmbTKGioiTinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKGioiTinhActionPerformed
-        try {
-            String tuKhoa = txtTimKiem.getText();
-            String gioiTinh = cmbTKGioiTinh.getSelectedItem().toString();
-
-            if (gioiTinh.equals("---Giới tính---")) {
-                gioiTinh = "";
-            }
-
-            if (gioiTinh.isEmpty()) {
-                hienThiDSQuanLy();
-            } else {
-                dsQuanLy = QuanLyCtrl.timQuanLyTheoDK(tuKhoa, gioiTinh);
-                tableModel.setRowCount(0);
-
-                dsQuanLy.forEach(ql -> {
-                    tableModel.addRow(new Object[]{
-                        ql.getMaQuanLy(), ql.getHoTen(),
-                        ql.getEmail(), ql.getGioiTinh(), ql.getSoDienThoai(),
-                        ql.getNgaySinh(), ql.getCanCuoc(), ql.getQueQuan(),});
-                });
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_cmbTKGioiTinhActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLamMoi;
@@ -654,7 +617,6 @@ public class DSQuanLy extends javax.swing.JPanel {
     private javax.swing.JButton btnXoa;
     private javax.swing.JButton btnXuat;
     private javax.swing.JComboBox<String> cmbGioiTinh;
-    private javax.swing.JComboBox<String> cmbTKGioiTinh;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -662,7 +624,6 @@ public class DSQuanLy extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;

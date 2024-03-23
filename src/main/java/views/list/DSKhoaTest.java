@@ -285,7 +285,7 @@ public class DSKhoaTest extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            if (!txtMaKhoa.getText().isEmpty()) {
+            if (!txtMaKhoa.isEnabled()) {
                 DialogHelper.showError("Khoa đã tồn tại. Vui lòng nhập mới");
             } else {
                 String tenKhoa = txtTenKhoa.getText();

@@ -23,7 +23,7 @@ public class LopTestCtrl {
     public static void themLop(LopModelTest lop) throws ClassNotFoundException {
         String sql = "INSERT INTO Lop (MaNganh, MaLop, Khoa, TrangThaiHienThi) VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, lop.getNganh());
+            statement.setString(1, lop.getMaNganh());
             statement.setString(2, lop.getMaLop());
             statement.setString(3, lop.getKhoa());
             statement.setInt(4, lop.getTrangThaiHienThi());
@@ -38,7 +38,7 @@ public class LopTestCtrl {
     public static void capNhatLop(LopModelTest lop) throws ClassNotFoundException {
         String sql = "UPDATE Lop SET MaNganh=?, MaLop=?, Khoa=?, TrangThaiHienThi=? WHERE MaLop=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, lop.getNganh());
+            statement.setString(1, lop.getMaNganh());
             statement.setString(2, lop.getMaLop());
             statement.setString(3, lop.getKhoa());
             statement.setInt(4, lop.getTrangThaiHienThi());
@@ -58,6 +58,7 @@ public class LopTestCtrl {
 
             String sql = """
                      SELECT * FROM Lop
+                     JOIN Nganh ON Nganh.MaNganh=Lop.MaNganh
                      """;
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -65,6 +66,7 @@ public class LopTestCtrl {
                 LopModelTest lop = new LopModelTest(
                         resultSet.getString("MaLop"),
                         resultSet.getString("MaNganh"),
+                        resultSet.getString("TenNganh"),
                         resultSet.getString("Khoa"),
                         resultSet.getInt("TrangThaiHienThi")
                 );
@@ -82,7 +84,9 @@ public class LopTestCtrl {
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
             String sql = """
-                     SELECT * FROM Lop WHERE TrangThaiHienThi=1
+                     SELECT * FROM Lop
+                     JOIN Nganh ON Nganh.MaNganh=Lop.MaNganh
+                     WHERE Lop.TrangThaiHienThi=1
                      """;
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -90,6 +94,7 @@ public class LopTestCtrl {
                 LopModelTest lop = new LopModelTest(
                         resultSet.getString("MaLop"),
                         resultSet.getString("MaNganh"),
+                        resultSet.getString("TenNganh"),
                         resultSet.getString("Khoa"),
                         resultSet.getInt("TrangThaiHienThi")
                 );
@@ -97,6 +102,69 @@ public class LopTestCtrl {
             }
         } catch (SQLException ex) {
             Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsLop;
+    }
+
+    public static List<LopModelTest> timLopTheoKhoa(String maKhoa) throws ClassNotFoundException {
+        String sql = """
+                     SELECT Lop.MaLop, Lop.MaNganh, Khoa, Lop.TrangThaiHienThi, TenNganh FROM KHOA
+                     JOIN Nganh ON Khoa.MaKhoa=Nganh.MaKhoa
+                     JOIN Lop ON Nganh.MaNganh=Lop.MaNganh
+                     WHERE Khoa.TrangThaiHienThi=1
+                     AND Khoa.MaKhoa=?
+                     """;
+        List<LopModelTest> dsLop = new ArrayList<>();
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maKhoa);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                LopModelTest lop = new LopModelTest(
+                        resultSet.getString("MaLop"),
+                        resultSet.getString("MaNganh"),
+                        resultSet.getString("TenNganh"),
+                        resultSet.getString("Khoa"),
+                        resultSet.getInt("TrangThaiHienThi")
+                );
+                dsLop.add(lop);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsLop;
+    }
+
+    public static List<LopModelTest> timKiemLop(String tuKhoa) throws ClassNotFoundException {
+        String sql = """
+                     SELECT Lop.MaLop, Lop.MaNganh, Khoa, Lop.TrangThaiHienThi, TenNganh FROM KHOA
+                     JOIN Nganh ON Khoa.MaKhoa=Nganh.MaKhoa
+                     JOIN Lop ON Nganh.MaNganh=Lop.MaNganh
+                     WHERE Khoa.TrangThaiHienThi=1
+                     AND Khoa.MaKhoa LIKE ? OR TenKhoa LIKE ? OR MaLop LIKE ? OR KHOA LIKE ?
+                     """;
+        List<LopModelTest> dsLop = new ArrayList<>();
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, "%" + tuKhoa + "%");
+            statement.setString(2, "%" + tuKhoa + "%");
+            statement.setString(3, "%" + tuKhoa + "%");
+            statement.setString(4, "%" + tuKhoa + "%");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                LopModelTest lop = new LopModelTest(
+                        resultSet.getString("MaLop"),
+                        resultSet.getString("MaNganh"),
+                        resultSet.getString("TenNganh"),
+                        resultSet.getString("Khoa"),
+                        resultSet.getInt("TrangThaiHienThi")
+                );
+                dsLop.add(lop);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsLop;
     }
@@ -126,7 +194,7 @@ public class LopTestCtrl {
             for (LopModelTest lop : dsLop) {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(lop.getMaLop());
-                row.createCell(1).setCellValue(lop.getNganh());
+                row.createCell(1).setCellValue(lop.getTenNganh());
                 row.createCell(2).setCellValue(lop.getMaLop());
                 row.createCell(3).setCellValue(lop.getKhoa());
                 String trangThai = "";

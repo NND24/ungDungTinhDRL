@@ -99,69 +99,16 @@ public class QuanLyCtrl {
         return quanLy;
     }
 
-    public static List<QuanLyModel> timQuanLyTheoDK(String tuKhoa, String gioiTinh) throws ClassNotFoundException {
+    public static List<QuanLyModel> timKiemQuanLy(String tuKhoa) throws ClassNotFoundException {
         List<QuanLyModel> dsQuanLy = new ArrayList<>();
-        Connection connection = null;
-        PreparedStatement statement = null;
-
-        try {
-            connection = ConnectDB.getConnection();
-
-            if (!tuKhoa.isEmpty() && gioiTinh.isEmpty()) {
-                String sql = "SELECT DISTINCT * FROM QuanLy WHERE MaQuanLy LIKE ? OR HoTen LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ?";
-                statement = connection.prepareStatement(sql);
-                statement.setString(1, "%" + tuKhoa + "%");
-                statement.setString(2, "%" + tuKhoa + "%");
-                statement.setString(3, "%" + tuKhoa + "%");
-                statement.setString(4, "%" + tuKhoa + "%");
-
-                ResultSet resultSet = statement.executeQuery();
-
-                while (resultSet.next()) {
-                    QuanLyModel ql = new QuanLyModel(
-                            resultSet.getString("MaQuanLy"),
-                            resultSet.getString("HoTen"),
-                            resultSet.getString("Email"),
-                            resultSet.getString("GioiTinh"),
-                            resultSet.getString("SoDienThoai"),
-                            resultSet.getString("CanCuoc"),
-                            resultSet.getString("QueQuan"),
-                            resultSet.getDate("NgaySinh")
-                    );
-                    dsQuanLy.add(ql);
-                }
-            } else if (tuKhoa.isEmpty() && !gioiTinh.isEmpty()) {
-                String sql = "SELECT DISTINCT * FROM QuanLy WHERE GioiTinh LIKE ?";
-                statement = connection.prepareStatement(sql);
-                statement.setString(1, "%" + gioiTinh + "%");
-
-                ResultSet resultSet = statement.executeQuery();
-
-                while (resultSet.next()) {
-                    QuanLyModel ql = new QuanLyModel(
-                            resultSet.getString("MaQuanLy"),
-                            resultSet.getString("HoTen"),
-                            resultSet.getString("Email"),
-                            resultSet.getString("GioiTinh"),
-                            resultSet.getString("SoDienThoai"),
-                            resultSet.getString("CanCuoc"),
-                            resultSet.getString("QueQuan"),
-                            resultSet.getDate("NgaySinh")
-                    );
-                    dsQuanLy.add(ql);
-                }
-            } else if (!tuKhoa.isEmpty() && !gioiTinh.isEmpty()) {
-                String sql = "SELECT DISTINCT * FROM QuanLy WHERE ( MaQuanLy LIKE ? OR HoTen LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ?) AND GioiTinh LIKE ?";
-                statement = connection.prepareStatement(sql);
-                statement = connection.prepareStatement(sql);
-                statement.setString(1, "%" + tuKhoa + "%");
-                statement.setString(2, "%" + tuKhoa + "%");
-                statement.setString(3, "%" + tuKhoa + "%");
-                statement.setString(4, "%" + tuKhoa + "%");
-                statement.setString(5, "%" + gioiTinh + "%");
-
-                ResultSet resultSet = statement.executeQuery();
-
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(
+                "SELECT DISTINCT * FROM QuanLy WHERE MaQuanLy LIKE ? OR HoTen LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ? OR Email=?")) {
+            statement.setString(1, "%" + tuKhoa + "%");
+            statement.setString(2, "%" + tuKhoa + "%");
+            statement.setString(3, "%" + tuKhoa + "%");
+            statement.setString(4, "%" + tuKhoa + "%");
+            statement.setString(5, "%" + tuKhoa + "%");
+            try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     QuanLyModel ql = new QuanLyModel(
                             resultSet.getString("MaQuanLy"),
@@ -176,26 +123,9 @@ public class QuanLyCtrl {
                     dsQuanLy.add(ql);
                 }
             }
-
         } catch (SQLException ex) {
             Logger.getLogger(QuanLyCtrl.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(QuanLyCtrl.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(QuanLyCtrl.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
         }
-
         return dsQuanLy;
     }
 
@@ -267,6 +197,48 @@ public class QuanLyCtrl {
             Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return maQL;
+    }
+
+    public static boolean kiemTraCanCuocTrung(String maQuanLy, String canCuoc) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT MaQuanLy FROM QuanLy
+                     WHERE MaQuanLy!=? AND CanCuoc=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maQuanLy);
+            statement.setString(2, canCuoc);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+
+    public static boolean kiemTraSoDienThoaiTrung(String maQuanLy, String soDienThoai) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT MaQuanLy FROM QuanLy
+                     WHERE MaQuanLy!=? AND SoDienThoai=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maQuanLy);
+            statement.setString(2, soDienThoai);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
     }
 
     public static void xuatFileExcel(List<QuanLyModel> dsDichVu, String filePath) {

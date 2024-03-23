@@ -15,39 +15,45 @@ public class DSLopTest extends javax.swing.JFrame {
     List<LopModelTest> dsLop;
 
     public DSLopTest() {
-        initComponents();
-        tableModel = (DefaultTableModel) tblDSLop.getModel();
-
-        hienThiDSLop();
-    }
-
-    private void hienThiDSLop() {
         try {
+            initComponents();
+            tableModel = (DefaultTableModel) tblDSLop.getModel();
+
             dsLop = LopTestCtrl.timTatCaLop();
-
-            tableModel.setRowCount(0);
-            dsLop.forEach(lop -> {
-                String trangThai = "";
-                if (lop.getTrangThaiHienThi() == 0) {
-                    trangThai = "Ẩn";
-                } else {
-                    trangThai = "Hiển thị";
-                }
-
-                tableModel.addRow(new Object[]{
-                    lop.getMaLop(), lop.getNganh(), lop.getKhoa(),
-                    trangThai});
-            });
+            hienThiDSLop();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    private void hienThiDSLop() {
+        tableModel.setRowCount(0);
+        dsLop.forEach(lop -> {
+            String trangThai = "";
+            if (lop.getTrangThaiHienThi() == 0) {
+                trangThai = "Ẩn";
+            } else {
+                trangThai = "Hiển thị";
+            }
+
+            tableModel.addRow(new Object[]{
+                lop.getMaLop(), lop.getTenNganh(), lop.getKhoa(),
+                trangThai});
+        });
+    }
+
     private void lamMoi() {
-        txtMaLop.setText("");
-        txtKhoa.setText("");
-        cmbTrangThai.setSelectedIndex(0);
-        cmbNganh.setSelectedIndex(0);
+        try {
+            dsLop = LopTestCtrl.timTatCaLop();
+            txtMaLop.setText("");
+            txtKhoa.setText("");
+            cmbTrangThai.setSelectedIndex(0);
+            cmbNganh.setSelectedIndex(0);
+            txtTimKiem.setText("");
+            txtMaLop.setEnabled(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -69,7 +75,7 @@ public class DSLopTest extends javax.swing.JFrame {
         btnLamMoi = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        timKiemTextField = new javax.swing.JTextField();
+        txtTimKiem = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtKhoa = new javax.swing.JTextField();
@@ -118,8 +124,6 @@ public class DSLopTest extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tblDSLop);
-
-        txtMaLop.setEditable(false);
 
         cmbTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ẩn", "Hiển thị" }));
 
@@ -180,6 +184,12 @@ public class DSLopTest extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("DANH SÁCH LỚP");
 
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyPressed(evt);
+            }
+        });
+
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Tìm kiếm");
 
@@ -193,7 +203,7 @@ public class DSLopTest extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timKiemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
         jPanel6Layout.setVerticalGroup(
@@ -202,7 +212,7 @@ public class DSLopTest extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(timKiemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(10, 10, 10))
         );
@@ -210,7 +220,7 @@ public class DSLopTest extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Khóa");
 
-        cmbNganh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Ngành---", "CNTT", "VT" }));
+        cmbNganh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Ngành---", "Công nghệ thông tin", "Kỹ thuật điện tử viễn thông" }));
 
         btnXuatDSBenhNhan.setBackground(new java.awt.Color(0, 102, 255));
         btnXuatDSBenhNhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -230,7 +240,7 @@ public class DSLopTest extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,16 +263,16 @@ public class DSLopTest extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(txtMaLop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(47, 47, 47)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cmbNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,17 +322,23 @@ public class DSLopTest extends javax.swing.JFrame {
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
             String maLop = txtMaLop.getText();
-            String maNganh = cmbNganh.getSelectedItem().toString();
+            String nganh = cmbNganh.getSelectedItem().toString();
+            String maNganh = "";
+            if (nganh.equals("Công nghệ thông tin")) {
+                maNganh = "CN";
+            } else {
+                maNganh = "KTDTVT";
+            }
             String khoa = txtKhoa.getText();
             int trangThai = cmbTrangThai.getSelectedIndex();
 
-            if (!maLop.isEmpty()) {
+            if (!txtMaLop.isEnabled()) {
                 DialogHelper.showError("Lớp đã tồn tại. Vui lòng thêm mới");
             } else {
-                LopModelTest lop = new LopModelTest(maLop, maNganh, khoa, trangThai);
+                LopModelTest lop = new LopModelTest(maLop, maNganh, "", khoa, trangThai);
                 LopTestCtrl.themLop(lop);
-                hienThiDSLop();
                 lamMoi();
+                hienThiDSLop();
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -331,29 +347,35 @@ public class DSLopTest extends javax.swing.JFrame {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            String maLop = txtMaLop.getText();
-            String maNganh = cmbNganh.getSelectedItem().toString();
-            String khoa = txtKhoa.getText();
-            int trangThai = cmbTrangThai.getSelectedIndex();
+            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa lớp này")) {
+                String maLop = txtMaLop.getText();
+                String nganh = cmbNganh.getSelectedItem().toString();
+                String maNganh = "";
+                if (nganh.equals("Công nghệ thông tin")) {
+                    maNganh = "CN";
+                } else {
+                    maNganh = "VT";
+                }
+                String khoa = txtKhoa.getText();
+                int trangThai = cmbTrangThai.getSelectedIndex();
 
-            LopModelTest lop = new LopModelTest(maLop, maNganh, khoa, trangThai);
-            LopTestCtrl.capNhatLop(lop);
-            hienThiDSLop();
-            lamMoi();
+                LopModelTest lop = new LopModelTest(maLop, maNganh, "", khoa, trangThai);
+                LopTestCtrl.capNhatLop(lop);
+                lamMoi();
+                hienThiDSLop();
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        String maLop = txtMaLop.getText();
-        boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa lớp này");
-
-        if (flag) {
+        if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa lớp này")) {
             try {
+                String maLop = txtMaLop.getText();
                 LopTestCtrl.xoaLop(maLop);
-                hienThiDSLop();
                 lamMoi();
+                hienThiDSLop();
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -368,19 +390,38 @@ public class DSLopTest extends javax.swing.JFrame {
     private void tblDSLopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSLopMouseClicked
         int selectedIndex = tblDSLop.getSelectedRow();
         if (selectedIndex >= 0) {
+            txtMaLop.setEnabled(false);
             LopModelTest lop = dsLop.get(selectedIndex);
 
             txtMaLop.setText(lop.getMaLop());
             txtKhoa.setText(lop.getKhoa());
             cmbTrangThai.setSelectedIndex(lop.getTrangThaiHienThi());
-            cmbNganh.setSelectedItem(lop.getNganh());
+            cmbNganh.setSelectedItem(lop.getTenNganh());
         }
     }//GEN-LAST:event_tblDSLopMouseClicked
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
-        hienThiDSLop();
         lamMoi();
+        hienThiDSLop();
     }//GEN-LAST:event_btnLamMoiActionPerformed
+
+    private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
+        try {
+            String tuKhoa = txtTimKiem.getText();
+
+            if (tuKhoa.isEmpty()) {
+                dsLop = LopTestCtrl.timTatCaLopHienThi();
+                hienThiDSLop();
+                return;
+            }
+
+            dsLop = LopTestCtrl.timKiemLop(tuKhoa);
+            hienThiDSLop();
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_txtTimKiemKeyPressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -409,8 +450,8 @@ public class DSLopTest extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDSLop;
-    private javax.swing.JTextField timKiemTextField;
     private javax.swing.JTextField txtKhoa;
     private javax.swing.JTextField txtMaLop;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 }

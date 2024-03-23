@@ -26,106 +26,105 @@ public class DSCoVanTest extends javax.swing.JPanel {
     List<CoVanTestModel> dsCoVan = new ArrayList<>();
 
     public DSCoVanTest() {
-        initComponents();
-        tableModel = (DefaultTableModel) tblDSCoVan.getModel();
+        try {
+            initComponents();
+            tableModel = (DefaultTableModel) tblDSCoVan.getModel();
 
-        hienThiDSCoVan();
-        hienThiDSKhoa();
+            dsCoVan = CoVanTestCtrl.timTatCaCoVan();
+            hienThiDSKhoa();
+            hienThiDSCoVan();
+            cmbTKKhoa.setSelectedIndex(cmbTKKhoa.getItemCount() - 1);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void hienThiDSKhoa() {
         try {
             dsKhoa = KhoaCtrlTest.timTatCaKhoaHienThi();
             cmbKhoa.removeAllItems();
+            cmbTKKhoa.removeAllItems();
             dsKhoa.forEach(khoa -> {
                 cmbKhoa.addItem(khoa.getTenKhoa());
+                cmbTKKhoa.addItem(khoa.getTenKhoa());
             });
+            cmbTKKhoa.addItem("---Khoa---");
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     private void hienThiDSCoVan() {
+        tableModel.setRowCount(0);
+        dsCoVan.forEach(cv -> {
+            String gioiTinh = "";
+            if (cv.getGioiTinh() == 0) {
+                gioiTinh = "Nam";
+            } else {
+                gioiTinh = "Nữ";
+            }
+            String trangThai = "";
+            if (cv.getDaNghi() == 0) {
+                trangThai = "Còn làm";
+            } else {
+                trangThai = "Đã nghỉ";
+            }
+
+            tableModel.addRow(new Object[]{
+                cv.getMaCoVan(), cv.getHoTen(),
+                gioiTinh, cv.getNgaySinh(),
+                cv.getCanCuoc(), cv.getQueQuan(),
+                cv.getSoDienThoai(), cv.getEmail(),
+                cv.getTenKhoa(), cv.getHocVi(),
+                cv.getHocHam(), cv.getChuyenMon(),
+                trangThai});
+        });
+    }
+
+    private void lamMoi() {
         try {
             dsCoVan = CoVanTestCtrl.timTatCaCoVan();
-            tableModel.setRowCount(0);
-
-            dsCoVan.forEach(cv -> {
-                String gioiTinh = "";
-                if (cv.getGioiTinh() == 0) {
-                    gioiTinh = "Nam";
-                } else {
-                    gioiTinh = "Nữ";
-                }
-                String trangThai = "";
-                if (cv.getDaNghi() == 0) {
-                    trangThai = "Còn làm";
-                } else {
-                    trangThai = "Đã nghỉ";
-                }
-
-                tableModel.addRow(new Object[]{
-                    cv.getMaCoVan(), cv.getHoTen(),
-                    gioiTinh, cv.getNgaySinh(),
-                    cv.getCanCuoc(), cv.getQueQuan(),
-                    cv.getSoDienThoai(), cv.getEmail(),
-                    cv.getTenKhoa(), cv.getHocVi(),
-                    cv.getHocHam(), cv.getChuyenMon(),
-                    trangThai});
-            });
+            txtMaCoVan.setText("");
+            txtHoTen.setText("");
+            txtNgaySinh.setText("");
+            cmbGioiTinh.setSelectedIndex(0);
+            txtSoDienThoai.setText("");
+            txtCanCuoc.setText("");
+            txtEmail.setText("");
+            txtQueQuan.setText("");
+            cmbKhoa.setSelectedIndex(0);
+            cmbHocVi.setSelectedIndex(0);
+            cmbHocHam.setSelectedIndex(0);
+            txtChuyenMon.setText("");
+            cmbDaNghi.setSelectedIndex(0);
+            txtTimKiem.setText("");
+            cmbTKKhoa.setSelectedIndex(cmbTKKhoa.getItemCount() - 1);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void lamMoi() {
-        txtMaCoVan.setText("");
-        txtHoTen.setText("");
-        txtNgaySinh.setText("");
-        cmbGioiTinh.setSelectedIndex(0);
-        txtSoDienThoai.setText("");
-        txtCanCuoc.setText("");
-        txtEmail.setText("");
-        txtQueQuan.setText("");
-        cmbKhoa.setSelectedIndex(0);
-        cmbHocVi.setSelectedIndex(0);
-        cmbHocHam.setSelectedIndex(0);
-        txtChuyenMon.setText("");
-        cmbDaNghi.setSelectedIndex(0);
-    }
-
     private void timKiemCoVan() {
         try {
             String tuKhoa = txtTimKiem.getText();
-            String gioiTinh = cmbTKGioiTinh.getSelectedItem().toString();
+            int khoaIndex = cmbTKKhoa.getSelectedIndex();
+            String maKhoa = "";
 
-            if (gioiTinh.equals("---Giới tính---")) {
-                gioiTinh = "";
-            }
-
-            if (tuKhoa.isEmpty()) {
-                hienThiDSCoVan();
+            if (cmbTKKhoa.getSelectedItem().equals("---Khoa---")) {
+                maKhoa = "";
             } else {
-                dsCoVan = CoVanTestCtrl.timCoVanTheoDK(tuKhoa, gioiTinh);
-                tableModel.setRowCount(0);
-
-                dsCoVan.forEach(cv -> {
-                    String gt = "";
-                    if (cv.getGioiTinh() == 0) {
-                        gt = "Nam";
-                    } else {
-                        gt = "Nữ";
-                    }
-
-                    tableModel.addRow(new Object[]{
-                        cv.getMaCoVan(), cv.getHoTen(),
-                        gt, cv.getNgaySinh(),
-                        cv.getCanCuoc(), cv.getQueQuan(),
-                        cv.getSoDienThoai(), cv.getEmail(),
-                        cv.getTenKhoa(), cv.getHocVi(),
-                        cv.getHocHam(), cv.getChuyenMon(),});
-                });
+                maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
             }
+
+            if (tuKhoa.isEmpty() && maKhoa.isEmpty()) {
+                dsCoVan = CoVanTestCtrl.timTatCaCoVan();
+                hienThiDSCoVan();
+                return;
+            }
+
+            dsCoVan = CoVanTestCtrl.timKiemCoVan(tuKhoa, maKhoa);
+            hienThiDSCoVan();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -165,10 +164,10 @@ public class DSCoVanTest extends javax.swing.JPanel {
         txtQueQuan = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        cmbTKGioiTinh = new javax.swing.JComboBox<>();
         txtTimKiem = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        cmbTKKhoa = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDSCoVan = new javax.swing.JTable();
@@ -292,7 +291,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 482, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 467, Short.MAX_VALUE)
                 .addComponent(btnThemCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnXoaCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,7 +301,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnXuatDSBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(30, 30, 30))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,13 +355,6 @@ public class DSCoVanTest extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setText("DANH SÁCH CỐ VẤN");
 
-        cmbTKGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Giới tính---", "Nam", "Nữ" }));
-        cmbTKGioiTinh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbTKGioiTinhActionPerformed(evt);
-            }
-        });
-
         txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtTimKiemKeyPressed(evt);
@@ -373,7 +365,13 @@ public class DSCoVanTest extends javax.swing.JPanel {
         jLabel6.setText("Tìm kiếm");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Lọc");
+        jLabel2.setText("Khoa");
+
+        cmbTKKhoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTKKhoaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -382,25 +380,25 @@ public class DSCoVanTest extends javax.swing.JPanel {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 685, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 689, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbTKGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(5, 5, 5)
+                .addComponent(cmbTKKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbTKGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(cmbTKKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8))
             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -469,23 +467,22 @@ public class DSCoVanTest extends javax.swing.JPanel {
                                 .addComponent(jLabel24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cmbDaNghi, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel22)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbHocVi, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel21)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtMaCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addGap(41, 41, 41)
-                                    .addComponent(cmbGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbHocVi, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtMaCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(41, 41, 41)
+                                .addComponent(cmbGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20)
@@ -619,12 +616,16 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
             } else if (soDienThoai.isEmpty()) {
                 DialogHelper.showError("Số điện thoại không được để trống!");
+            } else if (CoVanTestCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+                DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
             } else if (canCuoc.isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+            } else if (CoVanTestCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+                DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 try {
                     TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maCoVan, matKhau, chucVu);
@@ -648,9 +649,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
 
     private void btnSuaThongTinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaThongTinActionPerformed
         try {
-            boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin cố vấn này!");
-
-            if (flag) {
+            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin cố vấn này!")) {
                 int khoaIndex = cmbKhoa.getSelectedIndex();
                 String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
                 String tenKhoa = cmbKhoa.getSelectedItem().toString();
@@ -683,22 +682,28 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
                 } else if (soDienThoai.isEmpty()) {
                     DialogHelper.showError("Số điện thoại không được để trống!");
+                } else if (CoVanTestCtrl.kiemTraSoDienThoaiTrung(maCoVan, soDienThoai)) {
+                    DialogHelper.showError("Số điện thoại đã tồn tại!");
                 } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                     DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
                 } else if (canCuoc.isEmpty()) {
                     DialogHelper.showError("Căn cước không được để trống!");
                 } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                     DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+                } else if (CoVanTestCtrl.kiemTraCanCuocTrung(maCoVan, canCuoc)) {
+                    DialogHelper.showError("Căn cước đã tồn tại!");
                 } else {
                     CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh, daNghi);
                     CoVanTestCtrl.capNhatCoVan(cv);
                     lamMoi();
                     hienThiDSCoVan();
-                    DialogHelper.showMessage("Thêm cố vấn thành công");
+                    DialogHelper.showMessage("Sửa cố vấn thành công");
                 }
             }
         } catch (ParseException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSuaThongTinActionPerformed
 
@@ -712,12 +717,12 @@ public class DSCoVanTest extends javax.swing.JPanel {
             } else if (CoVanTestCtrl.kiemTraCoVanDaChamDiem(maCoVan)) {
                 DialogHelper.showMessage("Cố vấn đã chấm điểm, không thể xóa");
             } else {
-                boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa thông tin cố vấn này");
-                if (flag) {
+                if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa thông tin cố vấn này")) {
                     try {
                         CoVanTestCtrl.xoaCoVan(maCoVan);
-                        hienThiDSCoVan();
                         lamMoi();
+                        hienThiDSCoVan();
+                        DialogHelper.showMessage("Xóa cố vấn thành công!");
                     } catch (ClassNotFoundException | SQLException ex) {
                         Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -775,9 +780,9 @@ public class DSCoVanTest extends javax.swing.JPanel {
         timKiemCoVan();
     }//GEN-LAST:event_txtTimKiemKeyPressed
 
-    private void cmbTKGioiTinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKGioiTinhActionPerformed
+    private void cmbTKKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKKhoaActionPerformed
         timKiemCoVan();
-    }//GEN-LAST:event_cmbTKGioiTinhActionPerformed
+    }//GEN-LAST:event_cmbTKKhoaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLamMoi;
@@ -790,7 +795,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbHocHam;
     private javax.swing.JComboBox<String> cmbHocVi;
     private javax.swing.JComboBox<String> cmbKhoa;
-    private javax.swing.JComboBox<String> cmbTKGioiTinh;
+    private javax.swing.JComboBox<String> cmbTKKhoa;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

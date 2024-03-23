@@ -15,7 +15,6 @@ import models.LopModelTest;
 import models.NamHocModel;
 import models.PhanCongModel;
 import utils.DialogHelper;
-import utils.Validator;
 
 public class DSPhanCong extends javax.swing.JFrame {
 

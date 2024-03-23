@@ -2,12 +2,14 @@ package views.list;
 
 import controllers.DiemRenLuyenCtrl;
 import controllers.LopTestCtrl;
+import controllers.KhoaCtrlTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.DiemRenLuyenModel;
+import models.KhoaTestModel;
 import models.LopModelTest;
 
 public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
@@ -15,17 +17,17 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
     DefaultTableModel tableModel;
     List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
     List<LopModelTest> dsLop = new ArrayList<>();
-//    List<Khoa> dsKhoa = new ArrayList<>();
+    List<KhoaTestModel> dsKhoa = new ArrayList<>();
 
     public DSDiemRenLuyenToanTruong() {
         initComponents();
         tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
-        hienThiDSLop();
+        hienThiDSKhoa();
     }
 
-    private void hienThiDSLop() {
+    private void hienThiDSLop(String maKhoa) {
         try {
-            dsLop = LopTestCtrl.timTatCaLopHienThi();
+            dsLop = LopTestCtrl.timLopTheoKhoa(maKhoa);
             cmbTKLop.removeAllItems();
             cmbTKLop.addItem("---Lớp---");
             dsLop.forEach(lop -> {
@@ -38,11 +40,10 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     private void hienThiDSKhoa() {
         try {
-            dsLop = LopTestCtrl.timTatCaLopHienThi();
-            cmbTKLop.removeAllItems();
-            cmbTKLop.addItem("---Lớp---");
-            dsLop.forEach(lop -> {
-                cmbTKLop.addItem(lop.getMaLop());
+            dsKhoa = KhoaCtrlTest.timTatCaKhoaHienThi();
+            cmbTKKhoa.removeAllItems();
+            dsKhoa.forEach(khoa -> {
+                cmbTKKhoa.addItem(khoa.getMaKhoa());
             });
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
@@ -277,7 +278,6 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel31.setText("Khoa");
 
-        cmbTKKhoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Khoa---", "Công nghệ thông tin", "Viễn thông" }));
         cmbTKKhoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKKhoaActionPerformed(evt);
@@ -287,7 +287,6 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel30.setText("Lớp");
 
-        cmbTKLop.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Lớp---", "D21CQCN01-N", "D21CQCN02-N" }));
         cmbTKLop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKLopActionPerformed(evt);
@@ -494,7 +493,9 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTimKiemKeyPressed
 
     private void cmbTKKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKKhoaActionPerformed
-        // TODO add your handling code here:
+        int khoaIndex = cmbTKKhoa.getSelectedIndex();
+        String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
+        hienThiDSLop(maKhoa);
     }//GEN-LAST:event_cmbTKKhoaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

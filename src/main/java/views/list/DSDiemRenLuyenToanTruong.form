@@ -536,11 +536,7 @@
         <Component class="javax.swing.JComboBox" name="cmbTKKhoa">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="---Khoa---"/>
-                <StringItem index="1" value="C&#xf4;ng ngh&#x1ec7; th&#xf4;ng tin"/>
-                <StringItem index="2" value="Vi&#x1ec5;n th&#xf4;ng"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
@@ -561,11 +557,7 @@
         <Component class="javax.swing.JComboBox" name="cmbTKLop">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="---L&#x1edb;p---"/>
-                <StringItem index="1" value="D21CQCN01-N"/>
-                <StringItem index="2" value="D21CQCN02-N"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
