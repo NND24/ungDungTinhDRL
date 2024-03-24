@@ -44,7 +44,7 @@ public class DSPhanCong extends javax.swing.JFrame {
 
     private void hienThiDSCoVan() {
         try {
-            dsCoVan = CoVanTestCtrl.timTatCaCoVan();
+            dsCoVan = CoVanTestCtrl.timTatCaCoVanConLam();
             cmbCoVan.removeAllItems();
 
             dsCoVan.forEach(cv -> {
@@ -72,7 +72,7 @@ public class DSPhanCong extends javax.swing.JFrame {
 
     private void hienThiDSNamHoc() {
         try {
-            dsNamHoc = NamHocCtrl.timTatCaNamHoc();
+            dsNamHoc = NamHocCtrl.timNamHocHienThi();
             cmbNamHoc.removeAllItems();
 
             dsNamHoc.forEach(namHoc -> {
@@ -118,11 +118,11 @@ public class DSPhanCong extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDSPhanCong = new javax.swing.JTable();
-        ThemButton = new javax.swing.JButton();
-        XoaButton = new javax.swing.JButton();
-        SuaButton = new javax.swing.JButton();
-        xuatDSButton = new javax.swing.JButton();
-        NhapMoiButton = new javax.swing.JButton();
+        btnThem = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
+        btnSua = new javax.swing.JButton();
+        btnXuat = new javax.swing.JButton();
+        btnLamMoi = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         cmbLop = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -171,68 +171,68 @@ public class DSPhanCong extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblDSPhanCong);
 
-        ThemButton.setBackground(new java.awt.Color(0, 102, 255));
-        ThemButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ThemButton.setForeground(new java.awt.Color(255, 255, 255));
-        ThemButton.setText("Thêm");
-        ThemButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ThemButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ThemButton.setPreferredSize(new java.awt.Dimension(70, 30));
-        ThemButton.addActionListener(new java.awt.event.ActionListener() {
+        btnThem.setBackground(new java.awt.Color(0, 102, 255));
+        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
+        btnThem.setText("Thêm");
+        btnThem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnThem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnThem.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ThemButtonActionPerformed(evt);
+                btnThemActionPerformed(evt);
             }
         });
 
-        XoaButton.setBackground(new java.awt.Color(0, 102, 255));
-        XoaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        XoaButton.setForeground(new java.awt.Color(255, 255, 255));
-        XoaButton.setText("Xóa");
-        XoaButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        XoaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        XoaButton.setPreferredSize(new java.awt.Dimension(70, 30));
-        XoaButton.addActionListener(new java.awt.event.ActionListener() {
+        btnXoa.setBackground(new java.awt.Color(0, 102, 255));
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXoa.setForeground(new java.awt.Color(255, 255, 255));
+        btnXoa.setText("Xóa");
+        btnXoa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXoa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXoa.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                XoaButtonActionPerformed(evt);
+                btnXoaActionPerformed(evt);
             }
         });
 
-        SuaButton.setBackground(new java.awt.Color(0, 102, 255));
-        SuaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        SuaButton.setForeground(new java.awt.Color(255, 255, 255));
-        SuaButton.setText("Sửa");
-        SuaButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        SuaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SuaButton.setPreferredSize(new java.awt.Dimension(70, 30));
-        SuaButton.addActionListener(new java.awt.event.ActionListener() {
+        btnSua.setBackground(new java.awt.Color(0, 102, 255));
+        btnSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSua.setForeground(new java.awt.Color(255, 255, 255));
+        btnSua.setText("Sửa");
+        btnSua.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSua.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SuaButtonActionPerformed(evt);
+                btnSuaActionPerformed(evt);
             }
         });
 
-        xuatDSButton.setBackground(new java.awt.Color(0, 102, 255));
-        xuatDSButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        xuatDSButton.setForeground(new java.awt.Color(255, 255, 255));
-        xuatDSButton.setText("Xuất danh sách");
-        xuatDSButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        xuatDSButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        xuatDSButton.setPreferredSize(new java.awt.Dimension(130, 30));
-        xuatDSButton.addActionListener(new java.awt.event.ActionListener() {
+        btnXuat.setBackground(new java.awt.Color(0, 102, 255));
+        btnXuat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXuat.setForeground(new java.awt.Color(255, 255, 255));
+        btnXuat.setText("Xuất danh sách");
+        btnXuat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXuat.setPreferredSize(new java.awt.Dimension(130, 30));
+        btnXuat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                xuatDSButtonActionPerformed(evt);
+                btnXuatActionPerformed(evt);
             }
         });
 
-        NhapMoiButton.setBackground(new java.awt.Color(0, 102, 255));
-        NhapMoiButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        NhapMoiButton.setForeground(new java.awt.Color(255, 255, 255));
-        NhapMoiButton.setText("Làm mới");
-        NhapMoiButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        NhapMoiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        NhapMoiButton.setPreferredSize(new java.awt.Dimension(90, 30));
-        NhapMoiButton.addActionListener(new java.awt.event.ActionListener() {
+        btnLamMoi.setBackground(new java.awt.Color(0, 102, 255));
+        btnLamMoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
+        btnLamMoi.setText("Làm mới");
+        btnLamMoi.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLamMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLamMoi.setPreferredSize(new java.awt.Dimension(90, 30));
+        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NhapMoiButtonActionPerformed(evt);
+                btnLamMoiActionPerformed(evt);
             }
         });
 
@@ -283,15 +283,15 @@ public class DSPhanCong extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(SuaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(xuatDSButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel8)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -337,11 +337,11 @@ public class DSPhanCong extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(xuatDSButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SuaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -366,16 +366,16 @@ public class DSPhanCong extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NhapMoiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NhapMoiButtonActionPerformed
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         try {
             lamMoi();
             hienThiTatCaPhanCong();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_NhapMoiButtonActionPerformed
+    }//GEN-LAST:event_btnLamMoiActionPerformed
 
-    private void ThemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemButtonActionPerformed
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
             if (!txtMaPhanCong.getText().isEmpty()) {
                 DialogHelper.showError("Phân công đã tồn tại. Vui lòng nhập mới");
@@ -393,17 +393,21 @@ public class DSPhanCong extends javax.swing.JFrame {
                 int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                 int trangThai = cmbTrangThai.getSelectedIndex();
 
-                PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, trangThai);
-                PhanCongCtrl.themPhanCong(phanCong);
-                lamMoi();
-                hienThiTatCaPhanCong();
+                if (PhanCongCtrl.kiemTraLopNamHocDaPhanCong(maLop, maNamHoc)) {
+                    DialogHelper.showError("Phân công đã tồn tại. Vui lòng nhập mới");
+                } else {
+                    PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, trangThai);
+                    PhanCongCtrl.themPhanCong(phanCong);
+                    lamMoi();
+                    hienThiTatCaPhanCong();
+                }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_ThemButtonActionPerformed
+    }//GEN-LAST:event_btnThemActionPerformed
 
-    private void XoaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaButtonActionPerformed
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa phân công này!")) {
             try {
                 int maPhanCong = Integer.parseInt(txtMaPhanCong.getText());
@@ -415,9 +419,9 @@ public class DSPhanCong extends javax.swing.JFrame {
                 Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_XoaButtonActionPerformed
+    }//GEN-LAST:event_btnXoaActionPerformed
 
-    private void SuaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuaButtonActionPerformed
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
             if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa phân công này!")) {
                 if (cmbCoVan.getSelectedItem().equals("---Cố vấn---")) {
@@ -435,16 +439,20 @@ public class DSPhanCong extends javax.swing.JFrame {
                     int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                     int trangThai = cmbTrangThai.getSelectedIndex();
 
-                    PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, maPhanCong, trangThai);
-                    PhanCongCtrl.capNhatPhanCong(phanCong);
-                    lamMoi();
-                    hienThiTatCaPhanCong();
+                    if (PhanCongCtrl.kiemTraLopNamHocDaPhanCong(maLop, maNamHoc)) {
+                        DialogHelper.showError("Phân công đã tồn tại. Vui lòng nhập mới");
+                    } else {
+                        PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, maPhanCong, trangThai);
+                        PhanCongCtrl.capNhatPhanCong(phanCong);
+                        lamMoi();
+                        hienThiTatCaPhanCong();
+                    }
                 }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_SuaButtonActionPerformed
+    }//GEN-LAST:event_btnSuaActionPerformed
 
     private void tblDSPhanCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSPhanCongMouseClicked
         // TODO add your handling code here:
@@ -459,10 +467,10 @@ public class DSPhanCong extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblDSPhanCongMouseClicked
 
-    private void xuatDSButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xuatDSButtonActionPerformed
+    private void btnXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatActionPerformed
         PhanCongCtrl.xuatFileExcel(dsPhanCong, "src/main/java/files/DSPhanCong.xlsx");
         DialogHelper.showMessage("Xuất danh sách thành công!");
-    }//GEN-LAST:event_xuatDSButtonActionPerformed
+    }//GEN-LAST:event_btnXuatActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -473,10 +481,11 @@ public class DSPhanCong extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton NhapMoiButton;
-    private javax.swing.JButton SuaButton;
-    private javax.swing.JButton ThemButton;
-    private javax.swing.JButton XoaButton;
+    private javax.swing.JButton btnLamMoi;
+    private javax.swing.JButton btnSua;
+    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnXoa;
+    private javax.swing.JButton btnXuat;
     private javax.swing.JComboBox<String> cmbCoVan;
     private javax.swing.JComboBox<String> cmbLop;
     private javax.swing.JComboBox<String> cmbNamHoc;
@@ -492,6 +501,5 @@ public class DSPhanCong extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDSPhanCong;
     private javax.swing.JTextField txtMaPhanCong;
-    private javax.swing.JButton xuatDSButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,6 +25,7 @@ public class DiemRenLuyenCtrl {
                          FROM DiemRenLuyen, PhieuDRL, SinhVien, NamHoc
                          WHERE PhieuDRL.MaSinhVien=SinhVien.MaSinhVien AND DiemRenLuyen.MaPhieuDRL=PhieuDRL.MaPhieuDRL
                          AND PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                         NamHoc.TrangThaiHienThi=1
                          AND GETDATE() >= NgayBatDau
                          """;
             ResultSet resultSet = statement.executeQuery(sql);
@@ -64,6 +65,7 @@ public class DiemRenLuyenCtrl {
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
                      INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE PhieuDRL.MaSinhVien=?
+                     AND Lop.TrangThaiHienThi=1 AND NamHoc.TrangThaiHienThi=1
                      AND NguoiCham='CoVan' AND GETDATE() >= NgayBatDau
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -105,6 +107,7 @@ public class DiemRenLuyenCtrl {
                      INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
                      AND (SinhVien.MaLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan')
+                     AND Lop.TrangThaiHienThi=1 AND NamHoc.TrangThaiHienThi=1
                      AND GETDATE() >= NgayBatDau
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -149,6 +152,7 @@ public class DiemRenLuyenCtrl {
                      INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      INNER JOIN Lop ON SinhVien.MaLop=Lop.MaLop
                      WHERE PhieuDRL.MaSinhVien=? AND HocKy=? AND NamHoc=? AND NguoiCham=?
+                     AND Lop.TrangThaiHienThi=1 AND NamHoc.TrangThaiHienThi=1
                      AND GETDATE() >= NgayBatDau
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -234,7 +238,8 @@ public class DiemRenLuyenCtrl {
                     WHERE NguoiCham='CoVan'
                     AND (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
                     AND (Lop.MaLop=? OR ?='') AND (NamHoc.MaNamHoc=? OR ?='') AND (HocKy=? OR ?='')
-                    AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
+                    AND Lop.TrangThaiHienThi=1 AND NamHoc.TrangThaiHienThi=1
+                    AND GETDATE() >= NgayBatDau
                     """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 

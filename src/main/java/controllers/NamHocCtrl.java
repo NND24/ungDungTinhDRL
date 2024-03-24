@@ -101,6 +101,28 @@ public class NamHocCtrl {
         }
     }
 
+    public static boolean kiemTraNamHocDaDuocSuDung(String maNamHoc) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT NamHoc.MaNamHoc FROM NamHoc
+                     LEFT JOIN PhieuDRL ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     LEFT JOIN PhanCong ON PhanCong.MaNamHoc=NamHoc.MaNamHoc
+                     WHERE NamHoc.MaNamHoc=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maNamHoc);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+
     public static void xuatFileExcel(List<NamHocModel> dsNamHoc, String filePath) {
         try (Workbook workbook = new XSSFWorkbook()) {
             Sheet sheet = workbook.createSheet("DanhSachNamHoc");

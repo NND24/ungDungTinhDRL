@@ -61,7 +61,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
 
     private void hienThiDSNamHoc() {
         try {
-            dsNamHoc = NamHocCtrl.timTatCaNamHoc();
+            dsNamHoc = NamHocCtrl.timNamHocHienThi();
             cmbNamHoc.removeAllItems();
 
             dsNamHoc.forEach(namHoc -> {

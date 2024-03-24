@@ -55,15 +55,15 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="ThemButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnThem" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="XoaButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnXoa" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="SuaButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSua" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="NhapMoiButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLamMoi" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="xuatDSButton" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="btnXuat" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -123,11 +123,11 @@
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ThemButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="XoaButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="xuatDSButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="NhapMoiButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="SuaButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnThem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnXoa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnXuat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLamMoi" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSua" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jPanel6" min="-2" pref="40" max="-2" attributes="0"/>
@@ -207,7 +207,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="ThemButton">
+        <Component class="javax.swing.JButton" name="btnThem">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -232,10 +232,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ThemButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="XoaButton">
+        <Component class="javax.swing.JButton" name="btnXoa">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -260,10 +260,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="XoaButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="SuaButton">
+        <Component class="javax.swing.JButton" name="btnSua">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -288,10 +288,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SuaButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="xuatDSButton">
+        <Component class="javax.swing.JButton" name="btnXuat">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -316,10 +316,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xuatDSButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXuatActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="NhapMoiButton">
+        <Component class="javax.swing.JButton" name="btnLamMoi">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -344,7 +344,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NhapMoiButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLamMoiActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">

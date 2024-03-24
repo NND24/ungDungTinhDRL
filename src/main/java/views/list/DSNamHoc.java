@@ -295,15 +295,17 @@ public class DSNamHoc extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        String maNamHoc = txtMaNamHoc.getText();
-        boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa năm học này");
-
-        if (flag) {
+        if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa năm học này?")) {
             try {
-                NamHocCtrl.xoaNamHoc(maNamHoc);
-                hienThiDSNamHoc();
-                lamMoi();
-                DialogHelper.showMessage("Xóa năm học thành công");
+                String maNamHoc = txtMaNamHoc.getText();
+                if (NamHocCtrl.kiemTraNamHocDaDuocSuDung(maNamHoc)) {
+                    DialogHelper.showError("Năm học đã được sử dụng không thể xóa");
+                } else {
+                    NamHocCtrl.xoaNamHoc(maNamHoc);
+                    hienThiDSNamHoc();
+                    lamMoi();
+                    DialogHelper.showMessage("Xóa năm học thành công");
+                }
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -312,19 +314,21 @@ public class DSNamHoc extends javax.swing.JFrame {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            int maNamHoc = Integer.parseInt(txtMaNamHoc.getText());
-            String namHoc = txtNamHoc.getText();
-            int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
+            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa năm học này?")) {
+                int maNamHoc = Integer.parseInt(txtMaNamHoc.getText());
+                String namHoc = txtNamHoc.getText();
+                int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
 
-            if (namHoc.isEmpty()) {
-                DialogHelper.showError("Năm học không được bỏ trống");
-            } else if (!Validator.kiemTraNamHoc(namHoc)) {
-                DialogHelper.showError("Năm học không đúng định dạng");
-            } else {
-                NamHocModel nh = new NamHocModel(maNamHoc, namHoc, trangThai);
-                NamHocCtrl.capNhatNamHoc(nh);
-                DialogHelper.showMessage("Cập nhật năm học thành công!");
-                hienThiDSNamHoc();
+                if (namHoc.isEmpty()) {
+                    DialogHelper.showError("Năm học không được bỏ trống");
+                } else if (!Validator.kiemTraNamHoc(namHoc)) {
+                    DialogHelper.showError("Năm học không đúng định dạng");
+                } else {
+                    NamHocModel nh = new NamHocModel(maNamHoc, namHoc, trangThai);
+                    NamHocCtrl.capNhatNamHoc(nh);
+                    DialogHelper.showMessage("Cập nhật năm học thành công!");
+                    hienThiDSNamHoc();
+                }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSNamHoc.class.getName()).log(Level.SEVERE, null, ex);

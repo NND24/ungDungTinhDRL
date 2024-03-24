@@ -63,6 +63,7 @@ public class PhieuDRLCtrl {
                      LEFT JOIN SinhVien BCS ON PhieuDRL.MaBanCanSuCham = BCS.MaSinhVien
                      LEFT JOIN CoVan ON PhieuDRL.MaCoVanCham = CoVan.MaCoVan
                      WHERE SinhVien.MaLop=? AND NamHoc=? AND HocKy=?
+                     AND NamHoc.TrangThaiHienThi=1
                      """;
         List<PhieuDRLModel> dsPhieu = new ArrayList<>();
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -136,7 +137,7 @@ public class PhieuDRLCtrl {
         }
     }
 
-    public static void capNhatPhieuBSC(PhieuDRLModel phieu) throws ClassNotFoundException {
+    public static void capNhatPhieuBCS(PhieuDRLModel phieu) throws ClassNotFoundException {
         String sql = "UPDATE PhieuDRL SET MaBanCanSuCham=?, TrangThaiCham=? WHERE MaPhieuDRL=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, phieu.getMaNguoiCham());

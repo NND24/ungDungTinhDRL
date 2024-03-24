@@ -111,7 +111,7 @@ public class LopTestCtrl {
                      SELECT Lop.MaLop, Lop.MaNganh, Khoa, Lop.TrangThaiHienThi, TenNganh FROM KHOA
                      JOIN Nganh ON Khoa.MaKhoa=Nganh.MaKhoa
                      JOIN Lop ON Nganh.MaNganh=Lop.MaNganh
-                     WHERE Khoa.TrangThaiHienThi=1
+                     WHERE Khoa.TrangThaiHienThi=1 AND Lop.TrangThaiHienThi=1
                      AND Khoa.MaKhoa=?
                      """;
         List<LopModelTest> dsLop = new ArrayList<>();

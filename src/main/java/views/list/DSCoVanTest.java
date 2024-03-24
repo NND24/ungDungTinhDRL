@@ -49,7 +49,6 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 cmbTKKhoa.addItem(khoa.getTenKhoa());
             });
             cmbTKKhoa.addItem("---Khoa---");
-
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
         }

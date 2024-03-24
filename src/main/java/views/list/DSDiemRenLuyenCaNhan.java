@@ -43,6 +43,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
                 cmbTKNamHoc.addItem(nh.getNamHoc());
             });
             cmbTKNamHoc.addItem("---Năm học---");
+            cmbTKHocKy.setSelectedItem("---Học kỳ---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }

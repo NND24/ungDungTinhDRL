@@ -144,12 +144,26 @@ public class Validator {
         return providedDate.before(today);
     }
 
-    public static boolean kiemTraNamHoc(String namHoc) {
-        String regex = "\\d{4}-\\d{4}";
+    public static boolean kiemTraNamHoc(String year) {
+        String yearPattern = "^\\d{4}-(\\d{4})$";
 
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(namHoc);
+        if (Pattern.matches(yearPattern, year)) {
+            String[] years = year.split("-");
 
-        return matcher.matches();
+            int startYear = Integer.parseInt(years[0]);
+            int endYear = Integer.parseInt(years[1]);
+
+            if (kiemTraNam(startYear) && kiemTraNam(endYear)) {
+                return endYear - startYear == 1;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean kiemTraNam(int year) {
+        return year >= 1000 && year <= 9999; // Năm hợp lệ nằm trong khoảng từ 1000 đến 9999
     }
 }

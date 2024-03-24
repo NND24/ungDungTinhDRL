@@ -78,6 +78,39 @@ public class CoVanTestCtrl {
         return dsCoVan;
     }
 
+    public static List<CoVanTestModel> timTatCaCoVanConLam() throws ClassNotFoundException {
+        List<CoVanTestModel> dsCoVan = new ArrayList<>();
+
+        try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
+
+            String sql = "SELECT DISTINCT * FROM CoVan, Khoa WHERE CoVan.MaKhoa=Khoa.MaKhoa AND DaNghi=0";
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                CoVanTestModel coVan = new CoVanTestModel(
+                        resultSet.getString("MaCoVan"),
+                        resultSet.getString("TenKhoa"),
+                        resultSet.getString("HoTen"),
+                        resultSet.getString("Email"),
+                        resultSet.getString("SoDienThoai"),
+                        resultSet.getString("CanCuoc"),
+                        resultSet.getString("QueQuan"),
+                        resultSet.getString("HocVi"),
+                        resultSet.getString("HocHam"),
+                        resultSet.getString("ChuyenMon"),
+                        resultSet.getString("MaKhoa"),
+                        resultSet.getInt("GioiTinh"),
+                        resultSet.getDate("NgaySinh"),
+                        resultSet.getInt("DaNghi")
+                );
+                dsCoVan.add(coVan);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CoVanTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsCoVan;
+    }
+
     public static CoVanTestModel timCoVanTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
         String sql = """
                      SELECT MaCoVan, Khoa.TenKhoa, Khoa.MaKhoa, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghi, HocVi, HocHam, ChuyenMon
