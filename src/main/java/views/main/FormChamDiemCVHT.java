@@ -1,8 +1,5 @@
 package views.main;
 
-import controllers.DiemRenLuyenCtrl;
-import controllers.CoVanTestCtrl;
-import controllers.PhieuDRLCtrl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -11,12 +8,15 @@ import javax.swing.JTextField;
 import models.DiemRenLuyenModel;
 import models.CoVanTestModel;
 import models.PhieuDRLModel;
+import controllers.DiemRenLuyenCtrl;
+import controllers.CoVanTestCtrl;
+import controllers.PhieuDRLCtrl;
 import utils.DialogHelper;
 import utils.Validator;
 
 public class FormChamDiemCVHT extends javax.swing.JPanel {
 
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     public static FormChamDiemCVHT Instance;
     public JTextField maSVTextField;
     public JTextField nameTextField;
@@ -24,8 +24,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     public JTextField scholasticTextField;
 
     private String trangThai = "";
-    Date ngayBatDau;
-    Date ngayKetThuc;
+    private Date ngayKetThuc;
 
     public FormChamDiemCVHT() {
         initComponents();

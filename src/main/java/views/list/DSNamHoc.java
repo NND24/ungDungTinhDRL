@@ -1,19 +1,19 @@
 package views.list;
 
-import controllers.NamHocCtrl;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.NamHocModel;
+import controllers.NamHocCtrl;
 import utils.DialogHelper;
 import utils.Validator;
 
 public class DSNamHoc extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
-    List<NamHocModel> dsNamHoc;
+    private List<NamHocModel> dsNamHoc;
 
     public DSNamHoc() {
         initComponents();

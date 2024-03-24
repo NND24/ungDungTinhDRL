@@ -1,10 +1,5 @@
 package views.list;
 
-import controllers.KhoaCtrlTest;
-import models.SinhVienTestModel;
-import controllers.SinhVienTestCtrl;
-import controllers.TaiKhoanCtrl;
-import controllers.LopTestCtrl;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,6 +11,11 @@ import javax.swing.table.DefaultTableModel;
 import models.KhoaTestModel;
 import models.LopModelTest;
 import models.TaiKhoanModel;
+import models.SinhVienTestModel;
+import controllers.KhoaCtrlTest;
+import controllers.SinhVienTestCtrl;
+import controllers.TaiKhoanCtrl;
+import controllers.LopTestCtrl;
 import utils.DialogHelper;
 import utils.GenerateCode;
 import utils.Validator;
@@ -23,10 +23,10 @@ import utils.Validator;
 public class DSSinhVienTest extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
-    List<LopModelTest> dsLop = new ArrayList<>();
-    List<KhoaTestModel> dsKhoa = new ArrayList<>();
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
+    private List<LopModelTest> dsLop = new ArrayList<>();
+    private List<KhoaTestModel> dsKhoa = new ArrayList<>();
 
     public DSSinhVienTest() {
         try {

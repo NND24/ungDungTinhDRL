@@ -1,9 +1,9 @@
 package views.main;
 
-import controllers.TaiKhoanCtrl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import controllers.TaiKhoanCtrl;
 
 public class DangNhap extends javax.swing.JFrame {
 

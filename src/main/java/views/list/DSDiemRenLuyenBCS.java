@@ -1,9 +1,5 @@
 package views.list;
 
-import controllers.DiemRenLuyenCtrl;
-import controllers.NamHocCtrl;
-import controllers.PhieuDRLCtrl;
-import controllers.SinhVienTestCtrl;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,17 +11,21 @@ import models.DiemRenLuyenModel;
 import models.NamHocModel;
 import models.PhieuDRLModel;
 import models.SinhVienTestModel;
-import utils.DialogHelper;
-import utils.Validator;
+import controllers.DiemRenLuyenCtrl;
+import controllers.NamHocCtrl;
+import controllers.PhieuDRLCtrl;
+import controllers.SinhVienTestCtrl;
 import views.main.DangNhap;
 import views.main.FormChamDiemBCS;
+import utils.DialogHelper;
+import utils.Validator;
 
 public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
-    List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
-    List<NamHocModel> dsNamHoc = new ArrayList<>();
-    String coVanCham = "";
+    private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+    private List<NamHocModel> dsNamHoc = new ArrayList<>();
+    private String coVanCham = "";
     private Date ngayKetThuc;
 
     public DSDiemRenLuyenBCS() {
@@ -120,8 +120,8 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     private void timKiemDanhSachDRL() {
         try {
-            if (cmbTKNamHoc.getSelectedItem() != null) {
-                SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+            SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+            if (cmbTKNamHoc.getSelectedItem() != null && sv != null) {
                 String lop = sv.getMaLop();
                 String tuKhoa = txtTimKiem.getText();
                 int namHocIndex = cmbTKNamHoc.getSelectedIndex();

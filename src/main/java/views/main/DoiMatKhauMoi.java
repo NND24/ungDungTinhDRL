@@ -1,9 +1,8 @@
 package views.main;
 
-import controllers.TaiKhoanCtrl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import controllers.TaiKhoanCtrl;
 import utils.DialogHelper;
 
 public class DoiMatKhauMoi extends javax.swing.JFrame {
@@ -36,11 +35,6 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
         lblMatKhauMoi.setText("Mật Khẩu Mới");
 
         txtMatKhauMoi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtMatKhauMoi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMatKhauMoiActionPerformed(evt);
-            }
-        });
 
         lblXacNhanMatKhau.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         lblXacNhanMatKhau.setText("Xác Nhận Mật Khẩu");
@@ -182,7 +176,6 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
                 DialogHelper.showError("Xác nhận mật khẩu không trùng với mật khẩu mới. Vui lòng nhập lại!");
             }
         }
-
     }//GEN-LAST:event_btnXacNhanActionPerformed
 
     private void chkHienThiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHienThiMatKhauActionPerformed
@@ -195,10 +188,6 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
             txtXacNhanMatKhau.setEchoChar('*');
         }
     }//GEN-LAST:event_chkHienThiMatKhauActionPerformed
-
-    private void txtMatKhauMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatKhauMoiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMatKhauMoiActionPerformed
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
         // TODO add your handling code here:

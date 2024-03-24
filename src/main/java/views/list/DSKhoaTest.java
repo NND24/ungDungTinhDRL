@@ -1,18 +1,18 @@
 package views.list;
 
-import controllers.KhoaCtrlTest;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.KhoaTestModel;
+import controllers.KhoaCtrlTest;
 import utils.DialogHelper;
 
 public class DSKhoaTest extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
-    List<KhoaTestModel> dsKhoa;
+    private List<KhoaTestModel> dsKhoa;
 
     public DSKhoaTest() {
         initComponents();

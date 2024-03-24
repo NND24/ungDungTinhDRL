@@ -124,9 +124,6 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMatKhauMoiActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblXacNhanMatKhau">
           <Properties>

@@ -38,8 +38,10 @@ public class BanCanSu extends javax.swing.JFrame {
                     LayeredPane.repaint();
                     LayeredPane.revalidate();
                 } else if (index == 3) {
-//                    new TaiKhoanSinh().setVisible(true);
-//                    new TaiKhoanSinh().setAlwaysOnTop(true);
+                    LayeredPane.removeAll();
+                    LayeredPane.add(taiKhoanSinhVienPanel);
+                    LayeredPane.repaint();
+                    LayeredPane.revalidate();
                 } else if (index == 4) {
                     new DangNhap().setVisible(true);
                     new DangNhap().setAlwaysOnTop(true);
@@ -300,7 +302,7 @@ public class BanCanSu extends javax.swing.JFrame {
                 // Đặt trạng thái cửa sổ là toàn màn hình
                 main.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-                main.setTitle("QUẢN LÝ PHÒNG KHÁM");
+                main.setTitle("QUẢN LÝ ĐIỂM RÈN LUYỆN PTITHCM");
                 main.setVisible(true);
             }
         });

@@ -364,7 +364,7 @@ public class QuanLy extends javax.swing.JFrame {
                 // Đặt trạng thái cửa sổ là toàn màn hình
                 main.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-                main.setTitle("QUẢN LÝ ĐIỂM RÈN LUYỆN PTIT");
+                main.setTitle("QUẢN LÝ ĐIỂM RÈN LUYỆN PTITHCM");
                 main.setVisible(true);
             }
         });

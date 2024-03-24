@@ -1,9 +1,9 @@
 package views.main;
 
-import javax.swing.JOptionPane;
-import controllers.TaiKhoanCtrl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import controllers.TaiKhoanCtrl;
+import utils.DialogHelper;
 
 public class VerifyCode extends javax.swing.JFrame {
 
@@ -127,7 +127,7 @@ public class VerifyCode extends javax.swing.JFrame {
                 Logger.getLogger(VerifyCode.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Mã không hợp lệ!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+            DialogHelper.showError("Mã không hợp lệ!");
         }
 
     }//GEN-LAST:event_btnXacNhanActionPerformed

@@ -1,9 +1,5 @@
 package views.list;
 
-import models.QuanLyModel;
-import models.TaiKhoanModel;
-import controllers.QuanLyCtrl;
-import controllers.TaiKhoanCtrl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,6 +7,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import models.QuanLyModel;
+import models.TaiKhoanModel;
+import controllers.QuanLyCtrl;
+import controllers.TaiKhoanCtrl;
 import utils.DialogHelper;
 import utils.GenerateCode;
 import utils.Validator;
@@ -18,8 +18,8 @@ import utils.Validator;
 public class DSQuanLy extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    List<QuanLyModel> dsQuanLy = new ArrayList<>();
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private List<QuanLyModel> dsQuanLy = new ArrayList<>();
 
     public DSQuanLy() {
         try {
@@ -33,7 +33,7 @@ public class DSQuanLy extends javax.swing.JPanel {
         }
     }
 
-    void lamMoi() {
+    private void lamMoi() {
         try {
             dsQuanLy = QuanLyCtrl.timTatCaQuanLy();
             txtMaQuanLy.setText("");

@@ -1,9 +1,5 @@
 package views.list;
 
-import controllers.CoVanTestCtrl;
-import controllers.PhanCongCtrl;
-import controllers.LopTestCtrl;
-import controllers.NamHocCtrl;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +10,19 @@ import models.CoVanTestModel;
 import models.LopModelTest;
 import models.NamHocModel;
 import models.PhanCongModel;
+import controllers.CoVanTestCtrl;
+import controllers.PhanCongCtrl;
+import controllers.LopTestCtrl;
+import controllers.NamHocCtrl;
 import utils.DialogHelper;
 
 public class DSPhanCong extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
-    List<PhanCongModel> dsPhanCong = new ArrayList<>();
-    List<LopModelTest> dsLop = new ArrayList<>();
-    List<CoVanTestModel> dsCoVan = new ArrayList<>();
-    List<NamHocModel> dsNamHoc = new ArrayList<>();
+    private List<PhanCongModel> dsPhanCong = new ArrayList<>();
+    private List<LopModelTest> dsLop = new ArrayList<>();
+    private List<CoVanTestModel> dsCoVan = new ArrayList<>();
+    private List<NamHocModel> dsNamHoc = new ArrayList<>();
 
     public DSPhanCong() {
         try {

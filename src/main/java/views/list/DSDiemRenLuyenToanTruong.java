@@ -1,9 +1,5 @@
 package views.list;
 
-import controllers.DiemRenLuyenCtrl;
-import controllers.LopTestCtrl;
-import controllers.KhoaCtrlTest;
-import controllers.NamHocCtrl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -13,14 +9,18 @@ import models.DiemRenLuyenModel;
 import models.KhoaTestModel;
 import models.LopModelTest;
 import models.NamHocModel;
+import controllers.DiemRenLuyenCtrl;
+import controllers.LopTestCtrl;
+import controllers.KhoaCtrlTest;
+import controllers.NamHocCtrl;
 
 public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
-    List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
-    List<LopModelTest> dsLop = new ArrayList<>();
-    List<KhoaTestModel> dsKhoa = new ArrayList<>();
-    List<NamHocModel> dsNamHoc = new ArrayList<>();
+    private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+    private List<LopModelTest> dsLop = new ArrayList<>();
+    private List<KhoaTestModel> dsKhoa = new ArrayList<>();
+    private List<NamHocModel> dsNamHoc = new ArrayList<>();
 
     public DSDiemRenLuyenToanTruong() {
         initComponents();
@@ -84,7 +84,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         });
     }
 
-    void lamMoi() {
+    private void lamMoi() {
         txtMaSinhVien.setText("");
         txtHoTen.setText("");
         btnDiemTieuChi1.setText("");

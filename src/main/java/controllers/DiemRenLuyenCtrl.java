@@ -65,7 +65,7 @@ public class DiemRenLuyenCtrl {
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
                      INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                      WHERE PhieuDRL.MaSinhVien=?
-                     AND Lop.TrangThaiHienThi=1 AND NamHoc.TrangThaiHienThi=1
+                     AND NamHoc.TrangThaiHienThi=1
                      AND NguoiCham='CoVan' AND GETDATE() >= NgayBatDau
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {

@@ -1,13 +1,13 @@
 package views.main;
 
-import utils.GenerateVerifyCode;
-import utils.SendEmail;
-import controllers.TaiKhoanCtrl;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.MessagingException;
-import javax.swing.JOptionPane;
+import controllers.TaiKhoanCtrl;
+import utils.DialogHelper;
+import utils.GenerateVerifyCode;
+import utils.SendEmail;
 
 public class QuenMatKhau extends javax.swing.JFrame {
 
@@ -157,13 +157,13 @@ public class QuenMatKhau extends javax.swing.JFrame {
             String tenDangNhap = txtTenDangNhap.getText();
 
             if (email.isEmpty() || tenDangNhap.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Tên đăng nhập hoặc email không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                DialogHelper.showError("Tên đăng nhập hoặc email không được để trống!");
             } else if (TaiKhoanCtrl.kiemTraEmailCoTonTai(email) == false) {
-                JOptionPane.showMessageDialog(null, "Email không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                DialogHelper.showError("Email không có trong hệ thống!");
             } else if (TaiKhoanCtrl.kiemTraTaiKhoanCoTonTai(tenDangNhap) == false) {
-                JOptionPane.showMessageDialog(null, "Tên đăng nhập không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                DialogHelper.showError("Tên đăng nhập không có trong hệ thống!");
             } else if (TaiKhoanCtrl.kiemTraEmailCoDungTaiKhoan(email, tenDangNhap) == false) {
-                JOptionPane.showMessageDialog(null, "Email không đúng với tài khoản!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                DialogHelper.showError("Email không đúng với tài khoản!");
             } else {
                 try {
                     SendEmail.sendEmail(verifyCode, email);

@@ -12,7 +12,7 @@ import utils.DialogHelper;
 public class DSChucVu extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
-    List<ChucVuModel> dsChucVu;
+    private List<ChucVuModel> dsChucVu;
 
     public DSChucVu() {
         initComponents();

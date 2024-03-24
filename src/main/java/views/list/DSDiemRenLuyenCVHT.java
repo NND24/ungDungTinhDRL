@@ -1,9 +1,5 @@
 package views.list;
 
-import controllers.CoVanTestCtrl;
-import controllers.DiemRenLuyenCtrl;
-import controllers.PhanCongCtrl;
-import controllers.PhieuDRLCtrl;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -16,21 +12,25 @@ import models.CoVanTestModel;
 import models.DiemRenLuyenModel;
 import models.NamHocModel;
 import models.PhieuDRLModel;
-import utils.DialogHelper;
-import utils.Validator;
+import controllers.CoVanTestCtrl;
+import controllers.DiemRenLuyenCtrl;
+import controllers.PhanCongCtrl;
+import controllers.PhieuDRLCtrl;
 import views.main.DangNhap;
 import views.main.FormChamDiemCVHT;
+import utils.DialogHelper;
+import utils.Validator;
 
 public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
-    List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
-    List<NamHocModel> dsNamHoc = new ArrayList<>();
-    String coVanCham = "";
-    Date ngayHienTai = new Date();
-    LocalDate localDate = ngayHienTai.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    LocalDate ngayTruoc = localDate.plusDays(1);
-    Date ngayKetThuc = java.sql.Date.valueOf(ngayTruoc);
+    private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+    private List<NamHocModel> dsNamHoc = new ArrayList<>();
+    private String coVanCham = "";
+    private final Date ngayHienTai = new Date();
+    private final LocalDate localDate = ngayHienTai.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    private final LocalDate ngayTruoc = localDate.plusDays(1);
+    private Date ngayKetThuc = java.sql.Date.valueOf(ngayTruoc);
 
     public DSDiemRenLuyenCVHT() {
         initComponents();

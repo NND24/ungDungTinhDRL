@@ -6,20 +6,20 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.DiemRenLuyenModel;
+import models.NamHocModel;
+import models.SinhVienTestModel;
 import controllers.DiemRenLuyenCtrl;
 import controllers.NamHocCtrl;
 import controllers.SinhVienTestCtrl;
-import models.NamHocModel;
-import models.SinhVienTestModel;
-import utils.DialogHelper;
 import views.main.DangNhap;
 import views.main.FormChamDiemSV;
+import utils.DialogHelper;
 
 public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
-    List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
-    List<NamHocModel> dsNamHoc = new ArrayList<>();
+    private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+    private List<NamHocModel> dsNamHoc = new ArrayList<>();
 
     public DSDiemRenLuyenCaNhan() {
         try {
@@ -79,7 +79,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
         }
     }
 
-    void lamMoi() {
+    private void lamMoi() {
         try {
             txtMaSinhVien.setText("");
             hoTenTextField.setText("");
@@ -102,8 +102,8 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
     private void timKiemDanhSachDRL() {
         try {
-            if (cmbTKNamHoc.getSelectedItem() != null) {
-                SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+            SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+            if (cmbTKNamHoc.getSelectedItem() != null && sv != null) {
                 String lop = sv.getMaLop();
                 String tuKhoa = sv.getMaSinhVien();
                 int namHocIndex = cmbTKNamHoc.getSelectedIndex();

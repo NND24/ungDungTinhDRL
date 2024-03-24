@@ -3,8 +3,6 @@ package views.main;
 import java.awt.DisplayMode;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.Toolkit;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -82,17 +80,6 @@ public class CoVan extends javax.swing.JFrame {
                 }
             }
         }).start();
-    }
-
-    private void setIconImage() {
-        URL url = getClass().getResource("MainIcon.png");
-        if (url == null) {
-            System.out.println("Resource not found: MainIcon.png");
-        } else {
-            System.out.println("Resource URL: " + url.toString());
-            setIconImage(Toolkit.getDefaultToolkit().getImage(url));
-        }
-
     }
 
     @SuppressWarnings("unchecked")
@@ -273,7 +260,7 @@ public class CoVan extends javax.swing.JFrame {
                 // Đặt trạng thái cửa sổ là toàn màn hình
                 main.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-                main.setTitle("QUẢN LÝ PHÒNG KHÁM");
+                main.setTitle("QUẢN LÝ ĐIỂM RÈN LUYỆN PTITHCM");
                 main.setVisible(true);
             }
         });

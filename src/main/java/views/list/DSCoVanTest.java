@@ -21,9 +21,9 @@ import utils.Validator;
 public class DSCoVanTest extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    List<KhoaTestModel> dsKhoa = new ArrayList<>();
-    List<CoVanTestModel> dsCoVan = new ArrayList<>();
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private List<KhoaTestModel> dsKhoa = new ArrayList<>();
+    private List<CoVanTestModel> dsCoVan = new ArrayList<>();
 
     public DSCoVanTest() {
         try {
@@ -639,9 +639,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        } catch (ParseException ex) {
-            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (ParseException | ClassNotFoundException ex) {
             Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnThemCoVanActionPerformed

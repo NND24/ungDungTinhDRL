@@ -1,18 +1,18 @@
 package views.list;
 
-import models.LopModelTest;
-import controllers.LopTestCtrl;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import models.LopModelTest;
+import controllers.LopTestCtrl;
 import utils.DialogHelper;
 
 public class DSLopTest extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
-    List<LopModelTest> dsLop;
+    private List<LopModelTest> dsLop;
 
     public DSLopTest() {
         try {

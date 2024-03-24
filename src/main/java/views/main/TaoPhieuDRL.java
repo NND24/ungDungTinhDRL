@@ -1,10 +1,5 @@
 package views.main;
 
-import controllers.DiemRenLuyenCtrl;
-import controllers.LopTestCtrl;
-import controllers.NamHocCtrl;
-import controllers.PhieuDRLCtrl;
-import controllers.SinhVienTestCtrl;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +10,11 @@ import models.LopModelTest;
 import models.NamHocModel;
 import models.PhieuDRLModel;
 import models.SinhVienTestModel;
+import controllers.DiemRenLuyenCtrl;
+import controllers.LopTestCtrl;
+import controllers.NamHocCtrl;
+import controllers.PhieuDRLCtrl;
+import controllers.SinhVienTestCtrl;
 import utils.DialogHelper;
 
 public class TaoPhieuDRL extends javax.swing.JPanel {
@@ -494,7 +494,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
 
     private void XoaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaButtonActionPerformed
         try {
-            if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa phiếu điểm này")) {
+            if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa phiếu điểm này?")) {
                 String maLop = cmbLop.getSelectedItem().toString();
                 int namHocIndex = cmbNamHoc.getSelectedIndex();
                 int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
@@ -527,7 +527,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
 
     private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
         try {
-            if (DialogHelper.showConfirmation("Bạn có chắc muốn cập nhật phiếu điểm này")) {
+            if (DialogHelper.showConfirmation("Bạn có chắc muốn cập nhật phiếu điểm này?")) {
 
                 java.util.Date ngayBatDauUtil = dateChooserStart.getDate();
                 java.util.Date ngayKetThucUtil = dateChooserEnd.getDate();

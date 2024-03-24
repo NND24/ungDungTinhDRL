@@ -616,19 +616,23 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
             } else if (soDienThoai.isEmpty()) {
                 DialogHelper.showError("Số điện thoại không được để trống!");
+            } else if (CoVanTestCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+                DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
             } else if (canCuoc.isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
+            } else if (CoVanTestCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+                DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, hoTen, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, idGioiTinh, sqlNgaySinh, 0);
                 CoVanTestCtrl.capNhatCoVan(cv);
                 DialogHelper.showMessage("Thay đổi thông tin thành công!");
             }
-        } catch (ParseException ex) {
-            Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException | ClassNotFoundException ex) {
+            Logger.getLogger(TaiKhoanCoVan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnDoiThongTinActionPerformed
 
