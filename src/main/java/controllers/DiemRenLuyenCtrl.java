@@ -221,7 +221,7 @@ public class DiemRenLuyenCtrl {
         return drl;
     }
 
-    public static List<DiemRenLuyenModel> timKiemDRL(String tuKhoa, String lop, String namHoc, String hocKy) throws ClassNotFoundException {
+    public static List<DiemRenLuyenModel> timKiemDRL(String tuKhoa, String lop, int maNamHoc, String hocKy) throws ClassNotFoundException {
         List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
         String sql = """
                     SELECT DISTINCT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham,
@@ -233,7 +233,7 @@ public class DiemRenLuyenCtrl {
                     INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                     WHERE NguoiCham='CoVan'
                     AND (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
-                    AND (Lop.MaLop=? OR ?='') AND (NamHoc=? OR ?='') AND (HocKy=? OR ?='')
+                    AND (Lop.MaLop=? OR ?='') AND (NamHoc.MaNamHoc=? OR ?='') AND (HocKy=? OR ?='')
                     AND Lop.TrangThaiHienThi=1 AND GETDATE() >= NgayBatDau
                     """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -242,8 +242,8 @@ public class DiemRenLuyenCtrl {
             statement.setString(2, "%" + tuKhoa + "%");
             statement.setString(3, lop);
             statement.setString(4, lop);
-            statement.setString(5, namHoc);
-            statement.setString(6, namHoc);
+            statement.setInt(5, maNamHoc);
+            statement.setInt(6, maNamHoc);
             statement.setString(7, hocKy);
             statement.setString(8, hocKy);
 

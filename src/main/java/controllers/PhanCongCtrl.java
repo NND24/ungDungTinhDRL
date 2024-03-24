@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.NamHocModel;
 import models.PhanCongModel;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -21,12 +22,20 @@ import utils.DialogHelper;
 
 public class PhanCongCtrl {
 
-    public static List<String> timDSLop(String maCoVan) throws ClassNotFoundException {
+    public static List<String> timDSLopPhanCong(String tenDangNhap) throws ClassNotFoundException {
         List<String> dsDiemRenLuyen = new ArrayList<>();
-        String sql = "SELECT PhanCong.MaLop FROM PhanCong, Lop WHERE PhanCong.MaLop=Lop.MaLop AND maCoVan = ?";
+        String sql = """
+                     SELECT DISTINCT PhanCong.MaLop FROM PhanCong
+                     JOIN CoVan ON  CoVan.MaCoVan=PhanCong.MaCoVan
+                     JOIN Lop ON PhanCong.MaLop=Lop.MaLop
+                     JOIN TaiKhoan ON TaiKhoan.MaTaiKhoan=CoVan.MaTaiKhoan
+                     JOIN NamHoc ON NamHoc.MaNamHoc=PhanCong.MaNamHoc
+                     WHERE TenDangNhap = ? AND PhanCong.TrangThaiHienThi=1
+                     AND Lop.TrangThaiHienThi=1 AND NamHoc.TrangThaiHienThi=1
+                     """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setString(1, maCoVan);
+            statement.setString(1, tenDangNhap);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -37,6 +46,35 @@ public class PhanCongCtrl {
             Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsDiemRenLuyen;
+    }
+
+    public static List<NamHocModel> timDSNamHocPhanCong(String tenDangNhap, String maLop) throws ClassNotFoundException {
+        List<NamHocModel> dsNamHoc = new ArrayList<>();
+        String sql = """
+                     SELECT DISTINCT PhanCong.MaNamHoc, NamHoc, NamHoc.TrangThaiHienThi FROM PhanCong
+                     JOIN CoVan ON  CoVan.MaCoVan=PhanCong.MaCoVan
+                     JOIN Lop ON PhanCong.MaLop=Lop.MaLop
+                     JOIN TaiKhoan ON TaiKhoan.MaTaiKhoan=CoVan.MaTaiKhoan
+                     JOIN NamHoc ON NamHoc.MaNamHoc=PhanCong.MaNamHoc
+                     WHERE TenDangNhap = ?  AND PhanCong.MaLop=?
+                     AND PhanCong.TrangThaiHienThi=1 AND Lop.TrangThaiHienThi=1 AND NamHoc.TrangThaiHienThi=1
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, tenDangNhap);
+            statement.setString(2, maLop);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                NamHocModel nh = new NamHocModel(resultSet.getInt("MaNamHoc"),
+                        resultSet.getString("NamHoc"),
+                        resultSet.getInt("TrangThaiHienThi"));
+                dsNamHoc.add(nh);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsNamHoc;
     }
 
     public static List<PhanCongModel> timTatCaPhanCong() throws ClassNotFoundException {

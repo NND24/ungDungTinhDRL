@@ -7,7 +7,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.DiemRenLuyenModel;
 import controllers.DiemRenLuyenCtrl;
+import controllers.NamHocCtrl;
 import controllers.SinhVienTestCtrl;
+import models.NamHocModel;
 import models.SinhVienTestModel;
 import utils.DialogHelper;
 import views.main.DangNhap;
@@ -17,15 +19,32 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
     List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+    List<NamHocModel> dsNamHoc = new ArrayList<>();
 
     public DSDiemRenLuyenCaNhan() {
         try {
             initComponents();
 
             tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
+            hienThiDSNamHoc();
+            cmbTKNamHoc.setSelectedItem("---Năm học---");
             hienThiTatCaDRL();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void hienThiDSNamHoc() {
+        try {
+            dsNamHoc = NamHocCtrl.timNamHocHienThi();
+
+            cmbTKNamHoc.removeAllItems();
+            dsNamHoc.forEach(nh -> {
+                cmbTKNamHoc.addItem(nh.getNamHoc());
+            });
+            cmbTKNamHoc.addItem("---Năm học---");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -72,6 +91,8 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
             txtXepLoai.setText("");
             txtHocKy.setText("");
             txtNamHoc.setText("");
+            cmbTKNamHoc.setSelectedItem("---Năm học---");
+            cmbTKHocKy.setSelectedItem("---Học kỳ---");
             hienThiTatCaDRL();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,19 +101,21 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
     private void timKiemDanhSachDRL() {
         try {
-            SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+            if (cmbTKNamHoc.getSelectedItem() != null) {
+                SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+                String lop = sv.getMaLop();
+                String tuKhoa = sv.getMaSinhVien();
+                int namHocIndex = cmbTKNamHoc.getSelectedIndex();
+                int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
+                String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
-            String lop = sv.getMaLop();
-            String tuKhoa = sv.getMaSinhVien();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
-
-            if (namHoc.equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
-                dsDiemRenLuyen.clear();
-                hienThiDSDiem();
-            } else {
-                dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-                hienThiDSDiem();
+                if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
+                    dsDiemRenLuyen.clear();
+                    hienThiDSDiem();
+                } else {
+                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                    hienThiDSDiem();
+                }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
@@ -216,11 +239,11 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 851, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 845, Short.MAX_VALUE)
                 .addComponent(btnXemDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(35, 35, 35)
                 .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(30, 30, 30))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +270,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setText("DANH SÁCH ĐIỂM RÈN LUYỆN");
 
-        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Học kỳ---", "1", "2" }));
+        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
         cmbTKHocKy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKHocKyActionPerformed(evt);
@@ -260,7 +283,6 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setText("Học kì");
 
-        cmbTKNamHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Năm học---", "2022-2023", "2023-2024" }));
         cmbTKNamHoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKNamHocActionPerformed(evt);
@@ -282,12 +304,12 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
                 .addComponent(cmbTKHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(30, 30, 30))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbTKHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17)
@@ -527,7 +549,9 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
-        timKiemDanhSachDRL();
+        if (cmbTKNamHoc.getSelectedItem() != null && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---")) {
+            timKiemDanhSachDRL();
+        }
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed

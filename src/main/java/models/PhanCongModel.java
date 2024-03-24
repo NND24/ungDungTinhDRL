@@ -16,6 +16,7 @@ public class PhanCongModel {
         this.maPhanCong = maPhanCong;
         this.maCoVan = maCoVan;
         this.tenCoVan = tenCoVan;
+        this.maLop = maLop;
         this.namHoc = namHoc;
         this.trangThaiHienThi = trangThaiHienThi;
     }

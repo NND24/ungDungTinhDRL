@@ -81,8 +81,9 @@ public class CoVanTestCtrl {
     public static CoVanTestModel timCoVanTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
         String sql = """
                      SELECT MaCoVan, Khoa.TenKhoa, Khoa.MaKhoa, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghi, HocVi, HocHam, ChuyenMon
-                     FROM CoVan, Khoa
-                     WHERE CoVan.MaKhoa=Khoa.MaKhoa
+                     FROM CoVan
+                     JOIN Khoa ON CoVan.MaKhoa=Khoa.MaKhoa
+                     JOIN TaiKhoan ON TaiKhoan.MaTaiKhoan=CoVan.MaTaiKhoan
                      AND TenDangNhap=?
                      """;
         CoVanTestModel coVan = null;

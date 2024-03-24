@@ -613,9 +613,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="---H&#x1ecd;c k&#x1ef3;---"/>
-                    <StringItem index="1" value="1"/>
-                    <StringItem index="2" value="2"/>
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="---H&#x1ecd;c k&#x1ef3;---"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -658,10 +658,8 @@
             <Component class="javax.swing.JComboBox" name="cmbTKLop">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
+                  <StringArray count="1">
                     <StringItem index="0" value="---L&#x1edb;p---"/>
-                    <StringItem index="1" value="D21CQCN01-N"/>
-                    <StringItem index="2" value="D21CQCN02-N"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -683,10 +681,8 @@
             <Component class="javax.swing.JComboBox" name="cmbTKNamHoc">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
+                  <StringArray count="1">
                     <StringItem index="0" value="---N&#x103;m h&#x1ecd;c---"/>
-                    <StringItem index="1" value="2022-2023"/>
-                    <StringItem index="2" value="2023-2024"/>
                   </StringArray>
                 </Property>
               </Properties>

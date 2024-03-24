@@ -44,6 +44,30 @@ public class NamHocCtrl {
         return dsNamHoc;
     }
 
+    public static List<NamHocModel> timNamHocHienThi() throws ClassNotFoundException {
+        List<NamHocModel> dsNamHoc = new ArrayList<>();
+
+        try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
+
+            String sql = """
+                     SELECT * FROM NamHoc WHERE TrangThaiHienThi=1
+                     """;
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                NamHocModel namHoc = new NamHocModel(
+                        resultSet.getInt("MaNamHoc"),
+                        resultSet.getString("NamHoc"),
+                        resultSet.getInt("TrangThaiHienThi")
+                );
+                dsNamHoc.add(namHoc);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsNamHoc;
+    }
+
     public static void themNamHoc(NamHocModel namHoc) throws ClassNotFoundException {
         String sql = "INSERT INTO NamHoc (NamHoc, TrangThaiHienThi) VALUES (?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {

@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.CoVanTestModel;
 import models.DiemRenLuyenModel;
+import models.NamHocModel;
 import models.PhieuDRLModel;
 import utils.DialogHelper;
 import utils.Validator;
@@ -24,6 +25,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
     List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+    List<NamHocModel> dsNamHoc = new ArrayList<>();
     String coVanCham = "";
     Date ngayHienTai = new Date();
     LocalDate localDate = ngayHienTai.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -33,18 +35,33 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
     public DSDiemRenLuyenCVHT() {
         initComponents();
         tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
-        hienThiDSLop();
+        hienThiDSLopPhanCong();
     }
 
-    private void hienThiDSLop() {
+    private void hienThiDSLopPhanCong() {
         try {
-            List<String> dsLop = PhanCongCtrl.timDSLop(DangNhap.username);
+            List<String> dsLop = PhanCongCtrl.timDSLopPhanCong(DangNhap.username);
 
             cmbTKLop.removeAllItems();
             cmbTKLop.addItem("---Lớp---");
             dsLop.forEach(lop -> {
                 cmbTKLop.addItem(lop);
             });
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void hienThiDSNamHocPhanCong(String maLop) {
+        try {
+            dsNamHoc = PhanCongCtrl.timDSNamHocPhanCong(DangNhap.username, maLop);
+
+            cmbTKNamHoc.removeAllItems();
+            dsNamHoc.forEach(nh -> {
+                cmbTKNamHoc.addItem(nh.getNamHoc());
+            });
+            cmbTKNamHoc.addItem("---Năm học---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -86,21 +103,25 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         txtXepLoai.setText("");
         txtHocKy.setText("");
         txtNamHoc.setText("");
+        cmbTKLop.setSelectedItem("---Lớp---");
+        cmbTKNamHoc.setSelectedItem("---Năm học---");
+        cmbTKHocKy.setSelectedItem("---Học kỳ---");
     }
 
     private void timKiemDanhSachDRL() {
         try {
-            if (cmbTKLop.getSelectedItem() != null) {
+            if (cmbTKLop.getSelectedItem() != null && cmbTKNamHoc.getSelectedItem() != null) {
                 String tuKhoa = txtTimKiem.getText();
                 String lop = cmbTKLop.getSelectedItem().toString();
-                String namHoc = cmbTKNamHoc.getSelectedItem().toString();
+                int namHocIndex = cmbTKNamHoc.getSelectedIndex();
+                int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                 String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
-                if (lop.equals("---Lớp---") || namHoc.equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
+                if (lop.equals("---Lớp---") || cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
                     dsDiemRenLuyen.clear();
                     hienThiDSDiem();
                 } else {
-                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
+                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
                     hienThiDSDiem();
                 }
             }
@@ -355,7 +376,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel26.setText("DANH SÁCH ĐIỂM RÈN LUYỆN CỦA LỚP");
 
-        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Học kỳ---", "1", "2" }));
+        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
         cmbTKHocKy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKHocKyActionPerformed(evt);
@@ -377,7 +398,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel29.setText("Học kỳ");
 
-        cmbTKLop.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Lớp---", "D21CQCN01-N", "D21CQCN02-N" }));
+        cmbTKLop.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Lớp---" }));
         cmbTKLop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKLopActionPerformed(evt);
@@ -387,7 +408,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel30.setText("Lớp");
 
-        cmbTKNamHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Năm học---", "2022-2023", "2023-2024" }));
+        cmbTKNamHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Năm học---" }));
         cmbTKNamHoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKNamHocActionPerformed(evt);
@@ -648,7 +669,11 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void cmbTKLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKLopActionPerformed
-        timKiemDanhSachDRL();
+        if (cmbTKLop.getSelectedItem() != null && !cmbTKLop.getSelectedItem().equals("---Lớp---")) {
+            String maLop = cmbTKLop.getSelectedItem().toString();
+            hienThiDSNamHocPhanCong(maLop);
+            timKiemDanhSachDRL();
+        }
     }//GEN-LAST:event_cmbTKLopActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed

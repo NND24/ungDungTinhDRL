@@ -3,6 +3,7 @@ package views.list;
 import controllers.DiemRenLuyenCtrl;
 import controllers.LopTestCtrl;
 import controllers.KhoaCtrlTest;
+import controllers.NamHocCtrl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -11,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import models.DiemRenLuyenModel;
 import models.KhoaTestModel;
 import models.LopModelTest;
+import models.NamHocModel;
 
 public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
@@ -18,11 +20,15 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
     List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
     List<LopModelTest> dsLop = new ArrayList<>();
     List<KhoaTestModel> dsKhoa = new ArrayList<>();
+    List<NamHocModel> dsNamHoc = new ArrayList<>();
 
     public DSDiemRenLuyenToanTruong() {
         initComponents();
         tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
         hienThiDSKhoa();
+        hienThiDSNamHoc();
+        cmbTKKhoa.setSelectedItem("---Khoa---");
+        cmbTKNamHoc.setSelectedItem("---Năm học---");
     }
 
     private void hienThiDSLop(String maKhoa) {
@@ -45,8 +51,23 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
             dsKhoa.forEach(khoa -> {
                 cmbTKKhoa.addItem(khoa.getMaKhoa());
             });
+            cmbTKKhoa.addItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void hienThiDSNamHoc() {
+        try {
+            dsNamHoc = NamHocCtrl.timNamHocHienThi();
+
+            cmbTKNamHoc.removeAllItems();
+            dsNamHoc.forEach(nh -> {
+                cmbTKNamHoc.addItem(nh.getNamHoc());
+            });
+            cmbTKNamHoc.addItem("---Năm học---");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -75,21 +96,26 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         txtXepLoai.setText("");
         txtHocKy.setText("");
         txtNamHoc.setText("");
+        cmbTKKhoa.setSelectedItem("---Khoa---");
+        cmbTKLop.setSelectedItem("---Lớp---");
+        cmbTKNamHoc.setSelectedItem("---Năm học---");
+        cmbTKHocKy.setSelectedItem("---Học kỳ---");
     }
 
     private void timKiemDanhSachDRL() {
         try {
-            if (cmbTKLop.getSelectedItem() != null) {
+            if (cmbTKLop.getSelectedItem() != null && cmbTKNamHoc.getSelectedItem() != null) {
                 String tuKhoa = txtTimKiem.getText();
                 String lop = cmbTKLop.getSelectedItem().toString();
-                String namHoc = cmbTKNamHoc.getSelectedItem().toString();
+                int namHocIndex = cmbTKNamHoc.getSelectedIndex();
+                int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                 String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
-                if (lop.equals("---Lớp---") || namHoc.equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
+                if (lop.equals("---Lớp---") || cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
                     dsDiemRenLuyen.clear();
                     hienThiDSDiem();
                 } else {
-                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
+                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
                     hienThiDSDiem();
                 }
             }
@@ -174,9 +200,9 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1048, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1030, Short.MAX_VALUE)
                 .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addGap(30, 30, 30))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,7 +322,6 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel28.setText("Năm học");
 
-        cmbTKNamHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Năm học---", "2022-2023", "2023-2024" }));
         cmbTKNamHoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKNamHocActionPerformed(evt);
@@ -306,7 +331,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel29.setText("Học kỳ");
 
-        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Học kỳ---", "1", "2" }));
+        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
         cmbTKHocKy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKHocKyActionPerformed(evt);
@@ -477,11 +502,15 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
-        timKiemDanhSachDRL();
+        if (cmbTKNamHoc.getSelectedItem() != null && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---")) {
+            timKiemDanhSachDRL();
+        }
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void cmbTKLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKLopActionPerformed
-        timKiemDanhSachDRL();
+        if (cmbTKLop.getSelectedItem() != null && !cmbTKLop.getSelectedItem().equals("---Lớp---") && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---")) {
+            timKiemDanhSachDRL();
+        }
     }//GEN-LAST:event_cmbTKLopActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
@@ -493,9 +522,11 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTimKiemKeyPressed
 
     private void cmbTKKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKKhoaActionPerformed
-        int khoaIndex = cmbTKKhoa.getSelectedIndex();
-        String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
-        hienThiDSLop(maKhoa);
+        if (cmbTKKhoa.getSelectedItem() != null && !cmbTKKhoa.getSelectedItem().equals("---Khoa---")) {
+            int khoaIndex = cmbTKKhoa.getSelectedIndex();
+            String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
+            hienThiDSLop(maKhoa);
+        }
     }//GEN-LAST:event_cmbTKKhoaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

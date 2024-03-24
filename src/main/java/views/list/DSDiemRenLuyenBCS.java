@@ -1,6 +1,7 @@
 package views.list;
 
 import controllers.DiemRenLuyenCtrl;
+import controllers.NamHocCtrl;
 import controllers.PhieuDRLCtrl;
 import controllers.SinhVienTestCtrl;
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.DiemRenLuyenModel;
+import models.NamHocModel;
 import models.PhieuDRLModel;
 import models.SinhVienTestModel;
 import utils.DialogHelper;
@@ -22,6 +24,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
     List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
+    List<NamHocModel> dsNamHoc = new ArrayList<>();
     String coVanCham = "";
     private Date ngayKetThuc;
 
@@ -30,9 +33,25 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             initComponents();
 
             tableModel = (DefaultTableModel) tblDanhSachDRL.getModel();
+            hienThiDSNamHoc();
+            cmbTKNamHoc.setSelectedItem("---Năm học---");
             hienThiDRLHienTai();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void hienThiDSNamHoc() {
+        try {
+            dsNamHoc = NamHocCtrl.timNamHocHienThi();
+
+            cmbTKNamHoc.removeAllItems();
+            dsNamHoc.forEach(nh -> {
+                cmbTKNamHoc.addItem(nh.getNamHoc());
+            });
+            cmbTKNamHoc.addItem("---Năm học---");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -101,18 +120,21 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     private void timKiemDanhSachDRL() {
         try {
-            SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
-            String lop = sv.getMaLop();
-            String tuKhoa = txtTimKiem.getText();
-            String namHoc = cmbTKNamHoc.getSelectedItem().toString();
-            String hocKy = cmbTKHocKy.getSelectedItem().toString();
+            if (cmbTKNamHoc.getSelectedItem() != null) {
+                SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+                String lop = sv.getMaLop();
+                String tuKhoa = txtTimKiem.getText();
+                int namHocIndex = cmbTKNamHoc.getSelectedIndex();
+                int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
+                String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
-            if (namHoc.equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
-                dsDiemRenLuyen.clear();
-                hienThiDSDiem();
-            } else {
-                dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, namHoc, hocKy);
-                hienThiDSDiem();
+                if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
+                    dsDiemRenLuyen.clear();
+                    hienThiDSDiem();
+                } else {
+                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                    hienThiDSDiem();
+                }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
@@ -299,7 +321,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 608, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 598, Short.MAX_VALUE)
                 .addComponent(btnXemDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(btnKetThucCham, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,7 +329,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 .addComponent(btnChamLai, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(30, 30, 30))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,7 +354,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setText("DANH SÁCH ĐIỂM RÈN LUYỆN CỦA LỚP");
 
-        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Học kỳ---", "1", "2" }));
+        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
         cmbTKHocKy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKHocKyActionPerformed(evt);
@@ -354,7 +376,6 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setText("Học kì");
 
-        cmbTKNamHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Năm học---", "2022-2023", "2023-2024" }));
         cmbTKNamHoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKNamHocActionPerformed(evt);
@@ -368,19 +389,19 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 482, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbTKNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbTKNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbTKHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addComponent(cmbTKHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -612,7 +633,9 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }//GEN-LAST:event_btnChamLaiActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
-        timKiemDanhSachDRL();
+        if (cmbTKNamHoc.getSelectedItem() != null && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---")) {
+            timKiemDanhSachDRL();
+        }
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed

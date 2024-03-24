@@ -49,12 +49,19 @@ public class PhieuDRLCtrl {
 
     public static List<PhieuDRLModel> timChiTietPhieu(String maLop, String namHoc, int hocKy) throws ClassNotFoundException {
         String sql = """
-                     SELECT SinhVien.MaSinhVien, SinhVien.HoTen TenSinhVien, BCS.MaSinhVien MaBanCanSu, BCS.HoTen TenBanCanSu,
-                     CoVan.MaCoVan, CoVan.HoTen TenCoVan, SinhVien.MaLop, TrangThaiCham  FROM PhieuDRL
-                     JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     SELECT SinhVien.MaSinhVien,
+                     SinhVien.HoTen AS TenSinhVien,
+                     COALESCE(BCS.MaSinhVien, '') AS MaBanCanSu,
+                     COALESCE(BCS.HoTen, '') AS TenBanCanSu,
+                     COALESCE(CoVan.MaCoVan, '') AS MaCoVan,
+                     COALESCE(CoVan.HoTen, '') AS TenCoVan,
+                     SinhVien.MaLop,
+                     TrangThaiCham
+                     FROM PhieuDRL
+                     JOIN NamHoc ON PhieuDRL.MaNamHoc = NamHoc.MaNamHoc
                      JOIN SinhVien ON PhieuDRL.MaSinhVien = SinhVien.MaSinhVien
-                     JOIN SinhVien BCS ON PhieuDRL.MaBanCanSuCham = BCS.MaSinhVien
-                     JOIN CoVan ON PhieuDRL.MaCoVanCham=CoVan.MaCoVan
+                     LEFT JOIN SinhVien BCS ON PhieuDRL.MaBanCanSuCham = BCS.MaSinhVien
+                     LEFT JOIN CoVan ON PhieuDRL.MaCoVanCham = CoVan.MaCoVan
                      WHERE SinhVien.MaLop=? AND NamHoc=? AND HocKy=?
                      """;
         List<PhieuDRLModel> dsPhieu = new ArrayList<>();
@@ -85,14 +92,15 @@ public class PhieuDRLCtrl {
     }
 
     public static void themPhieuDRL(PhieuDRLModel phieu) throws ClassNotFoundException {
-        String sql = "INSERT INTO PhieuDRL (MaPhieuDRL, MaSinhVien, MaNamHoc, HocKy, NgayBatDau, NgayKetThuc) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO PhieuDRL (MaPhieuDRL, MaSinhVien, MaNamHoc, HocKy, TrangThaiCham, NgayBatDau, NgayKetThuc) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, phieu.getMaPhieuDRL());
             statement.setString(2, phieu.getMaSinhVien());
             statement.setInt(3, phieu.getMaNamHoc());
             statement.setInt(4, phieu.getHocKy());
-            statement.setDate(5, phieu.getNgayBatDau());
-            statement.setDate(6, phieu.getNgayKetThuc());
+            statement.setString(5, phieu.getTrangThaiCham());
+            statement.setDate(6, phieu.getNgayBatDau());
+            statement.setDate(7, phieu.getNgayKetThuc());
 
             statement.executeUpdate();
 

@@ -34,6 +34,9 @@ public class DSPhanCong extends javax.swing.JFrame {
             hienThiDSLop();
             hienThiDSNamHoc();
             hienThiTatCaPhanCong();
+            cmbCoVan.setSelectedItem("---Cố vấn---");
+            cmbLop.setSelectedItem("---Lớp---");
+            cmbNamHoc.setSelectedItem("---Năm học---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -47,6 +50,7 @@ public class DSPhanCong extends javax.swing.JFrame {
             dsCoVan.forEach(cv -> {
                 cmbCoVan.addItem(cv.getHoTen());
             });
+            cmbCoVan.addItem("---Cố vấn---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -60,6 +64,7 @@ public class DSPhanCong extends javax.swing.JFrame {
             dsLop.forEach(lop -> {
                 cmbLop.addItem(lop.getMaLop());
             });
+            cmbLop.addItem("---Lớp---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -73,6 +78,7 @@ public class DSPhanCong extends javax.swing.JFrame {
             dsNamHoc.forEach(namHoc -> {
                 cmbNamHoc.addItem(namHoc.getNamHoc());
             });
+            cmbNamHoc.addItem("---Năm học---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -99,6 +105,9 @@ public class DSPhanCong extends javax.swing.JFrame {
         cmbCoVan.setSelectedIndex(0);
         cmbLop.setSelectedIndex(0);
         cmbNamHoc.setSelectedIndex(0);
+        cmbCoVan.setSelectedItem("---Cố vấn---");
+        cmbLop.setSelectedItem("---Lớp---");
+        cmbNamHoc.setSelectedItem("---Năm học---");
     }
 
     @SuppressWarnings("unchecked")
@@ -128,7 +137,6 @@ public class DSPhanCong extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Danh sách phân công");
-        setPreferredSize(new java.awt.Dimension(780, 451));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(650, 436));
@@ -256,8 +264,6 @@ public class DSPhanCong extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        cmbNamHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022-2023", "2023-2024" }));
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Trạng thái");
 
@@ -276,20 +282,17 @@ public class DSPhanCong extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(SuaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(xuatDSButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addGap(40, 40, 40)
+                        .addComponent(ThemButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(SuaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(NhapMoiButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(xuatDSButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,11 +311,10 @@ public class DSPhanCong extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(cmbNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 39, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,6 +379,12 @@ public class DSPhanCong extends javax.swing.JFrame {
         try {
             if (!txtMaPhanCong.getText().isEmpty()) {
                 DialogHelper.showError("Phân công đã tồn tại. Vui lòng nhập mới");
+            } else if (cmbCoVan.getSelectedItem().equals("---Cố vấn---")) {
+                DialogHelper.showError("Vui lòng chọn cố vấn");
+            } else if (cmbLop.getSelectedItem().equals("---Lớp---")) {
+                DialogHelper.showError("Vui lòng chọn lớp");
+            } else if (cmbNamHoc.getSelectedItem().equals("---Năm học---")) {
+                DialogHelper.showError("Vui lòng chọn năm học");
             } else {
                 int phanCongIndex = cmbCoVan.getSelectedIndex();
                 String maCoVan = dsCoVan.get(phanCongIndex).getMaCoVan();
@@ -387,6 +395,7 @@ public class DSPhanCong extends javax.swing.JFrame {
 
                 PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, trangThai);
                 PhanCongCtrl.themPhanCong(phanCong);
+                lamMoi();
                 hienThiTatCaPhanCong();
             }
         } catch (ClassNotFoundException ex) {
@@ -395,12 +404,11 @@ public class DSPhanCong extends javax.swing.JFrame {
     }//GEN-LAST:event_ThemButtonActionPerformed
 
     private void XoaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaButtonActionPerformed
-        boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa phân công này!");
-
-        if (flag) {
+        if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa phân công này!")) {
             try {
                 int maPhanCong = Integer.parseInt(txtMaPhanCong.getText());
                 PhanCongCtrl.xoaPhanCong(maPhanCong);
+                lamMoi();
                 hienThiTatCaPhanCong();
                 DialogHelper.showMessage("Xóa phân công thành công");
             } catch (ClassNotFoundException | SQLException ex) {
@@ -411,21 +419,27 @@ public class DSPhanCong extends javax.swing.JFrame {
 
     private void SuaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuaButtonActionPerformed
         try {
-            boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn sửa phân công này!");
+            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa phân công này!")) {
+                if (cmbCoVan.getSelectedItem().equals("---Cố vấn---")) {
+                    DialogHelper.showError("Vui lòng chọn cố vấn");
+                } else if (cmbLop.getSelectedItem().equals("---Lớp---")) {
+                    DialogHelper.showError("Vui lòng chọn lớp");
+                } else if (cmbNamHoc.getSelectedItem().equals("---Năm học---")) {
+                    DialogHelper.showError("Vui lòng chọn năm học");
+                } else {
+                    int maPhanCong = Integer.parseInt(txtMaPhanCong.getText());
+                    int phanCongIndex = cmbCoVan.getSelectedIndex();
+                    String maCoVan = dsCoVan.get(phanCongIndex).getMaCoVan();
+                    String maLop = cmbLop.getSelectedItem().toString();
+                    int namHocIndex = cmbNamHoc.getSelectedIndex();
+                    int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
+                    int trangThai = cmbTrangThai.getSelectedIndex();
 
-            if (flag) {
-                int maPhanCong = Integer.parseInt(txtMaPhanCong.getText());
-                int phanCongIndex = cmbCoVan.getSelectedIndex();
-                String maCoVan = dsCoVan.get(phanCongIndex).getMaCoVan();
-                String maLop = cmbLop.getSelectedItem().toString();
-                int namHocIndex = cmbNamHoc.getSelectedIndex();
-                // int maNamHoc = Integer.parseInt(dsNamHoc.get(namHocIndex).getMaNamHoc());
-                int maNamHoc = 2;
-                int trangThai = cmbTrangThai.getSelectedIndex();
-
-                PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, maPhanCong, trangThai);
-                PhanCongCtrl.capNhatPhanCong(phanCong);
-                hienThiTatCaPhanCong();
+                    PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, maPhanCong, trangThai);
+                    PhanCongCtrl.capNhatPhanCong(phanCong);
+                    lamMoi();
+                    hienThiTatCaPhanCong();
+                }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
