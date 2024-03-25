@@ -61,11 +61,11 @@
                   </Group>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="cboMaKhoa" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                      <Component id="cmbMaKhoa" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                           <Component id="txtMaNganh" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                           <Component id="txtTenNganh" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
-                          <Component id="cboTrangThai" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="cmbTrangThaiHienThi" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -88,12 +88,12 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblMaKhoa" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cboMaKhoa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbMaKhoa" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cboTrangThai" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="cmbTrangThaiHienThi" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
               </Group>
@@ -123,8 +123,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtMaNganh">
           <Properties>
-            <Property name="text" type="java.lang.String" value="txtMaNganh"/>
-            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="DPT"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMaNganhActionPerformed"/>
@@ -132,31 +131,32 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtTenNganh">
           <Properties>
-            <Property name="text" type="java.lang.String" value="txtTenNganh"/>
+            <Property name="text" type="java.lang.String" value="&#x110;a ph&#x1b0;&#x1a1;ng ti&#x1ec7;n"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTenNganhActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cboTrangThai">
+        <Component class="javax.swing.JComboBox" name="cmbTrangThaiHienThi">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
-                <StringItem index="0" value="Hi&#x1ec3;n th&#x1ecb;"/>
-                <StringItem index="1" value="&#x1ea8;n"/>
+                <StringItem index="0" value="&#x1ea8;n"/>
+                <StringItem index="1" value="Hi&#x1ec3;n th&#x1ecb;"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cboMaKhoa">
+        <Component class="javax.swing.JComboBox" name="cmbMaKhoa">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
-                <StringItem index="0" value="C&#xf4;ng ngh&#x1ec7; th&#xf4;ng tin 2"/>
-                <StringItem index="1" value="Vi&#x1ec5;n th&#xf4;ng 2"/>
+                <StringItem index="0" value="CNTT"/>
+                <StringItem index="1" value="VT"/>
               </StringArray>
             </Property>
           </Properties>
@@ -238,6 +238,9 @@
               <Dimension value="[80, 30]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSua">
           <Properties>
@@ -305,6 +308,9 @@
               <Dimension value="[80, 30]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLamMoiActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -361,7 +367,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="DANH S&#xc1;CH KHOA"/>
+                <Property name="text" type="java.lang.String" value="DANH S&#xc1;CH NG&#xc0;NH"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtTimKiem">
@@ -394,6 +400,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblDSNganhMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
