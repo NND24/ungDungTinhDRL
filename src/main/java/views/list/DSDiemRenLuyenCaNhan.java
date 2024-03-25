@@ -7,10 +7,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.DiemRenLuyenModel;
 import models.NamHocModel;
-import models.SinhVienTestModel;
+import models.SinhVienModel;
 import controllers.DiemRenLuyenCtrl;
 import controllers.NamHocCtrl;
-import controllers.SinhVienTestCtrl;
+import controllers.SinhVienCtrl;
 import views.main.DangNhap;
 import views.main.FormChamDiemSV;
 import utils.DialogHelper;
@@ -63,7 +63,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
     }
 
     private void hienThiTatCaDRL() throws ClassNotFoundException {
-        SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+        SinhVienModel sv = SinhVienCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
         if (sv != null) {
             dsDiemRenLuyen = DiemRenLuyenCtrl.timTatCaDiemCuaSV(sv.getMaSinhVien());
             tableModel.setRowCount(0);
@@ -102,7 +102,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
     private void timKiemDanhSachDRL() {
         try {
-            SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+            SinhVienModel sv = SinhVienCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
             if (cmbTKNamHoc.getSelectedItem() != null && sv != null) {
                 String lop = sv.getMaLop();
                 String tuKhoa = sv.getMaSinhVien();

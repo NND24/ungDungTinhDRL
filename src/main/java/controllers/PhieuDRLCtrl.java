@@ -87,7 +87,7 @@ public class PhieuDRLCtrl {
                 dsPhieu.add(phieu);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsPhieu;
     }
@@ -106,7 +106,7 @@ public class PhieuDRLCtrl {
             statement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -120,7 +120,7 @@ public class PhieuDRLCtrl {
             statement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -133,7 +133,7 @@ public class PhieuDRLCtrl {
             statement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -147,7 +147,7 @@ public class PhieuDRLCtrl {
             statement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -161,7 +161,7 @@ public class PhieuDRLCtrl {
             statement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -222,7 +222,7 @@ public class PhieuDRLCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
@@ -242,7 +242,7 @@ public class PhieuDRLCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }

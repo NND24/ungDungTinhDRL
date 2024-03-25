@@ -10,11 +10,11 @@ import javax.swing.table.DefaultTableModel;
 import models.DiemRenLuyenModel;
 import models.NamHocModel;
 import models.PhieuDRLModel;
-import models.SinhVienTestModel;
+import models.SinhVienModel;
 import controllers.DiemRenLuyenCtrl;
 import controllers.NamHocCtrl;
 import controllers.PhieuDRLCtrl;
-import controllers.SinhVienTestCtrl;
+import controllers.SinhVienCtrl;
 import java.time.ZoneId;
 import views.main.DangNhap;
 import views.main.FormChamDiemBCS;
@@ -87,7 +87,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }
 
     private void hienThiDRLHienTai() throws ClassNotFoundException {
-        SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+        SinhVienModel sv = SinhVienCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
         if (sv != null) {
             LocalDate currentDate = LocalDate.now();
             int currentMonth = currentDate.getMonthValue();
@@ -127,7 +127,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     private void timKiemDanhSachDRL() {
         try {
-            SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+            SinhVienModel sv = SinhVienCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
             if (cmbTKNamHoc.getSelectedItem() != null && sv != null) {
                 String lop = sv.getMaLop();
                 String tuKhoa = txtTimKiem.getText();

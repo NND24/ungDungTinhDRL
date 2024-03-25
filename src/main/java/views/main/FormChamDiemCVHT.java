@@ -6,10 +6,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
 import models.DiemRenLuyenModel;
-import models.CoVanTestModel;
+import models.CoVanModel;
 import models.PhieuDRLModel;
 import controllers.DiemRenLuyenCtrl;
-import controllers.CoVanTestCtrl;
+import controllers.CoVanCtrl;
 import controllers.PhieuDRLCtrl;
 import utils.DialogHelper;
 import utils.Validator;
@@ -1778,15 +1778,15 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1016, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1006, Short.MAX_VALUE)
                 .addComponent(btnDuyet, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(50, 50, 50))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addComponent(btnDuyet, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDuyet, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -2850,7 +2850,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
 
                 String nguoiCham = "CoVan";
                 String trangThaiCham = "Cố vấn đã chấm";
-                CoVanTestModel cv = CoVanTestCtrl.timCoVanTheoTenDangNhap(DangNhap.username);
+                CoVanModel cv = CoVanCtrl.timCoVanTheoTenDangNhap(DangNhap.username);
                 String maCoVanCham = cv.getMaCoVan();
 
                 float bcs1 = Float.parseFloat(bcs1TextField.getText());

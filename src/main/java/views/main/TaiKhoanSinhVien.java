@@ -4,8 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import models.SinhVienTestModel;
-import controllers.SinhVienTestCtrl;
+import models.SinhVienModel;
+import controllers.SinhVienCtrl;
 import controllers.TaiKhoanCtrl;
 import utils.DialogHelper;
 import utils.Validator;
@@ -24,10 +24,10 @@ public class TaiKhoanSinhVien extends javax.swing.JPanel {
 
     private void hienThiThongTin() {
         try {
-            SinhVienTestModel sinhVien = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(tenDangNhap);
+            SinhVienModel sinhVien = SinhVienCtrl.timSinhVienTheoTenDangNhap(tenDangNhap);
             if (sinhVien != null) {
                 txtMaSinhVien.setText(sinhVien.getMaSinhVien());
-                maTaiKhoan = SinhVienTestCtrl.layMaTaiKhoanSV(sinhVien.getMaSinhVien());
+                maTaiKhoan = SinhVienCtrl.layMaTaiKhoanSV(sinhVien.getMaSinhVien());
 
                 HoTenTextField.setText(sinhVien.getHoTen());
                 ngaySinhTextField.setText(dateFormat.format(sinhVien.getNgaySinh()));
@@ -579,7 +579,7 @@ public class TaiKhoanSinhVien extends javax.swing.JPanel {
             String queQuan = queQuanTextField.getText();
             String chucVu = txtChucVu.getText();
 
-            SinhVienTestModel sv = new SinhVienTestModel(maSinhVien, maLop, hoTen, chucVu, idGioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
+            SinhVienModel sv = new SinhVienModel(maSinhVien, maLop, hoTen, chucVu, idGioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
             if (hoTen.isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
             } else if (ngaySinhTextField.getText().isEmpty()) {
@@ -590,17 +590,17 @@ public class TaiKhoanSinhVien extends javax.swing.JPanel {
                 DialogHelper.showError("Số điện không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-            } else if (SinhVienTestCtrl.kiemTraSoDienThoaiTrung(maSinhVien, soDienThoai)) {
+            } else if (SinhVienCtrl.kiemTraSoDienThoaiTrung(maSinhVien, soDienThoai)) {
                 DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (canCuoc.isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else if (SinhVienTestCtrl.kiemTraCanCuocTrung(maSinhVien, canCuoc)) {
+            } else if (SinhVienCtrl.kiemTraCanCuocTrung(maSinhVien, canCuoc)) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 try {
-                    SinhVienTestCtrl.capNhatSinhVien(sv);
+                    SinhVienCtrl.capNhatSinhVien(sv);
                     DialogHelper.showMessage("Thay đổi thông tin thành công!");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);

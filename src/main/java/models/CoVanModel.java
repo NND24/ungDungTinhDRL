@@ -2,13 +2,13 @@ package models;
 
 import java.sql.Date;
 
-public class CoVanTestModel {
+public class CoVanModel {
 
     private String maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa;
     private int gioiTinh, daNghi;
     private Date ngaySinh;
 
-    public CoVanTestModel(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh, int daNghi) {
+    public CoVanModel(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh, int daNghi) {
         this.maCoVan = maCoVan;
         this.hoTen = hoTen;
         this.email = email;
@@ -24,7 +24,7 @@ public class CoVanTestModel {
         this.daNghi = daNghi;
     }
 
-    public CoVanTestModel(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh) {
+    public CoVanModel(String maCoVan, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh) {
         this.maCoVan = maCoVan;
         this.hoTen = hoTen;
         this.email = email;
@@ -39,7 +39,7 @@ public class CoVanTestModel {
         this.ngaySinh = ngaySinh;
     }
 
-    public CoVanTestModel(String maCoVan, String maTaiKhoan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh, int daNghi) {
+    public CoVanModel(String maCoVan, String maTaiKhoan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh, int daNghi) {
         this.maCoVan = maCoVan;
         this.maTaiKhoan = maTaiKhoan;
         this.tenKhoa = tenKhoa;
@@ -57,7 +57,7 @@ public class CoVanTestModel {
         this.daNghi = daNghi;
     }
 
-    public CoVanTestModel(String maCoVan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh, int daNghi) {
+    public CoVanModel(String maCoVan, String tenKhoa, String hoTen, String email, String soDienThoai, String canCuoc, String queQuan, String hocVi, String hocHam, String chuyenMon, String maKhoa, int gioiTinh, Date ngaySinh, int daNghi) {
         this.maCoVan = maCoVan;
         this.tenKhoa = tenKhoa;
         this.hoTen = hoTen;

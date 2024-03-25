@@ -43,7 +43,7 @@ public class PhanCongCtrl {
                 dsDiemRenLuyen.add(drl);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsDiemRenLuyen;
     }
@@ -72,7 +72,7 @@ public class PhanCongCtrl {
                 dsNamHoc.add(nh);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsNamHoc;
     }
@@ -99,7 +99,7 @@ public class PhanCongCtrl {
                 dsPhanCong.add(drl);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsPhanCong;
     }
@@ -187,7 +187,7 @@ public class PhanCongCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }

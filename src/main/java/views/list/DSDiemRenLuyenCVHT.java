@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import models.CoVanTestModel;
+import models.CoVanModel;
 import models.DiemRenLuyenModel;
 import models.NamHocModel;
 import models.PhieuDRLModel;
-import controllers.CoVanTestCtrl;
+import controllers.CoVanCtrl;
 import controllers.DiemRenLuyenCtrl;
 import controllers.PhanCongCtrl;
 import controllers.PhieuDRLCtrl;
@@ -37,6 +37,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         initComponents();
         tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
         hienThiDSLopPhanCong();
+        cmbTKHocKy.setSelectedItem("---Học kỳ---");
     }
 
     private void hienThiDSLopPhanCong() {
@@ -650,7 +651,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
                     try {
                         DiemRenLuyenModel diemRenLuyenBCS = DiemRenLuyenCtrl.timDRLDayDu(drl.getMaSinhVien(), hocKy, namHoc, "BanCanSu");
                         String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(diemRenLuyenBCS.getMaSinhVien(), diemRenLuyenBCS.getHocKy(), diemRenLuyenBCS.getNamHoc());
-                        CoVanTestModel cv = CoVanTestCtrl.timCoVanTheoTenDangNhap(DangNhap.username);
+                        CoVanModel cv = CoVanCtrl.timCoVanTheoTenDangNhap(DangNhap.username);
                         String maCoVanCham = cv.getMaCoVan();
                         String trangThaiCham = "Cố vấn đã chấm";
                         String xepLoai = "";

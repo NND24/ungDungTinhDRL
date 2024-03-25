@@ -1,17 +1,17 @@
 package models;
 
-public class KhoaTestModel {
+public class KhoaModel {
 
     private String maKhoa, tenKhoa;
     private int trangThaiHienThi;
 
-    public KhoaTestModel(String maKhoa, String tenKhoa, int trangThaiHienThi) {
+    public KhoaModel(String maKhoa, String tenKhoa, int trangThaiHienThi) {
         this.maKhoa = maKhoa;
         this.tenKhoa = tenKhoa;
         this.trangThaiHienThi = trangThaiHienThi;
     }
 
-    public KhoaTestModel(String tenKhoa, int trangThaiHienThi) {
+    public KhoaModel(String tenKhoa, int trangThaiHienThi) {
         this.tenKhoa = tenKhoa;
         this.trangThaiHienThi = trangThaiHienThi;
     }

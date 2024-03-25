@@ -48,14 +48,14 @@ public class QuanLy extends javax.swing.JFrame {
                         LayeredPane.repaint();
                         LayeredPane.revalidate();
                     } else if (subIndex == 3) {
-                        new DSKhoaTest().setVisible(true);
-                        new DSKhoaTest().setAlwaysOnTop(true);
+                        new DSKhoa().setVisible(true);
+                        new DSKhoa().setAlwaysOnTop(true);
                     } else if (subIndex == 4) {
                         new DSNganh().setVisible(true);
                         new DSNganh().setAlwaysOnTop(true);
                     } else if (subIndex == 5) {
-                        new DSLopTest().setVisible(true);
-                        new DSLopTest().setAlwaysOnTop(true);
+                        new DSLop().setVisible(true);
+                        new DSLop().setAlwaysOnTop(true);
                     } else if (subIndex == 6) {
                         new DSNamHoc().setVisible(true);
                         new DSNamHoc().setAlwaysOnTop(true);
@@ -132,9 +132,9 @@ public class QuanLy extends javax.swing.JFrame {
         taoPhieuDRLPanel = new javax.swing.JTabbedPane();
         taoPhieuDRL1 = new views.main.TaoPhieuDRL();
         dsSinhVienPanel = new javax.swing.JTabbedPane();
-        dSSinhVienTest2 = new views.list.DSSinhVienTest();
+        dSSinhVienTest2 = new views.list.DSSinhVien();
         dsCoVanPanel = new javax.swing.JTabbedPane();
-        dSCoVanTest1 = new views.list.DSCoVanTest();
+        dSCoVanTest1 = new views.list.DSCoVan();
         dsQuanLyPanel = new javax.swing.JTabbedPane();
         dSQuanLy2 = new views.list.DSQuanLy();
         header = new javax.swing.JPanel();
@@ -340,10 +340,10 @@ public class QuanLy extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane LayeredPane;
-    private views.list.DSCoVanTest dSCoVanTest1;
+    private views.list.DSCoVan dSCoVanTest1;
     private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong1;
     private views.list.DSQuanLy dSQuanLy2;
-    private views.list.DSSinhVienTest dSSinhVienTest2;
+    private views.list.DSSinhVien dSSinhVienTest2;
     private javax.swing.JTabbedPane dsCoVanPanel;
     private javax.swing.JTabbedPane dsDiemToanTruongPanel;
     private javax.swing.JTabbedPane dsQuanLyPanel;

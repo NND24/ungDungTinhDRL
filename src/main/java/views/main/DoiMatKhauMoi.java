@@ -152,7 +152,7 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
         // TODO add your handling code here:
-        String accountId = VerifyCode.maTaiKhoan;
+        String accountId = MaXacNhan.maTaiKhoan;
 
         char[] newPasswordChars = txtMatKhauMoi.getPassword();
         String newPassword = String.valueOf(newPasswordChars);

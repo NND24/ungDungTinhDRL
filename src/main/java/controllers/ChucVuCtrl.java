@@ -39,7 +39,7 @@ public class ChucVuCtrl {
                 dsChucVu.add(chuVu);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsChucVu;
     }
@@ -53,7 +53,7 @@ public class ChucVuCtrl {
 
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -66,7 +66,7 @@ public class ChucVuCtrl {
 
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -112,7 +112,7 @@ public class ChucVuCtrl {
         }
     }
 
-    public static boolean kiemTraMaChuVuDaTonTai(String maChucVu) throws ClassNotFoundException {
+    public static boolean kiemTraMaChucVuDaTonTai(String maChucVu) throws ClassNotFoundException {
         String sql = """
                  SELECT MaChucVu FROM ChucVu
                  WHERE MaChucVu=?
@@ -126,7 +126,27 @@ public class ChucVuCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+
+    public static boolean kiemTraChucVuDaSuDung(String maChucVu) throws ClassNotFoundException {
+        String sql = """
+                 SELECT DISTINCT ChucVu.MaChucVu FROM ChucVu
+                 JOIN TaiKhoan ON TaiKhoan.MaChucVu=ChucVu.MaChucVu
+                 WHERE ChucVu.MaChucVu=?
+                 """;
+        boolean flag = false;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, maChucVu);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }

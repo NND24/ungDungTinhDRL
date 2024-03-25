@@ -6,20 +6,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.DiemRenLuyenModel;
-import models.KhoaTestModel;
-import models.LopModelTest;
+import models.KhoaModel;
+import models.LopModel;
 import models.NamHocModel;
 import controllers.DiemRenLuyenCtrl;
-import controllers.LopTestCtrl;
-import controllers.KhoaCtrlTest;
+import controllers.LopCtrl;
+import controllers.KhoaCtrl;
 import controllers.NamHocCtrl;
 
 public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
     private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
-    private List<LopModelTest> dsLop = new ArrayList<>();
-    private List<KhoaTestModel> dsKhoa = new ArrayList<>();
+    private List<LopModel> dsLop = new ArrayList<>();
+    private List<KhoaModel> dsKhoa = new ArrayList<>();
     private List<NamHocModel> dsNamHoc = new ArrayList<>();
 
     public DSDiemRenLuyenToanTruong() {
@@ -33,7 +33,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     private void hienThiDSLop(String maKhoa) {
         try {
-            dsLop = LopTestCtrl.timLopTheoKhoa(maKhoa);
+            dsLop = LopCtrl.timLopTheoKhoa(maKhoa);
             cmbTKLop.removeAllItems();
             cmbTKLop.addItem("---Lớp---");
             dsLop.forEach(lop -> {
@@ -46,7 +46,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     private void hienThiDSKhoa() {
         try {
-            dsKhoa = KhoaCtrlTest.timTatCaKhoaHienThi();
+            dsKhoa = KhoaCtrl.timTatCaKhoaHienThi();
             cmbTKKhoa.removeAllItems();
             dsKhoa.forEach(khoa -> {
                 cmbTKKhoa.addItem(khoa.getMaKhoa());
@@ -331,7 +331,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel29.setText("Học kỳ");
 
-        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
+        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Học kỳ---", "1", "2" }));
         cmbTKHocKy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKHocKyActionPerformed(evt);

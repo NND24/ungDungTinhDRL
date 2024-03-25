@@ -169,7 +169,7 @@ public class QuenMatKhau extends javax.swing.JFrame {
                     SendEmail.sendEmail(verifyCode, email);
                     userName = tenDangNhap;
 
-                    new VerifyCode().setVisible(true);
+                    new MaXacNhan().setVisible(true);
                     this.setVisible(false);
                 } catch (MessagingException | UnsupportedEncodingException ex) {
                     Logger.getLogger(QuenMatKhau.class.getName()).log(Level.SEVERE, null, ex);

@@ -39,7 +39,7 @@ public class NamHocCtrl {
                 dsNamHoc.add(namHoc);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsNamHoc;
     }
@@ -63,7 +63,7 @@ public class NamHocCtrl {
                 dsNamHoc.add(namHoc);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsNamHoc;
     }
@@ -76,7 +76,7 @@ public class NamHocCtrl {
 
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -89,36 +89,58 @@ public class NamHocCtrl {
 
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(LopTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LopCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static void xoaNamHoc(String maNamHoc) throws ClassNotFoundException, SQLException {
+    public static void xoaNamHoc(int maNamHoc) throws ClassNotFoundException, SQLException {
         String sql = "DELETE FROM NamHoc WHERE MaNamHoc=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, maNamHoc);
+            statement.setInt(1, maNamHoc);
             statement.executeUpdate();
         }
     }
 
-    public static boolean kiemTraNamHocDaDuocSuDung(String maNamHoc) throws ClassNotFoundException {
+    public static boolean kiemTraNamHocDaDuocSuDung(int maNamHoc) throws ClassNotFoundException {
         boolean flag = false;
         String sql = """
                      SELECT NamHoc.MaNamHoc FROM NamHoc
-                     LEFT JOIN PhieuDRL ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
-                     LEFT JOIN PhanCong ON PhanCong.MaNamHoc=NamHoc.MaNamHoc
+                     JOIN PhieuDRL ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     WHERE NamHoc.MaNamHoc=?
+                     UNION
+                     SELECT NamHoc.MaNamHoc FROM NamHoc
+                     JOIN PhanCong ON PhanCong.MaNamHoc=NamHoc.MaNamHoc
                      WHERE NamHoc.MaNamHoc=?
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-
-            statement.setString(1, maNamHoc);
+            statement.setInt(1, maNamHoc);
+            statement.setInt(2, maNamHoc);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+
+    public static boolean kiemTraNamHocTrung(String namHoc) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT MaNamHoc FROM NamHoc
+                     WHERE NamHoc=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, namHoc);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }

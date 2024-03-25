@@ -14,6 +14,7 @@ public class DSNamHoc extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
     private List<NamHocModel> dsNamHoc;
+    private String namHocTam;
 
     public DSNamHoc() {
         initComponents();
@@ -39,7 +40,7 @@ public class DSNamHoc extends javax.swing.JFrame {
                     namHoc.getMaNamHoc(), namHoc.getNamHoc(), trangThai});
             });
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -57,10 +58,6 @@ public class DSNamHoc extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmbTrangThaiHienThi = new javax.swing.JComboBox<>();
-        btnThem = new javax.swing.JButton();
-        btnXoa = new javax.swing.JButton();
-        btnSua = new javax.swing.JButton();
-        btnLamMoi = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDSNamHoc = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
@@ -68,6 +65,11 @@ public class DSNamHoc extends javax.swing.JFrame {
         txtNamHoc = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtMaNamHoc = new javax.swing.JTextField();
+        pnlNutLenh = new javax.swing.JPanel();
+        btnThem = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
+        btnSua = new javax.swing.JButton();
+        btnLamMoi = new javax.swing.JButton();
         btnXuat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -82,58 +84,6 @@ public class DSNamHoc extends javax.swing.JFrame {
         jLabel2.setText("Trạng thái");
 
         cmbTrangThaiHienThi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ẩn", "Hiển thị" }));
-
-        btnThem.setBackground(new java.awt.Color(0, 102, 255));
-        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnThem.setForeground(new java.awt.Color(255, 255, 255));
-        btnThem.setText("Thêm");
-        btnThem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnThem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnThem.setPreferredSize(new java.awt.Dimension(70, 30));
-        btnThem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemActionPerformed(evt);
-            }
-        });
-
-        btnXoa.setBackground(new java.awt.Color(0, 102, 255));
-        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnXoa.setForeground(new java.awt.Color(255, 255, 255));
-        btnXoa.setText("Xóa");
-        btnXoa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnXoa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnXoa.setPreferredSize(new java.awt.Dimension(70, 30));
-        btnXoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoaActionPerformed(evt);
-            }
-        });
-
-        btnSua.setBackground(new java.awt.Color(0, 102, 255));
-        btnSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSua.setForeground(new java.awt.Color(255, 255, 255));
-        btnSua.setText("Sửa");
-        btnSua.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSua.setPreferredSize(new java.awt.Dimension(70, 30));
-        btnSua.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuaActionPerformed(evt);
-            }
-        });
-
-        btnLamMoi.setBackground(new java.awt.Color(0, 102, 255));
-        btnLamMoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
-        btnLamMoi.setText("Làm mới");
-        btnLamMoi.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnLamMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLamMoi.setPreferredSize(new java.awt.Dimension(80, 30));
-        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLamMoiActionPerformed(evt);
-            }
-        });
 
         tblDSNamHoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -185,6 +135,65 @@ public class DSNamHoc extends javax.swing.JFrame {
 
         txtMaNamHoc.setEditable(false);
 
+        pnlNutLenh.setBackground(new java.awt.Color(255, 255, 255));
+        pnlNutLenh.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 10));
+
+        btnThem.setBackground(new java.awt.Color(0, 102, 255));
+        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
+        btnThem.setText("Thêm");
+        btnThem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnThem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnThem.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(btnThem);
+
+        btnXoa.setBackground(new java.awt.Color(0, 102, 255));
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXoa.setForeground(new java.awt.Color(255, 255, 255));
+        btnXoa.setText("Xóa");
+        btnXoa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXoa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXoa.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(btnXoa);
+
+        btnSua.setBackground(new java.awt.Color(0, 102, 255));
+        btnSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSua.setForeground(new java.awt.Color(255, 255, 255));
+        btnSua.setText("Sửa");
+        btnSua.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSua.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(btnSua);
+
+        btnLamMoi.setBackground(new java.awt.Color(0, 102, 255));
+        btnLamMoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
+        btnLamMoi.setText("Làm mới");
+        btnLamMoi.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLamMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLamMoi.setPreferredSize(new java.awt.Dimension(80, 30));
+        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLamMoiActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(btnLamMoi);
+
         btnXuat.setBackground(new java.awt.Color(0, 102, 255));
         btnXuat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnXuat.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,34 +206,30 @@ public class DSNamHoc extends javax.swing.JFrame {
                 btnXuatActionPerformed(evt);
             }
         });
+        pnlNutLenh.add(btnXuat);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
-            .addComponent(jScrollPane1)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(68, 68, 68)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbTrangThaiHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMaNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35))
+                    .addComponent(txtMaNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(pnlNutLenh, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,14 +246,9 @@ public class DSNamHoc extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cmbTrangThaiHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(15, 15, 15)
+                .addComponent(pnlNutLenh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -259,7 +259,7 @@ public class DSNamHoc extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
@@ -283,6 +283,8 @@ public class DSNamHoc extends javax.swing.JFrame {
                 DialogHelper.showError("Năm học không được bỏ trống");
             } else if (!Validator.kiemTraNamHoc(namHoc)) {
                 DialogHelper.showError("Năm học không đúng định dạng");
+            } else if (NamHocCtrl.kiemTraNamHocTrung(namHoc)) {
+                DialogHelper.showError("Năm học đã tồn tại. Vui lòng nhập mới");
             } else {
                 NamHocModel nh = new NamHocModel(namHoc, trangThai);
                 NamHocCtrl.themNamHoc(nh);
@@ -297,7 +299,7 @@ public class DSNamHoc extends javax.swing.JFrame {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa năm học này?")) {
             try {
-                String maNamHoc = txtMaNamHoc.getText();
+                int maNamHoc = Integer.parseInt(txtMaNamHoc.getText());
                 if (NamHocCtrl.kiemTraNamHocDaDuocSuDung(maNamHoc)) {
                     DialogHelper.showError("Năm học đã được sử dụng không thể xóa");
                 } else {
@@ -307,7 +309,7 @@ public class DSNamHoc extends javax.swing.JFrame {
                     DialogHelper.showMessage("Xóa năm học thành công");
                 }
             } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_btnXoaActionPerformed
@@ -323,6 +325,8 @@ public class DSNamHoc extends javax.swing.JFrame {
                     DialogHelper.showError("Năm học không được bỏ trống");
                 } else if (!Validator.kiemTraNamHoc(namHoc)) {
                     DialogHelper.showError("Năm học không đúng định dạng");
+                } else if (!namHoc.equals(namHocTam) && NamHocCtrl.kiemTraNamHocDaDuocSuDung(maNamHoc)) {
+                    DialogHelper.showError("Năm học đã được sử dụng không thể sửa năm học");
                 } else {
                     NamHocModel nh = new NamHocModel(maNamHoc, namHoc, trangThai);
                     NamHocCtrl.capNhatNamHoc(nh);
@@ -342,6 +346,7 @@ public class DSNamHoc extends javax.swing.JFrame {
 
             txtMaNamHoc.setText(Integer.toString(namHoc.getMaNamHoc()));
             txtNamHoc.setText(namHoc.getNamHoc());
+            namHocTam = namHoc.getNamHoc();
             cmbTrangThaiHienThi.setSelectedIndex(namHoc.getTrangThaiHienThi());
         }
     }//GEN-LAST:event_tblDSNamHocMouseClicked
@@ -378,6 +383,7 @@ public class DSNamHoc extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel pnlNutLenh;
     private javax.swing.JTable tblDSNamHoc;
     private javax.swing.JTextField txtMaNamHoc;
     private javax.swing.JTextField txtNamHoc;

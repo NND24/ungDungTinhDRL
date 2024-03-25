@@ -235,7 +235,7 @@ public class TaiKhoanCtrl {
             statement.setString(2, maTaiKhoan);
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

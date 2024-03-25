@@ -12,15 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import models.CoVanTestModel;
+import models.CoVanModel;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class CoVanTestCtrl {
+public class CoVanCtrl {
 
-    public static void themCoVan(CoVanTestModel coVan) throws ClassNotFoundException {
+    public static void themCoVan(CoVanModel coVan) throws ClassNotFoundException {
         String sql = "INSERT INTO CoVan (MaCoVan, MaTaiKhoan, MaKhoa, HoTen, Email, NgaySinh, GioiTinh, SoDienThoai, CanCuoc, QueQuan, HocVi, HocHam, ChuyenMon, DaNghi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -41,12 +41,12 @@ public class CoVanTestCtrl {
 
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CoVanTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoVanCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static List<CoVanTestModel> timTatCaCoVan() throws ClassNotFoundException {
-        List<CoVanTestModel> dsCoVan = new ArrayList<>();
+    public static List<CoVanModel> timTatCaCoVan() throws ClassNotFoundException {
+        List<CoVanModel> dsCoVan = new ArrayList<>();
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
@@ -54,7 +54,7 @@ public class CoVanTestCtrl {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                CoVanTestModel coVan = new CoVanTestModel(
+                CoVanModel coVan = new CoVanModel(
                         resultSet.getString("MaCoVan"),
                         resultSet.getString("TenKhoa"),
                         resultSet.getString("HoTen"),
@@ -73,13 +73,13 @@ public class CoVanTestCtrl {
                 dsCoVan.add(coVan);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CoVanTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoVanCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsCoVan;
     }
 
-    public static List<CoVanTestModel> timTatCaCoVanConLam() throws ClassNotFoundException {
-        List<CoVanTestModel> dsCoVan = new ArrayList<>();
+    public static List<CoVanModel> timTatCaCoVanConLam() throws ClassNotFoundException {
+        List<CoVanModel> dsCoVan = new ArrayList<>();
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
@@ -87,7 +87,7 @@ public class CoVanTestCtrl {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                CoVanTestModel coVan = new CoVanTestModel(
+                CoVanModel coVan = new CoVanModel(
                         resultSet.getString("MaCoVan"),
                         resultSet.getString("TenKhoa"),
                         resultSet.getString("HoTen"),
@@ -106,12 +106,12 @@ public class CoVanTestCtrl {
                 dsCoVan.add(coVan);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CoVanTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoVanCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsCoVan;
     }
 
-    public static CoVanTestModel timCoVanTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
+    public static CoVanModel timCoVanTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
         String sql = """
                      SELECT MaCoVan, Khoa.TenKhoa, Khoa.MaKhoa, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghi, HocVi, HocHam, ChuyenMon
                      FROM CoVan
@@ -119,14 +119,14 @@ public class CoVanTestCtrl {
                      JOIN TaiKhoan ON TaiKhoan.MaTaiKhoan=CoVan.MaTaiKhoan
                      AND TenDangNhap=?
                      """;
-        CoVanTestModel coVan = null;
+        CoVanModel coVan = null;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, tenDangNhap);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                CoVanTestModel cv = new CoVanTestModel(
+                CoVanModel cv = new CoVanModel(
                         resultSet.getString("MaCoVan"),
                         resultSet.getString("TenKhoa"),
                         resultSet.getString("HoTen"),
@@ -145,13 +145,13 @@ public class CoVanTestCtrl {
                 coVan = cv;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return coVan;
     }
 
-    public static List<CoVanTestModel> timKiemCoVan(String tuKhoa, String khoa) throws ClassNotFoundException {
-        List<CoVanTestModel> dsCoVan = new ArrayList<>();
+    public static List<CoVanModel> timKiemCoVan(String tuKhoa, String khoa) throws ClassNotFoundException {
+        List<CoVanModel> dsCoVan = new ArrayList<>();
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(
                 """
                 SELECT MaCoVan, Khoa.TenKhoa, Khoa.MaKhoa, HoTen, Email,  GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghi, HocVi, HocHam, ChuyenMon
@@ -169,7 +169,7 @@ public class CoVanTestCtrl {
             }
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    CoVanTestModel cv = new CoVanTestModel(
+                    CoVanModel cv = new CoVanModel(
                             resultSet.getString("MaCoVan"),
                             resultSet.getString("TenKhoa"),
                             resultSet.getString("HoTen"),
@@ -189,12 +189,12 @@ public class CoVanTestCtrl {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsCoVan;
     }
 
-    public static void capNhatCoVan(CoVanTestModel coVan) {
+    public static void capNhatCoVan(CoVanModel coVan) {
         String sql = "UPDATE CoVan SET HoTen=?, Email=?, NgaySinh=?, GioiTinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=?, HocVi=?, HocHam=?, ChuyenMon=?, MaKhoa=?, DaNghi=? WHERE MaCoVan=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, coVan.getHoTen());
@@ -213,7 +213,7 @@ public class CoVanTestCtrl {
 
             statement.executeUpdate();
         } catch (Exception ex) {
-            Logger.getLogger(CoVanTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoVanCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -241,7 +241,7 @@ public class CoVanTestCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
@@ -262,7 +262,7 @@ public class CoVanTestCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
@@ -283,7 +283,7 @@ public class CoVanTestCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
@@ -304,7 +304,7 @@ public class CoVanTestCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
@@ -321,7 +321,7 @@ public class CoVanTestCtrl {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return maTaiKhoan;
@@ -345,12 +345,12 @@ public class CoVanTestCtrl {
                 maCV = resultSet.getInt("MaCoVan");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return maCV;
     }
 
-    public static void xuatFileExcel(List<CoVanTestModel> dsCoVan, String filePath) {
+    public static void xuatFileExcel(List<CoVanModel> dsCoVan, String filePath) {
         try (Workbook workbook = new XSSFWorkbook()) {
             Sheet sheet = workbook.createSheet("DanhSachCoVan");
 
@@ -371,7 +371,7 @@ public class CoVanTestCtrl {
 
             // Ghi dữ liệu vào sheet
             int rowNum = 1;
-            for (CoVanTestModel coVan : dsCoVan) {
+            for (CoVanModel coVan : dsCoVan) {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(coVan.getMaCoVan());
                 row.createCell(1).setCellValue(coVan.getHoTen());

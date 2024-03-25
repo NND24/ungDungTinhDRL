@@ -6,11 +6,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
 import models.DiemRenLuyenModel;
-import models.SinhVienTestModel;
+import models.SinhVienModel;
 import models.PhieuDRLModel;
 import controllers.DiemRenLuyenCtrl;
 import controllers.PhieuDRLCtrl;
-import controllers.SinhVienTestCtrl;
+import controllers.SinhVienCtrl;
 import utils.DialogHelper;
 import utils.Validator;
 
@@ -1835,11 +1835,11 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 825, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 815, Short.MAX_VALUE)
                 .addComponent(btnDienDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(50, 50, 50))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2913,7 +2913,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
 
                 String nguoiCham = "BanCanSu";
                 String trangThaiCham = "Ban cán sự đã chấm";
-                SinhVienTestModel sv = SinhVienTestCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+                SinhVienModel sv = SinhVienCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
                 String maBanCanSuCham = sv.getMaSinhVien();
 
                 float bcs1 = Float.parseFloat(bcs1TextField.getText());

@@ -1,15 +1,15 @@
 package models;
 
-public class LopModelTest {
+public class LopModel {
 
     private String maLop, maNganh, tenNganh, khoa;
     private int trangThaiHienThi;
 
-    public LopModelTest(String maLop) {
+    public LopModel(String maLop) {
         this.maLop = maLop;
     }
 
-    public LopModelTest(String maLop, String maNganh, String tenNganh, String khoa, int trangThaiHienThi) {
+    public LopModel(String maLop, String maNganh, String tenNganh, String khoa, int trangThaiHienThi) {
         this.maLop = maLop;
         this.maNganh = maNganh;
         this.tenNganh = tenNganh;

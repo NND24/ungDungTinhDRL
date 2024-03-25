@@ -4,7 +4,7 @@
  */
 package views.list;
 
-import controllers.KhoaCtrlTest;
+import controllers.KhoaCtrl;
 import controllers.NganhCtrl;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,20 +24,19 @@ public class DSNganh extends javax.swing.JFrame {
     /**
      * Creates new form DSNganh
      */
-    
     DefaultTableModel tableModel;
     List<NganhModel> dsNganh;
     ArrayList<String> dsMaKhoa;
     int countMaKhoa;
-    
+
     public DSNganh() {
         initComponents();
         tableModel = (DefaultTableModel) tblDSNganh.getModel();
-        
+
         hienThiDSKhoa();
         hienThiDSNganh();
     }
-    
+
     private void hienThiDSKhoa() {
         try {
             dsMaKhoa = NganhCtrl.timTatCaMaKhoa();
@@ -47,10 +46,10 @@ public class DSNganh extends javax.swing.JFrame {
                 cmbMaKhoa.addItem(item);
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void hienThiDSNganh() {
         try {
             dsNganh = NganhCtrl.timTatCaNganh();
@@ -68,17 +67,17 @@ public class DSNganh extends javax.swing.JFrame {
                     nganh.getMaNganh(), nganh.getTenNganh(), nganh.getMaKhoa(), trangThai});
             });
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void lamMoi() {
         txtMaNganh.setText("");
         txtTenNganh.setText("");
         cmbTrangThaiHienThi.setSelectedIndex(1);
         txtMaNganh.setEnabled(true);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,6 +101,7 @@ public class DSNganh extends javax.swing.JFrame {
         btnXoa = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
         btnLamMoi = new javax.swing.JButton();
+        btnXuat = new javax.swing.JButton();
         pnlDSNganh = new javax.swing.JPanel();
         pnlTieuDe = new javax.swing.JPanel();
         lblDanhSachKhoa = new javax.swing.JLabel();
@@ -112,12 +112,16 @@ public class DSNganh extends javax.swing.JFrame {
 
         pnlChiTiet.setBackground(new java.awt.Color(255, 255, 255));
 
+        lblMaNganh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblMaNganh.setText("Mã ngành");
 
+        lblTenNganh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblTenNganh.setText("Tên ngành");
 
-        lblMaKhoa.setText("Mã khoa");
+        lblMaKhoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblMaKhoa.setText("Ma khoa");
 
+        lblTrangThai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblTrangThai.setText("Trạng thái hiển thị");
 
         txtMaNganh.addActionListener(new java.awt.event.ActionListener() {
@@ -146,16 +150,16 @@ public class DSNganh extends javax.swing.JFrame {
                 .addGroup(pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMaNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTenNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMaKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addComponent(lblMaKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTrangThai))
+                .addGap(39, 39, 39)
                 .addGroup(pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cmbMaKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtMaNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtTenNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbTrangThaiHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         pnlChiTietLayout.setVerticalGroup(
             pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,6 +252,23 @@ public class DSNganh extends javax.swing.JFrame {
         });
         pnlNutLenh.add(btnLamMoi);
 
+        btnXuat.setBackground(new java.awt.Color(0, 102, 255));
+        btnXuat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXuat.setForeground(new java.awt.Color(255, 255, 255));
+        btnXuat.setText("Xuất");
+        btnXuat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuat.setBorderPainted(false);
+        btnXuat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXuat.setMaximumSize(new java.awt.Dimension(44, 26));
+        btnXuat.setMinimumSize(new java.awt.Dimension(44, 26));
+        btnXuat.setPreferredSize(new java.awt.Dimension(80, 30));
+        btnXuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(btnXuat);
+
         lblDanhSachKhoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblDanhSachKhoa.setText("DANH SÁCH NGÀNH");
 
@@ -303,8 +324,7 @@ public class DSNganh extends javax.swing.JFrame {
             .addGroup(pnlDSNganhLayout.createSequentialGroup()
                 .addComponent(pnlTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(scrDSNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(scrDSNganh, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -313,7 +333,9 @@ public class DSNganh extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlDSNganh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlNutLenh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlNutLenh, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,7 +344,7 @@ public class DSNganh extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlNutLenh, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(pnlDSNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 199, Short.MAX_VALUE))
+                .addComponent(pnlDSNganh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -355,7 +377,7 @@ public class DSNganh extends javax.swing.JFrame {
                 hienThiDSNganh();
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
@@ -376,6 +398,7 @@ public class DSNganh extends javax.swing.JFrame {
                 NganhModel nganh = new NganhModel(maNganh, maKhoa, tenNganh, trangThai);
                 NganhCtrl.capNhatNganh(nganh);
                 DialogHelper.showMessage("Cập nhật ngành thành công!");
+                lamMoi();
                 hienThiDSNganh();
                 txtMaNganh.setEnabled(true);
             }
@@ -397,17 +420,23 @@ public class DSNganh extends javax.swing.JFrame {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
         String maNganh = txtMaNganh.getText();
-        boolean flag = DialogHelper.showConfirmation("Bạn có chắc muốn xóa ngành này");
-
-        if (flag) {
+        if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa ngành này")) {
             try {
-                NganhCtrl.xoaNganh(maNganh);
-                hienThiDSNganh();
-                lamMoi();
-                DialogHelper.showMessage("Xóa ngành thành công");
-                txtMaNganh.setEnabled(true);
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(DSLopTest.class.getName()).log(Level.SEVERE, null, ex);
+                if (NganhCtrl.kiemTraNganhDaDuocSuDung(maNganh)) {
+                    DialogHelper.showError("Ngành đã có lớp không thể xóa!");
+                } else {
+                    try {
+                        NganhCtrl.xoaNganh(maNganh);
+                        hienThiDSNganh();
+                        lamMoi();
+                        DialogHelper.showMessage("Xóa ngành thành công");
+                        txtMaNganh.setEnabled(true);
+                    } catch (ClassNotFoundException | SQLException ex) {
+                        Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(DSNganh.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_btnXoaActionPerformed
@@ -422,7 +451,7 @@ public class DSNganh extends javax.swing.JFrame {
             txtMaNganh.setText(nganh.getMaNganh());
             txtTenNganh.setText(nganh.getTenNganh());
             cmbTrangThaiHienThi.setSelectedIndex(nganh.getTrangThaiHienThi());
-            
+
             // Lấy mã khoa và set vào combobox MaKhoa
             String maKhoa = nganh.getMaKhoa();
             for (int i = 0; i < countMaKhoa; i++) {
@@ -433,6 +462,11 @@ public class DSNganh extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_tblDSNganhMouseClicked
+
+    private void btnXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatActionPerformed
+        NganhCtrl.xuatFileExcel(dsNganh, "src/main/java/files/DSNganh.xlsx");
+        DialogHelper.showMessage("Xuất danh sách thành công!");
+    }//GEN-LAST:event_btnXuatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -474,6 +508,7 @@ public class DSNganh extends javax.swing.JFrame {
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JButton btnXuat;
     private javax.swing.JComboBox<String> cmbMaKhoa;
     private javax.swing.JComboBox<String> cmbTrangThaiHienThi;
     private javax.swing.JLabel lblDanhSachKhoa;

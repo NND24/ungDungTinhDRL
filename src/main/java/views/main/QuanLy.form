@@ -185,7 +185,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Component class="views.list.DSSinhVienTest" name="dSSinhVienTest2">
+            <Component class="views.list.DSSinhVien" name="dSSinhVienTest2">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Danh s&#xe1;ch sinh vi&#xea;n">
@@ -216,7 +216,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Component class="views.list.DSCoVanTest" name="dSCoVanTest1">
+            <Component class="views.list.DSCoVan" name="dSCoVanTest1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Danh s&#xe1;ch c&#x1ed1; v&#x1ea5;n">

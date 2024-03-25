@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import models.LopModelTest;
+import models.LopModel;
 import models.NamHocModel;
 import models.PhieuDRLModel;
-import models.SinhVienTestModel;
+import models.SinhVienModel;
 import controllers.DiemRenLuyenCtrl;
-import controllers.LopTestCtrl;
+import controllers.LopCtrl;
 import controllers.NamHocCtrl;
 import controllers.PhieuDRLCtrl;
-import controllers.SinhVienTestCtrl;
+import controllers.SinhVienCtrl;
 import utils.DialogHelper;
 
 public class TaoPhieuDRL extends javax.swing.JPanel {
@@ -23,9 +23,9 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
     DefaultTableModel tableModel2;
     List<PhieuDRLModel> dsPhieuDRL = new ArrayList<>();
     List<PhieuDRLModel> dsChiTietPhieu = new ArrayList<>();
-    List<LopModelTest> dsLop = new ArrayList<>();
+    List<LopModel> dsLop = new ArrayList<>();
     List<NamHocModel> dsNamHoc = new ArrayList<>();
-    List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
+    List<SinhVienModel> dsSinhVien = new ArrayList<>();
 
     public TaoPhieuDRL() {
         try {
@@ -47,7 +47,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
 
     private void hienThiDSLop() {
         try {
-            dsLop = LopTestCtrl.timTatCaLopHienThi();
+            dsLop = LopCtrl.timTatCaLopHienThi();
             cmbLop.removeAllItems();
 
             dsLop.forEach(lop -> {
@@ -115,11 +115,6 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDSPhieuDRL = new javax.swing.JTable();
-        btnThem = new javax.swing.JButton();
-        XoaButton = new javax.swing.JButton();
-        btnCapNhat = new javax.swing.JButton();
-        btnXuatDanhSach = new javax.swing.JButton();
-        btnNhapMoi = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         cmbLop = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -135,6 +130,12 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblChiTietPhieuDRL = new javax.swing.JTable();
+        pnlNutLenh = new javax.swing.JPanel();
+        btnThem = new javax.swing.JButton();
+        XoaButton = new javax.swing.JButton();
+        btnCapNhat = new javax.swing.JButton();
+        btnNhapMoi = new javax.swing.JButton();
+        btnXuatDanhSach = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1360, 753));
@@ -169,71 +170,6 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDSPhieuDRL);
 
-        btnThem.setBackground(new java.awt.Color(0, 102, 255));
-        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnThem.setForeground(new java.awt.Color(255, 255, 255));
-        btnThem.setText("Thêm");
-        btnThem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnThem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnThem.setPreferredSize(new java.awt.Dimension(70, 30));
-        btnThem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemActionPerformed(evt);
-            }
-        });
-
-        XoaButton.setBackground(new java.awt.Color(0, 102, 255));
-        XoaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        XoaButton.setForeground(new java.awt.Color(255, 255, 255));
-        XoaButton.setText("Xóa");
-        XoaButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        XoaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        XoaButton.setPreferredSize(new java.awt.Dimension(70, 30));
-        XoaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                XoaButtonActionPerformed(evt);
-            }
-        });
-
-        btnCapNhat.setBackground(new java.awt.Color(0, 102, 255));
-        btnCapNhat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCapNhat.setForeground(new java.awt.Color(255, 255, 255));
-        btnCapNhat.setText("Cập nhật");
-        btnCapNhat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCapNhat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCapNhat.setPreferredSize(new java.awt.Dimension(70, 30));
-        btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCapNhatActionPerformed(evt);
-            }
-        });
-
-        btnXuatDanhSach.setBackground(new java.awt.Color(0, 102, 255));
-        btnXuatDanhSach.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnXuatDanhSach.setForeground(new java.awt.Color(255, 255, 255));
-        btnXuatDanhSach.setText("Xuất danh sách");
-        btnXuatDanhSach.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnXuatDanhSach.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnXuatDanhSach.setPreferredSize(new java.awt.Dimension(130, 30));
-        btnXuatDanhSach.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXuatDanhSachActionPerformed(evt);
-            }
-        });
-
-        btnNhapMoi.setBackground(new java.awt.Color(0, 102, 255));
-        btnNhapMoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnNhapMoi.setForeground(new java.awt.Color(255, 255, 255));
-        btnNhapMoi.setText("Làm mới");
-        btnNhapMoi.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnNhapMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNhapMoi.setPreferredSize(new java.awt.Dimension(90, 30));
-        btnNhapMoi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNhapMoiActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Lớp");
 
@@ -252,7 +188,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(1148, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,6 +249,79 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblChiTietPhieuDRL);
 
+        pnlNutLenh.setBackground(new java.awt.Color(255, 255, 255));
+        pnlNutLenh.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 10));
+
+        btnThem.setBackground(new java.awt.Color(0, 102, 255));
+        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
+        btnThem.setText("Thêm");
+        btnThem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnThem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnThem.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(btnThem);
+
+        XoaButton.setBackground(new java.awt.Color(0, 102, 255));
+        XoaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        XoaButton.setForeground(new java.awt.Color(255, 255, 255));
+        XoaButton.setText("Xóa");
+        XoaButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        XoaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        XoaButton.setPreferredSize(new java.awt.Dimension(70, 30));
+        XoaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                XoaButtonActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(XoaButton);
+
+        btnCapNhat.setBackground(new java.awt.Color(0, 102, 255));
+        btnCapNhat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCapNhat.setForeground(new java.awt.Color(255, 255, 255));
+        btnCapNhat.setText("Cập nhật");
+        btnCapNhat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCapNhat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCapNhat.setPreferredSize(new java.awt.Dimension(70, 30));
+        btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCapNhatActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(btnCapNhat);
+
+        btnNhapMoi.setBackground(new java.awt.Color(0, 102, 255));
+        btnNhapMoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNhapMoi.setForeground(new java.awt.Color(255, 255, 255));
+        btnNhapMoi.setText("Làm mới");
+        btnNhapMoi.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNhapMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNhapMoi.setPreferredSize(new java.awt.Dimension(90, 30));
+        btnNhapMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNhapMoiActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(btnNhapMoi);
+
+        btnXuatDanhSach.setBackground(new java.awt.Color(0, 102, 255));
+        btnXuatDanhSach.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXuatDanhSach.setForeground(new java.awt.Color(255, 255, 255));
+        btnXuatDanhSach.setText("Xuất danh sách");
+        btnXuatDanhSach.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatDanhSach.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXuatDanhSach.setPreferredSize(new java.awt.Dimension(130, 30));
+        btnXuatDanhSach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatDanhSachActionPerformed(evt);
+            }
+        });
+        pnlNutLenh.add(btnXuatDanhSach);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -322,7 +331,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1360, Short.MAX_VALUE)
             .addComponent(jScrollPane2)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,36 +341,25 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(dateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbLop, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(40, 40, 40)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dateChooserEnd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cmbNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(40, 40, 40)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dateChooserEnd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(15, 15, 15)
-                            .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(40, 40, 40)
-                            .addComponent(btnNhapMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(40, 40, 40)
-                            .addComponent(btnXuatDanhSach, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(cmbNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(56, 56, 56)
-                            .addComponent(jLabel9)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(pnlNutLenh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(260, 260, 260)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -386,13 +384,8 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                         .addComponent(jLabel8))
                     .addComponent(dateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXuatDanhSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNhapMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(XoaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(pnlNutLenh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -400,7 +393,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -462,9 +455,9 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                 int namHocIndex = cmbNamHoc.getSelectedIndex();
                 int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                 int hocKy = Integer.parseInt(cmbHocKy.getSelectedItem().toString());
-                dsSinhVien = SinhVienTestCtrl.timSinhVienTheoLop(maLop);
+                dsSinhVien = SinhVienCtrl.timSinhVienTheoLop(maLop);
                 boolean flagCheckExist = false;
-                for (SinhVienTestModel sv : dsSinhVien) {
+                for (SinhVienModel sv : dsSinhVien) {
                     try {
                         String maPhieuDRL = sv.getMaSinhVien() + maNamHoc + hocKy;
                         if (PhieuDRLCtrl.kiemTraPhieuDaTonTai(maPhieuDRL)) {
@@ -499,9 +492,9 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                 int namHocIndex = cmbNamHoc.getSelectedIndex();
                 int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                 int hocKy = Integer.parseInt(cmbHocKy.getSelectedItem().toString());
-                dsSinhVien = SinhVienTestCtrl.timSinhVienTheoLop(maLop);
+                dsSinhVien = SinhVienCtrl.timSinhVienTheoLop(maLop);
                 boolean flagCheckExist = false;
-                for (SinhVienTestModel sv : dsSinhVien) {
+                for (SinhVienModel sv : dsSinhVien) {
                     try {
                         String maPhieuDRL = sv.getMaSinhVien() + maNamHoc + hocKy;
                         if (PhieuDRLCtrl.kiemTraDaChamDiem(maPhieuDRL)) {
@@ -552,7 +545,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                     int namHocIndex = cmbNamHoc.getSelectedIndex();
                     int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                     int hocKy = Integer.parseInt(cmbHocKy.getSelectedItem().toString());
-                    dsSinhVien = SinhVienTestCtrl.timSinhVienTheoLop(maLop);
+                    dsSinhVien = SinhVienCtrl.timSinhVienTheoLop(maLop);
                     dsSinhVien.forEach(sv -> {
                         try {
                             String maPhieuDRL = sv.getMaSinhVien() + maNamHoc + hocKy;
@@ -613,6 +606,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel pnlNutLenh;
     private javax.swing.JTable tblChiTietPhieuDRL;
     private javax.swing.JTable tblDSPhieuDRL;
     // End of variables declaration//GEN-END:variables

@@ -94,7 +94,7 @@ public class QuanLyCtrl {
                 quanLy = ql;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return quanLy;
     }
@@ -170,7 +170,7 @@ public class QuanLyCtrl {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return maTaiKhoan;
@@ -194,7 +194,7 @@ public class QuanLyCtrl {
                 maQL = resultSet.getInt("MaQuanLy");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return maQL;
     }
@@ -215,7 +215,7 @@ public class QuanLyCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
@@ -236,7 +236,7 @@ public class QuanLyCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }

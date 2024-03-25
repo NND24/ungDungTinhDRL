@@ -4,9 +4,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import models.CoVanTestModel;
+import models.CoVanModel;
 import controllers.TaiKhoanCtrl;
-import controllers.CoVanTestCtrl;
+import controllers.CoVanCtrl;
 import utils.DialogHelper;
 import utils.Validator;
 
@@ -23,10 +23,10 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
 
     private void hienThiThongTin() {
         try {
-            CoVanTestModel coVan = CoVanTestCtrl.timCoVanTheoTenDangNhap(tenDangNhap);
+            CoVanModel coVan = CoVanCtrl.timCoVanTheoTenDangNhap(tenDangNhap);
             if (coVan != null) {
                 txtMaCoVan.setText(coVan.getMaCoVan());
-                maTaiKhoan = CoVanTestCtrl.layMaTaiKhoanCV(coVan.getMaCoVan());
+                maTaiKhoan = CoVanCtrl.layMaTaiKhoanCV(coVan.getMaCoVan());
 
                 txtHoTen.setText(coVan.getHoTen());
                 txtNgaySinh.setText(dateFormat.format(coVan.getNgaySinh()));
@@ -613,7 +613,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
             } else if (soDienThoai.isEmpty()) {
                 DialogHelper.showError("Số điện thoại không được để trống!");
-            } else if (CoVanTestCtrl.kiemTraSoDienThoaiTrung(maCoVan, soDienThoai)) {
+            } else if (CoVanCtrl.kiemTraSoDienThoaiTrung(maCoVan, soDienThoai)) {
                 DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
@@ -621,11 +621,11 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else if (CoVanTestCtrl.kiemTraCanCuocTrung(maCoVan, canCuoc)) {
+            } else if (CoVanCtrl.kiemTraCanCuocTrung(maCoVan, canCuoc)) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
-                CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, hoTen, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, idGioiTinh, sqlNgaySinh, 0);
-                CoVanTestCtrl.capNhatCoVan(cv);
+                CoVanModel cv = new CoVanModel(maCoVan, hoTen, hoTen, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, idGioiTinh, sqlNgaySinh, 0);
+                CoVanCtrl.capNhatCoVan(cv);
                 DialogHelper.showMessage("Thay đổi thông tin thành công!");
             }
         } catch (ParseException | ClassNotFoundException ex) {

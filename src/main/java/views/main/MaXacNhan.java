@@ -5,11 +5,11 @@ import java.util.logging.Logger;
 import controllers.TaiKhoanCtrl;
 import utils.DialogHelper;
 
-public class VerifyCode extends javax.swing.JFrame {
+public class MaXacNhan extends javax.swing.JFrame {
 
     public static String maTaiKhoan;
 
-    public VerifyCode() {
+    public MaXacNhan() {
         initComponents();
     }
 
@@ -124,7 +124,7 @@ public class VerifyCode extends javax.swing.JFrame {
                 String tenDangNhap = QuenMatKhau.userName;
                 maTaiKhoan = TaiKhoanCtrl.layMaTaiKhoan(tenDangNhap);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(VerifyCode.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MaXacNhan.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             DialogHelper.showError("Mã không hợp lệ!");
@@ -141,7 +141,7 @@ public class VerifyCode extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VerifyCode().setVisible(true);
+                new MaXacNhan().setVisible(true);
             }
         });
     }

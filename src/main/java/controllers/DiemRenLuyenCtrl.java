@@ -310,7 +310,7 @@ public class DiemRenLuyenCtrl {
 
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

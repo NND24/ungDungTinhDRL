@@ -8,41 +8,41 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import models.CoVanTestModel;
+import models.CoVanModel;
 import models.TaiKhoanModel;
-import models.KhoaTestModel;
-import controllers.KhoaCtrlTest;
+import models.KhoaModel;
+import controllers.KhoaCtrl;
 import controllers.TaiKhoanCtrl;
-import controllers.CoVanTestCtrl;
+import controllers.CoVanCtrl;
 import utils.DialogHelper;
 import utils.GenerateCode;
 import utils.Validator;
 
-public class DSCoVanTest extends javax.swing.JPanel {
+public class DSCoVan extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    private List<KhoaTestModel> dsKhoa = new ArrayList<>();
-    private List<CoVanTestModel> dsCoVan = new ArrayList<>();
+    private List<KhoaModel> dsKhoa = new ArrayList<>();
+    private List<CoVanModel> dsCoVan = new ArrayList<>();
 
-    public DSCoVanTest() {
+    public DSCoVan() {
         try {
             initComponents();
             tableModel = (DefaultTableModel) tblDSCoVan.getModel();
 
-            dsCoVan = CoVanTestCtrl.timTatCaCoVan();
+            dsCoVan = CoVanCtrl.timTatCaCoVan();
             hienThiDSKhoa();
             hienThiDSCoVan();
             cmbKhoa.setSelectedItem("---Khoa---");
             cmbTKKhoa.setSelectedItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     private void hienThiDSKhoa() {
         try {
-            dsKhoa = KhoaCtrlTest.timTatCaKhoaHienThi();
+            dsKhoa = KhoaCtrl.timTatCaKhoaHienThi();
             cmbKhoa.removeAllItems();
             cmbTKKhoa.removeAllItems();
             dsKhoa.forEach(khoa -> {
@@ -52,7 +52,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
             cmbKhoa.addItem("---Khoa---");
             cmbTKKhoa.addItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -85,7 +85,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
 
     private void lamMoi() {
         try {
-            dsCoVan = CoVanTestCtrl.timTatCaCoVan();
+            dsCoVan = CoVanCtrl.timTatCaCoVan();
             txtMaCoVan.setText("");
             txtHoTen.setText("");
             txtNgaySinh.setText("");
@@ -103,7 +103,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
             cmbKhoa.setSelectedItem("---Khoa---");
             cmbTKKhoa.setSelectedItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -120,12 +120,12 @@ public class DSCoVanTest extends javax.swing.JPanel {
             }
 
             if (tuKhoa.isEmpty() && maKhoa.isEmpty()) {
-                dsCoVan = CoVanTestCtrl.timTatCaCoVan();
+                dsCoVan = CoVanCtrl.timTatCaCoVan();
                 hienThiDSCoVan();
                 return;
             }
 
-            dsCoVan = CoVanTestCtrl.timKiemCoVan(tuKhoa, maKhoa);
+            dsCoVan = CoVanCtrl.timKiemCoVan(tuKhoa, maKhoa);
             hienThiDSCoVan();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
@@ -580,7 +580,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
 
     private void btnThemCoVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCoVanActionPerformed
         try {
-            String soLuongNguoiFormatted = String.format("%03d", (CoVanTestCtrl.layMaCoVanCuoiCung() + 1));
+            String soLuongNguoiFormatted = String.format("%03d", (CoVanCtrl.layMaCoVanCuoiCung() + 1));
             String maCoVan = "cv" + soLuongNguoiFormatted;
             String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = txtHoTen.getText();
@@ -615,7 +615,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
             } else if (soDienThoai.isEmpty()) {
                 DialogHelper.showError("Số điện thoại không được để trống!");
-            } else if (CoVanTestCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+            } else if (CoVanCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
                 DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
@@ -623,7 +623,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else if (CoVanTestCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+            } else if (CoVanCtrl.kiemTraCanCuocTrung("", canCuoc)) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
             } else if (cmbKhoa.getSelectedItem().equals("---Khoa---")) {
                 DialogHelper.showError("Chưa chọn khoa!");
@@ -636,8 +636,8 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maCoVan, matKhau, chucVu);
                     TaiKhoanCtrl.themTaiKhoan(tk);
 
-                    CoVanTestModel cv = new CoVanTestModel(maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh, daNghi);
-                    CoVanTestCtrl.themCoVan(cv);
+                    CoVanModel cv = new CoVanModel(maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh, daNghi);
+                    CoVanCtrl.themCoVan(cv);
                     lamMoi();
                     hienThiDSCoVan();
                     DialogHelper.showMessage("Thêm cố vấn thành công");
@@ -646,7 +646,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 }
             }
         } catch (ParseException | ClassNotFoundException ex) {
-            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnThemCoVanActionPerformed
 
@@ -682,7 +682,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
                 } else if (soDienThoai.isEmpty()) {
                     DialogHelper.showError("Số điện thoại không được để trống!");
-                } else if (CoVanTestCtrl.kiemTraSoDienThoaiTrung(maCoVan, soDienThoai)) {
+                } else if (CoVanCtrl.kiemTraSoDienThoaiTrung(maCoVan, soDienThoai)) {
                     DialogHelper.showError("Số điện thoại đã tồn tại!");
                 } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                     DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
@@ -690,7 +690,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     DialogHelper.showError("Căn cước không được để trống!");
                 } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                     DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-                } else if (CoVanTestCtrl.kiemTraCanCuocTrung(maCoVan, canCuoc)) {
+                } else if (CoVanCtrl.kiemTraCanCuocTrung(maCoVan, canCuoc)) {
                     DialogHelper.showError("Căn cước đã tồn tại!");
                 } else if (cmbKhoa.getSelectedItem().equals("---Khoa---")) {
                     DialogHelper.showError("Chưa chọn khoa!");
@@ -698,8 +698,8 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     int khoaIndex = cmbKhoa.getSelectedIndex();
                     String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
 
-                    CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh, daNghi);
-                    CoVanTestCtrl.capNhatCoVan(cv);
+                    CoVanModel cv = new CoVanModel(maCoVan, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh, daNghi);
+                    CoVanCtrl.capNhatCoVan(cv);
                     lamMoi();
                     hienThiDSCoVan();
                     DialogHelper.showMessage("Sửa cố vấn thành công");
@@ -708,7 +708,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
         } catch (ParseException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSuaThongTinActionPerformed
 
@@ -717,24 +717,24 @@ public class DSCoVanTest extends javax.swing.JPanel {
             String maCoVan = txtMaCoVan.getText();
             if (maCoVan.isEmpty()) {
                 DialogHelper.showError("Chưa chọn cố vấn muốn xóa");
-            } else if (CoVanTestCtrl.kiemTraCoVanDaPhanCong(maCoVan)) {
+            } else if (CoVanCtrl.kiemTraCoVanDaPhanCong(maCoVan)) {
                 DialogHelper.showError("Cố vấn đã được phân công, không thể xóa");
-            } else if (CoVanTestCtrl.kiemTraCoVanDaChamDiem(maCoVan)) {
+            } else if (CoVanCtrl.kiemTraCoVanDaChamDiem(maCoVan)) {
                 DialogHelper.showError("Cố vấn đã chấm điểm, không thể xóa");
             } else {
                 if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa thông tin cố vấn này")) {
                     try {
-                        CoVanTestCtrl.xoaCoVan(maCoVan);
+                        CoVanCtrl.xoaCoVan(maCoVan);
                         lamMoi();
                         hienThiDSCoVan();
                         DialogHelper.showMessage("Xóa cố vấn thành công!");
                     } catch (ClassNotFoundException | SQLException ex) {
-                        Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnXoaCoVanActionPerformed
 
@@ -744,14 +744,14 @@ public class DSCoVanTest extends javax.swing.JPanel {
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void btnXuatDSBenhNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatDSBenhNhanActionPerformed
-        CoVanTestCtrl.xuatFileExcel(dsCoVan, "src/main/java/files/DSCoVan.xlsx");
+        CoVanCtrl.xuatFileExcel(dsCoVan, "src/main/java/files/DSCoVan.xlsx");
         DialogHelper.showMessage("Xuất danh sách thành công!");
     }//GEN-LAST:event_btnXuatDSBenhNhanActionPerformed
 
     private void tblDSCoVanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSCoVanMouseClicked
         int selectedIndex = tblDSCoVan.getSelectedRow();
         if (selectedIndex >= 0) {
-            CoVanTestModel coVan = dsCoVan.get(selectedIndex);
+            CoVanModel coVan = dsCoVan.get(selectedIndex);
 
             txtMaCoVan.setText(coVan.getMaCoVan());
             txtHoTen.setText(coVan.getHoTen());

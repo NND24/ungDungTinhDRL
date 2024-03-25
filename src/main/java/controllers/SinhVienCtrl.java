@@ -12,15 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import models.SinhVienTestModel;
+import models.SinhVienModel;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class SinhVienTestCtrl {
+public class SinhVienCtrl {
 
-    public static void themSinhVien(SinhVienTestModel sv) throws ClassNotFoundException {
+    public static void themSinhVien(SinhVienModel sv) throws ClassNotFoundException {
         String sql = "INSERT INTO SinhVien (MaSinhVien, MaTaiKhoan, MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, sv.getMaSinhVien());
@@ -38,11 +38,11 @@ public class SinhVienTestCtrl {
             statement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static void capNhatSinhVien(SinhVienTestModel sv) throws ClassNotFoundException {
+    public static void capNhatSinhVien(SinhVienModel sv) throws ClassNotFoundException {
         String sql = "UPDATE SinhVien SET HoTen=?, MaLop=?, GioiTinh=?, NgaySinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=?, DaNghiHoc=?  WHERE MaSinhVien=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, sv.getHoTen());
@@ -58,12 +58,12 @@ public class SinhVienTestCtrl {
             statement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static List<SinhVienTestModel> timTatCaSinhVien() throws ClassNotFoundException {
-        List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
+    public static List<SinhVienModel> timTatCaSinhVien() throws ClassNotFoundException {
+        List<SinhVienModel> dsSinhVien = new ArrayList<>();
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
@@ -75,7 +75,7 @@ public class SinhVienTestCtrl {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                SinhVienTestModel sv = new SinhVienTestModel(
+                SinhVienModel sv = new SinhVienModel(
                         resultSet.getString("MaSinhVien"),
                         resultSet.getString("MaLop"),
                         resultSet.getString("HoTen"),
@@ -91,26 +91,26 @@ public class SinhVienTestCtrl {
                 dsSinhVien.add(sv);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsSinhVien;
     }
 
-    public static SinhVienTestModel timSinhVienTheoMaSV(String maSV) throws ClassNotFoundException {
+    public static SinhVienModel timSinhVienTheoMaSV(String maSV) throws ClassNotFoundException {
         String sql = """
                      SELECT MaSinhVien, MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
                      FROM SinhVien, Lop, TaiKhoan, ChucVu
                      WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
                      AND MaSinhVien=?
                      """;
-        SinhVienTestModel sinhVien = null;
+        SinhVienModel sinhVien = null;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, maSV);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                SinhVienTestModel sv = new SinhVienTestModel(
+                SinhVienModel sv = new SinhVienModel(
                         resultSet.getString("MaSinhVien"),
                         resultSet.getString("MaLop"),
                         resultSet.getString("HoTen"),
@@ -126,26 +126,26 @@ public class SinhVienTestCtrl {
                 sinhVien = sv;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return sinhVien;
     }
 
-    public static SinhVienTestModel timSinhVienTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
+    public static SinhVienModel timSinhVienTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
         String sql = """
                      SELECT MaSinhVien, SinhVien.MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
                      FROM SinhVien, Lop, TaiKhoan, ChucVu
                      WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
                      AND TenDangNhap=?
                      """;
-        SinhVienTestModel sinhVien = null;
+        SinhVienModel sinhVien = null;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, tenDangNhap);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                SinhVienTestModel sv = new SinhVienTestModel(
+                SinhVienModel sv = new SinhVienModel(
                         resultSet.getString("MaSinhVien"),
                         resultSet.getString("MaLop"),
                         resultSet.getString("HoTen"),
@@ -161,13 +161,13 @@ public class SinhVienTestCtrl {
                 sinhVien = sv;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return sinhVien;
     }
 
-    public static List<SinhVienTestModel> timSinhVienTheoLop(String maLop) throws ClassNotFoundException {
-        List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
+    public static List<SinhVienModel> timSinhVienTheoLop(String maLop) throws ClassNotFoundException {
+        List<SinhVienModel> dsSinhVien = new ArrayList<>();
         String sql = """
                      SELECT MaSinhVien, Lop.MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
                      FROM SinhVien, Lop, TaiKhoan, ChucVu
@@ -180,7 +180,7 @@ public class SinhVienTestCtrl {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                SinhVienTestModel sv = new SinhVienTestModel(
+                SinhVienModel sv = new SinhVienModel(
                         resultSet.getString("MaSinhVien"),
                         resultSet.getString("MaLop"),
                         resultSet.getString("HoTen"),
@@ -196,13 +196,13 @@ public class SinhVienTestCtrl {
                 dsSinhVien.add(sv);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsSinhVien;
     }
 
-    public static List<SinhVienTestModel> timKiemSinhVien(String tuKhoa, String lop) throws ClassNotFoundException {
-        List<SinhVienTestModel> dsSinhVien = new ArrayList<>();
+    public static List<SinhVienModel> timKiemSinhVien(String tuKhoa, String lop) throws ClassNotFoundException {
+        List<SinhVienModel> dsSinhVien = new ArrayList<>();
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(
                 "SELECT MaSinhVien, Lop.MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu "
                 + "FROM SinhVien "
@@ -222,7 +222,7 @@ public class SinhVienTestCtrl {
             }
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    SinhVienTestModel sv = new SinhVienTestModel(
+                    SinhVienModel sv = new SinhVienModel(
                             resultSet.getString("MaSinhVien"),
                             resultSet.getString("MaLop"),
                             resultSet.getString("HoTen"),
@@ -239,7 +239,7 @@ public class SinhVienTestCtrl {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dsSinhVien;
     }
@@ -268,7 +268,7 @@ public class SinhVienTestCtrl {
                 maSV = resultSet.getInt("MaSinhVien");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return maSV;
     }
@@ -293,7 +293,7 @@ public class SinhVienTestCtrl {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SinhVienTestCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return maTaiKhoan;
@@ -315,7 +315,7 @@ public class SinhVienTestCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
@@ -336,7 +336,7 @@ public class SinhVienTestCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
@@ -357,12 +357,12 @@ public class SinhVienTestCtrl {
                 flag = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KhoaCtrlTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
 
-    public static void xuatFileExcel(List<SinhVienTestModel> dsSinhVien, String filePath) {
+    public static void xuatFileExcel(List<SinhVienModel> dsSinhVien, String filePath) {
         try (Workbook workbook = new XSSFWorkbook()) {
             Sheet sheet = workbook.createSheet("DanhSachSinhVien");
 
@@ -379,7 +379,7 @@ public class SinhVienTestCtrl {
 
             // Ghi dữ liệu vào sheet
             int rowNum = 1;
-            for (SinhVienTestModel sv : dsSinhVien) {
+            for (SinhVienModel sv : dsSinhVien) {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(sv.getMaSinhVien());
                 row.createCell(1).setCellValue(sv.getHoTen());

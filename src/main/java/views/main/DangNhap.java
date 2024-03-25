@@ -39,13 +39,11 @@ public class DangNhap extends javax.swing.JFrame {
         lblTaiKhoan.setText("Tên đăng nhập");
 
         txtTenDangNhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTenDangNhap.setText("n21dccn013");
 
         lblMatKhau.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         lblMatKhau.setText("Mật khẩu");
 
         txtMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtMatKhau.setText("123456789");
 
         btnDangNhap.setBackground(new java.awt.Color(51, 153, 255));
         btnDangNhap.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -136,7 +134,7 @@ public class DangNhap extends javax.swing.JFrame {
                     .addComponent(lblQuenMatKhau))
                 .addGap(50, 50, 50)
                 .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addGap(50, 50, 50))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
