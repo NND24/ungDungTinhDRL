@@ -4,7 +4,6 @@
  */
 package views.list;
 
-import controllers.ChucVuCtrl;
 import controllers.KhoaCtrlTest;
 import controllers.NganhCtrl;
 import java.sql.SQLException;
@@ -13,8 +12,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import models.ChucVuModel;
-import models.KhoaTestModel;
 import models.NganhModel;
 import utils.DialogHelper;
 
@@ -108,8 +105,6 @@ public class DSNganh extends javax.swing.JFrame {
         pnlDSNganh = new javax.swing.JPanel();
         pnlTieuDe = new javax.swing.JPanel();
         lblDanhSachKhoa = new javax.swing.JLabel();
-        txtTimKiem = new javax.swing.JTextField();
-        lblTimKiem = new javax.swing.JLabel();
         scrDSNganh = new javax.swing.JScrollPane();
         tblDSNganh = new javax.swing.JTable();
 
@@ -125,14 +120,12 @@ public class DSNganh extends javax.swing.JFrame {
 
         lblTrangThai.setText("Trạng thái hiển thị");
 
-        txtMaNganh.setText("DPT");
         txtMaNganh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMaNganhActionPerformed(evt);
             }
         });
 
-        txtTenNganh.setText("Đa phương tiện");
         txtTenNganh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTenNganhActionPerformed(evt);
@@ -258,10 +251,6 @@ public class DSNganh extends javax.swing.JFrame {
         lblDanhSachKhoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblDanhSachKhoa.setText("DANH SÁCH NGÀNH");
 
-        txtTimKiem.setText("txtTimKiem");
-
-        lblTimKiem.setText("Tìm kiếm:");
-
         javax.swing.GroupLayout pnlTieuDeLayout = new javax.swing.GroupLayout(pnlTieuDe);
         pnlTieuDe.setLayout(pnlTieuDeLayout);
         pnlTieuDeLayout.setHorizontalGroup(
@@ -269,18 +258,11 @@ public class DSNganh extends javax.swing.JFrame {
             .addGroup(pnlTieuDeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblDanhSachKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTimKiem)
-                .addGap(18, 18, 18)
-                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlTieuDeLayout.setVerticalGroup(
             pnlTieuDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTieuDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lblDanhSachKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(lblTimKiem))
+            .addComponent(lblDanhSachKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         tblDSNganh.setModel(new javax.swing.table.DefaultTableModel(
@@ -498,7 +480,6 @@ public class DSNganh extends javax.swing.JFrame {
     private javax.swing.JLabel lblMaKhoa;
     private javax.swing.JLabel lblMaNganh;
     private javax.swing.JLabel lblTenNganh;
-    private javax.swing.JLabel lblTimKiem;
     private javax.swing.JLabel lblTrangThai;
     private javax.swing.JPanel pnlChiTiet;
     private javax.swing.JPanel pnlDSNganh;
@@ -508,6 +489,5 @@ public class DSNganh extends javax.swing.JFrame {
     private javax.swing.JTable tblDSNganh;
     private javax.swing.JTextField txtMaNganh;
     private javax.swing.JTextField txtTenNganh;
-    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 }
