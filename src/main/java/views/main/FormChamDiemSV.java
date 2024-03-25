@@ -2784,7 +2784,9 @@ public class FormChamDiemSV extends javax.swing.JPanel {
     }//GEN-LAST:event_formed
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-        if (trangThai.equalsIgnoreCase("Sinh viên kết thúc chấm")
+        if (txtMaSinhVien.getText().isEmpty()) {
+            DialogHelper.showError("Chưa chọn sinh viên");
+        } else if (trangThai.equalsIgnoreCase("Sinh viên kết thúc chấm")
                 || trangThai.equalsIgnoreCase("Ban cán sự đã chấm")
                 || trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")
                 || trangThai.equalsIgnoreCase("Cố vấn đã chấm")
@@ -2962,7 +2964,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
                 } else {
                     try {
                         DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, tongDiem, sv11, sv12a, sv12b, sv12c, sv12d, sv12e, sv12g, sv13, sv13a, sv13b, sv13c, sv13d, sv14, sv15, sv1, sv21, sv21a, sv21b, sv22a, sv22b, sv23a, sv23b, sv2, sv31, sv32, sv33, sv34, sv35, sv3, sv41, sv42, sv43, sv44, sv45, sv46, sv4, sv51, sv52, sv53, sv5);
-                        DiemRenLuyenCtrl.chamDiemSV(drl);
+                        DiemRenLuyenCtrl.chamDiemRenLuyen(drl);
                         PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, trangThaiCham);
                         PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
                         DialogHelper.showMessage("Chấm điểm thành công!");

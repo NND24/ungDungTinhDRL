@@ -33,7 +33,8 @@ public class DSCoVanTest extends javax.swing.JPanel {
             dsCoVan = CoVanTestCtrl.timTatCaCoVan();
             hienThiDSKhoa();
             hienThiDSCoVan();
-            cmbTKKhoa.setSelectedIndex(cmbTKKhoa.getItemCount() - 1);
+            cmbKhoa.setSelectedItem("---Khoa---");
+            cmbTKKhoa.setSelectedItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -48,6 +49,7 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 cmbKhoa.addItem(khoa.getTenKhoa());
                 cmbTKKhoa.addItem(khoa.getTenKhoa());
             });
+            cmbKhoa.addItem("---Khoa---");
             cmbTKKhoa.addItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,7 +100,8 @@ public class DSCoVanTest extends javax.swing.JPanel {
             txtChuyenMon.setText("");
             cmbDaNghi.setSelectedIndex(0);
             txtTimKiem.setText("");
-            cmbTKKhoa.setSelectedIndex(cmbTKKhoa.getItemCount() - 1);
+            cmbKhoa.setSelectedItem("---Khoa---");
+            cmbTKKhoa.setSelectedItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSCoVanTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -577,9 +580,6 @@ public class DSCoVanTest extends javax.swing.JPanel {
 
     private void btnThemCoVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCoVanActionPerformed
         try {
-            int khoaIndex = cmbKhoa.getSelectedIndex();
-            String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
-            String tenKhoa = cmbKhoa.getSelectedItem().toString();
             String soLuongNguoiFormatted = String.format("%03d", (CoVanTestCtrl.layMaCoVanCuoiCung() + 1));
             String maCoVan = "cv" + soLuongNguoiFormatted;
             String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
@@ -625,8 +625,14 @@ public class DSCoVanTest extends javax.swing.JPanel {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else if (CoVanTestCtrl.kiemTraCanCuocTrung("", canCuoc)) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
+            } else if (cmbKhoa.getSelectedItem().equals("---Khoa---")) {
+                DialogHelper.showError("Chưa chọn khoa!");
             } else {
                 try {
+                    int khoaIndex = cmbKhoa.getSelectedIndex();
+                    String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
+                    String tenKhoa = cmbKhoa.getSelectedItem().toString();
+
                     TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maCoVan, matKhau, chucVu);
                     TaiKhoanCtrl.themTaiKhoan(tk);
 
@@ -647,9 +653,6 @@ public class DSCoVanTest extends javax.swing.JPanel {
     private void btnSuaThongTinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaThongTinActionPerformed
         try {
             if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin cố vấn này!")) {
-                int khoaIndex = cmbKhoa.getSelectedIndex();
-                String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
-                String tenKhoa = cmbKhoa.getSelectedItem().toString();
                 String maCoVan = txtMaCoVan.getText();
                 String hoTen = txtHoTen.getText();
                 java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
@@ -689,7 +692,12 @@ public class DSCoVanTest extends javax.swing.JPanel {
                     DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
                 } else if (CoVanTestCtrl.kiemTraCanCuocTrung(maCoVan, canCuoc)) {
                     DialogHelper.showError("Căn cước đã tồn tại!");
+                } else if (cmbKhoa.getSelectedItem().equals("---Khoa---")) {
+                    DialogHelper.showError("Chưa chọn khoa!");
                 } else {
+                    int khoaIndex = cmbKhoa.getSelectedIndex();
+                    String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
+
                     CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh, daNghi);
                     CoVanTestCtrl.capNhatCoVan(cv);
                     lamMoi();
@@ -708,11 +716,11 @@ public class DSCoVanTest extends javax.swing.JPanel {
         try {
             String maCoVan = txtMaCoVan.getText();
             if (maCoVan.isEmpty()) {
-                DialogHelper.showMessage("Chưa chọn cố vấn muốn xóa");
+                DialogHelper.showError("Chưa chọn cố vấn muốn xóa");
             } else if (CoVanTestCtrl.kiemTraCoVanDaPhanCong(maCoVan)) {
-                DialogHelper.showMessage("Cố vấn đã được phân công, không thể xóa");
+                DialogHelper.showError("Cố vấn đã được phân công, không thể xóa");
             } else if (CoVanTestCtrl.kiemTraCoVanDaChamDiem(maCoVan)) {
-                DialogHelper.showMessage("Cố vấn đã chấm điểm, không thể xóa");
+                DialogHelper.showError("Cố vấn đã chấm điểm, không thể xóa");
             } else {
                 if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa thông tin cố vấn này")) {
                     try {

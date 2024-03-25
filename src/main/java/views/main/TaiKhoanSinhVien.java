@@ -590,13 +590,13 @@ public class TaiKhoanSinhVien extends javax.swing.JPanel {
                 DialogHelper.showError("Số điện không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-            } else if (SinhVienTestCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+            } else if (SinhVienTestCtrl.kiemTraSoDienThoaiTrung(maSinhVien, soDienThoai)) {
                 DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (canCuoc.isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else if (SinhVienTestCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+            } else if (SinhVienTestCtrl.kiemTraCanCuocTrung(maSinhVien, canCuoc)) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 try {

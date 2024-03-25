@@ -2830,7 +2830,9 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDuyetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDuyetActionPerformed
-        if (Validator.isBeforeToday(ngayKetThuc)
+        if (txtMaSinhVien.getText().isEmpty()) {
+            DialogHelper.showError("Chưa chọn sinh viên");
+        } else if (Validator.isBeforeToday(ngayKetThuc)
                 || trangThai.equalsIgnoreCase("Hết thời gian chấm")) {
             DialogHelper.showMessage("Hết thời gian chấm điểm");
         } else if (trangThai.equalsIgnoreCase("Sinh viên đang chấm")
@@ -3010,7 +3012,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                 } else {
                     try {
                         DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5);
-                        DiemRenLuyenCtrl.chamDiemCV(drl);
+                        DiemRenLuyenCtrl.chamDiemRenLuyen(drl);
                         PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, maCoVanCham, trangThaiCham);
                         PhieuDRLCtrl.capNhatPhieuCV(phieu);
                         DialogHelper.showMessage("Duyệt điểm thành công!");

@@ -2,19 +2,18 @@ package views.main;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import controllers.TaiKhoanCtrl;
-import controllers.CoVanTestCtrl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
 import models.CoVanTestModel;
+import controllers.TaiKhoanCtrl;
+import controllers.CoVanTestCtrl;
 import utils.DialogHelper;
 import utils.Validator;
 
 public class TaiKhoanCoVan extends javax.swing.JPanel {
 
-    private String tenDangNhap = DangNhap.username;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private final String tenDangNhap = DangNhap.username;
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     private String maTaiKhoan = "", maKhoa;
 
     public TaiKhoanCoVan() {
@@ -525,30 +524,28 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         String newPassword = String.valueOf(newPasswordChars);
         char[] retypePasswordChars = retypePasswordField.getPassword();
         String retypePassword = String.valueOf(retypePasswordChars);
-        String maCoVan = txtMaCoVan.getText();
         if (newPassword.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Mật khẩu mới không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            DialogHelper.showError("Mật khẩu mới không được để trống");
         } else if (retypePassword.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Nhập lại mật khẩu không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            DialogHelper.showError("Nhập lại mật khẩu không được để trống");
         } else if (oldPassword.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Mật khẩu cũ không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            DialogHelper.showError("Mật khẩu cũ không được để trống");
         } else if (!newPassword.equals(retypePassword)) {
-            JOptionPane.showMessageDialog(null, "Mật khẩu mới không giống nhập lại mật khẩu", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            DialogHelper.showError("Mật khẩu mới không giống nhập lại mật khẩu");
         } else {
             try {
                 if (TaiKhoanCtrl.kiemTraMatKhauCu(maTaiKhoan, oldPassword)) {
                     TaiKhoanCtrl.doiMatKhau(maTaiKhoan, newPassword);
-                    JOptionPane.showMessageDialog(null, "Đổi mật khẩu thành công");
+                    DialogHelper.showMessage("Đổi mật khẩu thành công");
                     oldPasswordField.setText("");
                     newPasswordField.setText("");
                     retypePasswordField.setText("");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Mật khẩu cũ không đúng", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                    DialogHelper.showError("Mật khẩu cũ không đúng");
                 }
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         }
     }//GEN-LAST:event_btnDoiMatKhauActionPerformed
 
@@ -558,11 +555,11 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         char[] matKhauChars = txtMatKhau.getPassword();
         String matKhau = String.valueOf(matKhauChars);
         if (matKhau.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Mật khẩu không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            DialogHelper.showError("Mật khẩu không được để trống");
         } else if (maCoVan.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Mã sinh viên không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            DialogHelper.showError("Mã sinh viên không được để trống");
         } else if (tenDangNhapMoi.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Tên đăng nhập không được để trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            DialogHelper.showError("Tên đăng nhập không được để trống");
         } else {
 
             try {
@@ -572,7 +569,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                     txtTenDangNhap.setText("");
                     txtMatKhau.setText("");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Mật khẩu không đúng", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                    DialogHelper.showError("Mật khẩu không đúng");
                 }
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);
@@ -616,7 +613,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
             } else if (soDienThoai.isEmpty()) {
                 DialogHelper.showError("Số điện thoại không được để trống!");
-            } else if (CoVanTestCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+            } else if (CoVanTestCtrl.kiemTraSoDienThoaiTrung(maCoVan, soDienThoai)) {
                 DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
@@ -624,7 +621,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else if (CoVanTestCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+            } else if (CoVanTestCtrl.kiemTraCanCuocTrung(maCoVan, canCuoc)) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 CoVanTestModel cv = new CoVanTestModel(maCoVan, hoTen, hoTen, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, idGioiTinh, sqlNgaySinh, 0);

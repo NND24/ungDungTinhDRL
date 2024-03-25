@@ -15,6 +15,7 @@ import controllers.DiemRenLuyenCtrl;
 import controllers.NamHocCtrl;
 import controllers.PhieuDRLCtrl;
 import controllers.SinhVienTestCtrl;
+import java.time.ZoneId;
 import views.main.DangNhap;
 import views.main.FormChamDiemBCS;
 import utils.DialogHelper;
@@ -25,8 +26,11 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     DefaultTableModel tableModel;
     private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
     private List<NamHocModel> dsNamHoc = new ArrayList<>();
-    private String coVanCham = "";
-    private Date ngayKetThuc;
+    private String trangThai = "";
+    private final Date ngayHienTai = new Date();
+    private final LocalDate localDate = ngayHienTai.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    private final LocalDate ngayTruoc = localDate.plusDays(1);
+    private Date ngayKetThuc = java.sql.Date.valueOf(ngayTruoc);
 
     public DSDiemRenLuyenBCS() {
         try {
@@ -66,14 +70,17 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
                 drl.getTrangThaiCham()
             });
-            ngayKetThuc = drl.getNgayKetThuc();
+
+            if (drl.getNgayKetThuc() != null) {
+                ngayKetThuc = drl.getNgayKetThuc();
+            }
         }
 
         for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
             if (drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn đã chấm")
                     || drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn kết thúc chấm")
                     || drl.getTrangThaiCham().equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
-                coVanCham = drl.getTrangThaiCham();
+                trangThai = drl.getTrangThaiCham();
                 break;
             }
         }
@@ -142,36 +149,38 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }
 
     private void thayDoiTrangThaiCham(String trangThaiCham, String loaiThayDoi) {
-        if (dsDiemRenLuyen.isEmpty()) {
+        if (dsDiemRenLuyen.isEmpty() || cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
             DialogHelper.showError("Chưa chọn năm học, học kỳ muốn thao tác");
         } else {
             String hocKy = "";
             String namHoc = "";
+            boolean flagMesage = false;
             for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
                 try {
-                    if (coVanCham.equalsIgnoreCase("Ban cán sự kết thúc chấm")
-                            || coVanCham.equalsIgnoreCase("Cố vấn đã chấm")
-                            || coVanCham.equalsIgnoreCase("Hết thời gian chấm điểm")
+                    if (trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")
+                            || trangThai.equalsIgnoreCase("Cố vấn đã chấm")
+                            || trangThai.equalsIgnoreCase("Hết thời gian chấm điểm")
                             || Validator.isBeforeToday(ngayKetThuc)) {
                         DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
+                        hocKy = sv.getHocKy();
+                        namHoc = sv.getNamHoc();
+                        break;
                     } else {
                         String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
                         PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, trangThaiCham);
                         PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
                         hocKy = sv.getHocKy();
                         namHoc = sv.getNamHoc();
+                        flagMesage = true;
                     }
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            if (!coVanCham.equalsIgnoreCase("Sinh viên đang chấm")
-                    || !coVanCham.equalsIgnoreCase("Sinh viên đã chấm")
-                    || !coVanCham.equalsIgnoreCase("Sinh viên kết thúc chấm")
-                    || !coVanCham.equalsIgnoreCase("Ban cán sự đã chấm")
-                    || !Validator.isBeforeToday(ngayKetThuc)) {
+            if (flagMesage) {
                 String message = loaiThayDoi + " chấm điểm rèn luyện học kỳ: " + hocKy + ", năm học: " + namHoc;
                 DialogHelper.showMessage(message);
+                timKiemDanhSachDRL();
             }
         }
     }
@@ -621,7 +630,13 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
-        timKiemDanhSachDRL();
+        if (cmbTKHocKy.getSelectedItem() != null && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---") && !cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
+            timKiemDanhSachDRL();
+        } else if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
+            dsDiemRenLuyen.clear();
+            txtTimKiem.setText("");
+            hienThiDSDiem();
+        }
     }//GEN-LAST:event_cmbTKHocKyActionPerformed
 
     private void btnKetThucChamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKetThucChamActionPerformed
@@ -633,13 +648,23 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }//GEN-LAST:event_btnChamLaiActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
-        if (cmbTKNamHoc.getSelectedItem() != null && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---")) {
+        if (cmbTKNamHoc.getSelectedItem() != null && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---") && !cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
             timKiemDanhSachDRL();
+        } else if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
+            dsDiemRenLuyen.clear();
+            txtTimKiem.setText("");
+            hienThiDSDiem();
         }
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
-        timKiemDanhSachDRL();
+        if (cmbTKNamHoc.getSelectedItem() != null && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---") && !cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
+            timKiemDanhSachDRL();
+        } else if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
+            dsDiemRenLuyen.clear();
+            txtTimKiem.setText("");
+            hienThiDSDiem();
+        }
     }//GEN-LAST:event_txtTimKiemKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

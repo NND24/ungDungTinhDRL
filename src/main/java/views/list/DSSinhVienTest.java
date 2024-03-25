@@ -32,6 +32,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
         try {
             initComponents();
             tableModel = (DefaultTableModel) tblDSSinhVien.getModel();
+            hienThiDSLop();
             hienThiDSKhoa();
             dsSinhVien = SinhVienTestCtrl.timTatCaSinhVien();
             hienThiDSSinhVien();
@@ -64,7 +65,20 @@ public class DSSinhVienTest extends javax.swing.JPanel {
         });
     }
 
-    private void hienThiDSLop(String maKhoa) {
+    private void hienThiDSLop() {
+        try {
+            dsLop = LopTestCtrl.timTatCaLopHienThi();
+            cmbLop.removeAllItems();
+            cmbLop.addItem("---Lớp---");
+            dsLop.forEach(lop -> {
+                cmbLop.addItem(lop.getMaLop());
+            });
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void hienThiDSTKLop(String maKhoa) {
         try {
             dsLop = LopTestCtrl.timLopTheoKhoa(maKhoa);
             cmbTKLop.removeAllItems();
@@ -103,7 +117,8 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             txtSoDienThoai.setText("");
             cmbDaNghiHoc.setSelectedIndex(0);
             txtTimKiem.setText("");
-            cmbTKLop.setSelectedIndex(0);
+            cmbTKLop.setSelectedItem("---Lớp---");
+            cmbLop.setSelectedItem("---Lớp---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSSinhVienTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -609,9 +624,6 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             }
             String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
 
-            TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maSinhVien, matKhau, maChucVu);
-            SinhVienTestModel sv = new SinhVienTestModel(maSinhVien, maTaiKhoan, maLop, hoTen, email, gioiTinh, sqlNgaySinh, soDienThoai, canCuoc, queQuan, daNghiHoc);
-
             if (!txtMaSinhVien.getText().isEmpty()) {
                 DialogHelper.showError("Sinh viên đã tồn tại. Vui lòng nhập mới");
             } else if (hoTen.isEmpty()) {
@@ -632,8 +644,12 @@ public class DSSinhVienTest extends javax.swing.JPanel {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
             } else if (SinhVienTestCtrl.kiemTraCanCuocTrung("", canCuoc)) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
+            } else if (maLop.equals("---Lớp---")) {
+                DialogHelper.showError("Chưa chọn lớp!");
             } else {
                 try {
+                    TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maSinhVien, matKhau, maChucVu);
+                    SinhVienTestModel sv = new SinhVienTestModel(maSinhVien, maTaiKhoan, maLop, hoTen, email, gioiTinh, sqlNgaySinh, soDienThoai, canCuoc, queQuan, daNghiHoc);
                     TaiKhoanCtrl.themTaiKhoan(tk);
                     SinhVienTestCtrl.themSinhVien(sv);
                     lamMoi();
@@ -663,6 +679,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
             txtCanCuoc.setText(sv.getCanCuoc());
             txtSoDienThoai.setText(sv.getSoDienThoai());
             cmbDaNghiHoc.setSelectedIndex(Integer.parseInt(sv.getDaNghiHoc()));
+            cmbLop.setSelectedItem(sv.getMaLop());
         }
     }//GEN-LAST:event_tblDSSinhVienMouseClicked
 
@@ -727,6 +744,8 @@ public class DSSinhVienTest extends javax.swing.JPanel {
                     DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
                 } else if (SinhVienTestCtrl.kiemTraCanCuocTrung(maSinhVien, canCuoc)) {
                     DialogHelper.showError("Căn cước đã tồn tại!");
+                } else if (maLop.equals("---Lớp---")) {
+                    DialogHelper.showError("Chưa chọn lớp!");
                 } else {
                     try {
                         SinhVienTestCtrl.capNhatSinhVien(sv);
@@ -760,7 +779,7 @@ public class DSSinhVienTest extends javax.swing.JPanel {
     private void cmbTKKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKKhoaActionPerformed
         int khoaIndex = cmbTKKhoa.getSelectedIndex();
         String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
-        hienThiDSLop(maKhoa);
+        hienThiDSTKLop(maKhoa);
     }//GEN-LAST:event_cmbTKKhoaActionPerformed
 
     private void cmbTKLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKLopActionPerformed

@@ -566,13 +566,13 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                 DialogHelper.showError("Số điện thoại không được để trống!");
             } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-            } else if (QuanLyCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+            } else if (QuanLyCtrl.kiemTraSoDienThoaiTrung(maQuanLy, soDienThoai)) {
                 DialogHelper.showError("Số điện thoại đã tồn tại!");
             } else if (canCuoc.isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
             } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else if (QuanLyCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+            } else if (QuanLyCtrl.kiemTraCanCuocTrung(maQuanLy, canCuoc)) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 QuanLyModel ql = new QuanLyModel(maQuanLy, hoTen, email, idGioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh);

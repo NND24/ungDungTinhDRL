@@ -39,7 +39,7 @@ public class QuanLy extends javax.swing.JFrame {
                 } else if (index == 3) {
                     if (subIndex == 1) {
                         LayeredPane.removeAll();
-                        LayeredPane.add(dsGiangVienPanel);
+                        LayeredPane.add(dsCoVanPanel);
                         LayeredPane.repaint();
                         LayeredPane.revalidate();
                     } else if (subIndex == 2) {
@@ -127,16 +127,16 @@ public class QuanLy extends javax.swing.JFrame {
         LayeredPane = new javax.swing.JLayeredPane();
         dsDiemToanTruongPanel = new javax.swing.JTabbedPane();
         dSDiemRenLuyenToanTruong1 = new views.list.DSDiemRenLuyenToanTruong();
-        dsSinhVienPanel = new javax.swing.JPanel();
-        dSSinhVienTest1 = new views.list.DSSinhVienTest();
-        dsGiangVienPanel = new javax.swing.JPanel();
-        dSGiangVien1 = new views.list.DSCoVanTest();
-        dsQuanLyPanel = new javax.swing.JPanel();
-        dSQuanLy1 = new views.list.DSQuanLy();
         taiKhoanQuanLyPanel = new javax.swing.JTabbedPane();
         taiKhoanQuanLy1 = new views.main.TaiKhoanQuanLy();
         taoPhieuDRLPanel = new javax.swing.JTabbedPane();
         taoPhieuDRL1 = new views.main.TaoPhieuDRL();
+        dsSinhVienPanel = new javax.swing.JTabbedPane();
+        dSSinhVienTest2 = new views.list.DSSinhVienTest();
+        dsCoVanPanel = new javax.swing.JTabbedPane();
+        dSCoVanTest1 = new views.list.DSCoVanTest();
+        dsQuanLyPanel = new javax.swing.JTabbedPane();
+        dSQuanLy2 = new views.list.DSQuanLy();
         header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -165,59 +165,6 @@ public class QuanLy extends javax.swing.JFrame {
 
         LayeredPane.add(dsDiemToanTruongPanel, "card2");
 
-        javax.swing.GroupLayout dsSinhVienPanelLayout = new javax.swing.GroupLayout(dsSinhVienPanel);
-        dsSinhVienPanel.setLayout(dsSinhVienPanelLayout);
-        dsSinhVienPanelLayout.setHorizontalGroup(
-            dsSinhVienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dsSinhVienPanelLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(dSSinhVienTest1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
-        dsSinhVienPanelLayout.setVerticalGroup(
-            dsSinhVienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dsSinhVienPanelLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(dSSinhVienTest1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
-
-        LayeredPane.add(dsSinhVienPanel, "card3");
-
-        javax.swing.GroupLayout dsGiangVienPanelLayout = new javax.swing.GroupLayout(dsGiangVienPanel);
-        dsGiangVienPanel.setLayout(dsGiangVienPanelLayout);
-        dsGiangVienPanelLayout.setHorizontalGroup(
-            dsGiangVienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dsGiangVienPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(dSGiangVien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        dsGiangVienPanelLayout.setVerticalGroup(
-            dsGiangVienPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dsGiangVienPanelLayout.createSequentialGroup()
-                .addComponent(dSGiangVien1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2156, Short.MAX_VALUE))
-        );
-
-        LayeredPane.add(dsGiangVienPanel, "card3");
-
-        javax.swing.GroupLayout dsQuanLyPanelLayout = new javax.swing.GroupLayout(dsQuanLyPanel);
-        dsQuanLyPanel.setLayout(dsQuanLyPanelLayout);
-        dsQuanLyPanelLayout.setHorizontalGroup(
-            dsQuanLyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dsQuanLyPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(dSQuanLy1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        dsQuanLyPanelLayout.setVerticalGroup(
-            dsQuanLyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dsQuanLyPanelLayout.createSequentialGroup()
-                .addComponent(dSQuanLy1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
-
-        LayeredPane.add(dsQuanLyPanel, "card3");
-
         taiKhoanQuanLyPanel.setBackground(new java.awt.Color(255, 255, 255));
         taiKhoanQuanLyPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         taiKhoanQuanLyPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
@@ -231,6 +178,27 @@ public class QuanLy extends javax.swing.JFrame {
         taoPhieuDRLPanel.addTab("Tạo phiếu điểm rèn luyện", taoPhieuDRL1);
 
         LayeredPane.add(taoPhieuDRLPanel, "card2");
+
+        dsSinhVienPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsSinhVienPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsSinhVienPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsSinhVienPanel.addTab("Danh sách sinh viên", dSSinhVienTest2);
+
+        LayeredPane.add(dsSinhVienPanel, "card2");
+
+        dsCoVanPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsCoVanPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsCoVanPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsCoVanPanel.addTab("Danh sách cố vấn", dSCoVanTest1);
+
+        LayeredPane.add(dsCoVanPanel, "card2");
+
+        dsQuanLyPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dsQuanLyPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dsQuanLyPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+        dsQuanLyPanel.addTab("Danh sách quản lý", dSQuanLy2);
+
+        LayeredPane.add(dsQuanLyPanel, "card2");
 
         header.setBackground(new java.awt.Color(50, 112, 83));
         header.setPreferredSize(new java.awt.Dimension(1360, 61));
@@ -372,14 +340,14 @@ public class QuanLy extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane LayeredPane;
+    private views.list.DSCoVanTest dSCoVanTest1;
     private views.list.DSDiemRenLuyenToanTruong dSDiemRenLuyenToanTruong1;
-    private views.list.DSCoVanTest dSGiangVien1;
-    private views.list.DSQuanLy dSQuanLy1;
-    private views.list.DSSinhVienTest dSSinhVienTest1;
+    private views.list.DSQuanLy dSQuanLy2;
+    private views.list.DSSinhVienTest dSSinhVienTest2;
+    private javax.swing.JTabbedPane dsCoVanPanel;
     private javax.swing.JTabbedPane dsDiemToanTruongPanel;
-    private javax.swing.JPanel dsGiangVienPanel;
-    private javax.swing.JPanel dsQuanLyPanel;
-    private javax.swing.JPanel dsSinhVienPanel;
+    private javax.swing.JTabbedPane dsQuanLyPanel;
+    private javax.swing.JTabbedPane dsSinhVienPanel;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
