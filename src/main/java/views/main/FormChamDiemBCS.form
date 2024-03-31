@@ -336,12 +336,12 @@
                                                   <Component id="jLabel26" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel27" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel28" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel29" alignment="0" pref="500" max="32767" attributes="0"/>
+                                                  <Component id="jLabel29" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel30" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel31" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel43" alignment="0" pref="500" max="32767" attributes="0"/>
+                                                  <Component id="jLabel43" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel64" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -4982,7 +4982,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="815" max="32767" attributes="0"/>
+                          <EmptySpace pref="805" max="32767" attributes="0"/>
                           <Component id="btnDienDiem" min="-2" pref="185" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btnLuu" min="-2" pref="98" max="-2" attributes="0"/>
