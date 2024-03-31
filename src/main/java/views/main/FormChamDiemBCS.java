@@ -34,6 +34,8 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         nameTextField = txtHoTen;
         semesterTextField = txtHocKy;
         scholasticTextField = txtNamHoc;
+        
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
     }
 
     private void lamMoi() {
