@@ -5,9 +5,10 @@ import java.sql.Date;
 public class QuanLyModel {
 
     private String maQuanLy, idTaiKhoan, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan;
+    private int daNghi;
     private Date ngaySinh;
 
-    public QuanLyModel(String maQuanLy, String idTaiKhoan, String hoTen, String email, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh) {
+    public QuanLyModel(String maQuanLy, String idTaiKhoan, String hoTen, String email, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh, int daNghi) {
         this.maQuanLy = maQuanLy;
         this.idTaiKhoan = idTaiKhoan;
         this.hoTen = hoTen;
@@ -17,9 +18,10 @@ public class QuanLyModel {
         this.canCuoc = canCuoc;
         this.queQuan = queQuan;
         this.ngaySinh = ngaySinh;
+        this.daNghi = daNghi;
     }
 
-    public QuanLyModel(String maQuanLy, String hoTen, String email, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh) {
+    public QuanLyModel(String maQuanLy, String hoTen, String email, String gioiTinh, String soDienThoai, String canCuoc, String queQuan, Date ngaySinh, int daNghi) {
         this.maQuanLy = maQuanLy;
         this.hoTen = hoTen;
         this.email = email;
@@ -28,6 +30,7 @@ public class QuanLyModel {
         this.canCuoc = canCuoc;
         this.queQuan = queQuan;
         this.ngaySinh = ngaySinh;
+        this.daNghi = daNghi;
     }
 
     public String getMaQuanLy() {
@@ -100,6 +103,14 @@ public class QuanLyModel {
 
     public void setNgaySinh(Date ngaySinh) {
         this.ngaySinh = ngaySinh;
+    }
+
+    public int getDaNghi() {
+        return daNghi;
+    }
+
+    public void setDaNghi(int daNghi) {
+        this.daNghi = daNghi;
     }
 
 }

@@ -54,18 +54,11 @@ public class Validator {
     }
 
     public static boolean isValidCccd(String cccdNumber) {
-        // Kiểm tra chiều dài của số CCCD
-        if (cccdNumber.length() != 9 && cccdNumber.length() != 12) {
+        // Kiểm tra chiều dài của số CCCD và xem xét xem nó có chứa chỉ chữ số hay không
+        if (!cccdNumber.matches("\\d{9}|\\d{12}")) {
             return false;
         }
 
-        // Kiểm tra xem số CCCD có chứa chỉ chữ số không
-        if (!cccdNumber.matches("\\d+")) {
-            return false;
-        }
-
-        // Các điều kiện khác tùy thuộc vào quy tắc cụ thể của số CCCD
-        // Bạn có thể cần thay đổi hàm này tùy thuộc vào yêu cầu cụ thể
         return true;
     }
 

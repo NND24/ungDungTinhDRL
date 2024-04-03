@@ -58,7 +58,7 @@
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1360, 660]"/>
+      <Dimension value="[1140, 660]"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -105,7 +105,7 @@
           </Border>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[1360, 660]"/>
+          <Dimension value="[1140, 660]"/>
         </Property>
       </Properties>
 
@@ -113,13 +113,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Component id="jPanel4" min="-2" pref="1360" max="-2" attributes="0"/>
+                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel8" pref="1360" max="32767" attributes="0"/>
+                          <Component id="jPanel8" min="-2" pref="1140" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -131,9 +131,9 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtMaQuanLy" min="-2" pref="320" max="-2" attributes="0"/>
-                              <Component id="cmbGioiTinh" min="-2" pref="320" max="-2" attributes="0"/>
-                              <Component id="txtSoDienThoai" min="-2" pref="320" max="-2" attributes="0"/>
+                              <Component id="txtMaQuanLy" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="cmbGioiTinh" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="txtSoDienThoai" min="-2" pref="230" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -143,22 +143,23 @@
                           </Group>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtHoTen" min="-2" pref="320" max="-2" attributes="0"/>
-                              <Component id="txtQueQuan" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="txtNgaySinh" min="-2" pref="320" max="-2" attributes="0"/>
+                              <Component id="txtHoTen" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtNgaySinh" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="txtQueQuan" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Component id="txtEmail" min="-2" pref="320" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtCanCuoc" min="-2" pref="320" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtEmail" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="txtCanCuoc" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="cmbDaNghi" min="-2" pref="230" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -172,16 +173,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel4" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtMaQuanLy" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtHoTen" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jLabel21" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="txtEmail" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMaQuanLy" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtHoTen" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jLabel21" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtEmail" min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
@@ -196,6 +205,8 @@
                       <Component id="jLabel18" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="jLabel20" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="txtSoDienThoai" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jLabel24" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="cmbDaNghi" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jPanel8" min="-2" pref="40" max="-2" attributes="0"/>
@@ -210,7 +221,7 @@
         <Container class="javax.swing.JPanel" name="jPanel4">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[88, 35]"/>
+              <Dimension value="[1140, 35]"/>
             </Property>
           </Properties>
 
@@ -220,7 +231,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="508" max="32767" attributes="0"/>
+                      <EmptySpace pref="288" max="32767" attributes="0"/>
                       <Component id="btnThem" min="-2" pref="129" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="btnXoa" min="-2" pref="120" max="-2" attributes="0"/>
@@ -482,7 +493,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="922" max="32767" attributes="0"/>
+                      <EmptySpace pref="702" max="32767" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtTimKiem" min="-2" pref="211" max="-2" attributes="0"/>
@@ -538,7 +549,7 @@
             <Component class="javax.swing.JTable" name="tblDSQuanLy">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="8" rowCount="4">
+                  <Table columnCount="9" rowCount="4">
                     <Column editable="false" title="M&#xe3; qu&#x1ea3;n l&#xfd;" type="java.lang.Object"/>
                     <Column editable="false" title="H&#x1ecd; t&#xea;n" type="java.lang.Object"/>
                     <Column editable="false" title="Email" type="java.lang.Object"/>
@@ -547,10 +558,16 @@
                     <Column editable="false" title="Ng&#xe0;y sinh" type="java.lang.Object"/>
                     <Column editable="false" title="C&#x103;n c&#x1b0;&#x1edb;c" type="java.lang.Object"/>
                     <Column editable="false" title="Qu&#xea; qu&#xe1;n" type="java.lang.Object"/>
+                    <Column editable="false" title="Tr&#x1ea1;ng th&#xe1;i" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -612,6 +629,27 @@
               <StringArray count="2">
                 <StringItem index="0" value="Nam"/>
                 <StringItem index="1" value="N&#x1eef;"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel24">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng th&#xe1;i"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cmbDaNghi">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="C&#xf2;n l&#xe0;m"/>
+                <StringItem index="1" value="&#x110;&#xe3; ngh&#x1ec9;"/>
               </StringArray>
             </Property>
           </Properties>

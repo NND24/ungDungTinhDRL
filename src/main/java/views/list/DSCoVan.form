@@ -58,7 +58,7 @@
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1360, 660]"/>
+      <Dimension value="[1140, 660]"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -105,7 +105,7 @@
           </Border>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[1360, 660]"/>
+          <Dimension value="[1140, 660]"/>
         </Property>
       </Properties>
 
@@ -113,13 +113,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jPanel4" min="-2" pref="1360" max="-2" attributes="0"/>
+                  <Component id="jPanel4" min="-2" pref="1140" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel8" pref="1360" max="32767" attributes="0"/>
+                          <Component id="jPanel8" min="-2" pref="1140" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -128,27 +128,27 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="cmbDaNghi" min="-2" pref="320" max="-2" attributes="0"/>
+                                  <Component id="cmbDaNghi" min="-2" pref="230" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="cmbHocVi" min="-2" pref="320" max="-2" attributes="0"/>
+                                  <Component id="cmbHocVi" min="-2" pref="230" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtEmail" min="-2" pref="320" max="-2" attributes="0"/>
+                                  <Component id="txtEmail" min="-2" pref="230" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtMaCoVan" min="-2" pref="320" max="-2" attributes="0"/>
+                                  <Component id="txtMaCoVan" min="-2" pref="230" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="cmbGioiTinh" min="-2" pref="320" max="-2" attributes="0"/>
+                                  <Component id="cmbGioiTinh" min="-2" pref="230" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -162,9 +162,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtHoTen" min="-2" pref="320" max="-2" attributes="0"/>
-                                      <Component id="txtSoDienThoai" min="-2" pref="320" max="-2" attributes="0"/>
-                                      <Component id="txtQueQuan" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
+                                      <Component id="txtHoTen" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="txtSoDienThoai" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="txtQueQuan" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -175,13 +175,13 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtNgaySinh" min="-2" pref="320" max="-2" attributes="0"/>
-                                      <Component id="txtChuyenMon" min="-2" pref="320" max="-2" attributes="0"/>
-                                      <Component id="txtCanCuoc" min="-2" pref="320" max="-2" attributes="0"/>
-                                      <Component id="cmbKhoa" min="-2" pref="320" max="-2" attributes="0"/>
+                                      <Component id="txtNgaySinh" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="txtChuyenMon" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="txtCanCuoc" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="cmbKhoa" min="-2" pref="230" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="cmbHocHam" min="-2" pref="320" max="-2" attributes="0"/>
+                              <Component id="cmbHocHam" min="-2" pref="230" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -257,14 +257,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="467" max="32767" attributes="0"/>
-                      <Component id="btnThemCoVan" min="-2" pref="142" max="-2" attributes="0"/>
+                      <EmptySpace pref="298" max="32767" attributes="0"/>
+                      <Component id="btnThemCoVan" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="btnXoaCoVan" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="btnXoaCoVan" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="btnSuaThongTin" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSuaThongTin" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="btnLamMoi" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLamMoi" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="btnXuatDSBenhNhan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -547,7 +547,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="689" max="32767" attributes="0"/>
+                      <EmptySpace pref="469" max="32767" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtTimKiem" min="-2" pref="211" max="-2" attributes="0"/>

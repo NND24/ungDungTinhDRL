@@ -21,7 +21,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class QuanLyCtrl {
 
     public static void themQuanLy(QuanLyModel ql) throws ClassNotFoundException {
-        String sql = "INSERT INTO QuanLy (MaQuanLy, IdTaiKhoan, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO QuanLy (MaQuanLy, MaTaiKhoan, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, ql.getMaQuanLy());
@@ -33,6 +33,7 @@ public class QuanLyCtrl {
             statement.setString(7, ql.getSoDienThoai());
             statement.setString(8, ql.getCanCuoc());
             statement.setString(9, ql.getQueQuan());
+            statement.setInt(10, ql.getDaNghi());
 
             statement.executeUpdate();
         } catch (SQLException ex) {
@@ -57,7 +58,8 @@ public class QuanLyCtrl {
                         resultSet.getString("SoDienThoai"),
                         resultSet.getString("CanCuoc"),
                         resultSet.getString("QueQuan"),
-                        resultSet.getDate("NgaySinh")
+                        resultSet.getDate("NgaySinh"),
+                        resultSet.getInt("DaNghi")
                 );
                 dsQuanLy.add(ql);
             }
@@ -69,7 +71,7 @@ public class QuanLyCtrl {
 
     public static QuanLyModel timQuanLyTheoTenDangNhap(String tenDangNhap) throws ClassNotFoundException {
         String sql = """
-                     SELECT MaQuanLy, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, TenChucVu
+                     SELECT MaQuanLy, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, TenChucVu, DaNghi
                      FROM QuanLy, TaiKhoan, ChucVu
                      WHERE  QuanLy.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
                      AND TenDangNhap=?
@@ -89,7 +91,8 @@ public class QuanLyCtrl {
                         resultSet.getString("SoDienThoai"),
                         resultSet.getString("CanCuoc"),
                         resultSet.getString("QueQuan"),
-                        resultSet.getDate("NgaySinh")
+                        resultSet.getDate("NgaySinh"),
+                        resultSet.getInt("DaNghi")
                 );
                 quanLy = ql;
             }
@@ -118,7 +121,8 @@ public class QuanLyCtrl {
                             resultSet.getString("SoDienThoai"),
                             resultSet.getString("CanCuoc"),
                             resultSet.getString("QueQuan"),
-                            resultSet.getDate("NgaySinh")
+                            resultSet.getDate("NgaySinh"),
+                            resultSet.getInt("DaNghi")
                     );
                     dsQuanLy.add(ql);
                 }
@@ -130,7 +134,7 @@ public class QuanLyCtrl {
     }
 
     public static void capNhatQuanLy(QuanLyModel ql) {
-        String sql = "UPDATE QuanLy SET HoTen=?, Email=?, NgaySinh=?, GioiTinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=? WHERE MaQuanLy=?";
+        String sql = "UPDATE QuanLy SET HoTen=?, Email=?, NgaySinh=?, GioiTinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=?, DaNghi=? WHERE MaQuanLy=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, ql.getHoTen());
             statement.setString(2, ql.getEmail());
@@ -139,7 +143,8 @@ public class QuanLyCtrl {
             statement.setString(5, ql.getSoDienThoai());
             statement.setString(6, ql.getCanCuoc());
             statement.setString(7, ql.getQueQuan());
-            statement.setString(8, ql.getMaQuanLy());
+            statement.setInt(8, ql.getDaNghi());
+            statement.setString(9, ql.getMaQuanLy());
 
             statement.executeUpdate();
         } catch (Exception ex) {
@@ -148,7 +153,7 @@ public class QuanLyCtrl {
     }
 
     public static void xoaQuanLy(String maQuanLy) {
-        String sql = "UPDATE QuanLy SET TrangThaiXoa='1' WHERE MaQuanLy=?";
+        String sql = "DELETE FROM QuanLy WHERE MaQuanLy=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, maQuanLy);
 
