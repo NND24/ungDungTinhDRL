@@ -21,7 +21,7 @@ public class DiemRenLuyenCtrl {
 
             String sql = """
                          SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai,
-                         TrangThaiCham, d1, d2, d3, d4, d5
+                         TrangThaiCham, d1, d2, d3, d4, d5, NgayBatDau, NgayKetThuc
                          FROM DiemRenLuyen, PhieuDRL, SinhVien, NamHoc
                          WHERE PhieuDRL.MaSinhVien=SinhVien.MaSinhVien AND DiemRenLuyen.MaPhieuDRL=PhieuDRL.MaPhieuDRL
                          AND PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
@@ -44,7 +44,9 @@ public class DiemRenLuyenCtrl {
                             resultSet.getInt("d4"),
                             resultSet.getInt("d5"),
                             resultSet.getString("MaSinhVien"),
-                            resultSet.getString("HoTen")
+                            resultSet.getString("HoTen"),
+                            resultSet.getDate("NgayBatDau"),
+                            resultSet.getDate("NgayKetThuc")
                     );
                     dsDiemRenLuyen.add(drl);
                 }
@@ -86,7 +88,9 @@ public class DiemRenLuyenCtrl {
                         resultSet.getInt("d4"),
                         resultSet.getInt("d5"),
                         resultSet.getString("MaSinhVien"),
-                        resultSet.getString("HoTen")
+                        resultSet.getString("HoTen"),
+                        resultSet.getDate("NgayBatDau"),
+                        resultSet.getDate("NgayKetThuc")
                 );
                 dsDiemRenLuyen.add(drl);
             }
@@ -99,7 +103,7 @@ public class DiemRenLuyenCtrl {
     public static List<DiemRenLuyenModel> timDiemCuaLop(String tuKhoa, String maLop, String hocKy, String namHoc) throws ClassNotFoundException {
         List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
         String sql = """
-                     SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5
+                     SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, NgayBatDau, NgayKetThuc
                      FROM DiemRenLuyen
                      INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
                      INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
@@ -132,7 +136,9 @@ public class DiemRenLuyenCtrl {
                         resultSet.getInt("d4"),
                         resultSet.getInt("d5"),
                         resultSet.getString("MaSinhVien"),
-                        resultSet.getString("HoTen")
+                        resultSet.getString("HoTen"),
+                        resultSet.getDate("NgayBatDau"),
+                        resultSet.getDate("NgayKetThuc")
                 );
                 dsDiemRenLuyen.add(drl);
             }

@@ -2904,7 +2904,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                 || trangThai.equalsIgnoreCase("Cố vấn đã chấm")
                 || trangThai.equalsIgnoreCase("Hết thời gian chấm")
                 || Validator.isBeforeToday(ngayKetThuc)) {
-            DialogHelper.showError("Hết thời gian chấm điểm");
+            DialogHelper.showError("Hết thời gian chấm");
         } else if (trangThai.equalsIgnoreCase("Sinh viên đang chấm")) {
             DialogHelper.showError("Sinh viên chưa chấm điểm");
         } else {

@@ -2854,7 +2854,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
             DialogHelper.showError("Chưa chọn sinh viên");
         } else if (Validator.isBeforeToday(ngayKetThuc)
                 || trangThai.equalsIgnoreCase("Hết thời gian chấm")) {
-            DialogHelper.showMessage("Hết thời gian chấm điểm");
+            DialogHelper.showMessage("Hết thời gian chấm");
         } else if (trangThai.equalsIgnoreCase("Sinh viên đang chấm")
                 || trangThai.equalsIgnoreCase("Sinh viên đã chấm")
                 || trangThai.equalsIgnoreCase("Sinh viên kết thúc chấm")) {

@@ -13,6 +13,9 @@ import controllers.DiemRenLuyenCtrl;
 import controllers.LopCtrl;
 import controllers.KhoaCtrl;
 import controllers.NamHocCtrl;
+import controllers.PhieuDRLCtrl;
+import models.PhieuDRLModel;
+import utils.Validator;
 
 public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
@@ -116,12 +119,40 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
                     hienThiDSDiem();
                 } else {
                     dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                    if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                        dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                    }
                     hienThiDSDiem();
                 }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private boolean thayDoiTrangThaiKhongTB(String trangThaiCham) {
+        boolean flag = false;
+        if (dsDiemRenLuyen.isEmpty() || cmbTKLop.getSelectedItem().equals("---Lớp---") || cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
+        } else {
+            for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
+                try {
+                    if (Validator.isBeforeToday(drl.getNgayKetThuc()) && !drl.getTrangThaiCham().equals("Hết thời gian chấm")) {
+                        DiemRenLuyenModel diemRenLuyenBCS = DiemRenLuyenCtrl.timDRLDayDu(drl.getMaSinhVien(), drl.getHocKy(), drl.getNamHoc(), "CoVan");
+                        String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(drl.getMaSinhVien(), drl.getHocKy(), drl.getNamHoc());
+                        if (diemRenLuyenBCS.getXepLoai() == null && diemRenLuyenBCS.getTongDiem() == 0) {
+                            DiemRenLuyenModel diem = new DiemRenLuyenModel(maPhieuDRL, "CoVan", "Kém", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                            DiemRenLuyenCtrl.chamDiemRenLuyen(diem);
+                        }
+                        PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, trangThaiCham);
+                        PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
+                        flag = true;
+                    }
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return flag;
     }
 
     @SuppressWarnings("unchecked")

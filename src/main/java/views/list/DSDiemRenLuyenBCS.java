@@ -2,7 +2,6 @@ package views.list;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +14,6 @@ import controllers.DiemRenLuyenCtrl;
 import controllers.NamHocCtrl;
 import controllers.PhieuDRLCtrl;
 import controllers.SinhVienCtrl;
-import java.time.ZoneId;
 import views.main.DangNhap;
 import views.main.FormChamDiemBCS;
 import utils.DialogHelper;
@@ -26,11 +24,6 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     DefaultTableModel tableModel;
     private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
     private List<NamHocModel> dsNamHoc = new ArrayList<>();
-    private String trangThai = "";
-    private final Date ngayHienTai = new Date();
-    private final LocalDate localDate = ngayHienTai.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    private final LocalDate ngayTruoc = localDate.plusDays(1);
-    private Date ngayKetThuc = java.sql.Date.valueOf(ngayTruoc);
 
     public DSDiemRenLuyenBCS() {
         try {
@@ -70,19 +63,6 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
                 drl.getTrangThaiCham()
             });
-
-            if (drl.getNgayKetThuc() != null) {
-                ngayKetThuc = drl.getNgayKetThuc();
-            }
-        }
-
-        for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
-            if (drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn đã chấm")
-                    || drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn kết thúc chấm")
-                    || drl.getTrangThaiCham().equalsIgnoreCase("Ban cán sự kết thúc chấm")) {
-                trangThai = drl.getTrangThaiCham();
-                break;
-            }
         }
     }
 
@@ -101,7 +81,8 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             cmbTKNamHoc.setSelectedItem(namHoc);
             cmbTKHocKy.setSelectedItem(hocKy);
             dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", sv.getMaLop(), hocKy, namHoc);
-
+            thayDoiTrangThaiKhongTB("Hết thời gian chấm");
+            dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", sv.getMaLop(), hocKy, namHoc);
             hienThiDSDiem();
         }
     }
@@ -140,6 +121,9 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                     hienThiDSDiem();
                 } else {
                     dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                    if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                        dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                    }
                     hienThiDSDiem();
                 }
             }
@@ -157,10 +141,10 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             boolean flagMesage = false;
             for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
                 try {
-                    if (trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")
-                            || trangThai.equalsIgnoreCase("Cố vấn đã chấm")
-                            || trangThai.equalsIgnoreCase("Hết thời gian chấm điểm")
-                            || Validator.isBeforeToday(ngayKetThuc)) {
+                    if (sv.getTrangThaiCham().equalsIgnoreCase("Ban cán sự kết thúc chấm")
+                            || sv.getTrangThaiCham().equalsIgnoreCase("Cố vấn đã chấm")
+                            || sv.getTrangThaiCham().equalsIgnoreCase("Hết thời gian chấm")
+                            || Validator.isBeforeToday(sv.getNgayKetThuc())) {
                         DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
                         hocKy = sv.getHocKy();
                         namHoc = sv.getNamHoc();
@@ -183,6 +167,31 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 timKiemDanhSachDRL();
             }
         }
+    }
+
+    private boolean thayDoiTrangThaiKhongTB(String trangThaiCham) {
+        boolean flag = false;
+        if (dsDiemRenLuyen.isEmpty() || cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
+        } else {
+            for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
+                try {
+                    if (!drl.getTrangThaiCham().equals("Hết thời gian chấm") && Validator.isBeforeToday(drl.getNgayKetThuc())) {
+                        DiemRenLuyenModel diemRenLuyenBCS = DiemRenLuyenCtrl.timDRLDayDu(drl.getMaSinhVien(), drl.getHocKy(), drl.getNamHoc(), "CoVan");
+                        String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(drl.getMaSinhVien(), drl.getHocKy(), drl.getNamHoc());
+                        if (diemRenLuyenBCS.getXepLoai() == null && diemRenLuyenBCS.getTongDiem() == 0) {
+                            DiemRenLuyenModel diem = new DiemRenLuyenModel(maPhieuDRL, "CoVan", "Kém", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                            DiemRenLuyenCtrl.chamDiemRenLuyen(diem);
+                        }
+                        PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, trangThaiCham);
+                        PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
+                        flag = true;
+                    }
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return flag;
     }
 
     @SuppressWarnings("unchecked")

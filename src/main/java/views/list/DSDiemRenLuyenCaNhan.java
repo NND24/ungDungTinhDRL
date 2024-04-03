@@ -10,10 +10,13 @@ import models.NamHocModel;
 import models.SinhVienModel;
 import controllers.DiemRenLuyenCtrl;
 import controllers.NamHocCtrl;
+import controllers.PhieuDRLCtrl;
 import controllers.SinhVienCtrl;
+import models.PhieuDRLModel;
 import views.main.DangNhap;
 import views.main.FormChamDiemSV;
 import utils.DialogHelper;
+import utils.Validator;
 
 public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
@@ -66,6 +69,9 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
         SinhVienModel sv = SinhVienCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
         if (sv != null) {
             dsDiemRenLuyen = DiemRenLuyenCtrl.timTatCaDiemCuaSV(sv.getMaSinhVien());
+            if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                dsDiemRenLuyen = DiemRenLuyenCtrl.timTatCaDiemCuaSV(sv.getMaSinhVien());
+            }
             tableModel.setRowCount(0);
 
             dsDiemRenLuyen.forEach(drl -> {
@@ -115,12 +121,39 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
                     hienThiDSDiem();
                 } else {
                     dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                    if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                        dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                    }
                     hienThiDSDiem();
                 }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private boolean thayDoiTrangThaiKhongTB(String trangThaiCham) {
+        boolean flag = false;
+        if (!dsDiemRenLuyen.isEmpty()) {
+            for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
+                try {
+                    if (!drl.getTrangThaiCham().equals("Hết thời gian chấm") && Validator.isBeforeToday(drl.getNgayKetThuc())) {
+                        DiemRenLuyenModel diemRenLuyenBCS = DiemRenLuyenCtrl.timDRLDayDu(drl.getMaSinhVien(), drl.getHocKy(), drl.getNamHoc(), "CoVan");
+                        String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(drl.getMaSinhVien(), drl.getHocKy(), drl.getNamHoc());
+                        if (diemRenLuyenBCS.getXepLoai() == null && diemRenLuyenBCS.getTongDiem() == 0) {
+                            DiemRenLuyenModel diem = new DiemRenLuyenModel(maPhieuDRL, "CoVan", "Kém", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                            DiemRenLuyenCtrl.chamDiemRenLuyen(diem);
+                        }
+                        PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, trangThaiCham);
+                        PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
+                        flag = true;
+                    }
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return flag;
     }
 
     @SuppressWarnings("unchecked")
