@@ -107,22 +107,24 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     private void timKiemDanhSachDRL() {
         try {
-            if (cmbTKLop.getSelectedItem() != null && cmbTKNamHoc.getSelectedItem() != null) {
+            if (cmbTKLop.getSelectedItem() != null && cmbTKNamHoc.getSelectedItem() != null && dsNamHoc != null && dsLop != null && dsKhoa != null) {
                 String tuKhoa = txtTimKiem.getText();
                 String lop = cmbTKLop.getSelectedItem().toString();
                 int namHocIndex = cmbTKNamHoc.getSelectedIndex();
-                int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
-                String hocKy = cmbTKHocKy.getSelectedItem().toString();
+                if (namHocIndex >= 0 && namHocIndex < dsNamHoc.size()) {
+                    int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
+                    String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
-                if (lop.equals("---Lớp---") || cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
-                    dsDiemRenLuyen.clear();
-                    hienThiDSDiem();
-                } else {
-                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
-                    if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                    if (lop.equals("---Lớp---") || cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
+                        dsDiemRenLuyen.clear();
+                        hienThiDSDiem();
+                    } else {
                         dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                        if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                        }
+                        hienThiDSDiem();
                     }
-                    hienThiDSDiem();
                 }
             }
         } catch (ClassNotFoundException ex) {

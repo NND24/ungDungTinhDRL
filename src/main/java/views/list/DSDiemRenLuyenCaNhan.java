@@ -113,18 +113,20 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
                 String lop = sv.getMaLop();
                 String tuKhoa = sv.getMaSinhVien();
                 int namHocIndex = cmbTKNamHoc.getSelectedIndex();
-                int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
-                String hocKy = cmbTKHocKy.getSelectedItem().toString();
+                if (namHocIndex >= 0 && namHocIndex < dsNamHoc.size()) {
+                    int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
+                    String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
-                if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
-                    dsDiemRenLuyen.clear();
-                    hienThiDSDiem();
-                } else {
-                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
-                    if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                    if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
+                        dsDiemRenLuyen.clear();
+                        hienThiDSDiem();
+                    } else {
                         dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                        if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                        }
+                        hienThiDSDiem();
                     }
-                    hienThiDSDiem();
                 }
             }
         } catch (ClassNotFoundException ex) {

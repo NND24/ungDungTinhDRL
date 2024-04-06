@@ -312,9 +312,7 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                     .addComponent(txtMatKhau, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                     .addComponent(txtTenDangNhap))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,7 +347,7 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                             .addComponent(newPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(oldPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(50, 50, 50))
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -417,7 +415,7 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

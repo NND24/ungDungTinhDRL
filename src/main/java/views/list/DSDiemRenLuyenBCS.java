@@ -113,18 +113,20 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 String lop = sv.getMaLop();
                 String tuKhoa = txtTimKiem.getText();
                 int namHocIndex = cmbTKNamHoc.getSelectedIndex();
-                int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
-                String hocKy = cmbTKHocKy.getSelectedItem().toString();
+                if (namHocIndex >= 0 && namHocIndex < dsNamHoc.size()) {
+                    int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
+                    String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
-                if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
-                    dsDiemRenLuyen.clear();
-                    hienThiDSDiem();
-                } else {
-                    dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
-                    if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                    if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
+                        dsDiemRenLuyen.clear();
+                        hienThiDSDiem();
+                    } else {
                         dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                        if (thayDoiTrangThaiKhongTB("Hết thời gian chấm")) {
+                            dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
+                        }
+                        hienThiDSDiem();
                     }
-                    hienThiDSDiem();
                 }
             }
         } catch (ClassNotFoundException ex) {
@@ -578,10 +580,10 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                     .addComponent(txtHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
                     .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(30, 30, 30)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

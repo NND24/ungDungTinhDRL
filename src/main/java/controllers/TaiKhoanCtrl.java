@@ -106,7 +106,8 @@ public class TaiKhoanCtrl {
                      WHERE CoVan.DaNghi=0
                      UNION
                      SELECT TenDangNhap FROM TaiKhoan
-                     JOIN QuanLy ON TaiKhoan.MaTaiKhoan = QuanLy.MaTaiKhoan) TK
+                     JOIN QuanLy ON TaiKhoan.MaTaiKhoan = QuanLy.MaTaiKhoan
+                     WHERE QuanLy.DaNghi=0) TK
                      WHERE TenDangNhap=?
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -137,7 +138,8 @@ public class TaiKhoanCtrl {
                      WHERE CoVan.DaNghi=0
                      UNION
                      SELECT QuanLy.Email AS Email FROM TaiKhoan
-                     JOIN QuanLy ON TaiKhoan.MaTaiKhoan = QuanLy.MaTaiKhoan) TK
+                     JOIN QuanLy ON TaiKhoan.MaTaiKhoan = QuanLy.MaTaiKhoan
+                     WHERE QuanLy.DaNghi=0) TK
                      WHERE Email=?
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {

@@ -160,7 +160,7 @@
               </Group>
               <Group type="102" attributes="0">
                   <Component id="jPanel3" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -393,7 +393,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jPanel8" pref="576" max="32767" attributes="0"/>
+                          <Component id="jPanel8" pref="582" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
