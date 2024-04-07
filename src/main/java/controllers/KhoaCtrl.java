@@ -96,7 +96,7 @@ public class KhoaCtrl {
         return dsKhoa;
     }
 
-    public static boolean kiemTraKhoaDaSuDung(int maKhoa) throws ClassNotFoundException {
+    public static boolean kiemTraKhoaDaSuDung(String maKhoa) throws ClassNotFoundException {
         boolean flag = false;
         String sql = """
                      SELECT Khoa.MaKhoa FROM KHOA
@@ -109,8 +109,8 @@ public class KhoaCtrl {
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setInt(1, maKhoa);
-            statement.setInt(2, maKhoa);
+            statement.setString(1, maKhoa);
+            statement.setString(2, maKhoa);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -122,10 +122,10 @@ public class KhoaCtrl {
         return flag;
     }
 
-    public static void xoaKhoa(int maKhoa) throws ClassNotFoundException, SQLException {
+    public static void xoaKhoa(String maKhoa) throws ClassNotFoundException, SQLException {
         String sql = "DELETE FROM Khoa WHERE MaKhoa=?";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, maKhoa);
+            statement.setString(1, maKhoa);
             statement.executeUpdate();
         }
     }

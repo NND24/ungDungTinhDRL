@@ -117,6 +117,7 @@ public class DSKhoa extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblDSKhoa);
 
         cmbTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ẩn", "Hiển thị" }));
+        cmbTrangThai.setSelectedIndex(1);
 
         jPanel6.setPreferredSize(new java.awt.Dimension(88, 35));
 
@@ -227,8 +228,7 @@ public class DSKhoa extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtMaKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTenKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0))
+                    .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addComponent(pnlNutLenh, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
             .addComponent(jScrollPane1)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
@@ -302,13 +302,13 @@ public class DSKhoa extends javax.swing.JFrame {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         try {
-            int maKhoa = Integer.parseInt(txtMaKhoa.getText());
-            if (txtMaKhoa.getText().isEmpty()) {
-                DialogHelper.showMessage("Chưa chọn khoa muốn xóa");
+            String maKhoa = txtMaKhoa.getText();
+            if (tblDSKhoa.getSelectedRow() == -1) {
+                DialogHelper.showMessage("Bạn chưa chọn khoa muốn xóa");
             } else if (KhoaCtrl.kiemTraKhoaDaSuDung(maKhoa)) {
                 DialogHelper.showMessage("Khoa đã được sử dụng, không thể xóa");
             } else {
-                if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa khoa này không!")) {
+                if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa khoa này không?")) {
                     KhoaCtrl.xoaKhoa(maKhoa);
                     DialogHelper.showMessage("Xóa khoa thành công!");
                     hienThiDSKhoa();
