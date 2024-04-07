@@ -29,7 +29,7 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                 maTaiKhoan = QuanLyCtrl.layMaTaiKhoanQL(quanLy.getMaQuanLy());
 
                 txtHoTen.setText(quanLy.getHoTen());
-                ngaySinhTextField.setText(dateFormat.format(quanLy.getNgaySinh()));
+                txtNgaySinh.setText(dateFormat.format(quanLy.getNgaySinh()));
                 String gioiTinh = "";
                 if (quanLy.getGioiTinh().equals("0")) {
                     gioiTinh = "Nam";
@@ -39,9 +39,9 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                 txtGioiTinh.setText(gioiTinh);
                 txtEmail.setText(quanLy.getEmail());
 
-                soDienThoaiTextField.setText(quanLy.getSoDienThoai());
-                canCuocTextField.setText(quanLy.getCanCuoc());
-                queQuanTextField.setText(quanLy.getQueQuan());
+                txtSoDienThoai.setText(quanLy.getSoDienThoai());
+                txtCanCuoc.setText(quanLy.getCanCuoc());
+                txtQueQuan.setText(quanLy.getQueQuan());
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);
@@ -64,15 +64,15 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
         txtHoTen = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        canCuocTextField = new javax.swing.JTextField();
+        txtCanCuoc = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        soDienThoaiTextField = new javax.swing.JTextField();
+        txtSoDienThoai = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        ngaySinhTextField = new javax.swing.JTextField();
+        txtNgaySinh = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        queQuanTextField = new javax.swing.JTextField();
+        txtQueQuan = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -195,10 +195,10 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setText("Ngày sinh");
 
-        ngaySinhTextField.setEditable(false);
-        ngaySinhTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtNgaySinh.setEditable(false);
+        txtNgaySinh.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ngaySinhTextFieldFocusLost(evt);
+                txtNgaySinhFocusLost(evt);
             }
         });
 
@@ -386,7 +386,7 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtMaQuanLy, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(soDienThoaiTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,9 +396,9 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(queQuanTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQueQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ngaySinhTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -408,14 +408,12 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(canCuocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtCanCuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,16 +431,16 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(canCuocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCanCuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ngaySinhTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(queQuanTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQueQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(soDienThoaiTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -466,12 +464,12 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ngaySinhTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ngaySinhTextFieldFocusLost
-        if (!Validator.isValidDate(ngaySinhTextField.getText())) {
+    private void txtNgaySinhFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNgaySinhFocusLost
+        if (!Validator.isValidDate(txtNgaySinh.getText())) {
             DialogHelper.showError("Ngày sinh không hợp lệ. Vui lòng nhập lại!");
-            ngaySinhTextField.requestFocus();
+            txtNgaySinh.requestFocus();
         }
-    }//GEN-LAST:event_ngaySinhTextFieldFocusLost
+    }//GEN-LAST:event_txtNgaySinhFocusLost
 
     private void btnDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMatKhauActionPerformed
         char[] oldPasswordChars = oldPasswordField.getPassword();
@@ -537,7 +535,7 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
         try {
             String maQuanLy = txtMaQuanLy.getText();
             String hoTen = txtHoTen.getText();
-            java.util.Date ngaySinh = dateFormat.parse(ngaySinhTextField.getText());
+            java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
             java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
 
             String gioiTinh = txtGioiTinh.getText();
@@ -547,17 +545,17 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
             } else {
                 idGioiTinh = "1";
             }
-            String soDienThoai = soDienThoaiTextField.getText();
-            String canCuoc = canCuocTextField.getText();
-            String queQuan = queQuanTextField.getText();
+            String soDienThoai = txtSoDienThoai.getText();
+            String canCuoc = txtCanCuoc.getText();
+            String queQuan = txtQueQuan.getText();
             String email = txtEmail.getText();
             int daNghi = 0;
 
             if (hoTen.isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
-            } else if (ngaySinhTextField.getText().isEmpty()) {
+            } else if (txtNgaySinh.getText().isEmpty()) {
                 DialogHelper.showError("Ngày sinh không được để trống!");
-            } else if (!Validator.isValidDate(ngaySinhTextField.getText())) {
+            } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
             } else if (soDienThoai.isEmpty()) {
                 DialogHelper.showError("Số điện thoại không được để trống!");
@@ -587,7 +585,6 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
     private javax.swing.JButton btnDoiMatKhau;
     private javax.swing.JButton btnDoiTenDangNhap;
     private javax.swing.JButton btnDoiThongTin;
-    private javax.swing.JTextField canCuocTextField;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -613,16 +610,17 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPasswordField newPasswordField;
-    private javax.swing.JTextField ngaySinhTextField;
     private javax.swing.JPasswordField oldPasswordField;
-    private javax.swing.JTextField queQuanTextField;
     private javax.swing.JPasswordField retypePasswordField;
-    private javax.swing.JTextField soDienThoaiTextField;
+    private javax.swing.JTextField txtCanCuoc;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtGioiTinh;
     private javax.swing.JTextField txtHoTen;
     private javax.swing.JTextField txtMaQuanLy;
     private javax.swing.JPasswordField txtMatKhau;
+    private javax.swing.JTextField txtNgaySinh;
+    private javax.swing.JTextField txtQueQuan;
+    private javax.swing.JTextField txtSoDienThoai;
     private javax.swing.JTextField txtTenDangNhap;
     // End of variables declaration//GEN-END:variables
 }

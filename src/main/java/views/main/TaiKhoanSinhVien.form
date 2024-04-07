@@ -128,7 +128,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="queQuanTextField" min="-2" pref="230" max="-2" attributes="0"/>
+                          <Component id="txtQueQuan" min="-2" pref="230" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
@@ -145,10 +145,10 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="soDienThoaiTextField" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                          <Component id="txtSoDienThoai" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                           <Component id="txtEmail" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="HoTenTextField" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="txtHoTen" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -158,8 +158,8 @@
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ngaySinhTextField" min="-2" pref="230" max="-2" attributes="0"/>
-                      <Component id="canCuocTextField" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="txtNgaySinh" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="txtCanCuoc" min="-2" pref="230" max="-2" attributes="0"/>
                       <Component id="txtLop" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -184,9 +184,9 @@
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtMaSinhVien" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel17" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="ngaySinhTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtNgaySinh" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="HoTenTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtHoTen" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -201,15 +201,15 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel22" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="jLabel20" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="soDienThoaiTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="canCuocTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtSoDienThoai" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtCanCuoc" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="txtChucVu" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel18" alignment="3" max="32767" attributes="0"/>
-                      <Component id="queQuanTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtQueQuan" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -309,7 +309,7 @@
             <Property name="text" type="java.lang.String" value="H&#x1ecd; t&#xea;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="HoTenTextField">
+        <Component class="javax.swing.JTextField" name="txtHoTen">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -330,7 +330,7 @@
             <Property name="text" type="java.lang.String" value="C&#x103;n c&#x1b0;&#x1edb;c"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="canCuocTextField">
+        <Component class="javax.swing.JTextField" name="txtCanCuoc">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel20">
           <Properties>
@@ -340,7 +340,7 @@
             <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="soDienThoaiTextField">
+        <Component class="javax.swing.JTextField" name="txtSoDienThoai">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel21">
           <Properties>
@@ -363,7 +363,7 @@
             <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="ngaySinhTextField">
+        <Component class="javax.swing.JTextField" name="txtNgaySinh">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -376,7 +376,7 @@
             <Property name="text" type="java.lang.String" value="Qu&#xea; qu&#xe1;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="queQuanTextField">
+        <Component class="javax.swing.JTextField" name="txtQueQuan">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
           <Properties>
@@ -579,10 +579,7 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel9" pref="583" max="32767" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel9" alignment="0" pref="583" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
