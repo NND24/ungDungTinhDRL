@@ -51,7 +51,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="formChamDiemCVHTPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -60,6 +60,9 @@
               <Dimension value="[1348, 2820]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formChamDiemCVHTPanelMouseExited"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -329,9 +332,9 @@
                                                   <Component id="jLabel31" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel43" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel43" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
                                                   <Component id="jLabel64" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel20" alignment="0" min="-2" pref="494" max="-2" attributes="0"/>
+                                                  <Component id="jLabel20" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -566,12 +569,12 @@
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="jLabel10" min="-2" pref="60" max="-2" attributes="0"/>
                                                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel11" min="-2" pref="494" max="-2" attributes="0"/>
+                                                          <Component id="jLabel11" min="-2" pref="500" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="jLabel17" min="-2" pref="60" max="-2" attributes="0"/>
                                                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                                          <Component id="jLabel19" min="-2" pref="494" max="-2" attributes="0"/>
+                                                          <Component id="jLabel19" min="-2" pref="500" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -634,7 +637,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel8" min="-2" pref="59" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jLabel2" min="-2" pref="494" max="-2" attributes="0"/>
+                                              <Component id="jLabel2" min="-2" pref="500" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                               <Component id="jLabel3" min="-2" pref="125" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -2465,6 +2468,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cv12aTextFieldFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cv12bTextField">
               <Properties>
@@ -2474,6 +2480,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cv12bTextFieldFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cv12cTextField">
               <Properties>
@@ -2483,6 +2492,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cv12cTextFieldFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cv12dTextField">
               <Properties>
@@ -2492,6 +2504,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cv12dTextFieldFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cv12eTextField">
               <Properties>
@@ -2501,6 +2516,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cv12eTextFieldFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cv12gTextField">
               <Properties>
@@ -2510,6 +2528,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cv12gTextFieldFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cv13TextField">
               <Properties>
