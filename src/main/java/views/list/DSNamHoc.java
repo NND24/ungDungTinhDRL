@@ -297,20 +297,24 @@ public class DSNamHoc extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa năm học này?")) {
-            try {
+        try {
+            if (tblDSNamHoc.getSelectedRow() == -1) {
+                DialogHelper.showError("Chưa chọn năm học muốn xóa");
+            } else {
                 int maNamHoc = Integer.parseInt(txtMaNamHoc.getText());
                 if (NamHocCtrl.kiemTraNamHocDaDuocSuDung(maNamHoc)) {
                     DialogHelper.showError("Năm học đã được sử dụng không thể xóa");
                 } else {
-                    NamHocCtrl.xoaNamHoc(maNamHoc);
-                    hienThiDSNamHoc();
-                    lamMoi();
-                    DialogHelper.showMessage("Xóa năm học thành công");
+                    if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa năm học này?")) {
+                        NamHocCtrl.xoaNamHoc(maNamHoc);
+                        hienThiDSNamHoc();
+                        lamMoi();
+                        DialogHelper.showMessage("Xóa năm học thành công");
+                    }
                 }
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 

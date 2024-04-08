@@ -397,19 +397,22 @@ public class DSLop extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa lớp này")) {
-            try {
-                String maLop = txtMaLop.getText();
-                if (LopCtrl.kiemTraLopDaDuocSuDung(maLop)) {
-                    DialogHelper.showError("Lớp đã có sinh viên không thể xóa!");
-                } else {
+        try {
+            String maLop = txtMaLop.getText();
+            if (tblDSLop.getSelectedRow() == -1) {
+                DialogHelper.showError("Chưa chọn lớp muốn xóa");
+            }
+            else if (LopCtrl.kiemTraLopDaDuocSuDung(maLop)) {
+                DialogHelper.showError("Lớp đã có sinh viên không thể xóa!");
+            } else {
+                if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa lớp này")) {
                     LopCtrl.xoaLop(maLop);
                     lamMoi();
                     hienThiDSLop();
                 }
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 
