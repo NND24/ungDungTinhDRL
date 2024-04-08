@@ -67,7 +67,6 @@
                       <Component id="txtTenKhoa" min="-2" pref="406" max="-2" attributes="0"/>
                       <Component id="cmbTrangThai" min="-2" pref="406" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
               <Component id="pnlNutLenh" pref="611" max="32767" attributes="0"/>
               <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
@@ -188,6 +187,7 @@
                 <StringItem index="1" value="Hi&#x1ec3;n th&#x1ecb;"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

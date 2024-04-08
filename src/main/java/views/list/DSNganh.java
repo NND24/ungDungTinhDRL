@@ -418,11 +418,14 @@ public class DSNganh extends javax.swing.JFrame {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
         String maNganh = txtMaNganh.getText();
-        if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa ngành này")) {
-            try {
-                if (NganhCtrl.kiemTraNganhDaDuocSuDung(maNganh)) {
-                    DialogHelper.showError("Ngành đã có lớp không thể xóa!");
-                } else {
+        try {
+            if (tblDSNganh.getSelectedRow() == -1) {
+                DialogHelper.showError("Chưa chọn ngành muốn xóa");
+            }
+            else if (NganhCtrl.kiemTraNganhDaDuocSuDung(maNganh)) {
+                DialogHelper.showError("Ngành đã có lớp không thể xóa!");
+            } else {
+                if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa ngành này?")) {
                     try {
                         NganhCtrl.xoaNganh(maNganh);
                         hienThiDSNganh();
@@ -433,9 +436,9 @@ public class DSNganh extends javax.swing.JFrame {
                         Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(DSNganh.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSNganh.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 
