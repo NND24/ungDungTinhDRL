@@ -24,6 +24,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     DefaultTableModel tableModel;
     private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
     private List<NamHocModel> dsNamHoc = new ArrayList<>();
+    private String trangThaiChamDiem;
 
     public DSDiemRenLuyenBCS() {
         try {
@@ -63,6 +64,15 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
                 drl.getTrangThaiCham()
             });
+        }
+        trangThaiChamDiem = "";
+        for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
+            if (drl.getTrangThaiCham().equalsIgnoreCase("Ban cán sự kết thúc chấm")
+                    || drl.getTrangThaiCham().equalsIgnoreCase("Cố vấn đã chấm")
+                    || drl.getTrangThaiCham().equalsIgnoreCase("Hết thời gian chấm")) {
+                trangThaiChamDiem = drl.getTrangThaiCham();
+                break;
+            }
         }
     }
 
@@ -143,13 +153,14 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             boolean flagMesage = false;
             for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
                 try {
-                    if (sv.getTrangThaiCham().equalsIgnoreCase("Ban cán sự kết thúc chấm")
-                            || sv.getTrangThaiCham().equalsIgnoreCase("Cố vấn đã chấm")
-                            || sv.getTrangThaiCham().equalsIgnoreCase("Hết thời gian chấm")
+                    if (trangThaiChamDiem.equalsIgnoreCase("Ban cán sự kết thúc chấm")
+                            || trangThaiChamDiem.equalsIgnoreCase("Cố vấn đã chấm")
+                            || trangThaiChamDiem.equalsIgnoreCase("Hết thời gian chấm")
                             || Validator.isBeforeToday(sv.getNgayKetThuc())) {
                         DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với cố vấn học tập!");
                         hocKy = sv.getHocKy();
                         namHoc = sv.getNamHoc();
+                        flagMesage = false;
                         break;
                     } else {
                         String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());

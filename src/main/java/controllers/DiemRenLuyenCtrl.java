@@ -242,7 +242,7 @@ public class DiemRenLuyenCtrl {
                     INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
                     INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
                     WHERE NguoiCham='CoVan'
-                    AND (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
+                    AND (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ? OR TrangThaiCham LIKE ?)
                     AND (Lop.MaLop=? OR ?='') AND (NamHoc.MaNamHoc=? OR ?='') AND (HocKy=? OR ?='')
                     AND Lop.TrangThaiHienThi=1 AND NamHoc.TrangThaiHienThi=1
                     AND GETDATE() >= NgayBatDau
@@ -251,12 +251,13 @@ public class DiemRenLuyenCtrl {
 
             statement.setString(1, "%" + tuKhoa + "%");
             statement.setString(2, "%" + tuKhoa + "%");
-            statement.setString(3, lop);
+            statement.setString(3, "%" + tuKhoa + "%");
             statement.setString(4, lop);
-            statement.setInt(5, maNamHoc);
+            statement.setString(5, lop);
             statement.setInt(6, maNamHoc);
-            statement.setString(7, hocKy);
+            statement.setInt(7, maNamHoc);
             statement.setString(8, hocKy);
+            statement.setString(9, hocKy);
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {

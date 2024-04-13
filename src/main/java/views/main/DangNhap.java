@@ -29,7 +29,7 @@ public class DangNhap extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Đăng nhập");
+        setTitle("Đăng nhập hệ thống chấm điểm rèn luyện của sinh viên HVCS");
 
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
         jPanel1.setPreferredSize(new java.awt.Dimension(520, 250));

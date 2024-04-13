@@ -23,7 +23,7 @@ public class SendEmail {
               <head>
               </head>
               <body>
-                <h3 style="color: blue;">Mã xác nhận của bạn là:</h3>
+                <h3>Mã xác nhận của bạn là:</h3>
                 <p>%s</p>
               </body>
               </html>

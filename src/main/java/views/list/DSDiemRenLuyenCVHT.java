@@ -21,6 +21,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
     DefaultTableModel tableModel;
     private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
     private List<NamHocModel> dsNamHoc = new ArrayList<>();
+    private String trangThaiChamDiem;
 
     public DSDiemRenLuyenCVHT() {
         initComponents();
@@ -68,6 +69,14 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
                 drl.getD4(), drl.getD5(), drl.getTongDiem(),
                 drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
                 drl.getTrangThaiCham()});
+        }
+
+        trangThaiChamDiem = "";
+        for (DiemRenLuyenModel drl : dsDiemRenLuyen) {
+            if (drl.getTrangThaiCham().equalsIgnoreCase("Hết thời gian chấm")) {
+                trangThaiChamDiem = drl.getTrangThaiCham();
+                break;
+            }
         }
     }
 
@@ -124,11 +133,12 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
             boolean flagMesage = false;
             for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
                 try {
-                    if (sv.getTrangThaiCham().equalsIgnoreCase("Hết thời gian chấm")
+                    if (trangThaiChamDiem.equalsIgnoreCase("Hết thời gian chấm")
                             || Validator.isBeforeToday(sv.getNgayKetThuc())) {
                         DialogHelper.showError("Hết thời gian chấm điểm. Vui lòng liên hệ với quản lý!");
                         hocKy = sv.getHocKy();
                         namHoc = sv.getNamHoc();
+                        flagMesage = false;
                         break;
                     } else {
                         String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(sv.getMaSinhVien(), sv.getHocKy(), sv.getNamHoc());
