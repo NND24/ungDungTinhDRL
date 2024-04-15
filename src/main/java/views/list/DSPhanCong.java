@@ -408,7 +408,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                 PhanCongCtrl.xoaPhanCong(maPhanCong);
                 lamMoi();
                 hienThiTatCaPhanCong();
-                DialogHelper.showMessage("Xóa phân công thành công");
+                DialogHelper.showMessage("Xóa phân công thành công!");
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -440,6 +440,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                         PhanCongCtrl.capNhatPhanCong(phanCong);
                         lamMoi();
                         hienThiTatCaPhanCong();
+                        DialogHelper.showMessage("Sửa phân công thành công!");
                     }
                 }
             }
