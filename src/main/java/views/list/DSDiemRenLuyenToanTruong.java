@@ -248,9 +248,13 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         jLabel3.setText("Mã sinh viên");
 
         txtMaSinhVien.setEditable(false);
+        txtMaSinhVien.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Họ tên");
+
+        txtHoTen.setEditable(false);
+        txtHoTen.setBackground(new java.awt.Color(255, 255, 255));
 
         tblDSDiemRenLuyen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -282,29 +286,56 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Tiêu chí 1");
 
+        btnDiemTieuChi1.setEditable(false);
+        btnDiemTieuChi1.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnDiemTieuChi2.setEditable(false);
+        btnDiemTieuChi2.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Tiêu chí 2");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Tiêu chí 3");
 
+        btnDiemTieuChi3.setEditable(false);
+        btnDiemTieuChi3.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Tiêu chí 4");
+
+        btnDiemTieuChi4.setEditable(false);
+        btnDiemTieuChi4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Tiêu chí 5");
 
+        btnDiemTieuChi5.setEditable(false);
+        btnDiemTieuChi5.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setText("Tổng điểm");
+
+        txtNamHoc.setEditable(false);
+        txtNamHoc.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Xếp loại");
 
+        txtXepLoai.setEditable(false);
+        txtXepLoai.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setText("Học kỳ");
 
+        txtHocKy.setEditable(false);
+        txtHocKy.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel15.setText("Năm học");
+
+        txtTongDiem.setEditable(false);
+        txtTongDiem.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel11.setPreferredSize(new java.awt.Dimension(199, 35));
 
