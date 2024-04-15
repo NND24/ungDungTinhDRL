@@ -102,6 +102,7 @@ public class DSPhanCong extends javax.swing.JFrame {
     }
 
     private void lamMoi() {
+        txtMaPhanCong.setText("");
         cmbCoVan.setSelectedIndex(0);
         cmbLop.setSelectedIndex(0);
         cmbNamHoc.setSelectedIndex(0);
