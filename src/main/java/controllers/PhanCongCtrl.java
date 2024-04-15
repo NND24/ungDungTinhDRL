@@ -192,6 +192,28 @@ public class PhanCongCtrl {
         return flag;
     }
 
+    public static boolean kiemTraLopNamHocDaPhanCongCoMa(String maLop, int maNamHoc, int maPhanCong) throws ClassNotFoundException {
+        boolean flag = false;
+        String sql = """
+                     SELECT MaPhanCong FROM PhanCong
+                     WHERE MaLop=? AND MaNamHoc=? AND MaPhanCong!=?
+                     """;
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, maLop);
+            statement.setInt(2, maNamHoc);
+            statement.setInt(3, maPhanCong);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                flag = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+
     public static void xuatFileExcel(List<PhanCongModel> dsCoVan, String filePath) {
         try (Workbook workbook = new XSSFWorkbook()) {
             Sheet sheet = workbook.createSheet("DanhSachPhanCong");

@@ -433,7 +433,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                     int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                     int trangThai = cmbTrangThai.getSelectedIndex();
 
-                    if (PhanCongCtrl.kiemTraLopNamHocDaPhanCong(maLop, maNamHoc)) {
+                    if (PhanCongCtrl.kiemTraLopNamHocDaPhanCongCoMa(maLop, maNamHoc, maPhanCong)) {
                         DialogHelper.showError("Phân công đã tồn tại. Vui lòng nhập mới");
                     } else {
                         PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, maPhanCong, trangThai);
