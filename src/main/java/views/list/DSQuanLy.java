@@ -242,15 +242,15 @@ public class DSQuanLy extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(107, 107, 107)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
                 .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(25, 25, 25)
                 .addComponent(btnXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -262,11 +262,10 @@ public class DSQuanLy extends javax.swing.JPanel {
                     .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1)
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -482,21 +481,9 @@ public class DSQuanLy extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            String soLuongNguoiFormatted = String.format("%03d", (QuanLyCtrl.layMaQuanLyCuoiCung() + 1));
-            String maQuanLy = "admin" + soLuongNguoiFormatted;
-            String idTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = txtHoTen.getText();
-            java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
-            java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
-
-            String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
             String soDienThoai = txtSoDienThoai.getText();
             String canCuoc = txtCanCuoc.getText();
-            String email = maQuanLy.toLowerCase() + "@ptithcm.edu.vn";
-            String matKhau = maQuanLy.toLowerCase() + "#" + txtNgaySinh.getText().replace("/", "");
-            String queQuan = txtQueQuan.getText();
-            String chucVu = "QL";
-            int daNghi = cmbDaNghi.getSelectedIndex();
 
             if (!txtMaQuanLy.getText().isEmpty()) {
                 DialogHelper.showError("Quản lý đã tồn tại. Vui lòng nhập mới");
@@ -520,6 +507,19 @@ public class DSQuanLy extends javax.swing.JPanel {
                 DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 try {
+                    String soLuongNguoiFormatted = String.format("%03d", (QuanLyCtrl.layMaQuanLyCuoiCung() + 1));
+                    String maQuanLy = "admin" + soLuongNguoiFormatted;
+                    String idTaiKhoan = GenerateCode.generateIdTaiKhoan();
+                    java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
+                    java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+
+                    String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
+                    String email = maQuanLy.toLowerCase() + "@ptithcm.edu.vn";
+                    String matKhau = maQuanLy.toLowerCase() + "#" + txtNgaySinh.getText().replace("/", "");
+                    String queQuan = txtQueQuan.getText();
+                    String chucVu = "QL";
+                    int daNghi = cmbDaNghi.getSelectedIndex();
+
                     TaiKhoanModel tk = new TaiKhoanModel(idTaiKhoan, maQuanLy, matKhau, chucVu);
                     TaiKhoanCtrl.themTaiKhoan(tk);
 
@@ -574,14 +574,8 @@ public class DSQuanLy extends javax.swing.JPanel {
             if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin quản lý này?")) {
                 String maQuanLy = txtMaQuanLy.getText();
                 String hoTen = txtHoTen.getText();
-                String email = txtEmail.getText();
-                java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
-                java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
-                String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
                 String soDienThoai = txtSoDienThoai.getText();
                 String canCuoc = txtCanCuoc.getText();
-                String queQuan = txtQueQuan.getText();
-                int daNghi = cmbDaNghi.getSelectedIndex();
 
                 if (hoTen.isEmpty()) {
                     DialogHelper.showError("Họ tên không được để trống!");
@@ -602,6 +596,13 @@ public class DSQuanLy extends javax.swing.JPanel {
                 } else if (QuanLyCtrl.kiemTraCanCuocTrung(maQuanLy, canCuoc)) {
                     DialogHelper.showError("Căn cước đã tồn tại!");
                 } else {
+                    String email = txtEmail.getText();
+                    java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
+                    java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+                    String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
+                    String queQuan = txtQueQuan.getText();
+                    int daNghi = cmbDaNghi.getSelectedIndex();
+
                     QuanLyModel ql = new QuanLyModel(maQuanLy, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh, daNghi);
                     QuanLyCtrl.capNhatQuanLy(ql);
                     lamMoi();

@@ -465,7 +465,7 @@ public class DSSinhVien extends javax.swing.JPanel {
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setText("Chức vụ");
 
-        cmbGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác" }));
+        cmbGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel25.setText("Lớp");
@@ -601,32 +601,10 @@ public class DSSinhVien extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            int lopIndex = cmbLop.getSelectedIndex();
             String maLop = cmbLop.getSelectedItem().toString();
-            String khoa = dsLop.get(lopIndex).getKhoa();
-            String nganh = dsLop.get(lopIndex).getMaNganh();
-            String soLuongNguoiFormatted = String.format("%03d", (SinhVienCtrl.layMaSinhVienCuoiCuaLop(maLop) + 1));
-            String maSinhVien = "N" + khoa.substring(2) + "DC" + nganh + soLuongNguoiFormatted;
-            String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = txtHoTen.getText();
-            java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
-            java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
-
-            String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
             String soDienThoai = txtSoDienThoai.getText();
             String canCuoc = txtCanCuoc.getText();
-            String email = maSinhVien.toLowerCase() + "@student.ptithcm.edu.vn";
-            String matKhau = maSinhVien.toLowerCase() + "#" + txtNgaySinh.getText().replace("/", "");
-            String queQuan = txtQueQuan.getText();
-            String chucVu = cmbChucVu.getSelectedItem().toString();
-            String maChucVu = "";
-            if (chucVu.equals("Sinh viên")) {
-                maChucVu = "SV";
-            } else {
-                maChucVu = "BCS";
-            }
-            String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
-
             if (!txtMaSinhVien.getText().isEmpty()) {
                 DialogHelper.showError("Sinh viên đã tồn tại. Vui lòng nhập mới");
             } else if (hoTen.isEmpty()) {
@@ -651,6 +629,31 @@ public class DSSinhVien extends javax.swing.JPanel {
                 DialogHelper.showError("Chưa chọn lớp!");
             } else {
                 try {
+                    List<LopModel> lopDuocChon = LopCtrl.timKiemLop(maLop);
+
+                    String khoa = lopDuocChon.get(0).getKhoa();
+                    String nganh = lopDuocChon.get(0).getMaNganh();
+                    String soLuongNguoiFormatted = String.format("%03d", (SinhVienCtrl.layMaSinhVienCuoiCuaLop(maLop) + 1));
+                    String maSinhVien = "N" + khoa.substring(2) + "DC" + nganh + soLuongNguoiFormatted;
+                    String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
+
+                    java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
+                    java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+
+                    String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
+
+                    String email = maSinhVien.toLowerCase() + "@student.ptithcm.edu.vn";
+                    String matKhau = maSinhVien.toLowerCase() + "#" + txtNgaySinh.getText().replace("/", "");
+                    String queQuan = txtQueQuan.getText();
+                    String chucVu = cmbChucVu.getSelectedItem().toString();
+                    String maChucVu = "";
+                    if (chucVu.equals("Sinh viên")) {
+                        maChucVu = "SV";
+                    } else {
+                        maChucVu = "BCS";
+                    }
+                    String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
+
                     TaiKhoanModel tk = new TaiKhoanModel(maTaiKhoan, maSinhVien, matKhau, maChucVu);
                     SinhVienModel sv = new SinhVienModel(maSinhVien, maTaiKhoan, maLop, hoTen, email, gioiTinh, sqlNgaySinh, soDienThoai, canCuoc, queQuan, daNghiHoc);
                     TaiKhoanCtrl.themTaiKhoan(tk);
@@ -715,20 +718,10 @@ public class DSSinhVien extends javax.swing.JPanel {
         try {
             if (DialogHelper.showConfirmation("Bạn có chắc muốn chỉnh sửa thông tin cho sinh viên này?")) {
                 String maSinhVien = txtMaSinhVien.getText();
+                String maLop = cmbLop.getSelectedItem().toString();
                 String hoTen = txtHoTen.getText();
-                java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
-                java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
-
-                String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
                 String soDienThoai = txtSoDienThoai.getText();
                 String canCuoc = txtCanCuoc.getText();
-                String queQuan = txtQueQuan.getText();
-                int lopIndex = cmbLop.getSelectedIndex();
-                String maLop = cmbLop.getSelectedItem().toString();
-                String chucVu = cmbChucVu.getSelectedItem().toString();
-                String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
-
-                SinhVienModel sv = new SinhVienModel(maSinhVien, maLop, hoTen, chucVu, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
                 if (hoTen.isEmpty()) {
                     DialogHelper.showError("Họ tên không được để trống!");
                 } else if (txtNgaySinh.getText().isEmpty()) {
@@ -751,6 +744,15 @@ public class DSSinhVien extends javax.swing.JPanel {
                     DialogHelper.showError("Chưa chọn lớp!");
                 } else {
                     try {
+                        java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
+                        java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+                        String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
+                        String queQuan = txtQueQuan.getText();
+                        String chucVu = cmbChucVu.getSelectedItem().toString();
+                        String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
+
+                        SinhVienModel sv = new SinhVienModel(maSinhVien, maLop, hoTen, chucVu, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
+
                         SinhVienCtrl.capNhatSinhVien(sv);
                         hienThiDSSinhVien();
                         DialogHelper.showMessage("Cập nhật sinh viên thành công!");
@@ -785,6 +787,8 @@ public class DSSinhVien extends javax.swing.JPanel {
             String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
             hienThiDSTKLop(maKhoa);
         } else if (cmbTKKhoa.getSelectedItem().equals("---Khoa---")) {
+            cmbTKLop.removeAllItems();
+            cmbTKLop.addItem("---Lớp---");
             cmbTKLop.setSelectedItem("---Lớp---");
         }
     }//GEN-LAST:event_cmbTKKhoaActionPerformed

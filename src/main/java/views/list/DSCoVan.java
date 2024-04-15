@@ -580,31 +580,9 @@ public class DSCoVan extends javax.swing.JPanel {
 
     private void btnThemCoVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCoVanActionPerformed
         try {
-            String soLuongNguoiFormatted = String.format("%03d", (CoVanCtrl.layMaCoVanCuoiCung() + 1));
-            String maCoVan = "cv" + soLuongNguoiFormatted;
-            String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
             String hoTen = txtHoTen.getText();
-            java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
-            java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
-
-            int gioiTinh = cmbGioiTinh.getSelectedIndex();
             String soDienThoai = txtSoDienThoai.getText();
             String canCuoc = txtCanCuoc.getText();
-            String email = maCoVan.toLowerCase() + "@ptithcm.edu.vn";
-            String matKhau = maCoVan.toLowerCase() + "#" + txtNgaySinh.getText().replace("/", "");
-            String queQuan = txtQueQuan.getText();
-            String chucVu = "CV";
-            String hocVi = cmbHocVi.getSelectedItem().toString();
-            if (hocVi.equals("---Học vị---")) {
-                hocVi = "";
-            }
-            String hocHam = cmbHocHam.getSelectedItem().toString();
-            if (hocHam.equals("---Học hàm---")) {
-                hocHam = "";
-            }
-            String chuyenMon = txtChuyenMon.getText();
-            int daNghi = cmbDaNghi.getSelectedIndex();
-
             if (!txtMaCoVan.getText().isEmpty()) {
                 DialogHelper.showError("Cố vấn đã tồn tại. Vui lòng nhập mới");
             } else if (hoTen.isEmpty()) {
@@ -629,6 +607,27 @@ public class DSCoVan extends javax.swing.JPanel {
                 DialogHelper.showError("Chưa chọn khoa!");
             } else {
                 try {
+                    String soLuongNguoiFormatted = String.format("%03d", (CoVanCtrl.layMaCoVanCuoiCung() + 1));
+                    String maCoVan = "cv" + soLuongNguoiFormatted;
+                    String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
+                    java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
+                    java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+                    int gioiTinh = cmbGioiTinh.getSelectedIndex();
+                    String email = maCoVan.toLowerCase() + "@ptithcm.edu.vn";
+                    String matKhau = maCoVan.toLowerCase() + "#" + txtNgaySinh.getText().replace("/", "");
+                    String queQuan = txtQueQuan.getText();
+                    String chucVu = "CV";
+                    String hocVi = cmbHocVi.getSelectedItem().toString();
+                    if (hocVi.equals("---Học vị---")) {
+                        hocVi = "";
+                    }
+                    String hocHam = cmbHocHam.getSelectedItem().toString();
+                    if (hocHam.equals("---Học hàm---")) {
+                        hocHam = "";
+                    }
+                    String chuyenMon = txtChuyenMon.getText();
+                    int daNghi = cmbDaNghi.getSelectedIndex();
+
                     int khoaIndex = cmbKhoa.getSelectedIndex();
                     String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
                     String tenKhoa = cmbKhoa.getSelectedItem().toString();
@@ -655,24 +654,8 @@ public class DSCoVan extends javax.swing.JPanel {
             if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin cố vấn này!")) {
                 String maCoVan = txtMaCoVan.getText();
                 String hoTen = txtHoTen.getText();
-                java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
-                java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
-
-                int gioiTinh = cmbGioiTinh.getSelectedIndex();
                 String soDienThoai = txtSoDienThoai.getText();
                 String canCuoc = txtCanCuoc.getText();
-                String email = txtEmail.getText();
-                String queQuan = txtQueQuan.getText();
-                String hocVi = cmbHocVi.getSelectedItem().toString();
-                if (hocVi.equals("---Học vị---")) {
-                    hocVi = "";
-                }
-                String hocHam = cmbHocHam.getSelectedItem().toString();
-                if (hocHam.equals("---Học hàm---")) {
-                    hocHam = "";
-                }
-                String chuyenMon = txtChuyenMon.getText();
-                int daNghi = cmbDaNghi.getSelectedIndex();
 
                 if (hoTen.isEmpty()) {
                     DialogHelper.showError("Họ tên không được để trống!");
@@ -695,6 +678,23 @@ public class DSCoVan extends javax.swing.JPanel {
                 } else if (cmbKhoa.getSelectedItem().equals("---Khoa---")) {
                     DialogHelper.showError("Chưa chọn khoa!");
                 } else {
+                    java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
+                    java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
+
+                    int gioiTinh = cmbGioiTinh.getSelectedIndex();
+                    String email = txtEmail.getText();
+                    String queQuan = txtQueQuan.getText();
+                    String hocVi = cmbHocVi.getSelectedItem().toString();
+                    if (hocVi.equals("---Học vị---")) {
+                        hocVi = "";
+                    }
+                    String hocHam = cmbHocHam.getSelectedItem().toString();
+                    if (hocHam.equals("---Học hàm---")) {
+                        hocHam = "";
+                    }
+                    String chuyenMon = txtChuyenMon.getText();
+                    int daNghi = cmbDaNghi.getSelectedIndex();
+
                     int khoaIndex = cmbKhoa.getSelectedIndex();
                     String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
 
