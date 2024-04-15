@@ -4956,7 +4956,7 @@
                           <EmptySpace pref="565" max="32767" attributes="0"/>
                           <Component id="btnDienDiem" min="-2" pref="185" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="btnDuyet" min="-2" pref="122" max="-2" attributes="0"/>
+                          <Component id="btnChamDiem" min="-2" pref="122" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -4965,7 +4965,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel15" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="btnDuyet" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnChamDiem" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btnDienDiem" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -4980,7 +4980,7 @@
                     <Property name="text" type="java.lang.String" value="CHI TI&#x1ebe;T &#x110;I&#x1ec2;M R&#xc8;N LUY&#x1ec6;N "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnDuyet">
+                <Component class="javax.swing.JButton" name="btnChamDiem">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -4991,13 +4991,13 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Duy&#x1ec7;t &#x111;i&#x1ec3;m"/>
+                    <Property name="text" type="java.lang.String" value="Ch&#x1ea5;m &#x111;i&#x1ec3;m"/>
                   </Properties>
                   <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="L&#x1b0;u"/>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Ch&#x1ea5;m &#x111;i&#x1ec3;m"/>
                   </AccessibilityProperties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDuyetActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChamDiemActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnDienDiem">

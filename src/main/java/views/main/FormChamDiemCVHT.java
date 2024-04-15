@@ -590,7 +590,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         cv13dTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        btnDuyet = new javax.swing.JButton();
+        btnChamDiem = new javax.swing.JButton();
         btnDienDiem = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -1799,13 +1799,13 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setText("CHI TIẾT ĐIỂM RÈN LUYỆN ");
 
-        btnDuyet.setBackground(new java.awt.Color(0, 102, 255));
-        btnDuyet.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnDuyet.setForeground(new java.awt.Color(255, 255, 255));
-        btnDuyet.setText("Duyệt điểm");
-        btnDuyet.addActionListener(new java.awt.event.ActionListener() {
+        btnChamDiem.setBackground(new java.awt.Color(0, 102, 255));
+        btnChamDiem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnChamDiem.setForeground(new java.awt.Color(255, 255, 255));
+        btnChamDiem.setText("Chấm điểm");
+        btnChamDiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDuyetActionPerformed(evt);
+                btnChamDiemActionPerformed(evt);
             }
         });
 
@@ -1831,18 +1831,18 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 565, Short.MAX_VALUE)
                 .addComponent(btnDienDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(btnDuyet, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnChamDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnDuyet, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnChamDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnDienDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        btnDuyet.getAccessibleContext().setAccessibleName("Lưu");
+        btnChamDiem.getAccessibleContext().setAccessibleName("Chấm điểm");
 
         javax.swing.GroupLayout formChamDiemCVHTPanelLayout = new javax.swing.GroupLayout(formChamDiemCVHTPanel);
         formChamDiemCVHTPanel.setLayout(formChamDiemCVHTPanelLayout);
@@ -2884,7 +2884,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDuyetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDuyetActionPerformed
+    private void btnChamDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChamDiemActionPerformed
         if (txtMaSinhVien.getText().isEmpty()) {
             DialogHelper.showError("Chưa chọn sinh viên");
         } else if (Validator.isBeforeToday(ngayKetThuc)
@@ -3077,7 +3077,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                 Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_btnDuyetActionPerformed
+    }//GEN-LAST:event_btnChamDiemActionPerformed
 
     private void txtMaSinhVienAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtMaSinhVienAncestorAdded
         try {
@@ -3525,8 +3525,8 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     private javax.swing.JTextField bcs53TextField;
     private javax.swing.JTextField bcs5TextField;
     private javax.swing.JTextField bcsTongTextField;
+    private javax.swing.JButton btnChamDiem;
     private javax.swing.JButton btnDienDiem;
-    private javax.swing.JButton btnDuyet;
     private javax.swing.JTextField cv11TextField;
     private javax.swing.JTextField cv12aTextField;
     private javax.swing.JTextField cv12bTextField;
