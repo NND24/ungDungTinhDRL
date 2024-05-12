@@ -15,7 +15,9 @@ import controllers.LopCtrl;
 import controllers.NamHocCtrl;
 import controllers.PhieuDRLCtrl;
 import controllers.SinhVienCtrl;
+import models.DiemRenLuyenModel;
 import utils.DialogHelper;
+import utils.Validator;
 
 public class TaoPhieuDRL extends javax.swing.JPanel {
 
@@ -128,6 +130,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         dateChooserEnd = new com.toedter.calendar.JDateChooser();
         jPanel7 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        btnIn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblChiTietPhieuDRL = new javax.swing.JTable();
         pnlNutLenh = new javax.swing.JPanel();
@@ -210,6 +213,18 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("CHI TIẾT PHIẾU ĐIỂM RÈN LUYỆN");
 
+        btnIn.setBackground(new java.awt.Color(0, 102, 255));
+        btnIn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnIn.setForeground(new java.awt.Color(255, 255, 255));
+        btnIn.setText("Xuất danh sách kết quả");
+        btnIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIn.setPreferredSize(new java.awt.Dimension(120, 25));
+        btnIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -217,11 +232,15 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addContainerGap(950, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addComponent(btnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         tblChiTietPhieuDRL.setModel(new javax.swing.table.DefaultTableModel(
@@ -244,11 +263,6 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
             }
         });
         tblChiTietPhieuDRL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tblChiTietPhieuDRL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblChiTietPhieuDRLMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(tblChiTietPhieuDRL);
 
         pnlNutLenh.setBackground(new java.awt.Color(255, 255, 255));
@@ -362,7 +376,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
                         .addComponent(jScrollPane1))
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -417,7 +431,6 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblDSPhieuDRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSPhieuDRLMouseClicked
-        // TODO add your handling code here:
         int selectedIndex = tblDSPhieuDRL.getSelectedRow();
         if (selectedIndex >= 0) {
             try {
@@ -455,6 +468,8 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                 DialogHelper.showError("Vui lòng chọn năm học");
             } else if (ngayBatDau.after(ngayKetThuc)) {
                 DialogHelper.showError("Ngày bắt đầu phải trước ngày kết thúc.");
+            } else if (cmbHocKy.getSelectedItem().equals("---Học kỳ---")) {
+                DialogHelper.showError("Vui lòng chọn học kỳ");
             } else {
                 String maLop = cmbLop.getSelectedItem().toString();
                 String namHoc = cmbNamHoc.getSelectedItem().toString();
@@ -546,6 +561,8 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                     DialogHelper.showError("Vui lòng chọn năm học");
                 } else if (ngayBatDau.after(ngayKetThuc)) {
                     DialogHelper.showError("Ngày bắt đầu phải trước ngày kết thúc.");
+                } else if (cmbHocKy.getSelectedItem().equals("---Học kỳ---")) {
+                    DialogHelper.showError("Vui lòng chọn học kỳ");
                 } else {
                     String maLop = cmbLop.getSelectedItem().toString();
                     int namHocIndex = cmbNamHoc.getSelectedIndex();
@@ -587,12 +604,43 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnNhapMoiActionPerformed
 
-    private void tblChiTietPhieuDRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChiTietPhieuDRLMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tblChiTietPhieuDRLMouseClicked
+    private void btnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInActionPerformed
+        try {
+            int selectedIndex = tblDSPhieuDRL.getSelectedRow();
+            if (selectedIndex >= 0) {
+                PhieuDRLModel phieu = dsPhieuDRL.get(selectedIndex);
+
+                String maLop = phieu.getMaLop();
+                String namHoc = phieu.getNamHoc();
+                int hocKy = phieu.getHocKy();
+
+                List<DiemRenLuyenModel> dsDiemRenLuyen = DiemRenLuyenCtrl.timDiemCuaLop("", maLop, Integer.toString(hocKy), namHoc);
+                if (!dsDiemRenLuyen.isEmpty()) {
+                    for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
+                        if (sv.getTrangThaiCham().equalsIgnoreCase("Hết thời gian chấm")
+                                || Validator.isBeforeToday(sv.getNgayKetThuc())) {
+                            DiemRenLuyenCtrl.xuatFileExcel(dsDiemRenLuyen);
+                            DialogHelper.showMessage("Xuất danh sách thành công!");
+                            break;
+                        } else {
+                            DialogHelper.showError("Chưa hoàn tất chấm điểm không thể in danh sách kết quả");
+                            break;
+                        }
+                    }
+                } else {
+                    DialogHelper.showError("Chưa có danh sách điểm rèn luyện");
+                }
+            } else {
+                DialogHelper.showError("Chưa chọn phiếu điểm rèn luyện muốn in!");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnInActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCapNhat;
+    private javax.swing.JButton btnIn;
     private javax.swing.JButton btnNhapMoi;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;

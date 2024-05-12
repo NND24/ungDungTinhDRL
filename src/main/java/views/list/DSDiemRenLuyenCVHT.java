@@ -222,6 +222,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         txtTongDiem = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
+        btnIn = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         txtTimKiem = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
@@ -416,6 +417,18 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel26.setText("DANH SÁCH ĐIỂM RÈN LUYỆN CỦA LỚP");
 
+        btnIn.setBackground(new java.awt.Color(0, 102, 255));
+        btnIn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnIn.setForeground(new java.awt.Color(255, 255, 255));
+        btnIn.setText("Xuất danh sách kết quả");
+        btnIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIn.setPreferredSize(new java.awt.Dimension(120, 25));
+        btnIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -423,11 +436,15 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel26)
-                .addContainerGap(869, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 649, Short.MAX_VALUE)
+                .addComponent(btnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addComponent(btnIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -692,6 +709,28 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtTimKiemKeyPressed
 
+    private void btnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInActionPerformed
+        try {
+            if (!dsDiemRenLuyen.isEmpty()) {
+                for (DiemRenLuyenModel sv : dsDiemRenLuyen) {
+                    if (trangThaiChamDiem.equalsIgnoreCase("Hết thời gian chấm")
+                            || Validator.isBeforeToday(sv.getNgayKetThuc())) {
+                        DiemRenLuyenCtrl.xuatFileExcel(dsDiemRenLuyen);
+                        DialogHelper.showMessage("Xuất danh sách thành công!");
+                        break;
+                    } else {
+                        DialogHelper.showError("Chưa hoàn tất chấm điểm không thể in danh sách kết quả");
+                        break;
+                    }
+                }
+            } else {
+                DialogHelper.showError("Chưa có danh sách điểm rèn luyện");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSDiemRenLuyenBCS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnInActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChamLai;
     private javax.swing.JTextField btnDiemTieuChi1;
@@ -699,6 +738,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
     private javax.swing.JTextField btnDiemTieuChi3;
     private javax.swing.JTextField btnDiemTieuChi4;
     private javax.swing.JTextField btnDiemTieuChi5;
+    private javax.swing.JButton btnIn;
     private javax.swing.JButton btnKetThucCham;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnXemDiem;

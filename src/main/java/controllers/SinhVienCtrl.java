@@ -98,7 +98,7 @@ public class SinhVienCtrl {
 
     public static SinhVienModel timSinhVienTheoMaSV(String maSV) throws ClassNotFoundException {
         String sql = """
-                     SELECT MaSinhVien, MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
+                     SELECT MaSinhVien, Lop.MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
                      FROM SinhVien, Lop, TaiKhoan, ChucVu
                      WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
                      AND MaSinhVien=?
