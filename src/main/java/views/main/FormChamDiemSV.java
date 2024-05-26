@@ -2876,7 +2876,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
                     DialogHelper.showError("Người chấm không được để trống");
                 } else if (xepLoai.isEmpty()) {
                     DialogHelper.showError("Xếp loại không được để trống");
-                } else if (sv11 != 0 && (sv11 != 3)) {
+                } else if (sv11 != 0 && (sv11 < 0 || sv11 > 3)) {
                     DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
                 } else if (sv12a != 0 && (sv12a != 10)) {
                     DialogHelper.showError("Mục 1.2a không hợp lệ. Vui lòng nhập lại!");

@@ -4993,9 +4993,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Ch&#x1ea5;m &#x111;i&#x1ec3;m"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Ch&#x1ea5;m &#x111;i&#x1ec3;m"/>
-                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChamDiemActionPerformed"/>
                   </Events>
