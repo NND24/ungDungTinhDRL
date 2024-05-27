@@ -62,17 +62,12 @@ public class DSLop extends javax.swing.JFrame {
     }
 
     private void lamMoi() {
-        try {
-            dsLop = LopCtrl.timTatCaLop();
-            txtMaLop.setText("");
-            txtKhoa.setText("");
-            cmbTrangThai.setSelectedIndex(0);
-            cmbNganh.setSelectedIndex(0);
-            txtMaLop.setEnabled(true);
-            cmbNganh.setSelectedItem("---Ngành---");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtMaLop.setText("");
+        txtKhoa.setText("");
+        cmbTrangThai.setSelectedIndex(0);
+        cmbNganh.setSelectedIndex(0);
+        txtMaLop.setEnabled(true);
+        cmbNganh.setSelectedItem("---Ngành---");
     }
 
     private void timKiemLop() {
