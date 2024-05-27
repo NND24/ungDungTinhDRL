@@ -427,7 +427,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnIn" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="btnXemDSKQ" min="-2" pref="190" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -436,7 +436,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                       <Component id="jLabel10" alignment="3" pref="40" max="32767" attributes="0"/>
-                      <Component id="btnIn" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="btnXemDSKQ" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -450,7 +450,7 @@
                 <Property name="text" type="java.lang.String" value="DANH S&#xc1;CH &#x110;I&#x1ec2;M R&#xc8;N LUY&#x1ec6;N C&#x1ee6;A L&#x1eda;P"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIn">
+            <Component class="javax.swing.JButton" name="btnXemDSKQ">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="66" red="0" type="rgb"/>
@@ -470,7 +470,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXemDSKQActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

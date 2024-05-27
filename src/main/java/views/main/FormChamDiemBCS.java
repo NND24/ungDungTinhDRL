@@ -3023,7 +3023,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                     DialogHelper.showError("Mục 2.1a không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs21b != 0 && (bcs21b != -5)) {
                     DialogHelper.showError("Mục 2.1b không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs22a != 0 && (bcs22a != 5)) {
+                } else if (bcs22a != 0 && (bcs22a < 0 || bcs22a > 5)) {
                     DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
                 } else if (bcs22b != 0 && (bcs22b != -1)) {
                     DialogHelper.showError("Mục 2.2b không hợp lệ. Vui lòng nhập lại!");

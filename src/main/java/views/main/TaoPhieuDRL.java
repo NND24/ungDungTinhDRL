@@ -130,7 +130,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         dateChooserEnd = new com.toedter.calendar.JDateChooser();
         jPanel7 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        btnIn = new javax.swing.JButton();
+        btnXemDSKQ = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblChiTietPhieuDRL = new javax.swing.JTable();
         pnlNutLenh = new javax.swing.JPanel();
@@ -213,15 +213,15 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("CHI TIẾT PHIẾU ĐIỂM RÈN LUYỆN");
 
-        btnIn.setBackground(new java.awt.Color(0, 102, 255));
-        btnIn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnIn.setForeground(new java.awt.Color(255, 255, 255));
-        btnIn.setText("Xuất danh sách kết quả");
-        btnIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnIn.setPreferredSize(new java.awt.Dimension(120, 25));
-        btnIn.addActionListener(new java.awt.event.ActionListener() {
+        btnXemDSKQ.setBackground(new java.awt.Color(0, 102, 255));
+        btnXemDSKQ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXemDSKQ.setForeground(new java.awt.Color(255, 255, 255));
+        btnXemDSKQ.setText("Xuất danh sách kết quả");
+        btnXemDSKQ.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXemDSKQ.setPreferredSize(new java.awt.Dimension(120, 25));
+        btnXemDSKQ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInActionPerformed(evt);
+                btnXemDSKQActionPerformed(evt);
             }
         });
 
@@ -233,14 +233,14 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnXemDSKQ, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addComponent(btnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnXemDSKQ, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         tblChiTietPhieuDRL.setModel(new javax.swing.table.DefaultTableModel(
@@ -604,7 +604,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnNhapMoiActionPerformed
 
-    private void btnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInActionPerformed
+    private void btnXemDSKQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXemDSKQActionPerformed
         try {
             int selectedIndex = tblDSPhieuDRL.getSelectedRow();
             if (selectedIndex >= 0) {
@@ -636,13 +636,13 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnInActionPerformed
+    }//GEN-LAST:event_btnXemDSKQActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCapNhat;
-    private javax.swing.JButton btnIn;
     private javax.swing.JButton btnNhapMoi;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnXemDSKQ;
     private javax.swing.JButton btnXoa;
     private javax.swing.JButton btnXuatDanhSach;
     private javax.swing.JComboBox<String> cmbHocKy;

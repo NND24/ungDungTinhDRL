@@ -30,7 +30,7 @@ public class MenuBanCanSu extends JComponent {
     private String[][] menuItems = new String[][]{
         {"Chấm điểm rèn luyện"},
         {"Chấm điểm rèn luyện của lớp"},
-        {"Xem  điểm rèn luyện toàn trường"},
+        {"Xem điểm rèn luyện toàn trường"},
         {"Tài khoản cá nhân"},
         {"Đăng xuất"},};
 

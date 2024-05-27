@@ -2910,7 +2910,7 @@ public class FormChamDiemSV extends javax.swing.JPanel {
                     DialogHelper.showError("Mục 2.1a không hợp lệ. Vui lòng nhập lại!");
                 } else if (sv21b != 0 && (sv21b != -5)) {
                     DialogHelper.showError("Mục 2.1b không hợp lệ. Vui lòng nhập lại!");
-                } else if (sv22a != 0 && (sv22a != 5)) {
+                } else if (sv22a != 0 && (sv22a < 0 || sv22a > 5)) {
                     DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
                 } else if (sv22b != 0 && (sv22b != -1)) {
                     DialogHelper.showError("Mục 2.2b không hợp lệ. Vui lòng nhập lại!");

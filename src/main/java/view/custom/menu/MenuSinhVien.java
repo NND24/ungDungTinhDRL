@@ -29,7 +29,7 @@ public class MenuSinhVien extends JComponent {
     private MigLayout layout;
     private String[][] menuItems = new String[][]{
         {"Chấm điểm rèn luyện"},
-        {"Xem  điểm rèn luyện toàn trường"},
+        {"Xem điểm rèn luyện toàn trường"},
         {"Tài khoản cá nhân"},
         {"Đăng xuất"},};
 
