@@ -117,13 +117,17 @@ public class DiemRenLuyenCtrl {
                      SELECT SinhVien.MaSinhVien, SinhVien.HoTen, HocKy, NamHoc, NguoiCham, TongDiem, XepLoai, TrangThaiCham, d1, d2, d3, d4, d5, NgayBatDau, NgayKetThuc
                      FROM DiemRenLuyen
                      INNER JOIN PhieuDRL ON PhieuDRL.MaPhieuDRL = DiemRenLuyen.MaPhieuDRL
-                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
+                     INNER JOIN SinhVien ON PhieuDRL.MaSinhVien = SinhVien.MaSinhVien
                      INNER JOIN Lop ON Lop.MaLop = SinhVien.MaLop
-                     INNER JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     INNER JOIN NamHoc ON PhieuDRL.MaNamHoc = NamHoc.MaNamHoc
                      WHERE (SinhVien.MaSinhVien LIKE ? OR SinhVien.HoTen LIKE ?)
-                     AND (SinhVien.MaLop=? AND HocKy=? AND NamHoc=? AND NguoiCham='CoVan')
-                     AND Lop.TrangThaiHienThi=1 AND NamHoc.TrangThaiHienThi=1
-                     AND GETDATE() >= NgayBatDau
+                     AND SinhVien.MaLop = ?
+                     AND HocKy = ?
+                     AND NamHoc = ?
+                     AND NguoiCham = 'CoVan'
+                     AND Lop.TrangThaiHienThi = 1
+                     AND NamHoc.TrangThaiHienThi = 1
+                     AND GETDATE() >= NgayBatDau;
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 

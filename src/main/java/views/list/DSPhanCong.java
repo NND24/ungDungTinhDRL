@@ -33,7 +33,7 @@ public class DSPhanCong extends javax.swing.JFrame {
             hienThiDSCoVan();
             hienThiDSLop();
             hienThiDSNamHoc();
-            hienThiTatCaPhanCong();
+            hienThiDSPhanCong();
             cmbCoVan.setSelectedItem("---Cố vấn---");
             cmbLop.setSelectedItem("---Lớp---");
             cmbNamHoc.setSelectedItem("---Năm học---");
@@ -84,9 +84,7 @@ public class DSPhanCong extends javax.swing.JFrame {
         }
     }
 
-    private void hienThiTatCaPhanCong() throws ClassNotFoundException {
-        dsPhanCong = PhanCongCtrl.timTatCaPhanCong();
-
+    private void hienThiDSPhanCong() throws ClassNotFoundException {
         tableModel.setRowCount(0);
 
         dsPhanCong.forEach(pc -> {
@@ -111,6 +109,23 @@ public class DSPhanCong extends javax.swing.JFrame {
         cmbNamHoc.setSelectedItem("---Năm học---");
     }
 
+    private void timKiemPhanCong() {
+        try {
+            String tuKhoa = txtTimKiem.getText();
+
+            if (tuKhoa.isEmpty()) {
+                dsPhanCong = PhanCongCtrl.timTatCaPhanCong();
+                hienThiDSPhanCong();
+                return;
+            }
+
+            dsPhanCong = PhanCongCtrl.timKiemPhanCong(tuKhoa);
+            hienThiDSPhanCong();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -124,6 +139,8 @@ public class DSPhanCong extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtTimKiem = new javax.swing.JTextField();
         cmbCoVan = new javax.swing.JComboBox<>();
         cmbNamHoc = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -184,6 +201,15 @@ public class DSPhanCong extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("DANH SÁCH PHÂN CÔNG");
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setText("Tìm kiếm");
+
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -191,14 +217,21 @@ public class DSPhanCong extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel7)
-                .addGap(15, 15, 15))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel9)
+                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10))
         );
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -361,12 +394,9 @@ public class DSPhanCong extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
-        try {
-            lamMoi();
-            hienThiTatCaPhanCong();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        lamMoi();
+        txtTimKiem.setText("");
+        timKiemPhanCong();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
@@ -393,7 +423,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                     PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, trangThai);
                     PhanCongCtrl.themPhanCong(phanCong);
                     lamMoi();
-                    hienThiTatCaPhanCong();
+                    timKiemPhanCong();
                 }
             }
         } catch (ClassNotFoundException ex) {
@@ -402,12 +432,14 @@ public class DSPhanCong extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa phân công này!")) {
+        if (txtMaPhanCong.getText().isEmpty()) {
+            DialogHelper.showError("Vui lòng chọn phân công muốn xóa");
+        } else if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa phân công này!")) {
             try {
                 int maPhanCong = Integer.parseInt(txtMaPhanCong.getText());
                 PhanCongCtrl.xoaPhanCong(maPhanCong);
                 lamMoi();
-                hienThiTatCaPhanCong();
+                timKiemPhanCong();
                 DialogHelper.showMessage("Xóa phân công thành công!");
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
@@ -417,7 +449,9 @@ public class DSPhanCong extends javax.swing.JFrame {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa phân công này!")) {
+            if (txtMaPhanCong.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn phân công muốn chỉnh sửa");
+            } else if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa phân công này!")) {
                 if (cmbCoVan.getSelectedItem().equals("---Cố vấn---")) {
                     DialogHelper.showError("Vui lòng chọn cố vấn");
                 } else if (cmbLop.getSelectedItem().equals("---Lớp---")) {
@@ -439,7 +473,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                         PhanCongModel phanCong = new PhanCongModel(maCoVan, maLop, maNamHoc, maPhanCong, trangThai);
                         PhanCongCtrl.capNhatPhanCong(phanCong);
                         lamMoi();
-                        hienThiTatCaPhanCong();
+                        timKiemPhanCong();
                         DialogHelper.showMessage("Sửa phân công thành công!");
                     }
                 }
@@ -450,7 +484,6 @@ public class DSPhanCong extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void tblDSPhanCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSPhanCongMouseClicked
-        // TODO add your handling code here:
         int selectedIndex = tblDSPhanCong.getSelectedRow();
         if (selectedIndex >= 0) {
             PhanCongModel pc = dsPhanCong.get(selectedIndex);
@@ -466,6 +499,10 @@ public class DSPhanCong extends javax.swing.JFrame {
         PhanCongCtrl.xuatFileExcel(dsPhanCong, "src/main/java/files/DSPhanCong.xlsx");
         DialogHelper.showMessage("Xuất danh sách thành công!");
     }//GEN-LAST:event_btnXuatActionPerformed
+
+    private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
+        timKiemPhanCong();
+    }//GEN-LAST:event_txtTimKiemKeyPressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -491,11 +528,13 @@ public class DSPhanCong extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlNutLenh;
     private javax.swing.JTable tblDSPhanCong;
     private javax.swing.JTextField txtMaPhanCong;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 }

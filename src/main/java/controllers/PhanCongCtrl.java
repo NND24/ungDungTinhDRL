@@ -171,6 +171,39 @@ public class PhanCongCtrl {
         }
     }
 
+    public static List<PhanCongModel> timKiemPhanCong(String tuKhoa) throws ClassNotFoundException {
+        String sql = """
+                     SELECT DISTINCT PhanCong.MaPhanCong, PhanCong.MaCoVan, HoTen, PhanCong.MaLop, NamHoc, PhanCong.TrangThaiHienThi FROM PhanCong, CoVan, Lop, NamHoc
+                     WHERE PhanCong.MaCoVan=CoVan.MaCoVan AND PhanCong.MaLop=Lop.MaLop
+                     AND PhanCong.MaNamHoc=NamHoc.MaNamHoc
+                     AND (PhanCong.MaPhanCong LIKE ? OR PhanCong.MaCoVan LIKE ? OR HoTen LIKE ? OR PhanCong.MaLop LIKE ? OR NamHoc LIKE ?)
+                     """;
+        List<PhanCongModel> dsPhanCong = new ArrayList<>();
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, "%" + tuKhoa + "%");
+            statement.setString(2, "%" + tuKhoa + "%");
+            statement.setString(3, "%" + tuKhoa + "%");
+            statement.setString(4, "%" + tuKhoa + "%");
+            statement.setString(5, "%" + tuKhoa + "%");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                PhanCongModel drl = new PhanCongModel(
+                        resultSet.getInt("MaPhanCong"),
+                        resultSet.getString("MaCoVan"),
+                        resultSet.getString("HoTen"),
+                        resultSet.getString("MaLop"),
+                        resultSet.getString("NamHoc"),
+                        resultSet.getInt("TrangThaiHienThi"));
+                dsPhanCong.add(drl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dsPhanCong;
+    }
+
     public static boolean kiemTraLopNamHocDaPhanCong(String maLop, int maNamHoc) throws ClassNotFoundException {
         boolean flag = false;
         String sql = """

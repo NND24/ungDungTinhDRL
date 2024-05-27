@@ -34,21 +34,15 @@ public class DSQuanLy extends javax.swing.JPanel {
     }
 
     private void lamMoi() {
-        try {
-            dsQuanLy = QuanLyCtrl.timTatCaQuanLy();
-            txtMaQuanLy.setText("");
-            txtHoTen.setText("");
-            txtEmail.setText("");
-            txtQueQuan.setText("");
-            cmbGioiTinh.setSelectedIndex(0);
-            txtNgaySinh.setText("");
-            txtCanCuoc.setText("");
-            txtSoDienThoai.setText("");
-            txtTimKiem.setText("");
-            cmbDaNghi.setSelectedIndex(0);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtMaQuanLy.setText("");
+        txtHoTen.setText("");
+        txtEmail.setText("");
+        txtQueQuan.setText("");
+        cmbGioiTinh.setSelectedIndex(0);
+        txtNgaySinh.setText("");
+        txtCanCuoc.setText("");
+        txtSoDienThoai.setText("");
+        cmbDaNghi.setSelectedIndex(0);
     }
 
     private void hienThiDSQuanLy() throws ClassNotFoundException {
@@ -264,8 +258,8 @@ public class DSQuanLy extends javax.swing.JPanel {
                     .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel1)
+                .addContainerGap(7, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -481,32 +475,32 @@ public class DSQuanLy extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            String hoTen = txtHoTen.getText();
-            String soDienThoai = txtSoDienThoai.getText();
-            String canCuoc = txtCanCuoc.getText();
-
             if (!txtMaQuanLy.getText().isEmpty()) {
                 DialogHelper.showError("Quản lý đã tồn tại. Vui lòng nhập mới");
-            } else if (hoTen.isEmpty()) {
+            } else if (txtHoTen.getText().isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
             } else if (txtNgaySinh.getText().isEmpty()) {
                 DialogHelper.showError("Ngày sinh không được để trống!");
             } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-            } else if (soDienThoai.isEmpty()) {
+            } else if (txtSoDienThoai.getText().isEmpty()) {
                 DialogHelper.showError("Số điện thoại không được để trống!");
-            } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+            } else if (!txtSoDienThoai.getText().isEmpty() && !Validator.isValidPhoneNumber(txtSoDienThoai.getText())) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-            } else if (QuanLyCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+            } else if (QuanLyCtrl.kiemTraSoDienThoaiTrung("", txtSoDienThoai.getText())) {
                 DialogHelper.showError("Số điện thoại đã tồn tại!");
-            } else if (canCuoc.isEmpty()) {
+            } else if (txtCanCuoc.getText().isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
-            } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+            } else if (!txtCanCuoc.getText().isEmpty() && !Validator.isValidCccd(txtCanCuoc.getText())) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else if (QuanLyCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+            } else if (QuanLyCtrl.kiemTraCanCuocTrung("", txtCanCuoc.getText())) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
             } else {
                 try {
+                    String hoTen = txtHoTen.getText();
+                    String soDienThoai = txtSoDienThoai.getText();
+                    String canCuoc = txtCanCuoc.getText();
+
                     String soLuongNguoiFormatted = String.format("%03d", (QuanLyCtrl.layMaQuanLyCuoiCung() + 1));
                     String maQuanLy = "admin" + soLuongNguoiFormatted;
                     String idTaiKhoan = GenerateCode.generateIdTaiKhoan();
@@ -526,7 +520,7 @@ public class DSQuanLy extends javax.swing.JPanel {
                     QuanLyModel sv = new QuanLyModel(maQuanLy, idTaiKhoan, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh, daNghi);
                     QuanLyCtrl.themQuanLy(sv);
                     lamMoi();
-                    hienThiDSQuanLy();
+                    timKiemQuanLy();
                     DialogHelper.showMessage("Thêm quản lý thành công");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
@@ -555,47 +549,46 @@ public class DSQuanLy extends javax.swing.JPanel {
     }//GEN-LAST:event_tblDSQuanLyMouseClicked
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        try {
-            if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa quản lý này?")) {
-                String maQuanLy = txtMaQuanLy.getText();
-                QuanLyCtrl.xoaQuanLy(maQuanLy);
-                TaiKhoanCtrl.xoaTaiKhoan(maQuanLy);
-                lamMoi();
-                hienThiDSQuanLy();
-                DialogHelper.showMessage("Xóa quản lý thành công");
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
+        if (txtMaQuanLy.getText().isEmpty()) {
+            DialogHelper.showError("Vui lòng chọn quản lý muốn xóa");
+        } else if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa quản lý này?")) {
+            String maQuanLy = txtMaQuanLy.getText();
+            QuanLyCtrl.xoaQuanLy(maQuanLy);
+            TaiKhoanCtrl.xoaTaiKhoan(maQuanLy);
+            lamMoi();
+            timKiemQuanLy();
+            DialogHelper.showMessage("Xóa quản lý thành công");
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin quản lý này?")) {
-                String maQuanLy = txtMaQuanLy.getText();
-                String hoTen = txtHoTen.getText();
-                String soDienThoai = txtSoDienThoai.getText();
-                String canCuoc = txtCanCuoc.getText();
-
-                if (hoTen.isEmpty()) {
+            if (txtMaQuanLy.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn quản lý muốn chỉnh sửa");
+            } else if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin quản lý này?")) {
+                if (txtHoTen.getText().isEmpty()) {
                     DialogHelper.showError("Họ tên không được để trống!");
                 } else if (txtNgaySinh.getText().isEmpty()) {
                     DialogHelper.showError("Ngày sinh không được để trống!");
                 } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                     DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-                } else if (soDienThoai.isEmpty()) {
+                } else if (txtSoDienThoai.getText().isEmpty()) {
                     DialogHelper.showError("Số điện thoại không được để trống!");
-                } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+                } else if (!txtSoDienThoai.getText().isEmpty() && !Validator.isValidPhoneNumber(txtSoDienThoai.getText())) {
                     DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-                } else if (QuanLyCtrl.kiemTraSoDienThoaiTrung(maQuanLy, soDienThoai)) {
+                } else if (QuanLyCtrl.kiemTraSoDienThoaiTrung(txtMaQuanLy.getText(), txtSoDienThoai.getText())) {
                     DialogHelper.showError("Số điện thoại đã tồn tại!");
-                } else if (canCuoc.isEmpty()) {
+                } else if (txtCanCuoc.getText().isEmpty()) {
                     DialogHelper.showError("Căn cước không được để trống!");
-                } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+                } else if (!txtCanCuoc.getText().isEmpty() && !Validator.isValidCccd(txtCanCuoc.getText())) {
                     DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-                } else if (QuanLyCtrl.kiemTraCanCuocTrung(maQuanLy, canCuoc)) {
+                } else if (QuanLyCtrl.kiemTraCanCuocTrung(txtMaQuanLy.getText(), txtCanCuoc.getText())) {
                     DialogHelper.showError("Căn cước đã tồn tại!");
                 } else {
+                    String maQuanLy = txtMaQuanLy.getText();
+                    String hoTen = txtHoTen.getText();
+                    String soDienThoai = txtSoDienThoai.getText();
+                    String canCuoc = txtCanCuoc.getText();
                     String email = txtEmail.getText();
                     java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
                     java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
@@ -606,7 +599,7 @@ public class DSQuanLy extends javax.swing.JPanel {
                     QuanLyModel ql = new QuanLyModel(maQuanLy, hoTen, email, gioiTinh, soDienThoai, canCuoc, queQuan, sqlNgaySinh, daNghi);
                     QuanLyCtrl.capNhatQuanLy(ql);
                     lamMoi();
-                    hienThiDSQuanLy();
+                    timKiemQuanLy();
                     DialogHelper.showMessage("Sửa quản lý thành công");
                 }
             }
@@ -618,6 +611,7 @@ public class DSQuanLy extends javax.swing.JPanel {
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         try {
             lamMoi();
+            txtTimKiem.setText("");
             hienThiDSQuanLy();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);

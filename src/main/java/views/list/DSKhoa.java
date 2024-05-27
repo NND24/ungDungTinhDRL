@@ -276,18 +276,18 @@ public class DSKhoa extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            String maKhoa = txtMaKhoa.getText();
-            String tenKhoa = txtTenKhoa.getText();
-            int trangThai = cmbTrangThai.getSelectedIndex();
             if (!txtMaKhoa.isEnabled()) {
                 DialogHelper.showError("Khoa đã tồn tại. Vui lòng nhập mới!");
-            } else if (maKhoa.isEmpty()) {
+            } else if (txtMaKhoa.getText().isEmpty()) {
                 DialogHelper.showError("Mã khoa không được bỏ trống!");
-            } else if (KhoaCtrl.kiemTraMaKhoaDaTonTai(maKhoa)) {
+            } else if (KhoaCtrl.kiemTraMaKhoaDaTonTai(txtMaKhoa.getText())) {
                 DialogHelper.showError("Mã khoa đã tồn tại!");
-            } else if (tenKhoa.isEmpty()) {
+            } else if (txtTenKhoa.getText().isEmpty()) {
                 DialogHelper.showError("Tên khoa không được bỏ trống!");
             } else {
+                String maKhoa = txtMaKhoa.getText();
+                String tenKhoa = txtTenKhoa.getText();
+                int trangThai = cmbTrangThai.getSelectedIndex();
                 KhoaModel khoa = new KhoaModel(maKhoa, tenKhoa, trangThai);
                 KhoaCtrl.themKhoa(khoa);
                 DialogHelper.showMessage("Thêm khoa thành công!");
@@ -302,13 +302,13 @@ public class DSKhoa extends javax.swing.JFrame {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         try {
-            String maKhoa = txtMaKhoa.getText();
-            if (tblDSKhoa.getSelectedRow() == -1) {
-                DialogHelper.showMessage("Bạn chưa chọn khoa muốn xóa");
-            } else if (KhoaCtrl.kiemTraKhoaDaSuDung(maKhoa)) {
-                DialogHelper.showMessage("Khoa đã được sử dụng, không thể xóa");
+            if (txtMaKhoa.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn khoa muốn xóa");
+            } else if (KhoaCtrl.kiemTraKhoaDaSuDung(txtMaKhoa.getText())) {
+                DialogHelper.showError("Khoa đã được sử dụng, không thể xóa");
             } else {
                 if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa khoa này không?")) {
+                    String maKhoa = txtMaKhoa.getText();
                     KhoaCtrl.xoaKhoa(maKhoa);
                     DialogHelper.showMessage("Xóa khoa thành công!");
                     hienThiDSKhoa();
@@ -321,16 +321,19 @@ public class DSKhoa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa khoa này không!")) {
+        if (txtMaKhoa.getText().isEmpty()) {
+            DialogHelper.showError("Vui lòng chọn khoa muốn chỉnh sửa");
+        } else if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa khoa này không!")) {
             try {
-                String maKhoa = txtMaKhoa.getText();
-                String tenKhoa = txtTenKhoa.getText();
-                int trangThai = cmbTrangThai.getSelectedIndex();
-                if (maKhoa.isEmpty()) {
+                if (txtMaKhoa.getText().isEmpty()) {
                     DialogHelper.showError("Mã khoa không được bỏ trống!");
-                } else if (tenKhoa.isEmpty()) {
+                } else if (txtTenKhoa.getText().isEmpty()) {
                     DialogHelper.showError("Tên khoa không được bỏ trống!");
                 } else {
+                    String maKhoa = txtMaKhoa.getText();
+                    String tenKhoa = txtTenKhoa.getText();
+                    int trangThai = cmbTrangThai.getSelectedIndex();
+
                     KhoaModel khoa = new KhoaModel(maKhoa, tenKhoa, trangThai);
                     KhoaCtrl.capNhatKhoa(khoa);
                     hienThiDSKhoa();

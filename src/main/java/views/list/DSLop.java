@@ -68,9 +68,25 @@ public class DSLop extends javax.swing.JFrame {
             txtKhoa.setText("");
             cmbTrangThai.setSelectedIndex(0);
             cmbNganh.setSelectedIndex(0);
-            txtTimKiem.setText("");
             txtMaLop.setEnabled(true);
             cmbNganh.setSelectedItem("---Ngành---");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void timKiemLop() {
+        try {
+            String tuKhoa = txtTimKiem.getText();
+
+            if (tuKhoa.isEmpty()) {
+                dsLop = LopCtrl.timTatCaLop();
+                hienThiDSLop();
+                return;
+            }
+
+            dsLop = LopCtrl.timKiemLop(tuKhoa);
+            hienThiDSLop();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -338,6 +354,16 @@ public class DSLop extends javax.swing.JFrame {
         try {
             if (cmbNganh.getSelectedItem().equals("---Ngành---")) {
                 DialogHelper.showError("Vui lòng chọn ngành!");
+            } else if (!txtMaLop.isEnabled()) {
+                DialogHelper.showError("Lớp đã tồn tại. Vui lòng thêm mới!");
+            } else if (txtMaLop.getText().isEmpty()) {
+                DialogHelper.showError("Mã lớp không được bỏ trống!");
+            } else if (LopCtrl.kiemTraMaLopDaTonTai(txtMaLop.getText())) {
+                DialogHelper.showError("Mã lớp đã tồn tại!");
+            } else if (txtKhoa.getText().isEmpty()) {
+                DialogHelper.showError("Khóa không được bỏ trống!");
+            } else if (!Validator.kiemTraNam(Integer.parseInt(txtKhoa.getText()))) {
+                DialogHelper.showError("Khóa không hợp lệ!");
             } else {
                 String maLop = txtMaLop.getText();
                 int nganhIndex = cmbNganh.getSelectedIndex();
@@ -345,22 +371,10 @@ public class DSLop extends javax.swing.JFrame {
                 String khoa = txtKhoa.getText();
                 int trangThai = cmbTrangThai.getSelectedIndex();
 
-                if (!txtMaLop.isEnabled()) {
-                    DialogHelper.showError("Lớp đã tồn tại. Vui lòng thêm mới!");
-                } else if (maLop.isEmpty()) {
-                    DialogHelper.showError("Mã lớp không được bỏ trống!");
-                } else if (LopCtrl.kiemTraMaLopDaTonTai(maLop)) {
-                    DialogHelper.showError("Mã lớp đã tồn tại!");
-                } else if (khoa.isEmpty()) {
-                    DialogHelper.showError("Khóa không được bỏ trống!");
-                } else if (!Validator.kiemTraNam(Integer.parseInt(khoa))) {
-                    DialogHelper.showError("Khóa không hợp lệ!");
-                } else {
-                    LopModel lop = new LopModel(maLop, maNganh, "", khoa, trangThai);
-                    LopCtrl.themLop(lop);
-                    lamMoi();
-                    hienThiDSLop();
-                }
+                LopModel lop = new LopModel(maLop, maNganh, "", khoa, trangThai);
+                LopCtrl.themLop(lop);
+                lamMoi();
+                timKiemLop();
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
@@ -369,9 +383,15 @@ public class DSLop extends javax.swing.JFrame {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa lớp này")) {
+            if (txtMaLop.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn lớp muốn chỉnh sửa");
+            } else if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa lớp này")) {
                 if (cmbNganh.getSelectedItem().equals("---Ngành---")) {
                     DialogHelper.showError("Vui lòng chọn ngành!");
+                } else if (txtKhoa.getText().isEmpty()) {
+                    DialogHelper.showError("Khóa không được bỏ trống!");
+                } else if (!Validator.kiemTraNam(Integer.parseInt(txtKhoa.getText()))) {
+                    DialogHelper.showError("Khóa không hợp lệ!");
                 } else {
                     String maLop = txtMaLop.getText();
                     int nganhIndex = cmbNganh.getSelectedIndex();
@@ -379,16 +399,10 @@ public class DSLop extends javax.swing.JFrame {
                     String khoa = txtKhoa.getText();
                     int trangThai = cmbTrangThai.getSelectedIndex();
 
-                    if (khoa.isEmpty()) {
-                        DialogHelper.showError("Khóa không được bỏ trống!");
-                    } else if (!Validator.kiemTraNam(Integer.parseInt(khoa))) {
-                        DialogHelper.showError("Khóa không hợp lệ!");
-                    } else {
-                        LopModel lop = new LopModel(maLop, maNganh, "", khoa, trangThai);
-                        LopCtrl.capNhatLop(lop);
-                        lamMoi();
-                        hienThiDSLop();
-                    }
+                    LopModel lop = new LopModel(maLop, maNganh, "", khoa, trangThai);
+                    LopCtrl.capNhatLop(lop);
+                    lamMoi();
+                    timKiemLop();
                 }
             }
         } catch (ClassNotFoundException ex) {
@@ -398,17 +412,16 @@ public class DSLop extends javax.swing.JFrame {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         try {
-            String maLop = txtMaLop.getText();
-            if (tblDSLop.getSelectedRow() == -1) {
-                DialogHelper.showError("Chưa chọn lớp muốn xóa");
-            }
-            else if (LopCtrl.kiemTraLopDaDuocSuDung(maLop)) {
+            if (txtMaLop.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn lớp muốn xóa");
+            } else if (LopCtrl.kiemTraLopDaDuocSuDung(txtMaLop.getText())) {
                 DialogHelper.showError("Lớp đã có sinh viên không thể xóa!");
             } else {
                 if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa lớp này")) {
+                    String maLop = txtMaLop.getText();
                     LopCtrl.xoaLop(maLop);
                     lamMoi();
-                    hienThiDSLop();
+                    timKiemLop();
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -436,25 +449,12 @@ public class DSLop extends javax.swing.JFrame {
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         lamMoi();
-        hienThiDSLop();
+        txtTimKiem.setText("");
+        timKiemLop();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
-        try {
-            String tuKhoa = txtTimKiem.getText();
-
-            if (tuKhoa.isEmpty()) {
-                dsLop = LopCtrl.timTatCaLopHienThi();
-                hienThiDSLop();
-                return;
-            }
-
-            dsLop = LopCtrl.timKiemLop(tuKhoa);
-            hienThiDSLop();
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        timKiemLop();
     }//GEN-LAST:event_txtTimKiemKeyPressed
 
     public static void main(String args[]) {

@@ -98,22 +98,17 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }
 
     private void lamMoi() {
-        try {
-            txtMaSinhVien.setText("");
-            txtHoTen.setText("");
-            txtDiemTieuChi1.setText("");
-            txtDiemTieuChi2.setText("");
-            txtDiemTieuChi3.setText("");
-            txtDiemTieuChi4.setText("");
-            txtDiemTieuChi5.setText("");
-            txtTongDiem.setText("");
-            txtXepLoai.setText("");
-            txtHocKy.setText("");
-            txtNamHoc.setText("");
-            hienThiDRLHienTai();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtMaSinhVien.setText("");
+        txtHoTen.setText("");
+        txtDiemTieuChi1.setText("");
+        txtDiemTieuChi2.setText("");
+        txtDiemTieuChi3.setText("");
+        txtDiemTieuChi4.setText("");
+        txtDiemTieuChi5.setText("");
+        txtTongDiem.setText("");
+        txtXepLoai.setText("");
+        txtHocKy.setText("");
+        txtNamHoc.setText("");
     }
 
     private void timKiemDanhSachDRL() {
@@ -127,8 +122,9 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                     int maNamHoc = dsNamHoc.get(namHocIndex).getMaNamHoc();
                     String hocKy = cmbTKHocKy.getSelectedItem().toString();
 
-                    if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
+                    if (cmbTKNamHoc.getSelectedItem().toString().equals("---Năm học---") || hocKy.equals("---Học kỳ---")) {
                         dsDiemRenLuyen.clear();
+                        tableModel.setRowCount(0);
                         hienThiDSDiem();
                     } else {
                         dsDiemRenLuyen = DiemRenLuyenCtrl.timKiemDRL(tuKhoa, lop, maNamHoc, hocKy);
@@ -587,9 +583,9 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                         .addComponent(jLabel6)
                         .addGap(30, 30, 30)
                         .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
+                        .addGap(55, 55, 55)
                         .addComponent(jLabel2)
-                        .addGap(31, 31, 31)
+                        .addGap(26, 26, 26)
                         .addComponent(cmbTKNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addComponent(jLabel16)
@@ -692,6 +688,9 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         lamMoi();
+        cmbTKNamHoc.setSelectedItem("---Năm học---");
+        cmbTKHocKy.setSelectedItem("---Học kỳ---");
+        txtTimKiem.setText("");
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
@@ -699,8 +698,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             timKiemDanhSachDRL();
         } else if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
             dsDiemRenLuyen.clear();
-            txtTimKiem.setText("");
-            hienThiDSDiem();
+            timKiemDanhSachDRL();
         }
     }//GEN-LAST:event_cmbTKHocKyActionPerformed
 
@@ -717,8 +715,8 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             timKiemDanhSachDRL();
         } else if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
             dsDiemRenLuyen.clear();
-            txtTimKiem.setText("");
-            hienThiDSDiem();
+            cmbTKHocKy.setSelectedItem("---Học kỳ---");
+            timKiemDanhSachDRL();
         }
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
@@ -727,8 +725,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             timKiemDanhSachDRL();
         } else if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
             dsDiemRenLuyen.clear();
-            txtTimKiem.setText("");
-            hienThiDSDiem();
+            timKiemDanhSachDRL();
         }
     }//GEN-LAST:event_txtTimKiemKeyPressed
 

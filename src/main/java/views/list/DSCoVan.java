@@ -84,27 +84,20 @@ public class DSCoVan extends javax.swing.JPanel {
     }
 
     private void lamMoi() {
-        try {
-            dsCoVan = CoVanCtrl.timTatCaCoVan();
-            txtMaCoVan.setText("");
-            txtHoTen.setText("");
-            txtNgaySinh.setText("");
-            cmbGioiTinh.setSelectedIndex(0);
-            txtSoDienThoai.setText("");
-            txtCanCuoc.setText("");
-            txtEmail.setText("");
-            txtQueQuan.setText("");
-            cmbKhoa.setSelectedIndex(0);
-            cmbHocVi.setSelectedIndex(0);
-            cmbHocHam.setSelectedIndex(0);
-            txtChuyenMon.setText("");
-            cmbDaNghi.setSelectedIndex(0);
-            txtTimKiem.setText("");
-            cmbKhoa.setSelectedItem("---Khoa---");
-            cmbTKKhoa.setSelectedItem("---Khoa---");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtMaCoVan.setText("");
+        txtHoTen.setText("");
+        txtNgaySinh.setText("");
+        cmbGioiTinh.setSelectedIndex(0);
+        txtSoDienThoai.setText("");
+        txtCanCuoc.setText("");
+        txtEmail.setText("");
+        txtQueQuan.setText("");
+        cmbKhoa.setSelectedIndex(0);
+        cmbHocVi.setSelectedIndex(0);
+        cmbHocHam.setSelectedIndex(0);
+        txtChuyenMon.setText("");
+        cmbDaNghi.setSelectedIndex(0);
+        cmbKhoa.setSelectedItem("---Khoa---");
     }
 
     private void timKiemCoVan() {
@@ -580,33 +573,34 @@ public class DSCoVan extends javax.swing.JPanel {
 
     private void btnThemCoVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCoVanActionPerformed
         try {
-            String hoTen = txtHoTen.getText();
-            String soDienThoai = txtSoDienThoai.getText();
-            String canCuoc = txtCanCuoc.getText();
             if (!txtMaCoVan.getText().isEmpty()) {
                 DialogHelper.showError("Cố vấn đã tồn tại. Vui lòng nhập mới");
-            } else if (hoTen.isEmpty()) {
+            } else if (txtHoTen.getText().isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
             } else if (txtNgaySinh.getText().isEmpty()) {
                 DialogHelper.showError("Ngày sinh không được để trống!");
             } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-            } else if (soDienThoai.isEmpty()) {
+            } else if (txtSoDienThoai.getText().isEmpty()) {
                 DialogHelper.showError("Số điện thoại không được để trống!");
-            } else if (CoVanCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+            } else if (CoVanCtrl.kiemTraSoDienThoaiTrung("", txtSoDienThoai.getText())) {
                 DialogHelper.showError("Số điện thoại đã tồn tại!");
-            } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+            } else if (!txtSoDienThoai.getText().isEmpty() && !Validator.isValidPhoneNumber(txtSoDienThoai.getText())) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-            } else if (canCuoc.isEmpty()) {
+            } else if (txtCanCuoc.getText().isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
-            } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+            } else if (!txtCanCuoc.getText().isEmpty() && !Validator.isValidCccd(txtCanCuoc.getText())) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else if (CoVanCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+            } else if (CoVanCtrl.kiemTraCanCuocTrung("", txtCanCuoc.getText())) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
             } else if (cmbKhoa.getSelectedItem().equals("---Khoa---")) {
                 DialogHelper.showError("Chưa chọn khoa!");
             } else {
                 try {
+                    String hoTen = txtHoTen.getText();
+                    String soDienThoai = txtSoDienThoai.getText();
+                    String canCuoc = txtCanCuoc.getText();
+
                     String soLuongNguoiFormatted = String.format("%03d", (CoVanCtrl.layMaCoVanCuoiCung() + 1));
                     String maCoVan = "cv" + soLuongNguoiFormatted;
                     String maTaiKhoan = GenerateCode.generateIdTaiKhoan();
@@ -638,7 +632,7 @@ public class DSCoVan extends javax.swing.JPanel {
                     CoVanModel cv = new CoVanModel(maCoVan, maTaiKhoan, tenKhoa, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh, daNghi);
                     CoVanCtrl.themCoVan(cv);
                     lamMoi();
-                    hienThiDSCoVan();
+                    timKiemCoVan();
                     DialogHelper.showMessage("Thêm cố vấn thành công");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DSQuanLy.class.getName()).log(Level.SEVERE, null, ex);
@@ -651,33 +645,35 @@ public class DSCoVan extends javax.swing.JPanel {
 
     private void btnSuaThongTinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaThongTinActionPerformed
         try {
-            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin cố vấn này!")) {
-                String maCoVan = txtMaCoVan.getText();
-                String hoTen = txtHoTen.getText();
-                String soDienThoai = txtSoDienThoai.getText();
-                String canCuoc = txtCanCuoc.getText();
-
-                if (hoTen.isEmpty()) {
+            if (txtMaCoVan.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn cố vấn muốn chỉnh sửa");
+            } else if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa thông tin cố vấn này!")) {
+                if (txtHoTen.getText().isEmpty()) {
                     DialogHelper.showError("Họ tên không được để trống!");
                 } else if (txtNgaySinh.getText().isEmpty()) {
                     DialogHelper.showError("Ngày sinh không được để trống!");
                 } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                     DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-                } else if (soDienThoai.isEmpty()) {
+                } else if (txtSoDienThoai.getText().isEmpty()) {
                     DialogHelper.showError("Số điện thoại không được để trống!");
-                } else if (CoVanCtrl.kiemTraSoDienThoaiTrung(maCoVan, soDienThoai)) {
+                } else if (CoVanCtrl.kiemTraSoDienThoaiTrung(txtMaCoVan.getText(), txtSoDienThoai.getText())) {
                     DialogHelper.showError("Số điện thoại đã tồn tại!");
-                } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+                } else if (!txtSoDienThoai.getText().isEmpty() && !Validator.isValidPhoneNumber(txtSoDienThoai.getText())) {
                     DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-                } else if (canCuoc.isEmpty()) {
+                } else if (txtCanCuoc.getText().isEmpty()) {
                     DialogHelper.showError("Căn cước không được để trống!");
-                } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+                } else if (!txtCanCuoc.getText().isEmpty() && !Validator.isValidCccd(txtCanCuoc.getText())) {
                     DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-                } else if (CoVanCtrl.kiemTraCanCuocTrung(maCoVan, canCuoc)) {
+                } else if (CoVanCtrl.kiemTraCanCuocTrung(txtMaCoVan.getText(), txtCanCuoc.getText())) {
                     DialogHelper.showError("Căn cước đã tồn tại!");
                 } else if (cmbKhoa.getSelectedItem().equals("---Khoa---")) {
                     DialogHelper.showError("Chưa chọn khoa!");
                 } else {
+                    String maCoVan = txtMaCoVan.getText();
+                    String hoTen = txtHoTen.getText();
+                    String soDienThoai = txtSoDienThoai.getText();
+                    String canCuoc = txtCanCuoc.getText();
+
                     java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
                     java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
 
@@ -701,7 +697,7 @@ public class DSCoVan extends javax.swing.JPanel {
                     CoVanModel cv = new CoVanModel(maCoVan, hoTen, email, soDienThoai, canCuoc, queQuan, hocVi, hocHam, chuyenMon, maKhoa, gioiTinh, sqlNgaySinh, daNghi);
                     CoVanCtrl.capNhatCoVan(cv);
                     lamMoi();
-                    hienThiDSCoVan();
+                    timKiemCoVan();
                     DialogHelper.showMessage("Sửa cố vấn thành công");
                 }
             }
@@ -714,19 +710,19 @@ public class DSCoVan extends javax.swing.JPanel {
 
     private void btnXoaCoVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaCoVanActionPerformed
         try {
-            String maCoVan = txtMaCoVan.getText();
-            if (maCoVan.isEmpty()) {
-                DialogHelper.showError("Chưa chọn cố vấn muốn xóa");
-            } else if (CoVanCtrl.kiemTraCoVanDaPhanCong(maCoVan)) {
+            if (txtMaCoVan.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn cố vấn muốn xóa");
+            } else if (CoVanCtrl.kiemTraCoVanDaPhanCong(txtMaCoVan.getText())) {
                 DialogHelper.showError("Cố vấn đã được phân công, không thể xóa");
-            } else if (CoVanCtrl.kiemTraCoVanDaChamDiem(maCoVan)) {
+            } else if (CoVanCtrl.kiemTraCoVanDaChamDiem(txtMaCoVan.getText())) {
                 DialogHelper.showError("Cố vấn đã chấm điểm, không thể xóa");
             } else {
                 if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa thông tin cố vấn này")) {
                     try {
+                        String maCoVan = txtMaCoVan.getText();
                         CoVanCtrl.xoaCoVan(maCoVan);
                         lamMoi();
-                        hienThiDSCoVan();
+                        timKiemCoVan();
                         DialogHelper.showMessage("Xóa cố vấn thành công!");
                     } catch (ClassNotFoundException | SQLException ex) {
                         Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
@@ -740,6 +736,8 @@ public class DSCoVan extends javax.swing.JPanel {
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         lamMoi();
+        txtTimKiem.setText("");
+        cmbTKKhoa.setSelectedItem("---Khoa---");
         hienThiDSCoVan();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 

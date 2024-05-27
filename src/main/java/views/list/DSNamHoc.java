@@ -273,19 +273,18 @@ public class DSNamHoc extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            String maNamHoc = txtMaNamHoc.getText();
-            String namHoc = txtNamHoc.getText();
-            int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
-
-            if (!maNamHoc.isEmpty()) {
+            if (!txtMaNamHoc.getText().isEmpty()) {
                 DialogHelper.showError("Năm học đã tồn tại. Vui lòng nhập mới");
-            } else if (namHoc.isEmpty()) {
+            } else if (txtNamHoc.getText().isEmpty()) {
                 DialogHelper.showError("Năm học không được bỏ trống");
-            } else if (!Validator.kiemTraNamHoc(namHoc)) {
+            } else if (!Validator.kiemTraNamHoc(txtNamHoc.getText())) {
                 DialogHelper.showError("Năm học không đúng định dạng");
-            } else if (NamHocCtrl.kiemTraNamHocTrung(namHoc)) {
+            } else if (NamHocCtrl.kiemTraNamHocTrung(txtNamHoc.getText())) {
                 DialogHelper.showError("Năm học đã tồn tại. Vui lòng nhập mới");
             } else {
+                String namHoc = txtNamHoc.getText();
+                int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
+
                 NamHocModel nh = new NamHocModel(namHoc, trangThai);
                 NamHocCtrl.themNamHoc(nh);
                 DialogHelper.showMessage("Thêm năm học thành công!");
@@ -298,8 +297,8 @@ public class DSNamHoc extends javax.swing.JFrame {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         try {
-            if (tblDSNamHoc.getSelectedRow() == -1) {
-                DialogHelper.showError("Chưa chọn năm học muốn xóa");
+            if (txtMaNamHoc.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn năm học muốn xóa");
             } else {
                 int maNamHoc = Integer.parseInt(txtMaNamHoc.getText());
                 if (NamHocCtrl.kiemTraNamHocDaDuocSuDung(maNamHoc)) {
@@ -320,18 +319,20 @@ public class DSNamHoc extends javax.swing.JFrame {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa năm học này?")) {
-                int maNamHoc = Integer.parseInt(txtMaNamHoc.getText());
-                String namHoc = txtNamHoc.getText();
-                int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
-
-                if (namHoc.isEmpty()) {
+            if (txtMaNamHoc.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn năm học muốn chỉnh sửa");
+            } else if (DialogHelper.showConfirmation("Bạn có chắc muốn sửa năm học này?")) {
+                if (txtNamHoc.getText().isEmpty()) {
                     DialogHelper.showError("Năm học không được bỏ trống");
-                } else if (!Validator.kiemTraNamHoc(namHoc)) {
+                } else if (!Validator.kiemTraNamHoc(txtNamHoc.getText())) {
                     DialogHelper.showError("Năm học không đúng định dạng");
-                } else if (!namHoc.equals(namHocTam) && NamHocCtrl.kiemTraNamHocDaDuocSuDung(maNamHoc)) {
+                } else if (!txtNamHoc.getText().equals(namHocTam) && NamHocCtrl.kiemTraNamHocDaDuocSuDung(Integer.parseInt(txtMaNamHoc.getText()))) {
                     DialogHelper.showError("Năm học đã được sử dụng không thể sửa năm học");
                 } else {
+                    int maNamHoc = Integer.parseInt(txtMaNamHoc.getText());
+                    String namHoc = txtNamHoc.getText();
+                    int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
+
                     NamHocModel nh = new NamHocModel(maNamHoc, namHoc, trangThai);
                     NamHocCtrl.capNhatNamHoc(nh);
                     DialogHelper.showMessage("Cập nhật năm học thành công!");

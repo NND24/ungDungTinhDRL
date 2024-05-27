@@ -124,18 +124,6 @@ public class DSNganh extends javax.swing.JFrame {
         lblTrangThai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblTrangThai.setText("Trạng thái hiển thị");
 
-        txtMaNganh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaNganhActionPerformed(evt);
-            }
-        });
-
-        txtTenNganh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTenNganhActionPerformed(evt);
-            }
-        });
-
         cmbTrangThaiHienThi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ẩn", "Hiển thị" }));
         cmbTrangThaiHienThi.setSelectedIndex(1);
 
@@ -349,12 +337,7 @@ public class DSNganh extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtMaNganhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaNganhActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaNganhActionPerformed
-
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        // TODO add your handling code here:
         try {
             String maNganh = txtMaNganh.getText();
             String tenNganh = txtTenNganh.getText();
@@ -380,49 +363,45 @@ public class DSNganh extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        // TODO add your handling code here:
         try {
-            String maNganh = txtMaNganh.getText();
-            String tenNganh = txtTenNganh.getText();
-            String maKhoa = (String) cmbMaKhoa.getSelectedItem();
-            System.out.println("Test: " + cmbMaKhoa.getSelectedItem());
-            int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
-
-            if (maNganh.isEmpty()) {
-                DialogHelper.showError("Mã ngành không được bỏ trống");
-            } else if (tenNganh.isEmpty()) {
-                DialogHelper.showError("Tên ngành không được bỏ trống");
+            if (txtMaNganh.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn ngành muốn chỉnh sửa");
             } else {
-                NganhModel nganh = new NganhModel(maNganh, maKhoa, tenNganh, trangThai);
-                NganhCtrl.capNhatNganh(nganh);
-                DialogHelper.showMessage("Cập nhật ngành thành công!");
-                lamMoi();
-                hienThiDSNganh();
-                txtMaNganh.setEnabled(true);
+                String maNganh = txtMaNganh.getText();
+                String tenNganh = txtTenNganh.getText();
+                String maKhoa = (String) cmbMaKhoa.getSelectedItem();
+                System.out.println("Test: " + cmbMaKhoa.getSelectedItem());
+                int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
+
+                if (maNganh.isEmpty()) {
+                    DialogHelper.showError("Mã ngành không được bỏ trống");
+                } else if (tenNganh.isEmpty()) {
+                    DialogHelper.showError("Tên ngành không được bỏ trống");
+                } else {
+                    NganhModel nganh = new NganhModel(maNganh, maKhoa, tenNganh, trangThai);
+                    NganhCtrl.capNhatNganh(nganh);
+                    DialogHelper.showMessage("Cập nhật ngành thành công!");
+                    lamMoi();
+                    hienThiDSNganh();
+                    txtMaNganh.setEnabled(true);
+                }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSChucVu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSuaActionPerformed
 
-    private void txtTenNganhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenNganhActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTenNganhActionPerformed
-
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
-        // TODO add your handling code here:
         lamMoi();
         hienThiDSNganh();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        // TODO add your handling code here:
         String maNganh = txtMaNganh.getText();
         try {
-            if (tblDSNganh.getSelectedRow() == -1) {
-                DialogHelper.showError("Chưa chọn ngành muốn xóa");
-            }
-            else if (NganhCtrl.kiemTraNganhDaDuocSuDung(maNganh)) {
+            if (maNganh.isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn ngành muốn xóa");
+            } else if (NganhCtrl.kiemTraNganhDaDuocSuDung(maNganh)) {
                 DialogHelper.showError("Ngành đã có lớp không thể xóa!");
             } else {
                 if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa ngành này?")) {
@@ -443,7 +422,6 @@ public class DSNganh extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void tblDSNganhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSNganhMouseClicked
-        // TODO add your handling code here:
         txtMaNganh.setEnabled(false);
         int selectedIndex = tblDSNganh.getSelectedRow();
         if (selectedIndex >= 0) {

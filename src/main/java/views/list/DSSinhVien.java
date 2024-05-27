@@ -107,27 +107,20 @@ public class DSSinhVien extends javax.swing.JPanel {
     }
 
     private void lamMoi() {
-        try {
-            dsSinhVien = SinhVienCtrl.timTatCaSinhVien();
-            txtMaSinhVien.setText("");
-            txtHoTen.setText("");
-            txtEmail.setText("");
-            txtQueQuan.setText("");
-            cmbGioiTinh.setSelectedIndex(0);
-            cmbChucVu.setSelectedIndex(0);
-            txtNgaySinh.setText("");
-            txtCanCuoc.setText("");
-            txtSoDienThoai.setText("");
-            cmbDaNghiHoc.setSelectedIndex(0);
-            txtTimKiem.setText("");
-            cmbTKLop.setSelectedItem("---Lớp---");
-            cmbLop.setSelectedItem("---Lớp---");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DSSinhVien.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtMaSinhVien.setText("");
+        txtHoTen.setText("");
+        txtEmail.setText("");
+        txtQueQuan.setText("");
+        cmbGioiTinh.setSelectedIndex(0);
+        cmbChucVu.setSelectedIndex(0);
+        txtNgaySinh.setText("");
+        txtCanCuoc.setText("");
+        txtSoDienThoai.setText("");
+        cmbDaNghiHoc.setSelectedIndex(0);
+        cmbLop.setSelectedItem("---Lớp---");
     }
 
-    private void timKiemDanhSachDRL() {
+    private void timKiemDanhSachSV() {
         try {
             if (cmbTKLop.getSelectedItem() != null) {
                 String tuKhoa = txtTimKiem.getText();
@@ -443,7 +436,7 @@ public class DSSinhVien extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sinh viên", "Họ tên", "Chức vụ", "Lớp", "Giới tính", "Năm sinh", "Căn cước", "Địa chỉ", "Số điện thoại", "Email", "Trạng thái"
+                "Mã sinh viên", "Họ tên", "Chức vụ", "Lớp", "Giới tính", "Năm sinh", "Căn cước", "Quê quán", "Số điện thoại", "Email", "Trạng thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -469,12 +462,6 @@ public class DSSinhVien extends javax.swing.JPanel {
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel25.setText("Lớp");
-
-        cmbLop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbLopActionPerformed(evt);
-            }
-        });
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel23.setText("Trạng thái");
@@ -601,34 +588,35 @@ public class DSSinhVien extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            String maLop = cmbLop.getSelectedItem().toString();
-            String hoTen = txtHoTen.getText();
-            String soDienThoai = txtSoDienThoai.getText();
-            String canCuoc = txtCanCuoc.getText();
             if (!txtMaSinhVien.getText().isEmpty()) {
                 DialogHelper.showError("Sinh viên đã tồn tại. Vui lòng nhập mới");
-            } else if (hoTen.isEmpty()) {
+            } else if (txtHoTen.getText().isEmpty()) {
                 DialogHelper.showError("Họ tên không được để trống!");
             } else if (txtNgaySinh.getText().isEmpty()) {
                 DialogHelper.showError("Ngày sinh không được để trống!");
             } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                 DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-            } else if (soDienThoai.isEmpty()) {
+            } else if (txtSoDienThoai.getText().isEmpty()) {
                 DialogHelper.showError("Số điện không được để trống!");
-            } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+            } else if (!txtSoDienThoai.getText().isEmpty() && !Validator.isValidPhoneNumber(txtSoDienThoai.getText())) {
                 DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-            } else if (SinhVienCtrl.kiemTraSoDienThoaiTrung("", soDienThoai)) {
+            } else if (SinhVienCtrl.kiemTraSoDienThoaiTrung("", txtSoDienThoai.getText())) {
                 DialogHelper.showError("Số điện thoại đã tồn tại!");
-            } else if (canCuoc.isEmpty()) {
+            } else if (txtCanCuoc.getText().isEmpty()) {
                 DialogHelper.showError("Căn cước không được để trống!");
-            } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+            } else if (!txtCanCuoc.getText().isEmpty() && !Validator.isValidCccd(txtCanCuoc.getText())) {
                 DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-            } else if (SinhVienCtrl.kiemTraCanCuocTrung("", canCuoc)) {
+            } else if (SinhVienCtrl.kiemTraCanCuocTrung("", txtCanCuoc.getText())) {
                 DialogHelper.showError("Căn cước đã tồn tại!");
-            } else if (maLop.equals("---Lớp---")) {
+            } else if (cmbLop.getSelectedItem().toString().equals("---Lớp---")) {
                 DialogHelper.showError("Chưa chọn lớp!");
             } else {
                 try {
+                    String maLop = cmbLop.getSelectedItem().toString();
+                    String hoTen = txtHoTen.getText();
+                    String soDienThoai = txtSoDienThoai.getText();
+                    String canCuoc = txtCanCuoc.getText();
+
                     List<LopModel> lopDuocChon = LopCtrl.timKiemLop(maLop);
 
                     String khoa = lopDuocChon.get(0).getKhoa();
@@ -659,7 +647,7 @@ public class DSSinhVien extends javax.swing.JPanel {
                     TaiKhoanCtrl.themTaiKhoan(tk);
                     SinhVienCtrl.themSinhVien(sv);
                     lamMoi();
-                    hienThiDSSinhVien();
+                    timKiemDanhSachSV();
                     DialogHelper.showMessage("Thêm sinh viên thành công!");
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DSSinhVien.class.getName()).log(Level.SEVERE, null, ex);
@@ -697,7 +685,9 @@ public class DSSinhVien extends javax.swing.JPanel {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         try {
             String maSinhVien = txtMaSinhVien.getText();
-            if (SinhVienCtrl.kiemTraSinhVienDaChamDiem(maSinhVien)) {
+            if (maSinhVien.isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn sinh viên muốn xóa");
+            } else if (SinhVienCtrl.kiemTraSinhVienDaChamDiem(maSinhVien)) {
                 DialogHelper.showError("Sinh viên đã chấm điểm. Không thể xóa");
             } else {
                 if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa sinh viên này?")) {
@@ -706,7 +696,7 @@ public class DSSinhVien extends javax.swing.JPanel {
                     TaiKhoanCtrl.xoaTaiKhoan(maTaiKhoan);
                     DialogHelper.showMessage("Xóa sinh viên thành công!");
                     lamMoi();
-                    hienThiDSSinhVien();
+                    timKiemDanhSachSV();
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -716,34 +706,37 @@ public class DSSinhVien extends javax.swing.JPanel {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            if (DialogHelper.showConfirmation("Bạn có chắc muốn chỉnh sửa thông tin cho sinh viên này?")) {
-                String maSinhVien = txtMaSinhVien.getText();
-                String maLop = cmbLop.getSelectedItem().toString();
-                String hoTen = txtHoTen.getText();
-                String soDienThoai = txtSoDienThoai.getText();
-                String canCuoc = txtCanCuoc.getText();
-                if (hoTen.isEmpty()) {
+            if (txtMaSinhVien.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn sinh viên muốn chỉnh sửa");
+            } else if (DialogHelper.showConfirmation("Bạn có chắc muốn chỉnh sửa thông tin cho sinh viên này?")) {
+                if (txtHoTen.getText().isEmpty()) {
                     DialogHelper.showError("Họ tên không được để trống!");
                 } else if (txtNgaySinh.getText().isEmpty()) {
                     DialogHelper.showError("Ngày sinh không được để trống!");
                 } else if (!Validator.isValidDate(txtNgaySinh.getText())) {
                     DialogHelper.showError("Ngày sinh không đúng định dạng! Vui lòng nhập lại.");
-                } else if (soDienThoai.isEmpty()) {
+                } else if (txtSoDienThoai.getText().isEmpty()) {
                     DialogHelper.showError("Số điện không được để trống!");
-                } else if (!soDienThoai.isEmpty() && !Validator.isValidPhoneNumber(soDienThoai)) {
+                } else if (!txtSoDienThoai.getText().isEmpty() && !Validator.isValidPhoneNumber(txtSoDienThoai.getText())) {
                     DialogHelper.showError("Số điện thoại không hợp lệ! Vui lòng nhập lại số điện thoại");
-                } else if (SinhVienCtrl.kiemTraSoDienThoaiTrung(maSinhVien, soDienThoai)) {
+                } else if (SinhVienCtrl.kiemTraSoDienThoaiTrung(txtMaSinhVien.getText(), txtSoDienThoai.getText())) {
                     DialogHelper.showError("Số điện thoại đã tồn tại!");
-                } else if (canCuoc.isEmpty()) {
+                } else if (txtCanCuoc.getText().isEmpty()) {
                     DialogHelper.showError("Căn cước không được để trống!");
-                } else if (!canCuoc.isEmpty() && !Validator.isValidCccd(canCuoc)) {
+                } else if (!txtCanCuoc.getText().isEmpty() && !Validator.isValidCccd(txtCanCuoc.getText())) {
                     DialogHelper.showError("Căn cước không hợp lệ! Vui lòng nhập lại căn cước");
-                } else if (SinhVienCtrl.kiemTraCanCuocTrung(maSinhVien, canCuoc)) {
+                } else if (SinhVienCtrl.kiemTraCanCuocTrung(txtMaSinhVien.getText(), txtCanCuoc.getText())) {
                     DialogHelper.showError("Căn cước đã tồn tại!");
-                } else if (maLop.equals("---Lớp---")) {
+                } else if (cmbLop.getSelectedItem().toString().equals("---Lớp---")) {
                     DialogHelper.showError("Chưa chọn lớp!");
                 } else {
                     try {
+                        String maSinhVien = txtMaSinhVien.getText();
+                        String maLop = cmbLop.getSelectedItem().toString();
+                        String hoTen = txtHoTen.getText();
+                        String soDienThoai = txtSoDienThoai.getText();
+                        String canCuoc = txtCanCuoc.getText();
+
                         java.util.Date ngaySinh = dateFormat.parse(txtNgaySinh.getText());
                         java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
                         String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
@@ -754,10 +747,9 @@ public class DSSinhVien extends javax.swing.JPanel {
                         SinhVienModel sv = new SinhVienModel(maSinhVien, maLop, hoTen, chucVu, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
 
                         SinhVienCtrl.capNhatSinhVien(sv);
-                        hienThiDSSinhVien();
+                        timKiemDanhSachSV();
                         DialogHelper.showMessage("Cập nhật sinh viên thành công!");
                         lamMoi();
-                        hienThiDSSinhVien();
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(DSSinhVien.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -768,17 +760,16 @@ public class DSSinhVien extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSuaActionPerformed
 
-    private void cmbLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbLopActionPerformed
-
-    }//GEN-LAST:event_cmbLopActionPerformed
-
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         lamMoi();
-        hienThiDSSinhVien();
+        txtTimKiem.setText("");
+        cmbTKLop.setSelectedItem("---Lớp---");
+        cmbTKKhoa.setSelectedItem("---Khoa---");
+        timKiemDanhSachSV();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void txtTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemActionPerformed
-        timKiemDanhSachDRL();
+        timKiemDanhSachSV();
     }//GEN-LAST:event_txtTimKiemActionPerformed
 
     private void cmbTKKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKKhoaActionPerformed
@@ -794,7 +785,7 @@ public class DSSinhVien extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbTKKhoaActionPerformed
 
     private void cmbTKLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKLopActionPerformed
-        timKiemDanhSachDRL();
+        timKiemDanhSachSV();
     }//GEN-LAST:event_cmbTKLopActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

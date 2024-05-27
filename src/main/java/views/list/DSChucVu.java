@@ -266,17 +266,17 @@ public class DSChucVu extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            String maChucVu = txtMaChucVu.getText();
-            String tenChucVu = txtTenChucVu.getText();
-            int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
-
-            if (maChucVu.isEmpty()) {
+            if (txtMaChucVu.getText().isEmpty()) {
                 DialogHelper.showError("Mã chức vụ không được bỏ trống");
-            } else if (tenChucVu.isEmpty()) {
+            } else if (txtTenChucVu.getText().isEmpty()) {
                 DialogHelper.showError("Tên chức vụ không được bỏ trống");
-            } else if (!tenChucVu.isEmpty() && ChucVuCtrl.kiemTraMaChucVuDaTonTai(maChucVu)) {
+            } else if (!txtTenChucVu.getText().isEmpty() && ChucVuCtrl.kiemTraMaChucVuDaTonTai(txtTenChucVu.getText())) {
                 DialogHelper.showError("Mã chức vụ đã tồn tại. Vui lòng nhập lại");
             } else {
+                String maChucVu = txtMaChucVu.getText();
+                String tenChucVu = txtTenChucVu.getText();
+                int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
+
                 ChucVuModel chucVu = new ChucVuModel(maChucVu, tenChucVu, trangThai);
                 ChucVuCtrl.themChucVu(chucVu);
                 DialogHelper.showMessage("Thêm chức vụ thành công!");
@@ -288,12 +288,14 @@ public class DSChucVu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        String maChucVu = txtMaChucVu.getText();
-        if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa chức vụ này")) {
+        if (txtMaChucVu.getText().isEmpty()) {
+            DialogHelper.showError("Vui lòng chọn chức vụ muốn xóa");
+        } else if (DialogHelper.showConfirmation("Bạn có chắc muốn xóa chức vụ này")) {
             try {
-                if (ChucVuCtrl.kiemTraChucVuDaSuDung(maChucVu)) {
+                if (ChucVuCtrl.kiemTraChucVuDaSuDung(txtMaChucVu.getText())) {
                     DialogHelper.showError("Chức vụ đã được sử dụng không thể xóa");
                 } else {
+                    String maChucVu = txtMaChucVu.getText();
                     ChucVuCtrl.xoaNamHoc(maChucVu);
                     hienThiDSChucVu();
                     lamMoi();
@@ -308,15 +310,15 @@ public class DSChucVu extends javax.swing.JFrame {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            String maChucVu = txtMaChucVu.getText();
-            String tenChucVu = txtTenChucVu.getText();
-            int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
-
-            if (maChucVu.isEmpty()) {
-                DialogHelper.showError("Mã chức vụ không được bỏ trống");
-            } else if (tenChucVu.isEmpty()) {
+            if (txtMaChucVu.getText().isEmpty()) {
+                DialogHelper.showError("Vui lòng chọn chức vụ muốn chỉnh sửa");
+            } else if (txtTenChucVu.getText().isEmpty()) {
                 DialogHelper.showError("Tên chức vụ không được bỏ trống");
             } else {
+                String maChucVu = txtMaChucVu.getText();
+                String tenChucVu = txtTenChucVu.getText();
+                int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
+
                 ChucVuModel chucVu = new ChucVuModel(maChucVu, tenChucVu, trangThai);
                 ChucVuCtrl.capNhatChucVu(chucVu);
                 DialogHelper.showMessage("Cập nhật chức vụ thành công!");

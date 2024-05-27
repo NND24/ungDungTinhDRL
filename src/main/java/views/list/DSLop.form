@@ -82,7 +82,7 @@
                   <EmptySpace pref="37" max="32767" attributes="0"/>
               </Group>
               <Component id="jPanel6" alignment="0" pref="731" max="32767" attributes="0"/>
-              <Component id="pnlNutLenh" alignment="1" max="32767" attributes="0"/>
+              <Component id="pnlNutLenh" alignment="1" pref="731" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
