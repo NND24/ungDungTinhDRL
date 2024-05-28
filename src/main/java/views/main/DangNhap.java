@@ -4,6 +4,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import controllers.TaiKhoanCtrl;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DangNhap extends javax.swing.JFrame {
 
@@ -11,6 +13,21 @@ public class DangNhap extends javax.swing.JFrame {
 
     public DangNhap() {
         initComponents();
+
+        txtTenDangNhap.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnDangNhapActionPerformed(e);
+
+            }
+        });
+
+        txtMatKhau.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnDangNhapActionPerformed(e);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
