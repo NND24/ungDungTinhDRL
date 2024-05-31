@@ -33,8 +33,6 @@ public class DSCoVan extends javax.swing.JPanel {
             dsCoVan = CoVanCtrl.timTatCaCoVan();
             hienThiDSKhoa();
             hienThiDSCoVan();
-            cmbKhoa.setSelectedItem("---Khoa---");
-            cmbTKKhoa.setSelectedItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -50,7 +48,9 @@ public class DSCoVan extends javax.swing.JPanel {
                 cmbTKKhoa.addItem(khoa.getTenKhoa());
             });
             cmbKhoa.addItem("---Khoa---");
+            cmbKhoa.setSelectedItem("---Khoa---");
             cmbTKKhoa.addItem("---Khoa---");
+            cmbTKKhoa.setSelectedItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSCoVan.class.getName()).log(Level.SEVERE, null, ex);
         }

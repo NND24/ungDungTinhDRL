@@ -2,10 +2,10 @@ package views.main;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import controllers.TaiKhoanCtrl;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import utils.DialogHelper;
 
 public class DangNhap extends javax.swing.JFrame {
 
@@ -181,11 +181,11 @@ public class DangNhap extends javax.swing.JFrame {
             char[] passwordChars = txtMatKhau.getPassword();
             String password = String.valueOf(passwordChars).trim();
             if (tenDangNhap.isEmpty() || password.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Tên đăng nhập hoặc mật khẩu không được để trống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                DialogHelper.showError("Tên đăng nhập hoặc mật khẩu không được để trống!");
             } else if (TaiKhoanCtrl.kiemTraTaiKhoanCoTonTai(tenDangNhap) == false) {
-                JOptionPane.showMessageDialog(this, "Tên đăng nhập không có trong hệ thống!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                DialogHelper.showError("Tên đăng nhập không có trong hệ thống!");
             } else if (TaiKhoanCtrl.kiemTraTaiKhoanConSuDung(tenDangNhap) == false) {
-                JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                DialogHelper.showError("Tài khoản không tồn tại!");
             } else {
                 try {
                     String chucVu = TaiKhoanCtrl.dangNhap(tenDangNhap, password);
@@ -207,7 +207,7 @@ public class DangNhap extends javax.swing.JFrame {
                         new QuanLy().setVisible(true);
                         this.dispose();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Tên đăng nhập hoặc mật khẩu bị sai!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+                        DialogHelper.showError("Tên đăng nhập hoặc mật khẩu bị sai!");
                     }
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(DangNhap.class.getName()).log(Level.SEVERE, null, ex);
@@ -219,7 +219,6 @@ public class DangNhap extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
     private void chkHienThiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHienThiMatKhauActionPerformed
-        // TODO add your handling code here:
         if (chkHienThiMatKhau.isSelected()) {
             txtMatKhau.setEchoChar((char) 0);
         } else {

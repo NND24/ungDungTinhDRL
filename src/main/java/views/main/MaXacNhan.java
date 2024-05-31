@@ -112,7 +112,6 @@ public class MaXacNhan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
-        // TODO add your handling code here:
         String theCode = QuenMatKhau.verifyCode;
         String inputCode = txtMaXacNhan.getText();
         if (theCode.equalsIgnoreCase(inputCode)) {
@@ -129,11 +128,9 @@ public class MaXacNhan extends javax.swing.JFrame {
         } else {
             DialogHelper.showError("Mã không hợp lệ!");
         }
-
     }//GEN-LAST:event_btnXacNhanActionPerformed
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
         new DangNhap().setVisible(true);
     }//GEN-LAST:event_btnHuyActionPerformed

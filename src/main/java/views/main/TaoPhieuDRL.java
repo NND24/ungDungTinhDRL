@@ -39,8 +39,6 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
             hienThiDSLop();
             hienThiDSNamHoc();
             hienThiTatCaPhieuDRL();
-            cmbLop.setSelectedItem("---Lớp---");
-            cmbNamHoc.setSelectedItem("---Năm học---");
             cmbHocKy.setSelectedItem("---Học kỳ---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,6 +54,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                 cmbLop.addItem(lop.getMaLop());
             });
             cmbLop.addItem("---Lớp---");
+            cmbLop.setSelectedItem("---Lớp---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -70,6 +69,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                 cmbNamHoc.addItem(namHoc.getNamHoc());
             });
             cmbNamHoc.addItem("---Năm học---");
+            cmbNamHoc.setSelectedItem("---Năm học---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }

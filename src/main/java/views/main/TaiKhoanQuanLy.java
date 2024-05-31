@@ -527,7 +527,6 @@ public class TaiKhoanQuanLy extends javax.swing.JPanel {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(TaiKhoanSinhVien.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         }
     }//GEN-LAST:event_btnDoiTenDangNhapActionPerformed
 

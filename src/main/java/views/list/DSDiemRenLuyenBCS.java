@@ -32,7 +32,6 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
             tableModel = (DefaultTableModel) tblDanhSachDRL.getModel();
             hienThiDSNamHoc();
-            cmbTKNamHoc.setSelectedItem("---Năm học---");
             hienThiDRLHienTai();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,6 +47,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 cmbTKNamHoc.addItem(nh.getNamHoc());
             });
             cmbTKNamHoc.addItem("---Năm học---");
+            cmbTKNamHoc.setSelectedItem("---Năm học---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -688,9 +688,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         lamMoi();
-        cmbTKNamHoc.setSelectedItem("---Năm học---");
-        cmbTKHocKy.setSelectedItem("---Học kỳ---");
-        txtTimKiem.setText("");
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
@@ -703,11 +701,17 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbTKHocKyActionPerformed
 
     private void btnKetThucChamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKetThucChamActionPerformed
-        thayDoiTrangThaiCham("Sinh viên kết thúc chấm", "Kết thúc");
+        if (DialogHelper.showConfirmation("Bạn có chắc muốn kết thúc chấm điểm cho sinh viên không?")) {
+            thayDoiTrangThaiCham("Sinh viên kết thúc chấm", "Kết thúc");
+            timKiemDanhSachDRL();
+        }
     }//GEN-LAST:event_btnKetThucChamActionPerformed
 
     private void btnChamLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChamLaiActionPerformed
-        thayDoiTrangThaiCham("Sinh viên đã chấm", "Chấm lại");
+        if (DialogHelper.showConfirmation("Bạn có chắc muốn cho phép cho sinh viên chấm lại không?")) {
+            thayDoiTrangThaiCham("Sinh viên đã chấm", "Chấm lại");
+            timKiemDanhSachDRL();
+        }
     }//GEN-LAST:event_btnChamLaiActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed

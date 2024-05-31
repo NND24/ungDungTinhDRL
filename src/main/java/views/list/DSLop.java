@@ -26,7 +26,6 @@ public class DSLop extends javax.swing.JFrame {
             dsLop = LopCtrl.timTatCaLop();
             hienThiDSNganh();
             hienThiDSLop();
-            cmbNganh.setSelectedItem("---Ngành---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSLop.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -56,6 +55,7 @@ public class DSLop extends javax.swing.JFrame {
                 cmbNganh.addItem(nganh.getTenNganh());
             });
             cmbNganh.addItem("---Ngành---");
+            cmbNganh.setSelectedItem("---Ngành---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
