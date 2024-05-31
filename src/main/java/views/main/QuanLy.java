@@ -156,7 +156,7 @@ public class QuanLy extends javax.swing.JFrame {
         });
 
         LayeredPane.setBackground(new java.awt.Color(255, 255, 255));
-        LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 800));
+        LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 647));
         LayeredPane.setLayout(new java.awt.CardLayout());
 
         dsDiemToanTruongPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -216,7 +216,7 @@ public class QuanLy extends javax.swing.JFrame {
         );
 
         sideMenu.setBackground(new java.awt.Color(20, 80, 55));
-        sideMenu.setPreferredSize(new java.awt.Dimension(225, 974));
+        sideMenu.setPreferredSize(new java.awt.Dimension(225, 709));
 
         scrollPaneWin112.setPreferredSize(new java.awt.Dimension(250, 700));
         scrollPaneWin112.setViewportView(menuQuanLy);
@@ -240,7 +240,7 @@ public class QuanLy extends javax.swing.JFrame {
             .addGroup(sideMenuLayout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(scrollPaneWin112, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPaneWin112, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -252,21 +252,16 @@ public class QuanLy extends javax.swing.JFrame {
                 .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))))
+                    .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(LayeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0))
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(LayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 709, Short.MAX_VALUE)
         );
 
         pack();

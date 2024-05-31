@@ -6,7 +6,7 @@
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1140, 660]"/>
+      <Dimension value="[1140, 616]"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -29,7 +29,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -45,7 +45,7 @@
           </Border>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[1140, 660]"/>
+          <Dimension value="[1140, 616]"/>
         </Property>
       </Properties>
 
@@ -200,7 +200,7 @@
                       <Component id="cmbTKHocKy" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="270" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" pref="261" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

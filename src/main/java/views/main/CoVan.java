@@ -105,7 +105,7 @@ public class CoVan extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(getIconImage());
-        setPreferredSize(new java.awt.Dimension(1365, 882));
+        setPreferredSize(new java.awt.Dimension(1365, 709));
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 formMouseMoved(evt);
@@ -113,12 +113,14 @@ public class CoVan extends javax.swing.JFrame {
         });
 
         LayeredPane.setBackground(new java.awt.Color(255, 255, 255));
-        LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 800));
+        LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 647));
         LayeredPane.setLayout(new java.awt.CardLayout());
 
         dsLopSinhVienPanel.setBackground(new java.awt.Color(255, 255, 255));
         dsLopSinhVienPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dsLopSinhVienPanel.setPreferredSize(new java.awt.Dimension(1674, 650));
+
+        dSDiemRenLuyenCVHT1.setPreferredSize(new java.awt.Dimension(1140, 647));
         dsLopSinhVienPanel.addTab("Danh sách điểm rèn luyện của các lớp", dSDiemRenLuyenCVHT1);
         dsLopSinhVienPanel.addTab("Chấm điểm rèn luyện", formChamDiemCVHT1);
 
@@ -153,6 +155,9 @@ public class CoVan extends javax.swing.JFrame {
         );
 
         sideMenu.setBackground(new java.awt.Color(20, 80, 55));
+        sideMenu.setPreferredSize(new java.awt.Dimension(225, 709));
+
+        menuCoVan.setPreferredSize(new java.awt.Dimension(196, 647));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo-ptit 50x50.png"))); // NOI18N
 
@@ -173,7 +178,7 @@ public class CoVan extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideMenuLayout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(menuCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(menuCoVan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -190,11 +195,14 @@ public class CoVan extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(LayeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(LayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, 0))
         );
 
         pack();
