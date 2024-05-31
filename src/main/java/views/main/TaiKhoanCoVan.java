@@ -561,7 +561,6 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         } else if (tenDangNhapMoi.isEmpty()) {
             DialogHelper.showError("Tên đăng nhập không được để trống");
         } else {
-
             try {
                 if (TaiKhoanCtrl.kiemTraMatKhauCu(maTaiKhoan, matKhau)) {
                     TaiKhoanCtrl.doiTenDangNhap(tenDangNhapMoi, maTaiKhoan);

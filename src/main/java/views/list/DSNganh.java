@@ -109,6 +109,8 @@ public class DSNganh extends javax.swing.JFrame {
         tblDSNganh = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Danh sách ngành");
+        setPreferredSize(new java.awt.Dimension(730, 480));
 
         pnlChiTiet.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -134,7 +136,7 @@ public class DSNganh extends javax.swing.JFrame {
         pnlChiTietLayout.setHorizontalGroup(
             pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChiTietLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addGap(147, 147, 147)
                 .addGroup(pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMaNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTenNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +149,7 @@ public class DSNganh extends javax.swing.JFrame {
                         .addComponent(txtMaNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtTenNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbTrangThaiHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlChiTietLayout.setVerticalGroup(
             pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,13 +245,13 @@ public class DSNganh extends javax.swing.JFrame {
         btnXuat.setBackground(new java.awt.Color(0, 102, 255));
         btnXuat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnXuat.setForeground(new java.awt.Color(255, 255, 255));
-        btnXuat.setText("Xuất");
+        btnXuat.setText("Xuất danh sách");
         btnXuat.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnXuat.setBorderPainted(false);
         btnXuat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnXuat.setMaximumSize(new java.awt.Dimension(44, 26));
         btnXuat.setMinimumSize(new java.awt.Dimension(44, 26));
-        btnXuat.setPreferredSize(new java.awt.Dimension(80, 30));
+        btnXuat.setPreferredSize(new java.awt.Dimension(120, 30));
         btnXuat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXuatActionPerformed(evt);
@@ -312,7 +314,7 @@ public class DSNganh extends javax.swing.JFrame {
             .addGroup(pnlDSNganhLayout.createSequentialGroup()
                 .addComponent(pnlTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(scrDSNganh, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
+                .addComponent(scrDSNganh, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

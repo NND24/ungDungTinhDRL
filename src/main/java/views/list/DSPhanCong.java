@@ -30,13 +30,12 @@ public class DSPhanCong extends javax.swing.JFrame {
 
             tableModel = (DefaultTableModel) tblDSPhanCong.getModel();
 
+            dsPhanCong = PhanCongCtrl.timTatCaPhanCong();
+
             hienThiDSCoVan();
             hienThiDSLop();
             hienThiDSNamHoc();
             hienThiDSPhanCong();
-            cmbCoVan.setSelectedItem("---Cố vấn---");
-            cmbLop.setSelectedItem("---Lớp---");
-            cmbNamHoc.setSelectedItem("---Năm học---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -51,6 +50,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                 cmbCoVan.addItem(cv.getHoTen());
             });
             cmbCoVan.addItem("---Cố vấn---");
+            cmbCoVan.setSelectedItem("---Cố vấn---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -65,6 +65,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                 cmbLop.addItem(lop.getMaLop());
             });
             cmbLop.addItem("---Lớp---");
+            cmbLop.setSelectedItem("---Lớp---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -79,6 +80,7 @@ public class DSPhanCong extends javax.swing.JFrame {
                 cmbNamHoc.addItem(namHoc.getNamHoc());
             });
             cmbNamHoc.addItem("---Năm học---");
+            cmbNamHoc.setSelectedItem("---Năm học---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }

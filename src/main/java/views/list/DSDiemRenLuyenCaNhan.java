@@ -30,7 +30,6 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
             tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
             hienThiDSNamHoc();
-            cmbTKNamHoc.setSelectedItem("---Năm học---");
             hienThiTatCaDRL();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,6 +46,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
             });
             cmbTKNamHoc.addItem("---Năm học---");
             cmbTKHocKy.setSelectedItem("---Học kỳ---");
+            cmbTKNamHoc.setSelectedItem("---Năm học---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }

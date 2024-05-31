@@ -151,7 +151,6 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
-        // TODO add your handling code here:
         String accountId = MaXacNhan.maTaiKhoan;
 
         char[] newPasswordChars = txtMatKhauMoi.getPassword();
@@ -179,7 +178,6 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXacNhanActionPerformed
 
     private void chkHienThiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHienThiMatKhauActionPerformed
-        // TODO add your handling code here:
         if (chkHienThiMatKhau.isSelected()) {
             txtMatKhauMoi.setEchoChar((char) 0);
             txtXacNhanMatKhau.setEchoChar((char) 0);
@@ -190,7 +188,6 @@ public class DoiMatKhauMoi extends javax.swing.JFrame {
     }//GEN-LAST:event_chkHienThiMatKhauActionPerformed
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
         new DangNhap().setVisible(true);
     }//GEN-LAST:event_btnHuyActionPerformed

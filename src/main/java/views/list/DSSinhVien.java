@@ -34,8 +34,6 @@ public class DSSinhVien extends javax.swing.JPanel {
             tableModel = (DefaultTableModel) tblDSSinhVien.getModel();
             hienThiDSLop();
             hienThiDSKhoa();
-            cmbTKLop.setSelectedItem("---Lớp---");
-            cmbTKKhoa.setSelectedItem("---Khoa---");
             dsSinhVien = SinhVienCtrl.timTatCaSinhVien();
             hienThiDSSinhVien();
         } catch (ClassNotFoundException ex) {
@@ -88,6 +86,7 @@ public class DSSinhVien extends javax.swing.JPanel {
                 cmbTKLop.addItem(lop.getMaLop());
             });
             cmbTKLop.addItem("---Lớp---");
+            cmbTKLop.setSelectedItem("---Lớp---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -101,6 +100,7 @@ public class DSSinhVien extends javax.swing.JPanel {
                 cmbTKKhoa.addItem(khoa.getMaKhoa());
             });
             cmbTKKhoa.addItem("---Khoa---");
+            cmbTKKhoa.setSelectedItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -564,8 +564,8 @@ public class DSSinhVien extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(127, 127, 127))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

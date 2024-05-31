@@ -30,8 +30,6 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
         hienThiDSKhoa();
         hienThiDSNamHoc();
-        cmbTKKhoa.setSelectedItem("---Khoa---");
-        cmbTKNamHoc.setSelectedItem("---Năm học---");
     }
 
     private void hienThiDSLop(String maKhoa) {
@@ -55,6 +53,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
                 cmbTKKhoa.addItem(khoa.getMaKhoa());
             });
             cmbTKKhoa.addItem("---Khoa---");
+            cmbTKKhoa.setSelectedItem("---Khoa---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -69,6 +68,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
                 cmbTKNamHoc.addItem(nh.getNamHoc());
             });
             cmbTKNamHoc.addItem("---Năm học---");
+            cmbTKNamHoc.setSelectedItem("---Năm học---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSDiemRenLuyenCVHT.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -99,10 +99,6 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         txtXepLoai.setText("");
         txtHocKy.setText("");
         txtNamHoc.setText("");
-        cmbTKKhoa.setSelectedItem("---Khoa---");
-        cmbTKLop.setSelectedItem("---Lớp---");
-        cmbTKNamHoc.setSelectedItem("---Năm học---");
-        cmbTKHocKy.setSelectedItem("---Học kỳ---");
     }
 
     private void timKiemDanhSachDRL() {
@@ -563,6 +559,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         lamMoi();
+        timKiemDanhSachDRL();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
