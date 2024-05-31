@@ -30,16 +30,18 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
         hienThiDSKhoa();
         hienThiDSNamHoc();
+        cmbTKHocKy.setSelectedItem("---Học kỳ---");
     }
 
     private void hienThiDSLop(String maKhoa) {
         try {
             dsLop = LopCtrl.timLopTheoKhoa(maKhoa);
             cmbTKLop.removeAllItems();
-            cmbTKLop.addItem("---Lớp---");
             dsLop.forEach(lop -> {
                 cmbTKLop.addItem(lop.getMaLop());
             });
+            cmbTKLop.addItem("---Lớp---");
+            cmbTKLop.setSelectedItem("---Lớp---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSPhanCong.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -391,7 +393,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel29.setText("Học kỳ");
 
-        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Học kỳ---", "1", "2" }));
+        cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
         cmbTKHocKy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKHocKyActionPerformed(evt);
@@ -569,9 +571,9 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void cmbTKLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKLopActionPerformed
-        if (cmbTKLop.getSelectedItem() != null && !cmbTKLop.getSelectedItem().equals("---Lớp---") && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---")) {
-            timKiemDanhSachDRL();
-        }
+        cmbTKNamHoc.setSelectedItem("---Năm học---");
+        cmbTKHocKy.setSelectedItem("---Học kỳ---");
+        tableModel.setRowCount(0);
     }//GEN-LAST:event_cmbTKLopActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
@@ -587,6 +589,11 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
             int khoaIndex = cmbTKKhoa.getSelectedIndex();
             String maKhoa = dsKhoa.get(khoaIndex).getMaKhoa();
             hienThiDSLop(maKhoa);
+        } else {
+            tableModel.setRowCount(0);
+            cmbTKLop.removeAllItems();
+            cmbTKLop.addItem("---Lớp---");
+            cmbTKLop.setSelectedItem("---Lớp---");
         }
     }//GEN-LAST:event_cmbTKKhoaActionPerformed
 
