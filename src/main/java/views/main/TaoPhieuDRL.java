@@ -81,7 +81,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         tableModel.setRowCount(0);
 
         dsPhieuDRL.forEach(phieu -> {
-            tableModel.addRow(new Object[]{phieu.getMaLop(), phieu.getNamHoc(), phieu.getHocKy(),
+            tableModel.addRow(new Object[]{phieu.getMaLop(), phieu.getTenCoVan(), phieu.getNamHoc(), phieu.getHocKy(),
                 phieu.getNgayBatDau(), phieu.getNgayKetThuc()});
         });
     }
@@ -92,8 +92,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         tableModel2.setRowCount(0);
         dsChiTietPhieu.forEach(phieu -> {
             tableModel2.addRow(new Object[]{phieu.getMaSinhVien(), phieu.getTenSinhVien(),
-                phieu.getMaLop(), phieu.getMaBanCanSuCham() + " " + phieu.getTenBanCanSu(),
-                phieu.getMaCoVanCham() + " " + phieu.getTenCoVan(), phieu.getTrangThaiCham()});
+                phieu.getMaLop(), phieu.getTongDiem(), phieu.getXepLoai(), phieu.getTrangThaiCham()});
         });
     }
 
@@ -150,17 +149,17 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
 
         tblDSPhieuDRL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Lớp", "Năm học", "Học kỳ", "Ngày bắt đầu", "Ngày kết thúc"
+                "Lớp", "Cố vấn", "Năm học", "Học kỳ", "Ngày bắt đầu", "Ngày kết thúc"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -251,11 +250,11 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sinh viên", "Họ tên", "Lớp", "Ban cán sự chấm", "Cố vấn chấm", "Trạng thái chấm"
+                "Mã sinh viên", "Họ tên", "Lớp", "Tổng điểm", "Xếp loại", "Trạng thái chấm"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, true, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

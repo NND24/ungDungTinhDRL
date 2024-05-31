@@ -24,9 +24,11 @@ public class PhieuDRLCtrl {
     public static List<PhieuDRLModel> timTatCaPhieuDRL() throws ClassNotFoundException {
         List<PhieuDRLModel> dsPhanCong = new ArrayList<>();
         String sql = """
-                     SELECT DISTINCT MaLop, NamHoc, HocKy, NgayBatDau, NgayKetThuc FROM PhieuDRL
+                     SELECT DISTINCT SinhVien.MaLop, CoVan.HoTen, NamHoc, HocKy, NgayBatDau, NgayKetThuc FROM PhieuDRL
                      JOIN SinhVien ON PhieuDRL.MaSinhVien=SinhVien.MaSinhVien
                      JOIN NamHoc ON PhieuDRL.MaNamHoc=NamHoc.MaNamHoc
+                     JOIN PhanCong ON PhanCong.MaLop=SinhVien.MaLop AND PhanCong.MaNamHoc=NamHoc.MaNamHoc
+                     JOIN CoVan ON CoVan.MaCoVan=PhanCong.MaCoVan
                      """;
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
@@ -35,6 +37,7 @@ public class PhieuDRLCtrl {
             while (resultSet.next()) {
                 PhieuDRLModel drl = new PhieuDRLModel(
                         resultSet.getString("MaLop"),
+                        resultSet.getString("HoTen"),
                         resultSet.getString("NamHoc"),
                         resultSet.getInt("HocKy"),
                         resultSet.getDate("NgayBatDau"),
@@ -51,18 +54,15 @@ public class PhieuDRLCtrl {
         String sql = """
                      SELECT SinhVien.MaSinhVien,
                      SinhVien.HoTen AS TenSinhVien,
-                     COALESCE(BCS.MaSinhVien, '') AS MaBanCanSu,
-                     COALESCE(BCS.HoTen, '') AS TenBanCanSu,
-                     COALESCE(CoVan.MaCoVan, '') AS MaCoVan,
-                     COALESCE(CoVan.HoTen, '') AS TenCoVan,
                      SinhVien.MaLop,
+                     TongDiem,
+                     XepLoai,
                      TrangThaiCham
                      FROM PhieuDRL
                      JOIN NamHoc ON PhieuDRL.MaNamHoc = NamHoc.MaNamHoc
                      JOIN SinhVien ON PhieuDRL.MaSinhVien = SinhVien.MaSinhVien
-                     LEFT JOIN SinhVien BCS ON PhieuDRL.MaBanCanSuCham = BCS.MaSinhVien
-                     LEFT JOIN CoVan ON PhieuDRL.MaCoVanCham = CoVan.MaCoVan
-                     WHERE SinhVien.MaLop=? AND NamHoc=? AND HocKy=?
+                     JOIN DiemRenLuyen ON DiemRenLuyen.MaPhieuDRL=PhieuDRL.MaPhieuDRL
+                     WHERE SinhVien.MaLop=? AND NamHoc=? AND HocKy=? AND NguoiCham='CoVan'
                      AND NamHoc.TrangThaiHienThi=1
                      """;
         List<PhieuDRLModel> dsPhieu = new ArrayList<>();
@@ -77,11 +77,9 @@ public class PhieuDRLCtrl {
                 PhieuDRLModel phieu = new PhieuDRLModel(
                         resultSet.getString("MaSinhVien"),
                         resultSet.getString("TenSinhVien"),
-                        resultSet.getString("MaBanCanSu"),
-                        resultSet.getString("TenBanCanSu"),
-                        resultSet.getString("MaCoVan"),
-                        resultSet.getString("TenCoVan"),
                         resultSet.getString("MaLop"),
+                        resultSet.getString("XepLoai"),
+                        resultSet.getFloat("TongDiem"),
                         resultSet.getString("TrangThaiCham")
                 );
                 dsPhieu.add(phieu);
@@ -129,34 +127,6 @@ public class PhieuDRLCtrl {
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, phieu.getTrangThaiCham());
             statement.setString(2, phieu.getMaPhieuDRL());
-
-            statement.executeUpdate();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public static void capNhatPhieuBCS(PhieuDRLModel phieu) throws ClassNotFoundException {
-        String sql = "UPDATE PhieuDRL SET MaBanCanSuCham=?, TrangThaiCham=? WHERE MaPhieuDRL=?";
-        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, phieu.getMaNguoiCham());
-            statement.setString(2, phieu.getTrangThaiCham());
-            statement.setString(3, phieu.getMaPhieuDRL());
-
-            statement.executeUpdate();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public static void capNhatPhieuCV(PhieuDRLModel phieu) throws ClassNotFoundException {
-        String sql = "UPDATE PhieuDRL SET MaCoVanCham=?, TrangThaiCham=? WHERE MaPhieuDRL=?";
-        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, phieu.getMaNguoiCham());
-            statement.setString(2, phieu.getTrangThaiCham());
-            statement.setString(3, phieu.getMaPhieuDRL());
 
             statement.executeUpdate();
 

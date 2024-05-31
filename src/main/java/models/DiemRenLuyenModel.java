@@ -14,6 +14,9 @@ public class DiemRenLuyenModel extends SinhVienModel {
     private int d35, d3, d41, d42, d43, d44, d45, d46, d4, d51, d52, d53, d5;
     private Date ngayBatDau, ngayKetThuc;
 
+    public DiemRenLuyenModel() {
+    }
+
     public DiemRenLuyenModel(String hocKy, String namHoc, String nguoiCham, String xepLoai, String trangThaiCham, float tongDiem, int d11, int d12a, int d12b, int d12c, int d12d, int d12e, int d12g, int d13, int d13a, int d13b, int d13c, int d13d, float d14, int d15, float d1, int d21, int d21a, int d21b, int d22a, int d22b, int d23a, int d23b, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5, String maSinhVien, String tenLop, String hoTen, Date ngaySinh, Date ngayKetThuc) {
         super(maSinhVien, tenLop, hoTen, ngaySinh);
         this.hocKy = hocKy;
