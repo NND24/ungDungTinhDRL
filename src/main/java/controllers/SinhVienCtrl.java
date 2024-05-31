@@ -43,8 +43,8 @@ public class SinhVienCtrl {
     }
 
     public static void capNhatSinhVien(SinhVienModel sv) throws ClassNotFoundException {
-        String sql = "UPDATE SinhVien SET HoTen=?, MaLop=?, GioiTinh=?, NgaySinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=?, DaNghiHoc=?  WHERE MaSinhVien=?";
-        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+        String sql1 = "UPDATE SinhVien SET HoTen=?, MaLop=?, GioiTinh=?, NgaySinh=?, SoDienThoai=?, CanCuoc=?, QueQuan=?, DaNghiHoc=?  WHERE MaSinhVien=?";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql1)) {
             statement.setString(1, sv.getHoTen());
             statement.setString(2, sv.getMaLop());
             statement.setInt(3, Integer.parseInt(sv.getGioiTinh()));
@@ -59,6 +59,17 @@ public class SinhVienCtrl {
 
         } catch (SQLException ex) {
             Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String sql2 = "UPDATE TaiKhoan SET MaChucVu=? WHERE MaTaiKhoan IN (SELECT MaTaiKhoan FROM SinhVien  WHERE MaSinhVien=?)";
+        try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql2)) {
+            statement.setString(1, sv.getChucVu());
+            statement.setString(2, sv.getMaSinhVien());
+
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(TaiKhoanCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
