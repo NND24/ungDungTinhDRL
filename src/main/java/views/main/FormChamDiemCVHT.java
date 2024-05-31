@@ -3067,7 +3067,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                         DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, tongDiem, cv11, cv12a, cv12b, cv12c, cv12d, cv12e, cv12g, cv13, cv13a, cv13b, cv13c, cv13d, cv14, cv15, cv1, cv21, cv21a, cv21b, cv22a, cv22b, cv23a, cv23b, cv2, cv31, cv32, cv33, cv34, cv35, cv3, cv41, cv42, cv43, cv44, cv45, cv46, cv4, cv51, cv52, cv53, cv5);
                         DiemRenLuyenCtrl.chamDiemRenLuyen(drl);
                         PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, maCoVanCham, trangThaiCham);
-                        PhieuDRLCtrl.capNhatPhieuCV(phieu);
+                        PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
                         DialogHelper.showMessage("Duyệt điểm thành công!");
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);

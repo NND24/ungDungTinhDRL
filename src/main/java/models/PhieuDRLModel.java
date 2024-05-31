@@ -4,7 +4,8 @@ import java.sql.Date;
 
 public class PhieuDRLModel {
 
-    private String maPhieuDRL, maNguoiCham, maSinhVien, tenSinhVien, maBanCanSuCham, tenBanCanSu, maCoVanCham, tenCoVan, maLop, namHoc, trangThaiCham;
+    private String maPhieuDRL, maNguoiCham, maSinhVien, tenSinhVien, tenCoVan, maLop, namHoc, xepLoai, trangThaiCham;
+    private float tongDiem;
     private int maNamHoc, hocKy;
     private Date ngayBatDau, ngayKetThuc;
 
@@ -25,8 +26,9 @@ public class PhieuDRLModel {
         this.trangThaiCham = trangThaiCham;
     }
 
-    public PhieuDRLModel(String maLop, String namHoc, int hocKy, Date ngayBatDau, Date ngayKetThuc) {
+    public PhieuDRLModel(String maLop, String tenCoVan, String namHoc, int hocKy, Date ngayBatDau, Date ngayKetThuc) {
         this.maLop = maLop;
+        this.tenCoVan = tenCoVan;
         this.namHoc = namHoc;
         this.hocKy = hocKy;
         this.ngayBatDau = ngayBatDau;
@@ -43,14 +45,12 @@ public class PhieuDRLModel {
         this.ngayKetThuc = ngayKetThuc;
     }
 
-    public PhieuDRLModel(String maSinhVien, String tenSinhVien, String maBanCanSuCham, String tenBanCanSu, String maCoVanCham, String tenCoVan, String maLop, String trangThaiCham) {
+    public PhieuDRLModel(String maSinhVien, String tenSinhVien, String maLop, String xepLoai, float tongDiem, String trangThaiCham) {
         this.maSinhVien = maSinhVien;
         this.tenSinhVien = tenSinhVien;
-        this.maBanCanSuCham = maBanCanSuCham;
-        this.tenBanCanSu = tenBanCanSu;
-        this.maCoVanCham = maCoVanCham;
-        this.tenCoVan = tenCoVan;
         this.maLop = maLop;
+        this.xepLoai = xepLoai;
+        this.tongDiem = tongDiem;
         this.trangThaiCham = trangThaiCham;
     }
 
@@ -122,22 +122,6 @@ public class PhieuDRLModel {
         this.ngayKetThuc = ngayKetThuc;
     }
 
-    public String getMaBanCanSuCham() {
-        return maBanCanSuCham;
-    }
-
-    public void setMaBanCanSuCham(String maBanCanSuCham) {
-        this.maBanCanSuCham = maBanCanSuCham;
-    }
-
-    public String getMaCoVanCham() {
-        return maCoVanCham;
-    }
-
-    public void setMaCoVanCham(String maCoVanCham) {
-        this.maCoVanCham = maCoVanCham;
-    }
-
     public String getTrangThaiCham() {
         return trangThaiCham;
     }
@@ -154,12 +138,28 @@ public class PhieuDRLModel {
         this.tenSinhVien = tenSinhVien;
     }
 
-    public String getTenBanCanSu() {
-        return tenBanCanSu;
+    public String getMaNguoiCham() {
+        return maNguoiCham;
     }
 
-    public void setTenBanCanSu(String tenBanCanSu) {
-        this.tenBanCanSu = tenBanCanSu;
+    public void setMaNguoiCham(String maNguoiCham) {
+        this.maNguoiCham = maNguoiCham;
+    }
+
+    public String getXepLoai() {
+        return xepLoai;
+    }
+
+    public void setXepLoai(String xepLoai) {
+        this.xepLoai = xepLoai;
+    }
+
+    public float getTongDiem() {
+        return tongDiem;
+    }
+
+    public void setTongDiem(float tongDiem) {
+        this.tongDiem = tongDiem;
     }
 
     public String getTenCoVan() {
@@ -168,14 +168,6 @@ public class PhieuDRLModel {
 
     public void setTenCoVan(String tenCoVan) {
         this.tenCoVan = tenCoVan;
-    }
-
-    public String getMaNguoiCham() {
-        return maNguoiCham;
-    }
-
-    public void setMaNguoiCham(String maNguoiCham) {
-        this.maNguoiCham = maNguoiCham;
     }
 
 }
