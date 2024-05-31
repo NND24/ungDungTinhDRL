@@ -304,7 +304,7 @@ public class DSSinhVien extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
                 .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -399,7 +399,7 @@ public class DSSinhVien extends javax.swing.JPanel {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -436,7 +436,7 @@ public class DSSinhVien extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sinh viên", "Họ tên", "Chức vụ", "Lớp", "Giới tính", "Năm sinh", "Căn cước", "Quê quán", "Số điện thoại", "Email", "Trạng thái"
+                "Mã sinh viên", "Lớp", "Họ tên", "Chức vụ", "Giới tính", "Năm sinh", "Căn cước", "Quê quán", "Số điện thoại", "Email", "Trạng thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -448,6 +448,7 @@ public class DSSinhVien extends javax.swing.JPanel {
             }
         });
         tblDSSinhVien.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tblDSSinhVien.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblDSSinhVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDSSinhVienMouseClicked(evt);
@@ -741,9 +742,16 @@ public class DSSinhVien extends javax.swing.JPanel {
                         java.sql.Date sqlNgaySinh = new java.sql.Date(ngaySinh.getTime());
                         String gioiTinh = Integer.toString(cmbGioiTinh.getSelectedIndex());
                         String queQuan = txtQueQuan.getText();
-                        String chucVu = cmbChucVu.getSelectedItem().toString();
+                        
+                        String chucVu;
+                        if (cmbChucVu.getSelectedItem().toString().equals("Ban cán sự")) {
+                            chucVu = "BCS";
+                        } else {
+                            chucVu = "SV";
+                        }
+                        
                         String daNghiHoc = Integer.toString(cmbDaNghiHoc.getSelectedIndex());
-
+                        
                         SinhVienModel sv = new SinhVienModel(maSinhVien, maLop, hoTen, chucVu, gioiTinh, soDienThoai, canCuoc, queQuan, daNghiHoc, sqlNgaySinh);
 
                         SinhVienCtrl.capNhatSinhVien(sv);
