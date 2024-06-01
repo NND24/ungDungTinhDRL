@@ -147,6 +147,7 @@ public class QuanLy extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Phần mềm chấm điểm rèn luyện");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(getIconImage());
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -261,7 +262,7 @@ public class QuanLy extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(LayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 709, Short.MAX_VALUE)
+            .addComponent(sideMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
         );
 
         pack();

@@ -105,6 +105,7 @@ public class SinhVien extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Phần mềm chấm điểm rèn luyện");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(getIconImage());
         setPreferredSize(new java.awt.Dimension(1365, 647));

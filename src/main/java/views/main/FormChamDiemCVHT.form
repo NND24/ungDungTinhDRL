@@ -1005,13 +1005,13 @@
                       <Component id="jLabel71" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jLabel74" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="bcs21TextField" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="cv21TextField" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="jLabel74" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="sv21TextField" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane21" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jScrollPane21" alignment="0" pref="56" max="32767" attributes="0"/>
                           <Component id="jLabel72" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -5048,7 +5048,7 @@
                       <Color blue="ff" green="66" red="0" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="1"/>
+                      <Font name="Segoe UI" size="16" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
