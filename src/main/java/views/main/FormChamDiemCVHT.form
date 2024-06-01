@@ -73,18 +73,40 @@
                               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jScrollPane7" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel108" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel75" min="-2" pref="60" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                          <Component id="jLabel76" min="-2" pref="500" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                          <Component id="jLabel87" min="-2" pref="125" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                          <Component id="jLabel65" max="32767" attributes="0"/>
-                                      </Group>
                                       <Component id="jLabel71" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel75" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jLabel76" min="-2" pref="500" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel72" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jScrollPane21" min="-2" pref="500" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel74" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="sv21TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="bcs21TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="cv21TextField" min="-2" pref="90" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel87" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  <Component id="jLabel65" min="-2" pref="270" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Component id="jScrollPane7" alignment="0" max="32767" attributes="0"/>
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel77" min="-2" pref="60" max="-2" attributes="0"/>
@@ -98,19 +120,6 @@
                                               <Component id="bcs21aTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                               <Component id="cv21aTextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="jLabel72" min="-2" pref="60" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jLabel73" min="-2" pref="500" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="jLabel74" min="-2" pref="125" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="sv21TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="bcs21TextField" min="-2" pref="90" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="cv21TextField" min="-2" pref="90" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
@@ -732,7 +741,7 @@
                           </Group>
                           <Component id="jPanel4" alignment="0" min="-2" pref="1140" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="208" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -961,25 +970,25 @@
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bcs14TextField" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                          <Component id="cv14TextField" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                          <Component id="jLabel59" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                          <Component id="sv14TextField" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="bcs14TextField" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="cv14TextField" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="jLabel59" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="sv14TextField" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jLabel44" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jLabel44" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bcs15TextField" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
-                          <Component id="cv15TextField" alignment="1" min="-2" pref="63" max="-2" attributes="0"/>
-                          <Component id="jLabel60" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
-                          <Component id="sv15TextField" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jLabel45" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="bcs15TextField" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="cv15TextField" alignment="1" min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="jLabel60" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="sv15TextField" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel45" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -995,16 +1004,17 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jLabel71" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel72" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel73" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel74" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="sv21TextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="bcs21TextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="cv21TextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="bcs21TextField" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="cv21TextField" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="jLabel74" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="sv21TextField" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jScrollPane21" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel72" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel75" min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1039,14 +1049,12 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane4" min="-2" pref="63" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                                      <Component id="cv22aTextField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="bcs22aTextField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="sv22aTextField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel90" max="32767" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="cv22aTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="bcs22aTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="sv22aTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel90" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel82" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -1101,18 +1109,18 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jScrollPane7" min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jLabel101" min="-2" pref="102" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="bcs31TextField" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
-                              <Component id="cv31TextField" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="bcs31TextField" alignment="0" pref="102" max="32767" attributes="0"/>
+                              <Component id="cv31TextField" alignment="0" pref="102" max="32767" attributes="0"/>
                               <Component id="jLabel95" alignment="0" pref="102" max="32767" attributes="0"/>
-                              <Component id="jScrollPane6" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="sv31TextField" alignment="0" pref="102" max="32767" attributes="0"/>
+                              <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jLabel101" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
-                          <Component id="sv31TextField" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="bcs32TextField" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                           <Component id="cv32TextField" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
@@ -1277,20 +1285,20 @@
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Component id="jLabel136" min="-2" pref="129" max="-2" attributes="0"/>
+                          <Component id="sv53TextField" min="-2" pref="129" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="bcs53TextField" alignment="3" min="-2" pref="129" max="-2" attributes="0"/>
+                              <Component id="cv53TextField" alignment="3" min="-2" pref="129" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel119" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Component id="jLabel120" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                              <Component id="jScrollPane20" pref="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane20" min="-2" pref="69" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel121" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="jLabel136" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="sv53TextField" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="bcs53TextField" alignment="3" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="cv53TextField" alignment="3" min="-2" pref="120" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel121" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1869,12 +1877,16 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea1">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value=" &#xdd; th&#x1ee9;c v&#xe0; th&#xe1;i &#x111;&#x1ed9; tham gia c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng ngo&#x1ea1;i kh&#xf3;a, c&#xe1;c s&#x1ef1; ki&#x1ec7;n li&#xea;n quan &#x111;&#x1ebf;n nghi&#xea;n c&#x1ee9;u khoa h&#x1ecd;c, &#xa;h&#x1ecd;c thu&#x1ead;t, chuy&#xea;n m&#xf4;n, C&#xe2;u l&#x1ea1;c b&#x1ed9; (0,5 &#x111;i&#x1ec3;m/1 s&#x1ef1; ki&#x1ec7;n, ho&#x1ea1;t &#x111;&#x1ed9;ng tham gia, t&#x1ed5;ng &#x111;i&#x1ec3;m kh&#xf4;ng v&#x1b0;&#x1ee3;t qu&#xe1; 2 &#x111;i&#x1ec3;m)"/>
+                    <Property name="rows" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value=" &#xdd; th&#x1ee9;c v&#xe0; th&#xe1;i &#x111;&#x1ed9; tham gia c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng ngo&#x1ea1;i kh&#xf3;a, c&#xe1;c s&#x1ef1; ki&#x1ec7;n li&#xea;n quan &#xa;&#x111;&#x1ebf;n nghi&#xea;n c&#x1ee9;u khoa h&#x1ecd;c, h&#x1ecd;c thu&#x1ead;t, chuy&#xea;n m&#xf4;n, C&#xe2;u l&#x1ea1;c b&#x1ed9; (0,5 &#x111;i&#x1ec3;m/1 s&#x1ef1; &#xa;ki&#x1ec7;n, ho&#x1ea1;t &#x111;&#x1ed9;ng tham gia, t&#x1ed5;ng &#x111;i&#x1ec3;m kh&#xf4;ng v&#x1b0;&#x1ee3;t qu&#xe1; 2 &#x111;i&#x1ec3;m)"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1895,12 +1907,16 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea2">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Tinh th&#x1ea7;n v&#x1b0;&#x1ee3;t kh&#xf3;, ph&#x1ea5;n &#x111;&#x1ea5;u v&#x1b0;&#x1a1;n l&#xea;n trong h&#x1ecd;c t&#x1ead;p (c&#xf3; &#x110;TBCTL h&#x1ecd;c k&#x1ef3; sau l&#x1edb;n h&#x1a1;n h&#x1ecd;c k&#x1ef3;&#xa; tr&#x1b0;&#x1edb;c &#x111;&#xf3;; &#x111;&#x1ed1;i v&#x1edb;i sinh vi&#xea;n n&#x103;m th&#x1ee9; nh&#x1ea5;t, h&#x1ecd;c k&#x1ef3; 1 kh&#xf4;ng c&#xf3; &#x111;i&#x1ec3;m d&#x1b0;&#x1edb;i 2,5)"/>
+                    <Property name="rows" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Tinh th&#x1ea7;n v&#x1b0;&#x1ee3;t kh&#xf3;, ph&#x1ea5;n &#x111;&#x1ea5;u v&#x1b0;&#x1a1;n l&#xea;n trong h&#x1ecd;c t&#x1ead;p (c&#xf3; &#x110;TBCTL h&#x1ecd;c k&#x1ef3; sau &#xa;l&#x1edb;n h&#x1a1;n h&#x1ecd;c k&#x1ef3; tr&#x1b0;&#x1edb;c &#x111;&#xf3;; &#x111;&#x1ed1;i v&#x1edb;i sinh vi&#xea;n n&#x103;m th&#x1ee9; nh&#x1ea5;t, h&#x1ecd;c k&#x1ef3; 1 kh&#xf4;ng c&#xf3; &#xa;&#x111;i&#x1ec3;m d&#x1b0;&#x1edb;i 2,5)"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -2690,20 +2706,6 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel73">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Th&#x1ef1;c hi&#x1ec7;n nghi&#xea;m t&#xfa;c c&#xe1;c n&#x1ed9;i quy, quy ch&#x1ebf;, c&#xe1;c quy &#x111;&#x1ecb;nh hi&#x1ec7;n h&#xe0;nh trong H&#x1ecd;c vi&#x1ec7;n."/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel74">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2858,12 +2860,16 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea3">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="a) Th&#x1ef1;c hi&#x1ec7;n nghi&#x1ec7;p t&#xfa;c c&#xe1;c bu&#x1ed5;i h&#x1ecd;p l&#x1edb;p/ sinh ho&#x1ea1;t &#x111;o&#xe0;n th&#x1ec3; do H&#x1ecd;c vi&#x1ec7;n/Khoa&#xa;/Vi&#x1ec7;n, CVHT, L&#x1edb;p/Chi &#x111;o&#xe0;n t&#x1ed5; ch&#x1ee9;c (t&#xf9;y thu&#x1ed9;c v&#xe0;o s&#x1ed1; bu&#x1ed5;i t&#x1ed5; ch&#x1ee9;c sinh ho&#x1ea1;t, h&#x1ecd;p)"/>
+                    <Property name="rows" type="int" value="3"/>
+                    <Property name="text" type="java.lang.String" value="a) Th&#x1ef1;c hi&#x1ec7;n nghi&#x1ec7;p t&#xfa;c c&#xe1;c bu&#x1ed5;i h&#x1ecd;p l&#x1edb;p/ sinh ho&#x1ea1;t &#x111;o&#xe0;n th&#x1ec3; do &#xa;H&#x1ecd;c vi&#x1ec7;n/Khoa/Vi&#x1ec7;n, CVHT, L&#x1edb;p/Chi &#x111;o&#xe0;n t&#x1ed5; ch&#x1ee9;c (t&#xf9;y thu&#x1ed9;c v&#xe0;o &#xa;s&#x1ed1; bu&#x1ed5;i t&#x1ed5; ch&#x1ee9;c sinh ho&#x1ea1;t, h&#x1ecd;p)"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -2898,12 +2904,16 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea4">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="a) Tham gia c&#xe1;c bu&#x1ed5;i h&#x1ed9;i th&#x1ea3;o vi&#x1ec7;c l&#xe0;m, &#x111;&#x1ecb;nh h&#x1b0;&#x1edb;ng ngh&#x1ec1; nghi&#x1ec7;p do H&#x1ecd;c vi&#x1ec7;n t&#x1ed5; ch&#x1ee9;c&#xa; (1 &#x111;i&#x1ec3;m/1 s&#x1ef1; ki&#x1ec7;n tham gia, t&#x1ed5;ng &#x111;i&#x1ec3;m kh&#xf4;ng v&#x1b0;&#x1ee3;t qu&#xe1; 5 &#x111;i&#x1ec3;m)"/>
+                    <Property name="rows" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="a) Tham gia c&#xe1;c bu&#x1ed5;i h&#x1ed9;i th&#x1ea3;o vi&#x1ec7;c l&#xe0;m, &#x111;&#x1ecb;nh h&#x1b0;&#x1edb;ng ngh&#x1ec1; nghi&#x1ec7;p do H&#x1ecd;c vi&#x1ec7;n &#xa;t&#x1ed5; ch&#x1ee9;c (1 &#x111;i&#x1ec3;m/1 s&#x1ef1; ki&#x1ec7;n tham gia, t&#x1ed5;ng &#x111;i&#x1ec3;m kh&#xf4;ng v&#x1b0;&#x1ee3;t qu&#xe1; 5 &#x111;i&#x1ec3;m)"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -3293,12 +3303,16 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea5">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Tham gia &#x111;&#x1ea7;y &#x111;&#x1ee7; c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng ch&#xed;nh tr&#x1ecb;, x&#xe3; h&#x1ed9;i, c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng v&#x103;n h&#xf3;a, v&#x103;n &#xa;ngh&#x1ec7;, th&#x1ec3; thao, phong tr&#xe0;o t&#xec;nh nguy&#x1ec7;n, c&#xe1;c bu&#x1ed5;i sinh ho&#x1ea1;t chuy&#xea;n &#x111;&#x1ec1; do H&#x1ecd;c &#xa;vi&#x1ec7;n, l&#x1edb;p/chi &#x111;o&#xe0;n, &#x111;&#x1ecb;a ph&#x1b0;&#x1a1;ng n&#x1a1;i c&#x1b0; tr&#xfa;  t&#x1ed5; ch&#x1ee9;c  (2 &#x111;i&#x1ec3;m/1 ho&#x1ea1;t &#x111;&#x1ed9;ng, t&#x1ed5;ng &#xa;&#x111;i&#x1ec3;m kh&#xf4;ng v&#x1b0;&#x1ee3;t qu&#xe1; 10 &#x111;i&#x1ec3;m)&#xa;"/>
+                    <Property name="rows" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="Tham gia &#x111;&#x1ea7;y &#x111;&#x1ee7; c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng ch&#xed;nh tr&#x1ecb;, x&#xe3; h&#x1ed9;i, c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng v&#x103;n h&#xf3;a, v&#x103;n &#xa;ngh&#x1ec7;, th&#x1ec3; thao, phong tr&#xe0;o t&#xec;nh nguy&#x1ec7;n, c&#xe1;c bu&#x1ed5;i sinh ho&#x1ea1;t chuy&#xea;n &#x111;&#x1ec1; do H&#x1ecd;c &#xa;vi&#x1ec7;n, l&#x1edb;p/chi &#x111;o&#xe0;n, &#x111;&#x1ecb;a ph&#x1b0;&#x1a1;ng n&#x1a1;i c&#x1b0; tr&#xfa;  t&#x1ed5; ch&#x1ee9;c  (2 &#x111;i&#x1ec3;m/1 ho&#x1ea1;t &#x111;&#x1ed9;ng, t&#x1ed5;ng &#xa;&#x111;i&#x1ec3;m kh&#xf4;ng v&#x1b0;&#x1ee3;t qu&#xe1; 10 &#x111;i&#x1ec3;m)"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -3319,11 +3333,15 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea6">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="3"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 3. &#x110;&#xe1;nh gi&#xe1; v&#x1ec1; &#xfd; th&#x1ee9;c v&#xe0; k&#x1ebf;t qu&#x1ea3; tham gia ho&#x1ea1;t &#x111;&#x1ed9;ng ch&#xed;nh tr&#x1ecb;- x&#xe3; h&#x1ed9;i, v&#x103;n h&#xf3;a, v&#x103;n ngh&#x1ec7;, th&#x1ec3; thao, ph&#xf2;ng ch&#x1ed1;ng t&#x1ed9;i ph&#x1ea1;m v&#xe0;&#xa;c&#xe1;c t&#x1ec7; n&#x1ea1;n x&#xe3; h&#x1ed9;i "/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -3369,7 +3387,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="3"/>
                     <Property name="text" type="java.lang.String" value="Tham gia c&#xf4;ng t&#xe1;c x&#xe3; h&#x1ed9;i nh&#x1b0;: hi&#x1ebf;n m&#xe1;u nh&#xe2;n &#x111;&#x1ea1;o, &#x1ee7;ng h&#x1ed9; ng&#x1b0;&#x1edd;i ngh&#xe8;o g&#x1eb7;p &#xa;thi&#xea;n tai l&#x169; l&#x1ee5;t v&#xe0; c&#xe1;c c&#xf4;ng t&#xe1;c x&#xe3; h&#x1ed9;i kh&#xe1;c (1 &#x111;i&#x1ec3;m/1 ho&#x1ea1;t &#x111;&#x1ed9;ng tham gia, t&#x1ed5;ng &#xa;&#x111;i&#x1ec3;m kh&#xf4;ng v&#x1b0;&#x1ee3;t qu&#xe1; 4 &#x111;i&#x1ec3;m)"/>
                   </Properties>
                 </Component>
@@ -3391,11 +3409,15 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea8">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Tuy&#xea;n truy&#x1ec1;n t&#xed;ch c&#x1ef1;c h&#xec;nh &#x1ea3;nh v&#x1ec1; Tr&#x1b0;&#x1edd;ng/Khoa tr&#xea;n c&#xe1;c trang m&#x1ea1;ng x&#xe3; &#xa;h&#x1ed9;i (1 &#x111;i&#x1ec3;m/1 ho&#x1ea1;t &#x111;&#x1ed9;ng, t&#x1ed5;ng &#x111;i&#x1ec3;m kh&#xf4;ng v&#x1b0;&#x1ee3;t qu&#xe1; 3 &#x111;i&#x1ec3;m)"/>
                   </Properties>
                 </Component>
@@ -3421,8 +3443,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="T&#xed;ch c&#x1ef1;c tham gia c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng ph&#xf2;ng, ch&#x1ed1;ng t&#x1ed9;i ph&#x1ea1;m, c&#xe1;c t&#x1ec7; n&#x1ea1;n x&#xe3; h&#x1ed9;i, ph&#xe1;t &#xa;hi&#x1ec7;n v&#xe0; b&#xe1;o c&#xe1;o k&#x1ecb;p th&#x1edd;i nh&#x1eef;ng h&#xe0;nh vi c&#xf3; li&#xea;n quan &#x111;&#x1ebf;n ma t&#xfa;y, c&#xe1;c t&#x1ec7; n&#x1ea1;n x&#xe3; &#xa;h&#x1ed9;i kh&#xe1;c"/>
+                    <Property name="rows" type="int" value="3"/>
+                    <Property name="text" type="java.lang.String" value="T&#xed;ch c&#x1ef1;c tham gia c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng ph&#xf2;ng, ch&#x1ed1;ng t&#x1ed9;i ph&#x1ea1;m, c&#xe1;c t&#x1ec7; n&#x1ea1;n x&#xe3; h&#x1ed9;i, &#xa;ph&#xe1;t hi&#x1ec7;n v&#xe0; b&#xe1;o c&#xe1;o k&#x1ecb;p th&#x1edd;i nh&#x1eef;ng h&#xe0;nh vi c&#xf3; li&#xea;n quan &#x111;&#x1ebf;n ma t&#xfa;y, c&#xe1;c t&#x1ec7; &#xa;n&#x1ea1;n x&#xe3; h&#x1ed9;i kh&#xe1;c"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -3443,11 +3465,15 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea10">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="&#x110;&#x1b0;a c&#xe1;c th&#xf4;ng tin sai l&#x1ec7;ch, th&#xf4;ng tin ch&#x1b0;a &#x111;&#x1b0;&#x1ee3;c ki&#x1ec3;m ch&#x1ee9;ng, &#x111;&#x103;ng b&#xec;nh lu&#x1ead;n &#xa;kh&#xf4;ng ch&#xed;nh x&#xe1;c, thi&#x1ebf;u t&#xed;ch c&#x1ef1;c v&#x1ec1; H&#x1ecd;c vi&#x1ec7;n/ Khoa/ ng&#xe0;nh &#x111;ang h&#x1ecd;c."/>
                   </Properties>
                 </Component>
@@ -3824,11 +3850,15 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea11">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Ch&#x1ea5;p h&#xe0;nh nghi&#xea;m ch&#x1ec9;nh ch&#x1ee7; tr&#x1b0;&#x1a1;ng c&#x1ee7;a &#x110;&#x1ea3;ng, ch&#xed;nh s&#xe1;ch, ph&#xe1;p lu&#x1ead;t c&#x1ee7;a &#xa;Nh&#xe0; n&#x1b0;&#x1edb;c, H&#x1ecd;c vi&#x1ec7;n v&#xe0; c&#x1ee7;a &#x111;&#x1ecb;a ph&#x1b0;&#x1a1;ng n&#x1a1;i c&#x1b0; tr&#xfa;"/>
                   </Properties>
                 </Component>
@@ -3864,12 +3894,16 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea12">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="T&#xed;ch c&#x1ef1;c tham gia tuy&#xea;n truy&#x1ec1;n ch&#x1ee7; tr&#x1b0;&#x1a1;ng c&#x1ee7;a &#x110;&#x1ea3;ng, ch&#xed;nh s&#xe1;ch, ph&#xe1;p lu&#x1ead;t &#xa;c&#x1ee7;a Nh&#xe0; n&#x1b0;&#x1edb;c, H&#x1ecd;c vi&#x1ec7;n  v&#xe0; quy &#x111;&#x1ecb;nh c&#x1ee7;a &#x111;&#x1ecb;a ph&#x1b0;&#x1a1;ng n&#x1a1;i c&#x1b0; tr&#xfa;; c&#xf3; &#xfd; th&#x1ee9;c &#xa;th&#x1ef1;c hi&#x1ec7;n gi&#x1eef; g&#xec;n v&#x1ec7; sinh chung&#xa;"/>
+                    <Property name="rows" type="int" value="3"/>
+                    <Property name="text" type="java.lang.String" value="T&#xed;ch c&#x1ef1;c tham gia tuy&#xea;n truy&#x1ec1;n ch&#x1ee7; tr&#x1b0;&#x1a1;ng c&#x1ee7;a &#x110;&#x1ea3;ng, ch&#xed;nh s&#xe1;ch, ph&#xe1;p lu&#x1ead;t &#xa;c&#x1ee7;a Nh&#xe0; n&#x1b0;&#x1edb;c, H&#x1ecd;c vi&#x1ec7;n  v&#xe0; quy &#x111;&#x1ecb;nh c&#x1ee7;a &#x111;&#x1ecb;a ph&#x1b0;&#x1a1;ng n&#x1a1;i c&#x1b0; tr&#xfa;; c&#xf3; &#xfd; th&#x1ee9;c &#xa;th&#x1ef1;c hi&#x1ec7;n gi&#x1eef; g&#xec;n v&#x1ec7; sinh chung"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -3931,12 +3965,16 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea13">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="C&#xf3; m&#x1ed1;i quan h&#x1ec7; t&#x1ed1;t v&#x1edb;i b&#x1ea1;n b&#xe8; trong l&#x1edb;p v&#xe0; m&#x1ecd;i ng&#x1b0;&#x1edd;i xung quanh; c&#xf3; tinh &#xa;th&#x1ea7;n &#x111;o&#xe0;n k&#x1ebf;t, chia s&#x1ebb;, gi&#xfa;p &#x111;&#x1ee1; nhau trong h&#x1ecd;c t&#x1ead;p v&#xe0; c&#xe1;c v&#x1ea5;n &#x111;&#x1ec1; kh&#xe1;c trong &#xa;c&#x1ed9;ng &#x111;&#x1ed3;ng&#xa;"/>
+                    <Property name="rows" type="int" value="3"/>
+                    <Property name="text" type="java.lang.String" value="C&#xf3; m&#x1ed1;i quan h&#x1ec7; t&#x1ed1;t v&#x1edb;i b&#x1ea1;n b&#xe8; trong l&#x1edb;p v&#xe0; m&#x1ecd;i ng&#x1b0;&#x1edd;i xung quanh; c&#xf3; tinh &#xa;th&#x1ea7;n &#x111;o&#xe0;n k&#x1ebf;t, chia s&#x1ebb;, gi&#xfa;p &#x111;&#x1ee1; nhau trong h&#x1ecd;c t&#x1ead;p v&#xe0; c&#xe1;c v&#x1ea5;n &#x111;&#x1ec1; kh&#xe1;c trong &#xa;c&#x1ed9;ng &#x111;&#x1ed3;ng"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -3971,11 +4009,15 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea14">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="&#x110;&#x1b0;&#x1ee3;c bi&#x1ec3;u d&#x1b0;&#x1a1;ng khen th&#x1b0;&#x1edf;ng trong c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng li&#xea;n quan &#x111;&#x1ebf;n &#xfd; th&#x1ee9;c &#xa;c&#xf4;ng d&#xe2;n trong quan h&#x1ec7; c&#x1ed9;ng &#x111;&#x1ed3;ng"/>
                   </Properties>
                 </Component>
@@ -4011,11 +4053,15 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea15">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Vi ph&#x1ea1;m an ninh, tr&#x1ead;t t&#x1ef1; x&#xe3; h&#x1ed9;i; an to&#xe0;n giao th&#xf4;ng (c&#xf3; gi&#x1ea5;y b&#xe1;o c&#x1ee7;a c&#xe1;c c&#x1a1; &#xa;quan h&#x1eef;u quan)"/>
                   </Properties>
                 </Component>
@@ -4065,11 +4111,15 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea16">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="1"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Ti&#xea;u ch&#xed; 5. &#x110;&#xe1;nh gi&#xe1; v&#x1ec1; &#xfd; th&#x1ee9;c v&#xe0; k&#x1ebf;t qu&#x1ea3; tham gia ph&#x1ee5; tr&#xe1;ch l&#x1edb;p, c&#xe1;c &#x111;o&#xe0;n th&#x1ec3; trong nh&#xe0; tr&#x1b0;&#x1edd;ng, th&#xe0;nh t&#xed;ch &#x111;&#x1eb7;c bi&#x1ec7;t trong h&#x1ecd;c &#xa;t&#x1ead;p v&#xe0; r&#xe8;n luy&#x1ec7;n "/>
                   </Properties>
                 </Component>
@@ -4091,6 +4141,10 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea17">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -4131,12 +4185,16 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea18">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Th&#xe0;nh vi&#xea;n tham gia c&#xe1;c C&#xe2;u l&#x1ea1;c b&#x1ed9;, &#x111;&#x1ed9;i nh&#xf3;m tr&#x1ef1;c thu&#x1ed9;c H&#x1ecd;c vi&#x1ec7;n /khoa &#x111;&#x1b0;&#x1ee3;c&#xa;t&#x1ead;p th&#x1ec3; sinh vi&#xea;n v&#xe0; &#x111;&#x1a1;n v&#x1ecb; qu&#x1ea3;n l&#xfd; ghi nh&#x1ead;n ho&#xe0;n th&#xe0;nh t&#x1ed1;t nhi&#x1ec7;m v&#x1ee5;; sinh &#xa;vi&#xea;n tham gia t&#x1ed5; ch&#x1ee9;c c&#xe1;c ch&#x1b0;&#x1a1;ng tr&#xec;nh, l&#xe0; c&#x1ed9;ng t&#xe1;c vi&#xea;n tham gia t&#xed;ch c&#x1ef1;c v&#xe0;o &#xa;c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng chung c&#x1ea5;p H&#x1ecd;c vi&#x1ec7;n, khoa.&#xa;"/>
+                    <Property name="rows" type="int" value="3"/>
+                    <Property name="text" type="java.lang.String" value="Th&#xe0;nh vi&#xea;n tham gia c&#xe1;c C&#xe2;u l&#x1ea1;c b&#x1ed9;, &#x111;&#x1ed9;i nh&#xf3;m tr&#x1ef1;c thu&#x1ed9;c H&#x1ecd;c vi&#x1ec7;n /khoa &#x111;&#x1b0;&#x1ee3;c&#xa;t&#x1ead;p th&#x1ec3; sinh vi&#xea;n v&#xe0; &#x111;&#x1a1;n v&#x1ecb; qu&#x1ea3;n l&#xfd; ghi nh&#x1ead;n ho&#xe0;n th&#xe0;nh t&#x1ed1;t nhi&#x1ec7;m v&#x1ee5;; sinh &#xa;vi&#xea;n tham gia t&#x1ed5; ch&#x1ee9;c c&#xe1;c ch&#x1b0;&#x1a1;ng tr&#xec;nh, l&#xe0; c&#x1ed9;ng t&#xe1;c vi&#xea;n tham gia t&#xed;ch c&#x1ef1;c v&#xe0;o &#xa;c&#xe1;c ho&#x1ea1;t &#x111;&#x1ed9;ng chung c&#x1ea5;p H&#x1ecd;c vi&#x1ec7;n, khoa."/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -4199,11 +4257,15 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea19">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="rows" type="int" value="5"/>
+                    <Property name="rows" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="- &#x110;&#x1ea1;t huy ch&#x1b0;&#x1a1;ng, gi&#x1ea5;y khen, gi&#x1ea3;i th&#x1b0;&#x1edf;ng c&#xe1;c c&#x1ea5;p v&#x1ec1; v&#x103;n h&#xf3;a, v&#x103;n ngh&#x1ec7;, th&#x1ec3; &#xa;thao, ph&#xf2;ng ch&#x1ed1;ng c&#xe1;c t&#x1ec7; n&#x1ea1;n x&#xe3; h&#x1ed9;i, ho&#x1ea1;t &#x111;&#x1ed9;ng v&#xec; c&#x1ed9;ng &#x111;&#x1ed3;ng...&#xa;"/>
                   </Properties>
                 </Component>
@@ -5019,6 +5081,32 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDienDiemActionPerformed"/>
                   </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane21">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea20">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="0"/>
+                    </Property>
+                    <Property name="rows" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Th&#x1ef1;c hi&#x1ec7;n nghi&#xea;m t&#xfa;c c&#xe1;c n&#x1ed9;i quy, quy ch&#x1ebf;, c&#xe1;c quy &#x111;&#x1ecb;nh hi&#x1ec7;n h&#xe0;nh trong &#xa;H&#x1ecd;c vi&#x1ec7;n."/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[406, 38]"/>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
