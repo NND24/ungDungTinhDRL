@@ -1830,7 +1830,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel15.setText("CHI TIẾT ĐIỂM RÈN LUYỆN ");
 
         btnChamDiem.setBackground(new java.awt.Color(0, 102, 255));
-        btnChamDiem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnChamDiem.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnChamDiem.setForeground(new java.awt.Color(255, 255, 255));
         btnChamDiem.setText("Chấm điểm");
         btnChamDiem.addActionListener(new java.awt.event.ActionListener() {
@@ -2653,12 +2653,12 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                 .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(formChamDiemCVHTPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel74, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, formChamDiemCVHTPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(bcs21TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cv21TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(sv21TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane21, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
                     .addComponent(jLabel72, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addGroup(formChamDiemCVHTPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3109,7 +3109,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                         DiemRenLuyenCtrl.chamDiemRenLuyen(drl);
                         PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, maCoVanCham, trangThaiCham);
                         PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
-                        DialogHelper.showMessage("Duyệt điểm thành công!");
+                        DialogHelper.showMessage("Chấm điểm thành công!");
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
                     }
