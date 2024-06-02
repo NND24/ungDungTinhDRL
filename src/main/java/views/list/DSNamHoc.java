@@ -47,7 +47,7 @@ public class DSNamHoc extends javax.swing.JFrame {
     private void lamMoi() {
         txtMaNamHoc.setText("");
         txtNamHoc.setText("");
-        cmbTrangThaiHienThi.setSelectedIndex(0);
+        cmbTrangThaiHienThi.setSelectedIndex(1);
     }
 
     @SuppressWarnings("unchecked")
@@ -84,6 +84,7 @@ public class DSNamHoc extends javax.swing.JFrame {
         jLabel2.setText("Trạng thái");
 
         cmbTrangThaiHienThi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ẩn", "Hiển thị" }));
+        cmbTrangThaiHienThi.setSelectedIndex(1);
 
         tblDSNamHoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

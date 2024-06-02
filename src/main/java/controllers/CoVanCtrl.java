@@ -50,7 +50,7 @@ public class CoVanCtrl {
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
-            String sql = "SELECT DISTINCT * FROM CoVan, Khoa WHERE CoVan.MaKhoa=Khoa.MaKhoa";
+            String sql = "SELECT DISTINCT * FROM CoVan, Khoa WHERE CoVan.MaKhoa=Khoa.MaKhoa ORDER BY MaCoVan ASC";
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
@@ -83,7 +83,7 @@ public class CoVanCtrl {
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
-            String sql = "SELECT DISTINCT * FROM CoVan, Khoa WHERE CoVan.MaKhoa=Khoa.MaKhoa AND DaNghi=0";
+            String sql = "SELECT DISTINCT * FROM CoVan, Khoa WHERE CoVan.MaKhoa=Khoa.MaKhoa AND DaNghi=0 ORDER BY MaCoVan ASC";
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {

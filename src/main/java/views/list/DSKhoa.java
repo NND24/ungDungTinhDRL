@@ -46,7 +46,7 @@ public class DSKhoa extends javax.swing.JFrame {
     private void lamMoi() {
         txtMaKhoa.setText("");
         txtTenKhoa.setText("");
-        cmbTrangThai.setSelectedIndex(0);
+        cmbTrangThai.setSelectedIndex(1);
         txtMaKhoa.setEnabled(true);
     }
 

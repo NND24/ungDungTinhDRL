@@ -64,7 +64,7 @@ public class DSLop extends javax.swing.JFrame {
     private void lamMoi() {
         txtMaLop.setText("");
         txtKhoa.setText("");
-        cmbTrangThai.setSelectedIndex(0);
+        cmbTrangThai.setSelectedIndex(1);
         cmbNganh.setSelectedIndex(0);
         txtMaLop.setEnabled(true);
         cmbNganh.setSelectedItem("---Ngành---");
@@ -158,6 +158,7 @@ public class DSLop extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblDSLop);
 
         cmbTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ẩn", "Hiển thị" }));
+        cmbTrangThai.setSelectedIndex(1);
 
         jPanel6.setPreferredSize(new java.awt.Dimension(88, 35));
 
@@ -199,8 +200,6 @@ public class DSLop extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Khóa");
-
-        cmbNganh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Ngành---", "Công nghệ thông tin", "Kỹ thuật điện tử viễn thông" }));
 
         pnlNutLenh.setBackground(new java.awt.Color(255, 255, 255));
         pnlNutLenh.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 10));
@@ -300,10 +299,8 @@ public class DSLop extends javax.swing.JFrame {
                     .addComponent(cmbNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(pnlNutLenh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
+            .addComponent(pnlNutLenh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
