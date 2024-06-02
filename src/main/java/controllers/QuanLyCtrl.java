@@ -46,7 +46,7 @@ public class QuanLyCtrl {
 
         try (Connection connection = ConnectDB.getConnection(); Statement statement = connection.createStatement()) {
 
-            String sql = "SELECT DISTINCT * FROM QuanLy";
+            String sql = "SELECT DISTINCT * FROM QuanLy ORDER BY MaQuanLy ASC";
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
@@ -105,7 +105,7 @@ public class QuanLyCtrl {
     public static List<QuanLyModel> timKiemQuanLy(String tuKhoa) throws ClassNotFoundException {
         List<QuanLyModel> dsQuanLy = new ArrayList<>();
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(
-                "SELECT DISTINCT * FROM QuanLy WHERE MaQuanLy LIKE ? OR HoTen LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ? OR Email=?")) {
+                "SELECT DISTINCT * FROM QuanLy WHERE MaQuanLy LIKE ? OR HoTen LIKE ? OR SoDienThoai LIKE ? OR CanCuoc LIKE ? OR Email=? ORDER BY MaQuanLy ASC")) {
             statement.setString(1, "%" + tuKhoa + "%");
             statement.setString(2, "%" + tuKhoa + "%");
             statement.setString(3, "%" + tuKhoa + "%");

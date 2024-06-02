@@ -45,6 +45,8 @@ public class DSNganh extends javax.swing.JFrame {
             for (String item : dsMaKhoa) {
                 cmbMaKhoa.addItem(item);
             }
+            cmbMaKhoa.addItem("---Mã khoa---");
+            cmbMaKhoa.setSelectedItem("---Mã khoa---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(KhoaCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -341,19 +343,20 @@ public class DSNganh extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         try {
-            String maNganh = txtMaNganh.getText();
-            String tenNganh = txtTenNganh.getText();
-            String maKhoa = (String) cmbMaKhoa.getSelectedItem();
-            int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
-
-            if (maNganh.isEmpty()) {
+            if (txtMaNganh.getText().isEmpty()) {
                 DialogHelper.showError("Mã ngành không được bỏ trống");
-            } else if (tenNganh.isEmpty()) {
+            } else if (txtMaNganh.getText().isEmpty()) {
                 DialogHelper.showError("Tên ngành không được bỏ trống");
-            } else if (NganhCtrl.kiemTraMaNganhDaTonTai(maNganh)) {
+            } else if (NganhCtrl.kiemTraMaNganhDaTonTai(txtTenNganh.getText())) {
                 DialogHelper.showError("Mã ngành đã tồn tại. Vui lòng nhập lại");
+            } else if (cmbMaKhoa.getSelectedItem().toString().equals("---Mã khoa---")) {
+                DialogHelper.showError("Mã khoa không được bỏ trống");
             } else {
-                System.out.println(maNganh + " " + tenNganh + " " + maKhoa + " " + trangThai);
+                String maNganh = txtMaNganh.getText();
+                String tenNganh = txtTenNganh.getText();
+                String maKhoa = (String) cmbMaKhoa.getSelectedItem();
+                int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
+
                 NganhModel nganh = new NganhModel(maNganh, maKhoa, tenNganh, trangThai);
                 NganhCtrl.themNganh(nganh);
                 DialogHelper.showMessage("Thêm ngành thành công!");
@@ -369,17 +372,18 @@ public class DSNganh extends javax.swing.JFrame {
             if (txtMaNganh.getText().isEmpty()) {
                 DialogHelper.showError("Vui lòng chọn ngành muốn chỉnh sửa");
             } else {
-                String maNganh = txtMaNganh.getText();
-                String tenNganh = txtTenNganh.getText();
-                String maKhoa = (String) cmbMaKhoa.getSelectedItem();
-                System.out.println("Test: " + cmbMaKhoa.getSelectedItem());
-                int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
-
-                if (maNganh.isEmpty()) {
+                if (txtMaNganh.getText().isEmpty()) {
                     DialogHelper.showError("Mã ngành không được bỏ trống");
-                } else if (tenNganh.isEmpty()) {
+                } else if (txtTenNganh.getText().isEmpty()) {
                     DialogHelper.showError("Tên ngành không được bỏ trống");
+                } else if (cmbMaKhoa.getSelectedItem().toString().equals("---Mã khoa---")) {
+                    DialogHelper.showError("Mã khoa không được bỏ trống");
                 } else {
+                    String maNganh = txtMaNganh.getText();
+                    String tenNganh = txtTenNganh.getText();
+                    String maKhoa = (String) cmbMaKhoa.getSelectedItem();
+                    int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
+
                     NganhModel nganh = new NganhModel(maNganh, maKhoa, tenNganh, trangThai);
                     NganhCtrl.capNhatNganh(nganh);
                     DialogHelper.showMessage("Cập nhật ngành thành công!");

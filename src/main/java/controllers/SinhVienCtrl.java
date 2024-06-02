@@ -60,7 +60,7 @@ public class SinhVienCtrl {
         } catch (SQLException ex) {
             Logger.getLogger(SinhVienCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         String sql2 = "UPDATE TaiKhoan SET MaChucVu=? WHERE MaTaiKhoan IN (SELECT MaTaiKhoan FROM SinhVien  WHERE MaSinhVien=?)";
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql2)) {
             statement.setString(1, sv.getChucVu());
@@ -81,7 +81,7 @@ public class SinhVienCtrl {
             String sql = """
                      SELECT MaSinhVien, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
                      FROM SinhVien, Lop, TaiKhoan, ChucVu
-                     WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
+                     WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu ORDER BY MaSinhVien ASC
                      """;
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -183,7 +183,7 @@ public class SinhVienCtrl {
                      SELECT MaSinhVien, Lop.MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
                      FROM SinhVien, Lop, TaiKhoan, ChucVu
                      WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
-                     AND Lop.MaLop=?
+                     AND Lop.MaLop=? ORDER BY MaSinhVien ASC
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
