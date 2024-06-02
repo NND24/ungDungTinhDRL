@@ -520,6 +520,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         jLabel16.setText("Học kì");
 
         cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
+        cmbTKHocKy.setSelectedIndex(2);
         cmbTKHocKy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKHocKyActionPerformed(evt);

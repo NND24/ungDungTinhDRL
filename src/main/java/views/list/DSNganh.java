@@ -78,6 +78,7 @@ public class DSNganh extends javax.swing.JFrame {
         txtTenNganh.setText("");
         cmbTrangThaiHienThi.setSelectedIndex(1);
         txtMaNganh.setEnabled(true);
+        cmbMaKhoa.setSelectedItem("---Mã khoa---");
     }
 
     /**
@@ -130,8 +131,6 @@ public class DSNganh extends javax.swing.JFrame {
 
         cmbTrangThaiHienThi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ẩn", "Hiển thị" }));
         cmbTrangThaiHienThi.setSelectedIndex(1);
-
-        cmbMaKhoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CNTT", "VT" }));
 
         javax.swing.GroupLayout pnlChiTietLayout = new javax.swing.GroupLayout(pnlChiTiet);
         pnlChiTiet.setLayout(pnlChiTietLayout);
@@ -345,9 +344,9 @@ public class DSNganh extends javax.swing.JFrame {
         try {
             if (txtMaNganh.getText().isEmpty()) {
                 DialogHelper.showError("Mã ngành không được bỏ trống");
-            } else if (txtMaNganh.getText().isEmpty()) {
+            } else if (txtTenNganh.getText().isEmpty()) {
                 DialogHelper.showError("Tên ngành không được bỏ trống");
-            } else if (NganhCtrl.kiemTraMaNganhDaTonTai(txtTenNganh.getText())) {
+            } else if (NganhCtrl.kiemTraMaNganhDaTonTai(txtMaNganh.getText())) {
                 DialogHelper.showError("Mã ngành đã tồn tại. Vui lòng nhập lại");
             } else if (cmbMaKhoa.getSelectedItem().toString().equals("---Mã khoa---")) {
                 DialogHelper.showError("Mã khoa không được bỏ trống");
@@ -369,28 +368,33 @@ public class DSNganh extends javax.swing.JFrame {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         try {
-            if (txtMaNganh.getText().isEmpty()) {
-                DialogHelper.showError("Vui lòng chọn ngành muốn chỉnh sửa");
-            } else {
+            int selectedIndex = tblDSNganh.getSelectedRow();
+            if (selectedIndex >= 0) {
                 if (txtMaNganh.getText().isEmpty()) {
-                    DialogHelper.showError("Mã ngành không được bỏ trống");
-                } else if (txtTenNganh.getText().isEmpty()) {
-                    DialogHelper.showError("Tên ngành không được bỏ trống");
-                } else if (cmbMaKhoa.getSelectedItem().toString().equals("---Mã khoa---")) {
-                    DialogHelper.showError("Mã khoa không được bỏ trống");
+                    DialogHelper.showError("Vui lòng chọn ngành muốn chỉnh sửa");
                 } else {
-                    String maNganh = txtMaNganh.getText();
-                    String tenNganh = txtTenNganh.getText();
-                    String maKhoa = (String) cmbMaKhoa.getSelectedItem();
-                    int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
+                    if (txtMaNganh.getText().isEmpty()) {
+                        DialogHelper.showError("Mã ngành không được bỏ trống");
+                    } else if (txtTenNganh.getText().isEmpty()) {
+                        DialogHelper.showError("Tên ngành không được bỏ trống");
+                    } else if (cmbMaKhoa.getSelectedItem().toString().equals("---Mã khoa---")) {
+                        DialogHelper.showError("Mã khoa không được bỏ trống");
+                    } else {
+                        String maNganh = txtMaNganh.getText();
+                        String tenNganh = txtTenNganh.getText();
+                        String maKhoa = (String) cmbMaKhoa.getSelectedItem();
+                        int trangThai = cmbTrangThaiHienThi.getSelectedIndex();
 
-                    NganhModel nganh = new NganhModel(maNganh, maKhoa, tenNganh, trangThai);
-                    NganhCtrl.capNhatNganh(nganh);
-                    DialogHelper.showMessage("Cập nhật ngành thành công!");
-                    lamMoi();
-                    hienThiDSNganh();
-                    txtMaNganh.setEnabled(true);
+                        NganhModel nganh = new NganhModel(maNganh, maKhoa, tenNganh, trangThai);
+                        NganhCtrl.capNhatNganh(nganh);
+                        DialogHelper.showMessage("Cập nhật ngành thành công!");
+                        lamMoi();
+                        hienThiDSNganh();
+                        txtMaNganh.setEnabled(true);
+                    }
                 }
+            } else {
+                DialogHelper.showError("Chưa chọn ngành muốn chỉnh sửa");
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DSChucVu.class.getName()).log(Level.SEVERE, null, ex);

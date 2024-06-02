@@ -285,6 +285,7 @@
                 <StringItem index="2" value="---H&#x1ecd;c k&#x1ef3;---"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="2"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

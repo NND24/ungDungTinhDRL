@@ -27,7 +27,6 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         initComponents();
         tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
         hienThiDSLopPhanCong();
-        cmbTKHocKy.setSelectedItem("---Học kỳ---");
     }
 
     private void hienThiDSLopPhanCong() {
@@ -457,7 +456,6 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel30.setText("Lớp");
 
-        cmbTKLop.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Lớp---" }));
         cmbTKLop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKLopActionPerformed(evt);
@@ -467,7 +465,6 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel28.setText("Năm học");
 
-        cmbTKNamHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Năm học---" }));
         cmbTKNamHoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKNamHocActionPerformed(evt);
@@ -478,6 +475,7 @@ public class DSDiemRenLuyenCVHT extends javax.swing.JPanel {
         jLabel29.setText("Học kỳ");
 
         cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
+        cmbTKHocKy.setSelectedIndex(2);
         cmbTKHocKy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKHocKyActionPerformed(evt);

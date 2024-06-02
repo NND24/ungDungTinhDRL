@@ -103,9 +103,7 @@ public class DSPhanCong extends javax.swing.JFrame {
 
     private void lamMoi() {
         txtMaPhanCong.setText("");
-        cmbCoVan.setSelectedIndex(0);
-        cmbLop.setSelectedIndex(0);
-        cmbNamHoc.setSelectedIndex(0);
+        cmbTrangThai.setSelectedIndex(1);
         cmbCoVan.setSelectedItem("---Cố vấn---");
         cmbLop.setSelectedItem("---Lớp---");
         cmbNamHoc.setSelectedItem("---Năm học---");
@@ -240,6 +238,7 @@ public class DSPhanCong extends javax.swing.JFrame {
         jLabel8.setText("Trạng thái");
 
         cmbTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ẩn", "Hiển thị" }));
+        cmbTrangThai.setSelectedIndex(1);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Mã phân công");
