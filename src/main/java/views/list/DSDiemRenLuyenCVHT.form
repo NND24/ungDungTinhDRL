@@ -710,9 +710,7 @@
         <Component class="javax.swing.JComboBox" name="cmbTKLop">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="1">
-                <StringItem index="0" value="---L&#x1edb;p---"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
@@ -733,9 +731,7 @@
         <Component class="javax.swing.JComboBox" name="cmbTKNamHoc">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="1">
-                <StringItem index="0" value="---N&#x103;m h&#x1ecd;c---"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
@@ -762,6 +758,7 @@
                 <StringItem index="2" value="---H&#x1ecd;c k&#x1ef3;---"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTKHocKyActionPerformed"/>

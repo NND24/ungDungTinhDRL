@@ -39,7 +39,6 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
             hienThiDSLop();
             hienThiDSNamHoc();
             hienThiTatCaPhieuDRL();
-            cmbHocKy.setSelectedItem("---Học kỳ---");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TaoPhieuDRL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -200,6 +199,7 @@ public class TaoPhieuDRL extends javax.swing.JPanel {
         );
 
         cmbHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
+        cmbHocKy.setSelectedIndex(2);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Ngày kết thúc");

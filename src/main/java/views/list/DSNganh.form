@@ -158,10 +158,7 @@
         <Component class="javax.swing.JComboBox" name="cmbMaKhoa">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="CNTT"/>
-                <StringItem index="1" value="VT"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>

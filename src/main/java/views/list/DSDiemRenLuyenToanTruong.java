@@ -30,7 +30,6 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         tableModel = (DefaultTableModel) tblDSDiemRenLuyen.getModel();
         hienThiDSKhoa();
         hienThiDSNamHoc();
-        cmbTKHocKy.setSelectedItem("---Học kỳ---");
     }
 
     private void hienThiDSLop(String maKhoa) {
@@ -394,6 +393,7 @@ public class DSDiemRenLuyenToanTruong extends javax.swing.JPanel {
         jLabel29.setText("Học kỳ");
 
         cmbTKHocKy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "---Học kỳ---" }));
+        cmbTKHocKy.setSelectedIndex(2);
         cmbTKHocKy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTKHocKyActionPerformed(evt);
