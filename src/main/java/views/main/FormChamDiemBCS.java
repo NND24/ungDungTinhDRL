@@ -45,28 +45,15 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
 
     private void lamMoi() {
         sv11TextField.setText("0");
-        sv12aTextField.setText("0");
-        sv12bTextField.setText("0");
-        sv12cTextField.setText("0");
-        sv12dTextField.setText("0");
-        sv12eTextField.setText("0");
-        sv12gTextField.setText("0");
+        sv12TextField.setText("0");
         sv13TextField.setText("0");
-        sv13aTextField.setText("0");
-        sv13bTextField.setText("0");
-        sv13cTextField.setText("0");
-        sv13dTextField.setText("0");
         sv14TextField.setText("0");
         sv15TextField.setText("0");
         sv1TextField.setText("0");
 
         sv21TextField.setText("0");
-        sv21aTextField.setText("0");
-        sv21bTextField.setText("0");
-        sv22aTextField.setText("0");
-        sv22bTextField.setText("0");
-        sv23aTextField.setText("0");
-        sv23bTextField.setText("0");
+        sv22TextField.setText("0");
+        sv23TextField.setText("0");
         sv2TextField.setText("0");
 
         sv31TextField.setText("0");
@@ -92,28 +79,15 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         svTongTextField.setText("0");
 
         bcs11TextField.setText("0");
-        bcs12aTextField.setText("0");
-        bcs12bTextField.setText("0");
-        bcs12cTextField.setText("0");
-        bcs12dTextField.setText("0");
-        bcs12eTextField.setText("0");
-        bcs12gTextField.setText("0");
+        bcs12TextField.setText("0");
         bcs13TextField.setText("0");
-        bcs13aTextField.setText("0");
-        bcs13bTextField.setText("0");
-        bcs13cTextField.setText("0");
-        bcs13dTextField.setText("0");
         bcs14TextField.setText("0");
         bcs15TextField.setText("0");
         bcs1TextField.setText("0");
 
         bcs21TextField.setText("0");
-        bcs21aTextField.setText("0");
-        bcs21bTextField.setText("0");
-        bcs22aTextField.setText("0");
-        bcs22bTextField.setText("0");
-        bcs23aTextField.setText("0");
-        bcs23bTextField.setText("0");
+        bcs22TextField.setText("0");
+        bcs23TextField.setText("0");
         bcs2TextField.setText("0");
 
         bcs31TextField.setText("0");
@@ -139,28 +113,15 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         bcsTongTextField.setText("0");
 
         cv11TextField.setText("0");
-        cv12aTextField.setText("0");
-        cv12bTextField.setText("0");
-        cv12cTextField.setText("0");
-        cv12dTextField.setText("0");
-        cv12eTextField.setText("0");
-        cv12gTextField.setText("0");
+        cv12TextField.setText("0");
         cv13TextField.setText("0");
-        cv13aTextField.setText("0");
-        cv13bTextField.setText("0");
-        cv13cTextField.setText("0");
-        cv13dTextField.setText("0");
         cv14TextField.setText("0");
         cv15TextField.setText("0");
         cv1TextField.setText("0");
 
         cv21TextField.setText("0");
-        cv21aTextField.setText("0");
-        cv21bTextField.setText("0");
-        cv22aTextField.setText("0");
-        cv22bTextField.setText("0");
-        cv23aTextField.setText("0");
-        cv23bTextField.setText("0");
+        cv22TextField.setText("0");
+        cv23TextField.setText("0");
         cv2TextField.setText("0");
 
         cv31TextField.setText("0");
@@ -188,28 +149,15 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
 
     private void dienDiem() {
         int bcs11 = Integer.parseInt(sv11TextField.getText());
-        int bcs12a = Integer.parseInt(sv12aTextField.getText());
-        int bcs12b = Integer.parseInt(sv12bTextField.getText());
-        int bcs12c = Integer.parseInt(sv12cTextField.getText());
-        int bcs12d = Integer.parseInt(sv12dTextField.getText());
-        int bcs12e = Integer.parseInt(sv12eTextField.getText());
-        int bcs12g = Integer.parseInt(sv12gTextField.getText());
+        int bcs12 = Integer.parseInt(sv12TextField.getText());
         int bcs13 = Integer.parseInt(sv13TextField.getText());
-        int bcs13a = Integer.parseInt(sv13aTextField.getText());
-        int bcs13b = Integer.parseInt(sv13bTextField.getText());
-        int bcs13c = Integer.parseInt(sv13cTextField.getText());
-        int bcs13d = Integer.parseInt(sv13dTextField.getText());
         float bcs14 = Float.parseFloat(sv14TextField.getText());
         int bcs15 = Integer.parseInt(sv15TextField.getText());
         float bcs1 = Float.parseFloat(sv1TextField.getText());
 
         int bcs21 = Integer.parseInt(sv21TextField.getText());
-        int bcs21a = Integer.parseInt(sv21aTextField.getText());
-        int bcs21b = Integer.parseInt(sv21bTextField.getText());
-        int bcs22a = Integer.parseInt(sv22aTextField.getText());
-        int bcs22b = Integer.parseInt(sv22bTextField.getText());
-        int bcs23a = Integer.parseInt(sv23aTextField.getText());
-        int bcs23b = Integer.parseInt(sv23bTextField.getText());
+        int bcs22 = Integer.parseInt(sv22TextField.getText());
+        int bcs23 = Integer.parseInt(sv23TextField.getText());
         int bcs2 = Integer.parseInt(sv2TextField.getText());
 
         int bcs31 = Integer.parseInt(sv31TextField.getText());
@@ -235,28 +183,15 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         float tongDiem = Float.parseFloat(svTongTextField.getText());
 
         bcs11TextField.setText(Integer.toString(bcs11));
-        bcs12aTextField.setText(Integer.toString(bcs12a));
-        bcs12bTextField.setText(Integer.toString(bcs12b));
-        bcs12cTextField.setText(Integer.toString(bcs12c));
-        bcs12dTextField.setText(Integer.toString(bcs12d));
-        bcs12eTextField.setText(Integer.toString(bcs12e));
-        bcs12gTextField.setText(Integer.toString(bcs12g));
+        bcs12TextField.setText(Integer.toString(bcs12));
         bcs13TextField.setText(Integer.toString(bcs13));
-        bcs13aTextField.setText(Integer.toString(bcs13a));
-        bcs13bTextField.setText(Integer.toString(bcs13b));
-        bcs13cTextField.setText(Integer.toString(bcs13c));
-        bcs13dTextField.setText(Integer.toString(bcs13d));
         bcs14TextField.setText(Float.toString(bcs14));
         bcs15TextField.setText(Integer.toString(bcs15));
         bcs1TextField.setText(Float.toString(bcs1));
 
         bcs21TextField.setText(Integer.toString(bcs21));
-        bcs21aTextField.setText(Integer.toString(bcs21a));
-        bcs21bTextField.setText(Integer.toString(bcs21b));
-        bcs22aTextField.setText(Integer.toString(bcs22a));
-        bcs22bTextField.setText(Integer.toString(bcs22b));
-        bcs23aTextField.setText(Integer.toString(bcs23a));
-        bcs23bTextField.setText(Integer.toString(bcs23b));
+        bcs22TextField.setText(Integer.toString(bcs22));
+        bcs23TextField.setText(Integer.toString(bcs23));
         bcs2TextField.setText(Integer.toString(bcs2));
 
         bcs31TextField.setText(Integer.toString(bcs31));
@@ -316,16 +251,9 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jTextArea1 = new javax.swing.JTextArea();
         jTextArea2 = new javax.swing.JTextArea();
@@ -350,43 +278,16 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jLabel61 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         sv11TextField = new javax.swing.JTextField();
-        sv12aTextField = new javax.swing.JTextField();
-        sv12bTextField = new javax.swing.JTextField();
-        sv12cTextField = new javax.swing.JTextField();
-        sv12dTextField = new javax.swing.JTextField();
-        sv12eTextField = new javax.swing.JTextField();
-        sv12gTextField = new javax.swing.JTextField();
-        sv13aTextField = new javax.swing.JTextField();
-        sv13bTextField = new javax.swing.JTextField();
-        sv13cTextField = new javax.swing.JTextField();
         sv14TextField = new javax.swing.JTextField();
         sv15TextField = new javax.swing.JTextField();
         sv1TextField = new javax.swing.JTextField();
         bcs11TextField = new javax.swing.JTextField();
-        bcs12aTextField = new javax.swing.JTextField();
-        bcs12bTextField = new javax.swing.JTextField();
-        bcs12cTextField = new javax.swing.JTextField();
-        bcs12dTextField = new javax.swing.JTextField();
-        bcs12eTextField = new javax.swing.JTextField();
-        bcs12gTextField = new javax.swing.JTextField();
         bcs13TextField = new javax.swing.JTextField();
-        bcs13aTextField = new javax.swing.JTextField();
-        bcs13bTextField = new javax.swing.JTextField();
-        bcs13cTextField = new javax.swing.JTextField();
         bcs14TextField = new javax.swing.JTextField();
         bcs15TextField = new javax.swing.JTextField();
         bcs1TextField = new javax.swing.JTextField();
         cv11TextField = new javax.swing.JTextField();
-        cv12aTextField = new javax.swing.JTextField();
-        cv12bTextField = new javax.swing.JTextField();
-        cv12cTextField = new javax.swing.JTextField();
-        cv12dTextField = new javax.swing.JTextField();
-        cv12eTextField = new javax.swing.JTextField();
-        cv12gTextField = new javax.swing.JTextField();
         cv13TextField = new javax.swing.JTextField();
-        cv13aTextField = new javax.swing.JTextField();
-        cv13bTextField = new javax.swing.JTextField();
-        cv13cTextField = new javax.swing.JTextField();
         cv14TextField = new javax.swing.JTextField();
         cv15TextField = new javax.swing.JTextField();
         cv1TextField = new javax.swing.JTextField();
@@ -406,8 +307,6 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         cv21TextField = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
-        jLabel77 = new javax.swing.JLabel();
-        jLabel78 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jLabel81 = new javax.swing.JLabel();
@@ -426,26 +325,14 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jLabel92 = new javax.swing.JLabel();
         jLabel93 = new javax.swing.JLabel();
         jLabel94 = new javax.swing.JLabel();
-        sv21aTextField = new javax.swing.JTextField();
-        sv21bTextField = new javax.swing.JTextField();
-        sv22aTextField = new javax.swing.JTextField();
-        sv22bTextField = new javax.swing.JTextField();
-        sv23aTextField = new javax.swing.JTextField();
-        sv23bTextField = new javax.swing.JTextField();
+        sv22TextField = new javax.swing.JTextField();
+        sv23TextField = new javax.swing.JTextField();
         sv2TextField = new javax.swing.JTextField();
-        bcs21aTextField = new javax.swing.JTextField();
-        bcs21bTextField = new javax.swing.JTextField();
-        bcs22aTextField = new javax.swing.JTextField();
-        bcs22bTextField = new javax.swing.JTextField();
-        bcs23aTextField = new javax.swing.JTextField();
-        bcs23bTextField = new javax.swing.JTextField();
+        bcs22TextField = new javax.swing.JTextField();
+        bcs23TextField = new javax.swing.JTextField();
         bcs2TextField = new javax.swing.JTextField();
-        cv21aTextField = new javax.swing.JTextField();
-        cv21bTextField = new javax.swing.JTextField();
-        cv22aTextField = new javax.swing.JTextField();
-        cv22bTextField = new javax.swing.JTextField();
-        cv23aTextField = new javax.swing.JTextField();
-        cv23bTextField = new javax.swing.JTextField();
+        cv22TextField = new javax.swing.JTextField();
+        cv23TextField = new javax.swing.JTextField();
         cv2TextField = new javax.swing.JTextField();
         jTextArea5 = new javax.swing.JTextArea();
         jTextArea6 = new javax.swing.JTextArea();
@@ -567,17 +454,29 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jLabel65 = new javax.swing.JLabel();
         sv13TextField = new javax.swing.JTextField();
         jLabel64 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
-        sv13dTextField = new javax.swing.JTextField();
-        bcs13dTextField = new javax.swing.JTextField();
-        cv13dTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         btnDienDiem = new javax.swing.JButton();
         btnLuu = new javax.swing.JButton();
         jTextArea20 = new javax.swing.JTextArea();
         jTextArea7 = new javax.swing.JTextArea();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel141 = new javax.swing.JLabel();
+        jLabel142 = new javax.swing.JLabel();
+        jLabel143 = new javax.swing.JLabel();
+        sv12TextField = new javax.swing.JTextField();
+        bcs12TextField = new javax.swing.JTextField();
+        cv12TextField = new javax.swing.JTextField();
+        jLabel144 = new javax.swing.JLabel();
+        jLabel145 = new javax.swing.JLabel();
+        cv13aTextFiel2 = new javax.swing.JLabel();
+        cv13aTextFiel3 = new javax.swing.JLabel();
+        cv13aTextFiel4 = new javax.swing.JLabel();
+        cv13aTextFiel5 = new javax.swing.JLabel();
+        jLabel162 = new javax.swing.JLabel();
+        jLabel165 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1140, 2700));
@@ -733,46 +632,18 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jLabel31.setText("c) Bị lập biên bản cảnh cáo khi thi kết thúc học phần");
         jLabel31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel38.setText("1.3");
         jLabel38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -897,33 +768,6 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         sv11TextField.setEditable(false);
         sv11TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        sv12aTextField.setEditable(false);
-        sv12aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv12bTextField.setEditable(false);
-        sv12bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv12cTextField.setEditable(false);
-        sv12cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv12dTextField.setEditable(false);
-        sv12dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv12eTextField.setEditable(false);
-        sv12eTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv12gTextField.setEditable(false);
-        sv12gTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv13aTextField.setEditable(false);
-        sv13aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv13bTextField.setEditable(false);
-        sv13bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv13cTextField.setEditable(false);
-        sv13cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         sv14TextField.setEditable(false);
         sv14TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -935,94 +779,20 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
 
         bcs11TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs12aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        bcs12aTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bcs12aTextFieldFocusLost(evt);
-            }
-        });
-
-        bcs12bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        bcs12bTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bcs12bTextFieldFocusLost(evt);
-            }
-        });
-
-        bcs12cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        bcs12cTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bcs12cTextFieldFocusLost(evt);
-            }
-        });
-
-        bcs12dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        bcs12dTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bcs12dTextFieldFocusLost(evt);
-            }
-        });
-
-        bcs12eTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        bcs12eTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bcs12eTextFieldFocusLost(evt);
-            }
-        });
-
-        bcs12gTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        bcs12gTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bcs12gTextFieldFocusLost(evt);
-            }
-        });
-
         bcs13TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        bcs13aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        bcs13bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        bcs13cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs14TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs15TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        bcs1TextField.setEditable(false);
         bcs1TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv11TextField.setEditable(false);
         cv11TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cv12aTextField.setEditable(false);
-        cv12aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv12bTextField.setEditable(false);
-        cv12bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv12cTextField.setEditable(false);
-        cv12cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv12dTextField.setEditable(false);
-        cv12dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv12eTextField.setEditable(false);
-        cv12eTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv12gTextField.setEditable(false);
-        cv12gTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         cv13TextField.setEditable(false);
         cv13TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv13aTextField.setEditable(false);
-        cv13aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv13bTextField.setEditable(false);
-        cv13bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv13cTextField.setEditable(false);
-        cv13cTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv14TextField.setEditable(false);
         cv14TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1097,14 +867,6 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel76.setText("- Sinh viên bị trừ điểm trong các trường hợp:");
         jLabel76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel77.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel77.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel77.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel78.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel78.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel79.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1197,58 +959,27 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jLabel94.setText("25 điểm");
         jLabel94.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        sv21aTextField.setEditable(false);
-        sv21aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        sv22TextField.setEditable(false);
+        sv22TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        sv21bTextField.setEditable(false);
-        sv21bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv22aTextField.setEditable(false);
-        sv22aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv22bTextField.setEditable(false);
-        sv22bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv23aTextField.setEditable(false);
-        sv23aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv23bTextField.setEditable(false);
-        sv23bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        sv23TextField.setEditable(false);
+        sv23TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv2TextField.setEditable(false);
         sv2TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs21aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        bcs22TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs21bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        bcs23TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bcs22aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        bcs22bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        bcs23aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        bcs23bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
+        bcs2TextField.setEditable(false);
         bcs2TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cv21aTextField.setEditable(false);
-        cv21aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cv22TextField.setEditable(false);
+        cv22TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cv21bTextField.setEditable(false);
-        cv21bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv22aTextField.setEditable(false);
-        cv22aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv22bTextField.setEditable(false);
-        cv22bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv23aTextField.setEditable(false);
-        cv23aTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv23bTextField.setEditable(false);
-        cv23bTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cv23TextField.setEditable(false);
+        cv23TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv2TextField.setEditable(false);
         cv2TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1345,6 +1076,7 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         sv3TextField.setEditable(false);
         sv3TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        bcs3TextField.setEditable(false);
         bcs3TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv3TextField.setEditable(false);
@@ -1671,10 +1403,13 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
 
         bcs43TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        bcs4TextField.setEditable(false);
         bcs4TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        bcs5TextField.setEditable(false);
         bcs5TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        bcsTongTextField.setEditable(false);
         bcsTongTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs41TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1755,22 +1490,10 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jLabel64.setText("d) Bị lập biên bản đình chỉ khi thi kết thúc học phần");
         jLabel64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel66.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel67.setText("- 4 điểm");
         jLabel67.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        sv13dTextField.setEditable(false);
-        sv13dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        bcs13dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cv13dTextField.setEditable(false);
-        cv13dTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(88, 35));
 
@@ -1838,6 +1561,58 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         jTextArea7.setText("Tham gia công tác xã hội như: hiến máu nhân đạo, ủng hộ người nghèo gặp \nthiên tai lũ lụt và các công tác xã hội khác (1 điểm/1 hoạt động tham gia, tổng \nđiểm không vượt quá 4 điểm)");
         jTextArea7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel68.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel68.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel73.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel73.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel141.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel141.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel141.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel142.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel142.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel142.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel143.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel143.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel143.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        sv12TextField.setEditable(false);
+        sv12TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        bcs12TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        cv12TextField.setEditable(false);
+        cv12TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel144.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel145.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        cv13aTextFiel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        cv13aTextFiel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cv13aTextFiel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        cv13aTextFiel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        cv13aTextFiel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cv13aTextFiel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        cv13aTextFiel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        cv13aTextFiel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cv13aTextFiel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        cv13aTextFiel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        cv13aTextFiel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cv13aTextFiel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel162.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel165.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout formChamDiemBCSPanelLayout = new javax.swing.GroupLayout(formChamDiemBCSPanel);
         formChamDiemBCSPanel.setLayout(formChamDiemBCSPanelLayout);
         formChamDiemBCSPanelLayout.setHorizontalGroup(
@@ -1876,43 +1651,8 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                                             .addComponent(jLabel86, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextArea3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextArea4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel78, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel81, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel90, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(sv22aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs22aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv22aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(sv22bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs22bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv22bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel92, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(sv23aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs23aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv23aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(sv23bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs23bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv23bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
@@ -1922,24 +1662,37 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                                         .addGap(0, 0, 0)
                                         .addComponent(cv2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel88, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, 0)
-                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(sv21bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(sv21aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, 0)
                                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(bcs21bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(bcs21aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel145, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel144, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cv21aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cv21bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(jLabel90, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel91, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
+                                                .addComponent(sv22TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, 0)
+                                                .addComponent(bcs22TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cv22TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel162, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel92, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
+                                                .addComponent(sv23TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, 0)
+                                                .addComponent(bcs23TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cv23TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel165, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel109, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2027,20 +1780,12 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, 0)
                                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -2063,74 +1808,27 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                                     .addComponent(jTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, 0)
                                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(sv12aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs12aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv12aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(sv12bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs12bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv12bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(sv12cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs12cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv12cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(sv12dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs12dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv12dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(sv12eTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs12eTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv12eTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv13aTextFiel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(sv13aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs13aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv13aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel142, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(sv13bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs13bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv13bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cv13aTextFiel3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(sv13cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(bcs13cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(cv13cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cv13aTextFiel4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
@@ -2148,46 +1846,44 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                                         .addGap(0, 0, 0)
                                         .addComponent(cv1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, 0)
-                                                .addComponent(sv13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, 0)
-                                                .addComponent(bcs13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, 0)
-                                                .addComponent(sv12gTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, 0)
-                                                .addComponent(bcs12gTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(sv13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cv13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cv12gTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(bcs13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(cv13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, 0)
-                                                .addComponent(sv13dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, 0)
-                                                .addComponent(sv14TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(sv14TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(bcs14TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(cv14TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                .addComponent(bcs14TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, 0)
-                                                .addComponent(cv14TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                .addComponent(bcs13dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, 0)
-                                                .addComponent(cv13dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(sv12TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jLabel143, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cv13aTextFiel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cv13aTextFiel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(cv13aTextFiel5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -2220,7 +1916,6 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                             .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, 0)
@@ -2252,13 +1947,17 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, 0)
                                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addComponent(sv11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(bcs11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(bcs12TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(bcs11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, 0)
-                                        .addComponent(cv11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cv12TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cv11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jTextArea16, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
@@ -2395,180 +2094,148 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         formChamDiemBCSPanelLayout.setVerticalGroup(
             formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel69)
-                    .addComponent(txtMaSinhVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel139)
-                    .addComponent(txtHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel62)
-                    .addComponent(jLabel70)
-                    .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel140)
-                    .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel69)
+                                    .addComponent(txtMaSinhVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel139)
+                                    .addComponent(txtHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel62)
+                                    .addComponent(jLabel70)
+                                    .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel140)
+                                    .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34)
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
-                                                                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addGap(0, 0, 0)
-                                                                                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                                                        .addGap(0, 0, 0)
-                                                                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                        .addGap(0, 0, 0)
-                                                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                        .addGap(0, 0, 0)
-                                                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                .addComponent(sv11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(bcs11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(cv11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                        .addGap(0, 0, 0)
-                                                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                            .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                        .addGap(0, 0, 0)
-                                                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addComponent(sv12aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addComponent(bcs12aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addComponent(cv12aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                        .addGap(0, 0, 0)
-                                                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addComponent(sv12bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addComponent(bcs12bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                            .addComponent(cv12bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addGap(0, 0, 0)
-                                                                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                    .addComponent(sv12cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                    .addComponent(bcs12cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                    .addComponent(cv12cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addGap(0, 0, 0)
-                                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addComponent(sv12dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addComponent(bcs12dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addComponent(cv12dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(0, 0, 0)
-                                                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                    .addComponent(sv12eTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                    .addComponent(bcs12eTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                    .addComponent(cv12eTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGap(0, 0, 0)
-                                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(sv12gTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(bcs12gTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(cv12gTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(sv13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(cv13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(bcs13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, 0)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(sv11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(bcs11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cv11TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, 0)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(sv12TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(bcs12TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cv12TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(1, 1, 1)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, 0)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, 0)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, 0)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel142, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(1, 1, 1)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel143, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(sv13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(cv13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bcs13TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel38, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, 0)
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(cv13aTextFiel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, 0)
-                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(sv13aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bcs13aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cv13aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, 0)
-                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sv13bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bcs13bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cv13bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(sv13cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bcs13cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cv13cTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0)
-                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cv13dTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sv13dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bcs13dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0)
+                                            .addComponent(cv13aTextFiel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(cv13aTextFiel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, 0)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(cv13aTextFiel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(1, 1, 1)
+                                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cv13aTextFiel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1)
+                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cv13aTextFiel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bcs14TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cv14TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2603,61 +2270,53 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                     .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createSequentialGroup()
+                    .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel80, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel88, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(sv21aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(bcs21aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cv21aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel78, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(sv21bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bcs21bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cv21bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0)
-                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel144, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jLabel145, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel80, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel88, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cv22aTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bcs22aTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sv22aTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cv22TextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bcs22TextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sv22TextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel90, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextArea3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sv22bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bcs22bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cv22bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel162, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
+                .addGap(1, 1, 1)
                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(formChamDiemBCSPanelLayout.createSequentialGroup()
                         .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel92, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sv23aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bcs23aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cv23aTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sv23TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bcs23TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cv23TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextArea4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
-                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel83, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sv23bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bcs23bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cv23bTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel83, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel165, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(formChamDiemBCSPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2852,14 +2511,10 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formChamDiemBCSPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formChamDiemBCSPanelMouseExited
-        if (!bcs11TextField.getText().isEmpty() && !bcs12aTextField.getText().isEmpty() && !bcs12bTextField.getText().isEmpty()
-                && !bcs12cTextField.getText().isEmpty() && !bcs12dTextField.getText().isEmpty() && !bcs12eTextField.getText().isEmpty()
-                && !bcs12gTextField.getText().isEmpty() && !bcs13TextField.getText().isEmpty() && !bcs13aTextField.getText().isEmpty()
-                && !bcs13bTextField.getText().isEmpty() && !bcs13cTextField.getText().isEmpty() && !bcs13dTextField.getText().isEmpty()
+        if (!bcs11TextField.getText().isEmpty() && !bcs12TextField.getText().isEmpty() && !bcs13TextField.getText().isEmpty()
                 && !bcs14TextField.getText().isEmpty() && !bcs15TextField.getText().isEmpty() && !bcs1TextField.getText().isEmpty()
-                && !bcs21TextField.getText().isEmpty() && !bcs21aTextField.getText().isEmpty() && !bcs21bTextField.getText().isEmpty()
-                && !bcs22aTextField.getText().isEmpty() && !bcs22bTextField.getText().isEmpty() && !bcs23aTextField.getText().isEmpty()
-                && !bcs23bTextField.getText().isEmpty() && !bcs2TextField.getText().isEmpty() && !bcs31TextField.getText().isEmpty()
+                && !bcs21TextField.getText().isEmpty() && !bcs22TextField.getText().isEmpty() && !bcs23TextField.getText().isEmpty()
+                && !bcs2TextField.getText().isEmpty() && !bcs31TextField.getText().isEmpty()
                 && !bcs32TextField.getText().isEmpty() && !bcs33TextField.getText().isEmpty() && !bcs34TextField.getText().isEmpty()
                 && !bcs35TextField.getText().isEmpty() && !bcs3TextField.getText().isEmpty() && !bcs41TextField.getText().isEmpty()
                 && !bcs42TextField.getText().isEmpty() && !bcs43TextField.getText().isEmpty() && !bcs44TextField.getText().isEmpty()
@@ -2867,30 +2522,17 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                 && !bcs51TextField.getText().isEmpty() && !bcs52TextField.getText().isEmpty() && !bcs53TextField.getText().isEmpty()
                 && !bcs5TextField.getText().isEmpty() && !bcsTongTextField.getText().isEmpty()) {
             int d11 = Integer.parseInt(bcs11TextField.getText());
-            int d12a = Integer.parseInt(bcs12aTextField.getText());
-            int d12b = Integer.parseInt(bcs12bTextField.getText());
-            int d12c = Integer.parseInt(bcs12cTextField.getText());
-            int d12d = Integer.parseInt(bcs12dTextField.getText());
-            int d12e = Integer.parseInt(bcs12eTextField.getText());
-            int d12g = Integer.parseInt(bcs12gTextField.getText());
+            int d12 = Integer.parseInt(bcs12TextField.getText());
             int d13 = Integer.parseInt(bcs13TextField.getText());
-            int d13a = Integer.parseInt(bcs13aTextField.getText());
-            int d13b = Integer.parseInt(bcs13bTextField.getText());
-            int d13c = Integer.parseInt(bcs13cTextField.getText());
-            int d13d = Integer.parseInt(bcs13dTextField.getText());
             float d14 = Float.parseFloat(bcs14TextField.getText());
             int d15 = Integer.parseInt(bcs15TextField.getText());
-            float d1 = d11 + d12a + d12b + d12c + d12d + d12e + d12g + d13 + d13a + d13b + d13c + d13d + d14 + d15;
+            float d1 = d11 + d12 + d13 + d14 + d15;
             bcs1TextField.setText(Float.toString(d1));
 
             int d21 = Integer.parseInt(bcs21TextField.getText());
-            int d21a = Integer.parseInt(bcs21aTextField.getText());
-            int d21b = Integer.parseInt(bcs21bTextField.getText());
-            int d22a = Integer.parseInt(bcs22aTextField.getText());
-            int d22b = Integer.parseInt(bcs22bTextField.getText());
-            int d23a = Integer.parseInt(bcs23aTextField.getText());
-            int d23b = Integer.parseInt(bcs23bTextField.getText());
-            int d2 = d21 + d21a + d21b + d22a + d22b + d23a + d23b;
+            int d22 = Integer.parseInt(bcs22TextField.getText());
+            int d23 = Integer.parseInt(bcs23TextField.getText());
+            int d2 = d21 + d22 + d23;
             bcs2TextField.setText(Integer.toString(d2));
 
             int d31 = Integer.parseInt(bcs31TextField.getText());
@@ -2921,196 +2563,157 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
     }//GEN-LAST:event_formChamDiemBCSPanelMouseExited
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-        if (txtMaSinhVien.getText().isEmpty()) {
-            DialogHelper.showError("Chưa chọn sinh viên");
-        } else if (trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")
-                || trangThai.equalsIgnoreCase("Cố vấn đã chấm")
-                || trangThai.equalsIgnoreCase("Hết thời gian chấm")
-                || Validator.isBeforeToday(ngayKetThuc)) {
-            DialogHelper.showError("Hết thời gian chấm");
-        } else if (trangThai.equalsIgnoreCase("Sinh viên đang chấm")) {
-            DialogHelper.showError("Sinh viên chưa chấm điểm");
-        } else {
-            try {
-                String maSinhVien = txtMaSinhVien.getText();
-                String hocKy = txtHocKy.getText();
-                String namHoc = txtNamHoc.getText();
-                String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(maSinhVien, hocKy, namHoc);
+        if (DialogHelper.showConfirmation("Bạn có chắc muốn lưu điểm")) {
+            if (txtMaSinhVien.getText().isEmpty()) {
+                DialogHelper.showError("Chưa chọn sinh viên");
+            } else if (trangThai.equalsIgnoreCase("Ban cán sự kết thúc chấm")
+                    || trangThai.equalsIgnoreCase("Cố vấn đã chấm")
+                    || trangThai.equalsIgnoreCase("Hết thời gian chấm")
+                    || Validator.isBeforeToday(ngayKetThuc)) {
+                DialogHelper.showError("Hết thời gian chấm");
+            } else if (trangThai.equalsIgnoreCase("Sinh viên đang chấm")) {
+                DialogHelper.showError("Sinh viên chưa chấm điểm");
+            } else {
+                try {
+                    String maSinhVien = txtMaSinhVien.getText();
+                    String hocKy = txtHocKy.getText();
+                    String namHoc = txtNamHoc.getText();
+                    String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(maSinhVien, hocKy, namHoc);
 
-                String nguoiCham = "BanCanSu";
-                String trangThaiCham = "Ban cán sự đã chấm";
-                SinhVienModel sv = SinhVienCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
-                String maBanCanSuCham = sv.getMaSinhVien();
+                    String nguoiCham = "BanCanSu";
+                    String trangThaiCham = "Ban cán sự đã chấm";
+                    SinhVienModel sv = SinhVienCtrl.timSinhVienTheoTenDangNhap(DangNhap.username);
+                    String maBanCanSuCham = sv.getMaSinhVien();
 
-                float bcs1 = Float.parseFloat(bcs1TextField.getText());
-                int bcs2 = Integer.parseInt(bcs2TextField.getText());
-                int bcs3 = Integer.parseInt(bcs3TextField.getText());
-                int bcs4 = Integer.parseInt(bcs4TextField.getText());
-                int bcs5 = Integer.parseInt(bcs5TextField.getText());
-                float tongDiem = Float.parseFloat(bcsTongTextField.getText());
-                String xepLoai = "";
-                if (tongDiem >= 90) {
-                    xepLoai = "Xuất sắc";
-                } else if (tongDiem >= 80) {
-                    xepLoai = "Tốt";
-                } else if (tongDiem >= 65) {
-                    xepLoai = "Khá";
-                } else if (tongDiem >= 50) {
-                    xepLoai = "Trung bình";
-                } else if (tongDiem >= 35) {
-                    xepLoai = "Yếu";
-                } else {
-                    xepLoai = "Kém";
-                }
-                int bcs11 = Integer.parseInt(bcs11TextField.getText());
-                int bcs12a = Integer.parseInt(bcs12aTextField.getText());
-                int bcs12b = Integer.parseInt(bcs12bTextField.getText());
-                int bcs12c = Integer.parseInt(bcs12cTextField.getText());
-                int bcs12d = Integer.parseInt(bcs12dTextField.getText());
-                int bcs12e = Integer.parseInt(bcs12eTextField.getText());
-                int bcs12g = Integer.parseInt(bcs12gTextField.getText());
-                int bcs13 = Integer.parseInt(bcs13TextField.getText());
-                int bcs13a = Integer.parseInt(bcs13aTextField.getText());
-                int bcs13b = Integer.parseInt(bcs13bTextField.getText());
-                int bcs13c = Integer.parseInt(bcs13cTextField.getText());
-                int bcs13d = Integer.parseInt(bcs13dTextField.getText());
-                float bcs14 = Float.parseFloat(bcs14TextField.getText());
-                int bcs15 = Integer.parseInt(bcs15TextField.getText());
-
-                int bcs21 = Integer.parseInt(bcs21TextField.getText());
-                int bcs21a = Integer.parseInt(bcs21aTextField.getText());
-                int bcs21b = Integer.parseInt(bcs21bTextField.getText());
-                int bcs22a = Integer.parseInt(bcs22aTextField.getText());
-                int bcs22b = Integer.parseInt(bcs22bTextField.getText());
-                int bcs23a = Integer.parseInt(bcs23aTextField.getText());
-                int bcs23b = Integer.parseInt(bcs23bTextField.getText());
-
-                int bcs31 = Integer.parseInt(bcs31TextField.getText());
-                int bcs32 = Integer.parseInt(bcs32TextField.getText());
-                int bcs33 = Integer.parseInt(bcs33TextField.getText());
-                int bcs34 = Integer.parseInt(bcs34TextField.getText());
-                int bcs35 = Integer.parseInt(bcs35TextField.getText());
-
-                int bcs41 = Integer.parseInt(bcs41TextField.getText());
-                int bcs42 = Integer.parseInt(bcs42TextField.getText());
-                int bcs43 = Integer.parseInt(bcs43TextField.getText());
-                int bcs44 = Integer.parseInt(bcs44TextField.getText());
-                int bcs45 = Integer.parseInt(bcs45TextField.getText());
-                int bcs46 = Integer.parseInt(bcs46TextField.getText());
-
-                int bcs51 = Integer.parseInt(bcs51TextField.getText());
-                int bcs52 = Integer.parseInt(bcs52TextField.getText());
-                int bcs53 = Integer.parseInt(bcs53TextField.getText());
-
-                if (maSinhVien.isEmpty()) {
-                    DialogHelper.showError("Mã sinh viên không được để trống");
-                } else if (hocKy.isEmpty()) {
-                    DialogHelper.showError("Học kỳ không được để trống");
-                } else if (namHoc.isEmpty()) {
-                    DialogHelper.showError("Năm học không được để trống");
-                } else if (nguoiCham.isEmpty()) {
-                    DialogHelper.showError("Người chấm không được để trống");
-                } else if (xepLoai.isEmpty()) {
-                    DialogHelper.showError("Xếp loại không được để trống");
-                } else if (bcs11 != 0 && (bcs11 < 0 || bcs11 > 3)) {
-                    DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs12a != 0 && (bcs12a != 10)) {
-                    DialogHelper.showError("Mục 1.2a không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs12b != 0 && (bcs12b != 8)) {
-                    DialogHelper.showError("Mục 1.2b không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs12c != 0 && (bcs12c != 6)) {
-                    DialogHelper.showError("Mục 1.2c không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs12d != 0 && (bcs12d != 4)) {
-                    DialogHelper.showError("Mục 1.2d không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs12e != 0 && (bcs12e != 0)) {
-                    DialogHelper.showError("Mục 1.2e không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs12g != 0 && (bcs12g != -1)) {
-                    DialogHelper.showError("Mục 1.2g không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs13 != 0 && (bcs13 < 0 || bcs13 > 4)) {
-                    DialogHelper.showError("Mục 1.3 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs13a != 0 && (bcs13a != -2)) {
-                    DialogHelper.showError("Mục 1.3a không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs13b != 0 && (bcs13b != -2)) {
-                    DialogHelper.showError("Mục 1.3b không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs13c != 0 && (bcs13c != -3)) {
-                    DialogHelper.showError("Mục 1.3c không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs13d != 0 && (bcs13d != -4)) {
-                    DialogHelper.showError("Mục 1.3d không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs14 != 0 && (bcs14 < 0 || bcs14 > 2)) {
-                    DialogHelper.showError("Mục 1.4 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs15 != 0 && (bcs15 != 1)) {
-                    DialogHelper.showError("Mục 1.5 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs21 != 0 && (bcs21 != 15)) {
-                    DialogHelper.showError("Mục 2.1 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs21a != 0 && (bcs21a != -15)) {
-                    DialogHelper.showError("Mục 2.1a không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs21b != 0 && (bcs21b != -5)) {
-                    DialogHelper.showError("Mục 2.1b không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs22a != 0 && (bcs22a < 0 || bcs22a > 5)) {
-                    DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs22b != 0 && (bcs22b != -1)) {
-                    DialogHelper.showError("Mục 2.2b không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs23a != 0 && (bcs23a < 0 || bcs23a > 5)) {
-                    DialogHelper.showError("Mục 2.3a không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs23b != 0 && (bcs23b != -2)) {
-                    DialogHelper.showError("Mục 2.3b không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs31 != 0 && (bcs31 < 0 || bcs31 > 10)) {
-                    DialogHelper.showError("Mục 3.1 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs32 != 0 && (bcs32 < 0 || bcs32 > 4)) {
-                    DialogHelper.showError("Mục 3.2 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs33 != 0 && (bcs33 < 0 || bcs33 > 3)) {
-                    DialogHelper.showError("Mục 3.3 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs34 != 0 && (bcs34 < 0 || bcs34 > 3)) {
-                    DialogHelper.showError("Mục 3.4 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs35 != 0 && (bcs35 != -10)) {
-                    DialogHelper.showError("Mục 3.5 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs41 != 0 && (bcs41 < 0 || bcs41 > 8)) {
-                    DialogHelper.showError("Mục 4.1 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs42 != 0 && (bcs42 < 0 || bcs42 > 5)) {
-                    DialogHelper.showError("Mục 4.2 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs43 != 0 && (bcs43 < 0 || bcs43 > 5)) {
-                    DialogHelper.showError("Mục 4.3 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs44 != 0 && (bcs44 < 0 || bcs44 > 5)) {
-                    DialogHelper.showError("Mục 4.4 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs45 != 0 && (bcs45 < 0 || bcs45 > 2)) {
-                    DialogHelper.showError("Mục 4.5 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs46 != 0 && (bcs46 != -5)) {
-                    DialogHelper.showError("Mục 4.6 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs51 != 0 && (bcs51 < 0 || bcs51 > 4)) {
-                    DialogHelper.showError("Mục 5.1 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs52 != 0 && (bcs52 < 0 || bcs52 > 3)) {
-                    DialogHelper.showError("Mục 5.2 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs53 != 0 && (bcs53 < 0 || bcs53 > 3)) {
-                    DialogHelper.showError("Mục 5.3 không hợp lệ. Vui lòng nhập lại!");
-                } else if (bcs1 != 0 && (bcs1 < 0 || bcs1 > 20)) {
-                    DialogHelper.showError("Tổng điểm tiêu chí 1 không chính xác");
-                } else if (bcs2 != 0 && (bcs2 < 0 || bcs2 > 25)) {
-                    DialogHelper.showError("Tổng điểm tiêu chí 2 không chính xác");
-                } else if (bcs3 != 0 && (bcs3 < 0 || bcs3 > 20)) {
-                    DialogHelper.showError("Tổng điểm tiêu chí 3 không chính xác");
-                } else if (bcs4 != 0 && (bcs4 < 0 || bcs4 > 25)) {
-                    DialogHelper.showError("Tổng điểm tiêu chí 4 không chính xác");
-                } else if (bcs5 != 0 && (bcs5 < 0 || bcs5 > 10)) {
-                    DialogHelper.showError("Tổng điểm tiêu chí 5 không chính xác");
-                } else if (tongDiem != 0 && (tongDiem < 0 || tongDiem > 100)) {
-                    DialogHelper.showError("Tổng điểm không chính xác");
-                } else if (bcs1 + bcs2 + bcs3 + bcs4 + bcs5 != tongDiem) {
-                    DialogHelper.showError("Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!");
-                } else if (tongDiem == 0) {
-                    DialogHelper.showError("Chưa nhập điểm. Vui lòng nhập lại!");
-                } else {
-                    try {
-                        DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, tongDiem, bcs11, bcs12a, bcs12b, bcs12c, bcs12d, bcs12e, bcs12g, bcs13, bcs13a, bcs13b, bcs13c, bcs13d, bcs14, bcs15, bcs1, bcs21, bcs21a, bcs21b, bcs22a, bcs22b, bcs23a, bcs23b, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5);
-                        DiemRenLuyenCtrl.chamDiemRenLuyen(drl);
-                        PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, maBanCanSuCham, trangThaiCham);
-                        PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
-                        DialogHelper.showMessage("Chấm điểm thành công!");
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(FormChamDiemSV.class.getName()).log(Level.SEVERE, null, ex);
+                    float bcs1 = Float.parseFloat(bcs1TextField.getText());
+                    int bcs2 = Integer.parseInt(bcs2TextField.getText());
+                    int bcs3 = Integer.parseInt(bcs3TextField.getText());
+                    int bcs4 = Integer.parseInt(bcs4TextField.getText());
+                    int bcs5 = Integer.parseInt(bcs5TextField.getText());
+                    float tongDiem = Float.parseFloat(bcsTongTextField.getText());
+                    String xepLoai = "";
+                    if (tongDiem >= 90) {
+                        xepLoai = "Xuất sắc";
+                    } else if (tongDiem >= 80) {
+                        xepLoai = "Tốt";
+                    } else if (tongDiem >= 65) {
+                        xepLoai = "Khá";
+                    } else if (tongDiem >= 50) {
+                        xepLoai = "Trung bình";
+                    } else if (tongDiem >= 35) {
+                        xepLoai = "Yếu";
+                    } else {
+                        xepLoai = "Kém";
                     }
+                    int bcs11 = Integer.parseInt(bcs11TextField.getText());
+                    int bcs12 = Integer.parseInt(bcs12TextField.getText());
+                    int bcs13 = Integer.parseInt(bcs13TextField.getText());
+                    float bcs14 = Float.parseFloat(bcs14TextField.getText());
+                    int bcs15 = Integer.parseInt(bcs15TextField.getText());
+
+                    int bcs21 = Integer.parseInt(bcs21TextField.getText());
+                    int bcs22 = Integer.parseInt(bcs22TextField.getText());
+                    int bcs23 = Integer.parseInt(bcs23TextField.getText());
+
+                    int bcs31 = Integer.parseInt(bcs31TextField.getText());
+                    int bcs32 = Integer.parseInt(bcs32TextField.getText());
+                    int bcs33 = Integer.parseInt(bcs33TextField.getText());
+                    int bcs34 = Integer.parseInt(bcs34TextField.getText());
+                    int bcs35 = Integer.parseInt(bcs35TextField.getText());
+
+                    int bcs41 = Integer.parseInt(bcs41TextField.getText());
+                    int bcs42 = Integer.parseInt(bcs42TextField.getText());
+                    int bcs43 = Integer.parseInt(bcs43TextField.getText());
+                    int bcs44 = Integer.parseInt(bcs44TextField.getText());
+                    int bcs45 = Integer.parseInt(bcs45TextField.getText());
+                    int bcs46 = Integer.parseInt(bcs46TextField.getText());
+
+                    int bcs51 = Integer.parseInt(bcs51TextField.getText());
+                    int bcs52 = Integer.parseInt(bcs52TextField.getText());
+                    int bcs53 = Integer.parseInt(bcs53TextField.getText());
+
+                    if (maSinhVien.isEmpty()) {
+                        DialogHelper.showError("Mã sinh viên không được để trống");
+                    } else if (hocKy.isEmpty()) {
+                        DialogHelper.showError("Học kỳ không được để trống");
+                    } else if (namHoc.isEmpty()) {
+                        DialogHelper.showError("Năm học không được để trống");
+                    } else if (nguoiCham.isEmpty()) {
+                        DialogHelper.showError("Người chấm không được để trống");
+                    } else if (xepLoai.isEmpty()) {
+                        DialogHelper.showError("Xếp loại không được để trống");
+                    } else if (bcs11 != 0 && (bcs11 < 0 || bcs11 > 3)) {
+                        DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs12 != 0 && !(bcs12 == -1 || bcs12 == 0 || bcs12 == 4 || bcs12 == 6 || bcs12 == 8 || bcs12 == 10)) {
+                        DialogHelper.showError("Mục 1.2 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs13 != 0 && !(bcs13 == 0 || bcs13 == 1 || bcs13 == 2 || bcs13 == 4)) {
+                        DialogHelper.showError("Mục 1.3 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs14 != 0 && (bcs14 < 0 || bcs14 > 2)) {
+                        DialogHelper.showError("Mục 1.4 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs15 != 0 && (bcs15 != 1)) {
+                        DialogHelper.showError("Mục 1.5 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs21 != 0 && (bcs21 != 10 || bcs21 != 15)) {
+                        DialogHelper.showError("Mục 2.1 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs22 != 0 && (bcs22 < 0 || bcs22 > 5)) {
+                        DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs23 != 0 && (bcs23 < 0 || bcs23 > 5)) {
+                        DialogHelper.showError("Mục 2.3a không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs31 != 0 && (bcs31 < 0 || bcs31 > 10)) {
+                        DialogHelper.showError("Mục 3.1 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs32 != 0 && (bcs32 < 0 || bcs32 > 4)) {
+                        DialogHelper.showError("Mục 3.2 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs33 != 0 && (bcs33 < 0 || bcs33 > 3)) {
+                        DialogHelper.showError("Mục 3.3 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs34 != 0 && (bcs34 < 0 || bcs34 > 3)) {
+                        DialogHelper.showError("Mục 3.4 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs35 != 0 && (bcs35 != -10)) {
+                        DialogHelper.showError("Mục 3.5 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs41 != 0 && (bcs41 < 0 || bcs41 > 8)) {
+                        DialogHelper.showError("Mục 4.1 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs42 != 0 && (bcs42 < 0 || bcs42 > 5)) {
+                        DialogHelper.showError("Mục 4.2 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs43 != 0 && (bcs43 < 0 || bcs43 > 5)) {
+                        DialogHelper.showError("Mục 4.3 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs44 != 0 && (bcs44 < 0 || bcs44 > 5)) {
+                        DialogHelper.showError("Mục 4.4 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs45 != 0 && (bcs45 < 0 || bcs45 > 2)) {
+                        DialogHelper.showError("Mục 4.5 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs46 != 0 && (bcs46 != -5)) {
+                        DialogHelper.showError("Mục 4.6 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs51 != 0 && (bcs51 < 0 || bcs51 > 4)) {
+                        DialogHelper.showError("Mục 5.1 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs52 != 0 && (bcs52 < 0 || bcs52 > 3)) {
+                        DialogHelper.showError("Mục 5.2 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs53 != 0 && (bcs53 < 0 || bcs53 > 3)) {
+                        DialogHelper.showError("Mục 5.3 không hợp lệ. Vui lòng nhập lại!");
+                    } else if (bcs1 != 0 && (bcs1 < 0 || bcs1 > 20)) {
+                        DialogHelper.showError("Tổng điểm tiêu chí 1 không chính xác");
+                    } else if (bcs2 != 0 && (bcs2 < 0 || bcs2 > 25)) {
+                        DialogHelper.showError("Tổng điểm tiêu chí 2 không chính xác");
+                    } else if (bcs3 != 0 && (bcs3 < 0 || bcs3 > 20)) {
+                        DialogHelper.showError("Tổng điểm tiêu chí 3 không chính xác");
+                    } else if (bcs4 != 0 && (bcs4 < 0 || bcs4 > 25)) {
+                        DialogHelper.showError("Tổng điểm tiêu chí 4 không chính xác");
+                    } else if (bcs5 != 0 && (bcs5 < 0 || bcs5 > 10)) {
+                        DialogHelper.showError("Tổng điểm tiêu chí 5 không chính xác");
+                    } else if (tongDiem != 0 && (tongDiem < 0 || tongDiem > 100)) {
+                        DialogHelper.showError("Tổng điểm không chính xác");
+                    } else if (bcs1 + bcs2 + bcs3 + bcs4 + bcs5 != tongDiem) {
+                        DialogHelper.showError("Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!");
+                    } else {
+                        try {
+                            DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, tongDiem, bcs11, bcs12, bcs13, bcs14, bcs15, bcs1, bcs21, bcs22, bcs23, bcs2, bcs31, bcs32, bcs33, bcs34, bcs35, bcs3, bcs41, bcs42, bcs43, bcs44, bcs45, bcs46, bcs4, bcs51, bcs52, bcs53, bcs5);
+                            DiemRenLuyenCtrl.chamDiemRenLuyen(drl);
+                            PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, maBanCanSuCham, trangThaiCham);
+                            PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
+                            DialogHelper.showMessage("Chấm điểm thành công!");
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(FormChamDiemSV.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(FormChamDiemBCS.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(FormChamDiemBCS.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_btnLuuActionPerformed
@@ -3137,28 +2740,15 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
                 txtLop.setText(diemRenLuyenSV.getMaLop());
 
                 sv11TextField.setText(Integer.toString(diemRenLuyenSV.getD11()));
-                sv12aTextField.setText(Integer.toString(diemRenLuyenSV.getD12a()));
-                sv12bTextField.setText(Integer.toString(diemRenLuyenSV.getD12b()));
-                sv12cTextField.setText(Integer.toString(diemRenLuyenSV.getD12c()));
-                sv12dTextField.setText(Integer.toString(diemRenLuyenSV.getD12d()));
-                sv12eTextField.setText(Integer.toString(diemRenLuyenSV.getD12e()));
-                sv12gTextField.setText(Integer.toString(diemRenLuyenSV.getD12g()));
+                sv12TextField.setText(Integer.toString(diemRenLuyenSV.getD12()));
                 sv13TextField.setText(Integer.toString(diemRenLuyenSV.getD13()));
-                sv13aTextField.setText(Integer.toString(diemRenLuyenSV.getD13a()));
-                sv13bTextField.setText(Integer.toString(diemRenLuyenSV.getD13b()));
-                sv13cTextField.setText(Integer.toString(diemRenLuyenSV.getD13c()));
-                sv13dTextField.setText(Integer.toString(diemRenLuyenSV.getD13d()));
                 sv14TextField.setText(Float.toString(diemRenLuyenSV.getD14()));
                 sv15TextField.setText(Integer.toString(diemRenLuyenSV.getD15()));
                 sv1TextField.setText(Float.toString(diemRenLuyenSV.getD1()));
 
                 sv21TextField.setText(Integer.toString(diemRenLuyenSV.getD21()));
-                sv21aTextField.setText(Integer.toString(diemRenLuyenSV.getD21a()));
-                sv21bTextField.setText(Integer.toString(diemRenLuyenSV.getD21b()));
-                sv22aTextField.setText(Integer.toString(diemRenLuyenSV.getD22a()));
-                sv22bTextField.setText(Integer.toString(diemRenLuyenSV.getD22b()));
-                sv23aTextField.setText(Integer.toString(diemRenLuyenSV.getD23a()));
-                sv23bTextField.setText(Integer.toString(diemRenLuyenSV.getD23b()));
+                sv22TextField.setText(Integer.toString(diemRenLuyenSV.getD22()));
+                sv23TextField.setText(Integer.toString(diemRenLuyenSV.getD23()));
                 sv2TextField.setText(Integer.toString(diemRenLuyenSV.getD2()));
 
                 sv31TextField.setText(Integer.toString(diemRenLuyenSV.getD31()));
@@ -3187,28 +2777,15 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
             DiemRenLuyenModel diemRenLuyenBCS = DiemRenLuyenCtrl.timDRLDayDu(maSinhVien, hocKy, namHoc, "BanCanSu");
             if (diemRenLuyenBCS != null) {
                 bcs11TextField.setText(Integer.toString(diemRenLuyenBCS.getD11()));
-                bcs12aTextField.setText(Integer.toString(diemRenLuyenBCS.getD12a()));
-                bcs12bTextField.setText(Integer.toString(diemRenLuyenBCS.getD12b()));
-                bcs12cTextField.setText(Integer.toString(diemRenLuyenBCS.getD12c()));
-                bcs12dTextField.setText(Integer.toString(diemRenLuyenBCS.getD12d()));
-                bcs12eTextField.setText(Integer.toString(diemRenLuyenBCS.getD12e()));
-                bcs12gTextField.setText(Integer.toString(diemRenLuyenBCS.getD12g()));
+                bcs12TextField.setText(Integer.toString(diemRenLuyenBCS.getD12()));
                 bcs13TextField.setText(Integer.toString(diemRenLuyenBCS.getD13()));
-                bcs13aTextField.setText(Integer.toString(diemRenLuyenBCS.getD13a()));
-                bcs13bTextField.setText(Integer.toString(diemRenLuyenBCS.getD13b()));
-                bcs13cTextField.setText(Integer.toString(diemRenLuyenBCS.getD13c()));
-                bcs13dTextField.setText(Integer.toString(diemRenLuyenBCS.getD13d()));
                 bcs14TextField.setText(Float.toString(diemRenLuyenBCS.getD14()));
                 bcs15TextField.setText(Integer.toString(diemRenLuyenBCS.getD15()));
                 bcs1TextField.setText(Float.toString(diemRenLuyenBCS.getD1()));
 
                 bcs21TextField.setText(Integer.toString(diemRenLuyenBCS.getD21()));
-                bcs21aTextField.setText(Integer.toString(diemRenLuyenBCS.getD21a()));
-                bcs21bTextField.setText(Integer.toString(diemRenLuyenBCS.getD21b()));
-                bcs22aTextField.setText(Integer.toString(diemRenLuyenBCS.getD22a()));
-                bcs22bTextField.setText(Integer.toString(diemRenLuyenBCS.getD22b()));
-                bcs23aTextField.setText(Integer.toString(diemRenLuyenBCS.getD23a()));
-                bcs23bTextField.setText(Integer.toString(diemRenLuyenBCS.getD23b()));
+                bcs22TextField.setText(Integer.toString(diemRenLuyenBCS.getD22()));
+                bcs23TextField.setText(Integer.toString(diemRenLuyenBCS.getD23()));
                 bcs2TextField.setText(Integer.toString(diemRenLuyenBCS.getD2()));
 
                 bcs31TextField.setText(Integer.toString(diemRenLuyenBCS.getD31()));
@@ -3237,28 +2814,15 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
             DiemRenLuyenModel diemRenLuyenCoVan = DiemRenLuyenCtrl.timDRLDayDu(maSinhVien, hocKy, namHoc, "CoVan");
             if (diemRenLuyenCoVan != null) {
                 cv11TextField.setText(Integer.toString(diemRenLuyenCoVan.getD11()));
-                cv12aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12a()));
-                cv12bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12b()));
-                cv12cTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12c()));
-                cv12dTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12d()));
-                cv12eTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12e()));
-                cv12gTextField.setText(Integer.toString(diemRenLuyenCoVan.getD12g()));
+                cv12TextField.setText(Integer.toString(diemRenLuyenCoVan.getD12()));
                 cv13TextField.setText(Integer.toString(diemRenLuyenCoVan.getD13()));
-                cv13aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD13a()));
-                cv13bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD13b()));
-                cv13cTextField.setText(Integer.toString(diemRenLuyenCoVan.getD13c()));
-                cv13dTextField.setText(Integer.toString(diemRenLuyenCoVan.getD13d()));
                 cv14TextField.setText(Float.toString(diemRenLuyenCoVan.getD14()));
                 cv15TextField.setText(Integer.toString(diemRenLuyenCoVan.getD15()));
                 cv1TextField.setText(Float.toString(diemRenLuyenCoVan.getD1()));
 
                 cv21TextField.setText(Integer.toString(diemRenLuyenCoVan.getD21()));
-                cv21aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD21a()));
-                cv21bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD21b()));
-                cv22aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD22a()));
-                cv22bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD22b()));
-                cv23aTextField.setText(Integer.toString(diemRenLuyenCoVan.getD23a()));
-                cv23bTextField.setText(Integer.toString(diemRenLuyenCoVan.getD23b()));
+                cv22TextField.setText(Integer.toString(diemRenLuyenCoVan.getD22()));
+                cv23TextField.setText(Integer.toString(diemRenLuyenCoVan.getD23()));
                 cv2TextField.setText(Integer.toString(diemRenLuyenCoVan.getD2()));
 
                 cv31TextField.setText(Integer.toString(diemRenLuyenCoVan.getD31()));
@@ -3288,195 +2852,16 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtMaSinhVienAncestorAdded
 
-    private void bcs12gTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bcs12gTextFieldFocusLost
-        if (!bcs12gTextField.getText().equals("0")) {
-            bcs12aTextField.setEditable(false);
-            bcs12bTextField.setEditable(false);
-            bcs12cTextField.setEditable(false);
-            bcs12dTextField.setEditable(false);
-            bcs12eTextField.setEditable(false);
-
-            bcs12aTextField.setEnabled(false);
-            bcs12bTextField.setEnabled(false);
-            bcs12cTextField.setEnabled(false);
-            bcs12dTextField.setEnabled(false);
-            bcs12eTextField.setEnabled(false);
-        } else {
-            bcs12aTextField.setEditable(true);
-            bcs12bTextField.setEditable(true);
-            bcs12cTextField.setEditable(true);
-            bcs12dTextField.setEditable(true);
-            bcs12eTextField.setEditable(true);
-
-            bcs12aTextField.setEnabled(true);
-            bcs12bTextField.setEnabled(true);
-            bcs12cTextField.setEnabled(true);
-            bcs12dTextField.setEnabled(true);
-            bcs12eTextField.setEnabled(true);
-        }
-    }//GEN-LAST:event_bcs12gTextFieldFocusLost
-
-    private void bcs12eTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bcs12eTextFieldFocusLost
-        if (!bcs12eTextField.getText().equals("0")) {
-            bcs12aTextField.setEditable(false);
-            bcs12bTextField.setEditable(false);
-            bcs12cTextField.setEditable(false);
-            bcs12dTextField.setEditable(false);
-            bcs12gTextField.setEditable(false);
-
-            bcs12aTextField.setEnabled(false);
-            bcs12bTextField.setEnabled(false);
-            bcs12cTextField.setEnabled(false);
-            bcs12dTextField.setEnabled(false);
-            bcs12gTextField.setEnabled(false);
-        } else {
-            bcs12aTextField.setEditable(true);
-            bcs12bTextField.setEditable(true);
-            bcs12cTextField.setEditable(true);
-            bcs12dTextField.setEditable(true);
-            bcs12gTextField.setEditable(true);
-
-            bcs12aTextField.setEnabled(true);
-            bcs12bTextField.setEnabled(true);
-            bcs12cTextField.setEnabled(true);
-            bcs12dTextField.setEnabled(true);
-            bcs12gTextField.setEnabled(true);
-        }
-    }//GEN-LAST:event_bcs12eTextFieldFocusLost
-
-    private void bcs12dTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bcs12dTextFieldFocusLost
-        if (!bcs12dTextField.getText().equals("0")) {
-            bcs12aTextField.setEditable(false);
-            bcs12bTextField.setEditable(false);
-            bcs12cTextField.setEditable(false);
-            bcs12eTextField.setEditable(false);
-            bcs12gTextField.setEditable(false);
-
-            bcs12aTextField.setEnabled(false);
-            bcs12bTextField.setEnabled(false);
-            bcs12cTextField.setEnabled(false);
-            bcs12eTextField.setEnabled(false);
-            bcs12gTextField.setEnabled(false);
-        } else {
-            bcs12aTextField.setEditable(true);
-            bcs12bTextField.setEditable(true);
-            bcs12cTextField.setEditable(true);
-            bcs12eTextField.setEditable(true);
-            bcs12gTextField.setEditable(true);
-
-            bcs12aTextField.setEnabled(true);
-            bcs12bTextField.setEnabled(true);
-            bcs12cTextField.setEnabled(true);
-            bcs12eTextField.setEnabled(true);
-            bcs12gTextField.setEnabled(true);
-        }
-    }//GEN-LAST:event_bcs12dTextFieldFocusLost
-
-    private void bcs12cTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bcs12cTextFieldFocusLost
-        if (!bcs12cTextField.getText().equals("0")) {
-            bcs12aTextField.setEditable(false);
-            bcs12bTextField.setEditable(false);
-            bcs12dTextField.setEditable(false);
-            bcs12eTextField.setEditable(false);
-            bcs12gTextField.setEditable(false);
-
-            bcs12aTextField.setEnabled(false);
-            bcs12bTextField.setEnabled(false);
-            bcs12dTextField.setEnabled(false);
-            bcs12eTextField.setEnabled(false);
-            bcs12gTextField.setEnabled(false);
-        } else {
-            bcs12aTextField.setEditable(true);
-            bcs12bTextField.setEditable(true);
-            bcs12dTextField.setEditable(true);
-            bcs12eTextField.setEditable(true);
-            bcs12gTextField.setEditable(true);
-
-            bcs12aTextField.setEnabled(true);
-            bcs12bTextField.setEnabled(true);
-            bcs12dTextField.setEnabled(true);
-            bcs12eTextField.setEnabled(true);
-            bcs12gTextField.setEnabled(true);
-        }
-    }//GEN-LAST:event_bcs12cTextFieldFocusLost
-
-    private void bcs12bTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bcs12bTextFieldFocusLost
-        if (!bcs12bTextField.getText().equals("0")) {
-            bcs12aTextField.setEnabled(false);
-            bcs12cTextField.setEnabled(false);
-            bcs12dTextField.setEnabled(false);
-            bcs12eTextField.setEnabled(false);
-            bcs12gTextField.setEnabled(false);
-
-            bcs12aTextField.setEditable(false);
-            bcs12cTextField.setEditable(false);
-            bcs12dTextField.setEditable(false);
-            bcs12eTextField.setEditable(false);
-            bcs12gTextField.setEditable(false);
-        } else {
-            bcs12aTextField.setEnabled(true);
-            bcs12cTextField.setEnabled(true);
-            bcs12dTextField.setEnabled(true);
-            bcs12eTextField.setEnabled(true);
-            bcs12gTextField.setEnabled(true);
-
-            bcs12aTextField.setEditable(true);
-            bcs12cTextField.setEditable(true);
-            bcs12dTextField.setEditable(true);
-            bcs12eTextField.setEditable(true);
-            bcs12gTextField.setEditable(true);
-        }
-    }//GEN-LAST:event_bcs12bTextFieldFocusLost
-
-    private void bcs12aTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bcs12aTextFieldFocusLost
-        if (!bcs12aTextField.getText().equals("0")) {
-            bcs12bTextField.setEditable(false);
-            bcs12bTextField.setEnabled(false);
-            bcs12cTextField.setEditable(false);
-            bcs12cTextField.setEnabled(false);
-            bcs12dTextField.setEditable(false);
-            bcs12dTextField.setEnabled(false);
-            bcs12eTextField.setEditable(false);
-            bcs12eTextField.setEnabled(false);
-            bcs12gTextField.setEditable(false);
-            bcs12gTextField.setEnabled(false);
-        } else {
-            bcs12bTextField.setEditable(true);
-            bcs12bTextField.setEnabled(true);
-            bcs12cTextField.setEditable(true);
-            bcs12cTextField.setEnabled(true);
-            bcs12dTextField.setEditable(true);
-            bcs12dTextField.setEnabled(true);
-            bcs12eTextField.setEditable(true);
-            bcs12eTextField.setEnabled(true);
-            bcs12gTextField.setEditable(true);
-            bcs12gTextField.setEnabled(true);
-        }
-    }//GEN-LAST:event_bcs12aTextFieldFocusLost
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bcs11TextField;
-    private javax.swing.JTextField bcs12aTextField;
-    private javax.swing.JTextField bcs12bTextField;
-    private javax.swing.JTextField bcs12cTextField;
-    private javax.swing.JTextField bcs12dTextField;
-    private javax.swing.JTextField bcs12eTextField;
-    private javax.swing.JTextField bcs12gTextField;
+    private javax.swing.JTextField bcs12TextField;
     private javax.swing.JTextField bcs13TextField;
-    private javax.swing.JTextField bcs13aTextField;
-    private javax.swing.JTextField bcs13bTextField;
-    private javax.swing.JTextField bcs13cTextField;
-    private javax.swing.JTextField bcs13dTextField;
     private javax.swing.JTextField bcs14TextField;
     private javax.swing.JTextField bcs15TextField;
     private javax.swing.JTextField bcs1TextField;
     private javax.swing.JTextField bcs21TextField;
-    private javax.swing.JTextField bcs21aTextField;
-    private javax.swing.JTextField bcs21bTextField;
-    private javax.swing.JTextField bcs22aTextField;
-    private javax.swing.JTextField bcs22bTextField;
-    private javax.swing.JTextField bcs23aTextField;
-    private javax.swing.JTextField bcs23bTextField;
+    private javax.swing.JTextField bcs22TextField;
+    private javax.swing.JTextField bcs23TextField;
     private javax.swing.JTextField bcs2TextField;
     private javax.swing.JTextField bcs31TextField;
     private javax.swing.JTextField bcs32TextField;
@@ -3499,28 +2884,19 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
     private javax.swing.JButton btnDienDiem;
     private javax.swing.JButton btnLuu;
     private javax.swing.JTextField cv11TextField;
-    private javax.swing.JTextField cv12aTextField;
-    private javax.swing.JTextField cv12bTextField;
-    private javax.swing.JTextField cv12cTextField;
-    private javax.swing.JTextField cv12dTextField;
-    private javax.swing.JTextField cv12eTextField;
-    private javax.swing.JTextField cv12gTextField;
+    private javax.swing.JTextField cv12TextField;
     private javax.swing.JTextField cv13TextField;
     private javax.swing.JLabel cv13aTextFiel1;
-    private javax.swing.JTextField cv13aTextField;
-    private javax.swing.JTextField cv13bTextField;
-    private javax.swing.JTextField cv13cTextField;
-    private javax.swing.JTextField cv13dTextField;
+    private javax.swing.JLabel cv13aTextFiel2;
+    private javax.swing.JLabel cv13aTextFiel3;
+    private javax.swing.JLabel cv13aTextFiel4;
+    private javax.swing.JLabel cv13aTextFiel5;
     private javax.swing.JTextField cv14TextField;
     private javax.swing.JTextField cv15TextField;
     private javax.swing.JTextField cv1TextField;
     private javax.swing.JTextField cv21TextField;
-    private javax.swing.JTextField cv21aTextField;
-    private javax.swing.JTextField cv21bTextField;
-    private javax.swing.JTextField cv22aTextField;
-    private javax.swing.JTextField cv22bTextField;
-    private javax.swing.JTextField cv23aTextField;
-    private javax.swing.JTextField cv23bTextField;
+    private javax.swing.JTextField cv22TextField;
+    private javax.swing.JTextField cv23TextField;
     private javax.swing.JTextField cv2TextField;
     private javax.swing.JTextField cv31TextField;
     private javax.swing.JTextField cv32TextField;
@@ -3588,7 +2964,14 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel139;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel140;
+    private javax.swing.JLabel jLabel141;
+    private javax.swing.JLabel jLabel142;
+    private javax.swing.JLabel jLabel143;
+    private javax.swing.JLabel jLabel144;
+    private javax.swing.JLabel jLabel145;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel162;
+    private javax.swing.JLabel jLabel165;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -3606,17 +2989,10 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
@@ -3643,18 +3019,17 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
@@ -3701,27 +3076,14 @@ public class FormChamDiemBCS extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea8;
     private javax.swing.JTextArea jTextArea9;
     private javax.swing.JTextField sv11TextField;
-    private javax.swing.JTextField sv12aTextField;
-    private javax.swing.JTextField sv12bTextField;
-    private javax.swing.JTextField sv12cTextField;
-    private javax.swing.JTextField sv12dTextField;
-    private javax.swing.JTextField sv12eTextField;
-    private javax.swing.JTextField sv12gTextField;
+    private javax.swing.JTextField sv12TextField;
     private javax.swing.JTextField sv13TextField;
-    private javax.swing.JTextField sv13aTextField;
-    private javax.swing.JTextField sv13bTextField;
-    private javax.swing.JTextField sv13cTextField;
-    private javax.swing.JTextField sv13dTextField;
     private javax.swing.JTextField sv14TextField;
     private javax.swing.JTextField sv15TextField;
     private javax.swing.JTextField sv1TextField;
     private javax.swing.JTextField sv21TextField;
-    private javax.swing.JTextField sv21aTextField;
-    private javax.swing.JTextField sv21bTextField;
-    private javax.swing.JTextField sv22aTextField;
-    private javax.swing.JTextField sv22bTextField;
-    private javax.swing.JTextField sv23aTextField;
-    private javax.swing.JTextField sv23bTextField;
+    private javax.swing.JTextField sv22TextField;
+    private javax.swing.JTextField sv23TextField;
     private javax.swing.JTextField sv2TextField;
     private javax.swing.JTextField sv31TextField;
     private javax.swing.JTextField sv32TextField;

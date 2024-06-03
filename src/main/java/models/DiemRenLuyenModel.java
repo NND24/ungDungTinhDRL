@@ -6,18 +6,18 @@ public class DiemRenLuyenModel extends SinhVienModel {
 
     private String maPhieuDRL, hocKy, namHoc, nguoiCham, maNguoiCham, xepLoai, trangThaiCham;
     private float tongDiem;
-    private int d11, d12a, d12b, d12c, d12d, d12e, d12g, d13, d13a, d13b, d13c, d13d;
+    private int d11, d12, d13;
     private float d14;
     private int d15;
     private float d1;
-    private int d21, d21a, d21b, d22a, d22b, d23a, d23b, d2, d31, d32, d33, d34;
+    private int d21, d22, d23, d2, d31, d32, d33, d34;
     private int d35, d3, d41, d42, d43, d44, d45, d46, d4, d51, d52, d53, d5;
     private Date ngayBatDau, ngayKetThuc;
 
     public DiemRenLuyenModel() {
     }
 
-    public DiemRenLuyenModel(String hocKy, String namHoc, String nguoiCham, String xepLoai, String trangThaiCham, float tongDiem, int d11, int d12a, int d12b, int d12c, int d12d, int d12e, int d12g, int d13, int d13a, int d13b, int d13c, int d13d, float d14, int d15, float d1, int d21, int d21a, int d21b, int d22a, int d22b, int d23a, int d23b, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5, String maSinhVien, String tenLop, String hoTen, Date ngaySinh, Date ngayKetThuc) {
+    public DiemRenLuyenModel(String hocKy, String namHoc, String nguoiCham, String xepLoai, String trangThaiCham, float tongDiem, int d11, int d12, int d13, float d14, int d15, float d1, int d21, int d22, int d23, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5, String maSinhVien, String tenLop, String hoTen, Date ngaySinh, Date ngayKetThuc) {
         super(maSinhVien, tenLop, hoTen, ngaySinh);
         this.hocKy = hocKy;
         this.namHoc = namHoc;
@@ -26,27 +26,14 @@ public class DiemRenLuyenModel extends SinhVienModel {
         this.trangThaiCham = trangThaiCham;
         this.tongDiem = tongDiem;
         this.d11 = d11;
-        this.d12a = d12a;
-        this.d12b = d12b;
-        this.d12c = d12c;
-        this.d12d = d12d;
-        this.d12e = d12e;
-        this.d12g = d12g;
+        this.d12 = d12;
         this.d13 = d13;
-        this.d13a = d13a;
-        this.d13b = d13b;
-        this.d13c = d13c;
-        this.d13d = d13d;
         this.d14 = d14;
         this.d15 = d15;
         this.d1 = d1;
         this.d21 = d21;
-        this.d21a = d21a;
-        this.d21b = d21b;
-        this.d22a = d22a;
-        this.d22b = d22b;
-        this.d23a = d23a;
-        this.d23b = d23b;
+        this.d22 = d22;
+        this.d23 = d23;
         this.d2 = d2;
         this.d31 = d31;
         this.d32 = d32;
@@ -98,34 +85,21 @@ public class DiemRenLuyenModel extends SinhVienModel {
         this.ngayKetThuc = ngayKetThuc;
     }
 
-    public DiemRenLuyenModel(String maPhieuDRL, String nguoiCham, String xepLoai, float tongDiem, int d11, int d12a, int d12b, int d12c, int d12d, int d12e, int d12g, int d13, int d13a, int d13b, int d13c, int d13d, float d14, int d15, float d1, int d21, int d21a, int d21b, int d22a, int d22b, int d23a, int d23b, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5) {
+    public DiemRenLuyenModel(String maPhieuDRL, String nguoiCham, String xepLoai, float tongDiem, int d11, int d12, int d13, float d14, int d15, float d1, int d21, int d22, int d23, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5) {
         super();
         this.maPhieuDRL = maPhieuDRL;
         this.nguoiCham = nguoiCham;
         this.xepLoai = xepLoai;
         this.tongDiem = tongDiem;
         this.d11 = d11;
-        this.d12a = d12a;
-        this.d12b = d12b;
-        this.d12c = d12c;
-        this.d12d = d12d;
-        this.d12e = d12e;
-        this.d12g = d12g;
+        this.d12 = d12;
         this.d13 = d13;
-        this.d13a = d13a;
-        this.d13b = d13b;
-        this.d13c = d13c;
-        this.d13d = d13d;
         this.d14 = d14;
         this.d15 = d15;
         this.d1 = d1;
         this.d21 = d21;
-        this.d21a = d21a;
-        this.d21b = d21b;
-        this.d22a = d22a;
-        this.d22b = d22b;
-        this.d23a = d23a;
-        this.d23b = d23b;
+        this.d22 = d22;
+        this.d23 = d23;
         this.d2 = d2;
         this.d31 = d31;
         this.d32 = d32;
@@ -146,7 +120,7 @@ public class DiemRenLuyenModel extends SinhVienModel {
         this.d5 = d5;
     }
 
-    public DiemRenLuyenModel(String maPhieuDRL, String nguoiCham, String xepLoai, String trangThaiCham, float tongDiem, int d11, int d12a, int d12b, int d12c, int d12d, int d12e, int d12g, int d13, int d13a, int d13b, int d13c, int d13d, float d14, int d15, float d1, int d21, int d21a, int d21b, int d22a, int d22b, int d23a, int d23b, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5) {
+    public DiemRenLuyenModel(String maPhieuDRL, String nguoiCham, String xepLoai, String trangThaiCham, float tongDiem, int d11, int d12, int d13, float d14, int d15, float d1, int d21, int d22, int d23, int d2, int d31, int d32, int d33, int d34, int d35, int d3, int d41, int d42, int d43, int d44, int d45, int d46, int d4, int d51, int d52, int d53, int d5) {
         super();
         this.maPhieuDRL = maPhieuDRL;
         this.nguoiCham = nguoiCham;
@@ -154,27 +128,14 @@ public class DiemRenLuyenModel extends SinhVienModel {
         this.trangThaiCham = trangThaiCham;
         this.tongDiem = tongDiem;
         this.d11 = d11;
-        this.d12a = d12a;
-        this.d12b = d12b;
-        this.d12c = d12c;
-        this.d12d = d12d;
-        this.d12e = d12e;
-        this.d12g = d12g;
+        this.d12 = d12;
         this.d13 = d13;
-        this.d13a = d13a;
-        this.d13b = d13b;
-        this.d13c = d13c;
-        this.d13d = d13d;
         this.d14 = d14;
         this.d15 = d15;
         this.d1 = d1;
         this.d21 = d21;
-        this.d21a = d21a;
-        this.d21b = d21b;
-        this.d22a = d22a;
-        this.d22b = d22b;
-        this.d23a = d23a;
-        this.d23b = d23b;
+        this.d22 = d22;
+        this.d23 = d23;
         this.d2 = d2;
         this.d31 = d31;
         this.d32 = d32;
@@ -259,52 +220,12 @@ public class DiemRenLuyenModel extends SinhVienModel {
         this.d11 = d11;
     }
 
-    public int getD12a() {
-        return d12a;
+    public int getD12() {
+        return d12;
     }
 
-    public void setD12a(int d12a) {
-        this.d12a = d12a;
-    }
-
-    public int getD12b() {
-        return d12b;
-    }
-
-    public void setD12b(int d12b) {
-        this.d12b = d12b;
-    }
-
-    public int getD12c() {
-        return d12c;
-    }
-
-    public void setD12c(int d12c) {
-        this.d12c = d12c;
-    }
-
-    public int getD12d() {
-        return d12d;
-    }
-
-    public void setD12d(int d12d) {
-        this.d12d = d12d;
-    }
-
-    public int getD12e() {
-        return d12e;
-    }
-
-    public void setD12e(int d12e) {
-        this.d12e = d12e;
-    }
-
-    public int getD12g() {
-        return d12g;
-    }
-
-    public void setD12g(int d12g) {
-        this.d12g = d12g;
+    public void setD12(int d12) {
+        this.d12 = d12;
     }
 
     public int getD13() {
@@ -313,38 +234,6 @@ public class DiemRenLuyenModel extends SinhVienModel {
 
     public void setD13(int d13) {
         this.d13 = d13;
-    }
-
-    public int getD13a() {
-        return d13a;
-    }
-
-    public void setD13a(int d13a) {
-        this.d13a = d13a;
-    }
-
-    public int getD13b() {
-        return d13b;
-    }
-
-    public void setD13b(int d13b) {
-        this.d13b = d13b;
-    }
-
-    public int getD13c() {
-        return d13c;
-    }
-
-    public void setD13c(int d13c) {
-        this.d13c = d13c;
-    }
-
-    public int getD13d() {
-        return d13d;
-    }
-
-    public void setD13d(int d13d) {
-        this.d13d = d13d;
     }
 
     public float getD14() {
@@ -379,52 +268,20 @@ public class DiemRenLuyenModel extends SinhVienModel {
         this.d21 = d21;
     }
 
-    public int getD21a() {
-        return d21a;
+    public int getD22() {
+        return d22;
     }
 
-    public void setD21a(int d21a) {
-        this.d21a = d21a;
+    public void setD22a(int d22) {
+        this.d22 = d22;
     }
 
-    public int getD21b() {
-        return d21b;
+    public int getD23() {
+        return d23;
     }
 
-    public void setD21b(int d21b) {
-        this.d21b = d21b;
-    }
-
-    public int getD22a() {
-        return d22a;
-    }
-
-    public void setD22a(int d22a) {
-        this.d22a = d22a;
-    }
-
-    public int getD22b() {
-        return d22b;
-    }
-
-    public void setD22b(int d22b) {
-        this.d22b = d22b;
-    }
-
-    public int getD23a() {
-        return d23a;
-    }
-
-    public void setD23a(int d23a) {
-        this.d23a = d23a;
-    }
-
-    public int getD23b() {
-        return d23b;
-    }
-
-    public void setD23b(int d23b) {
-        this.d23b = d23b;
+    public void setD23a(int d23) {
+        this.d23 = d23;
     }
 
     public int getD2() {

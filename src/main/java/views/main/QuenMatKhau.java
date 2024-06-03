@@ -5,6 +5,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.MessagingException;
 import controllers.TaiKhoanCtrl;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import utils.DialogHelper;
 import utils.GenerateVerifyCode;
 import utils.SendEmail;
@@ -16,6 +18,20 @@ public class QuenMatKhau extends javax.swing.JFrame {
 
     public QuenMatKhau() {
         initComponents();
+
+        txtTenDangNhap.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnGuiActionPerformed(e);
+            }
+        });
+
+        txtEmail.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnGuiActionPerformed(e);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
