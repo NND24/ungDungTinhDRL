@@ -285,8 +285,8 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addComponent(btnXemDiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnLamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnXemDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -346,11 +346,11 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
+                .addGap(6, 6, 6)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbTKHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTKHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17)
-                    .addComponent(cmbTKNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTKNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addGap(8, 8, 8))
             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -568,7 +568,6 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
             DialogHelper.showError("Chưa chọn học kỳ, năm học muốn xem. Vui lòng chọn");
         } else {
             FormChamDiemSV.Instance.maSVTextField.setText("");
-
             FormChamDiemSV.Instance.maSVTextField.setText(maSinhVien);
             FormChamDiemSV.Instance.nameTextField.setText(hoTenTextField.getText());
             FormChamDiemSV.Instance.semesterTextField.setText(txtHocKy.getText());
@@ -581,20 +580,33 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void cmbTKNamHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKNamHocActionPerformed
-        if (cmbTKNamHoc.getSelectedItem() != null && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---") && !cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
+        if (cmbTKNamHoc.getSelectedItem() != null
+                && cmbTKHocKy.getSelectedItem() != null
+                && !cmbTKNamHoc.getSelectedItem().toString().equals("---Năm học---")
+                && !cmbTKHocKy.getSelectedItem().toString().equals("---Học kỳ---")) {
             timKiemDanhSachDRL();
-        } else if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
-            dsDiemRenLuyen.clear();
-            hienThiDSDiem();
+        } else {
+            cmbTKHocKy.setSelectedItem("---Học kỳ---");
+            try {
+                hienThiTatCaDRL();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_cmbTKNamHocActionPerformed
 
     private void cmbTKHocKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTKHocKyActionPerformed
-        if (cmbTKHocKy.getSelectedItem() != null && !cmbTKNamHoc.getSelectedItem().equals("---Năm học---") && !cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
+        if (cmbTKNamHoc.getSelectedItem() != null
+                && cmbTKHocKy.getSelectedItem() != null
+                && !cmbTKNamHoc.getSelectedItem().toString().equals("---Năm học---")
+                && !cmbTKHocKy.getSelectedItem().toString().equals("---Học kỳ---")) {
             timKiemDanhSachDRL();
-        } else if (cmbTKNamHoc.getSelectedItem().equals("---Năm học---") || cmbTKHocKy.getSelectedItem().equals("---Học kỳ---")) {
-            dsDiemRenLuyen.clear();
-            hienThiDSDiem();
+        } else {
+            try {
+                hienThiTatCaDRL();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(DSDiemRenLuyenCaNhan.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_cmbTKHocKyActionPerformed
 

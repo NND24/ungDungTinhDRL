@@ -48,7 +48,6 @@ public class QuenMatKhau extends javax.swing.JFrame {
         btnGui.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         btnGui.setForeground(new java.awt.Color(255, 255, 255));
         btnGui.setText("Gửi");
-        btnGui.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGui.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGui.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +59,6 @@ public class QuenMatKhau extends javax.swing.JFrame {
         btnQuayLai.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         btnQuayLai.setForeground(new java.awt.Color(255, 255, 255));
         btnQuayLai.setText("Quay lại");
-        btnQuayLai.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnQuayLai.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
