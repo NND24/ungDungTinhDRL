@@ -3,12 +3,28 @@ package views.main;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import controllers.TaiKhoanCtrl;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import utils.DialogHelper;
 
 public class DoiMatKhauMoi extends javax.swing.JFrame {
 
     public DoiMatKhauMoi() {
         initComponents();
+
+        txtMatKhauMoi.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnXacNhanActionPerformed(e);
+            }
+        });
+
+        txtXacNhanMatKhau.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnXacNhanActionPerformed(e);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")

@@ -3,6 +3,8 @@ package views.main;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import controllers.TaiKhoanCtrl;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import utils.DialogHelper;
 
 public class MaXacNhan extends javax.swing.JFrame {
@@ -11,6 +13,13 @@ public class MaXacNhan extends javax.swing.JFrame {
 
     public MaXacNhan() {
         initComponents();
+
+        txtMaXacNhan.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnXacNhanActionPerformed(e);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")

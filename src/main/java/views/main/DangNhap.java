@@ -18,7 +18,6 @@ public class DangNhap extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 btnDangNhapActionPerformed(e);
-
             }
         });
 
