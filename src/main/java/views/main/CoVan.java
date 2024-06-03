@@ -103,7 +103,7 @@ public class CoVan extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Phần mềm chấm điểm rèn luyện");
+        setTitle("QUẢN LÝ ĐIỂM RÈN LUYỆN PTITHCM");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(getIconImage());
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {

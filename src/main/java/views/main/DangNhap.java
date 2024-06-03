@@ -66,7 +66,6 @@ public class DangNhap extends javax.swing.JFrame {
         btnDangNhap.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnDangNhap.setForeground(new java.awt.Color(255, 255, 255));
         btnDangNhap.setText("Đăng nhập");
-        btnDangNhap.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDangNhap.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +231,16 @@ public class DangNhap extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuenMatKhauMouseClicked
 
     public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DangNhap().setVisible(true);

@@ -113,8 +113,10 @@ public class BanCanSu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("QUẢN LÝ ĐIỂM RÈN LUYỆN PTITHCM");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(getIconImage());
+        setPreferredSize(new java.awt.Dimension(1365, 709));
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 formMouseMoved(evt);
@@ -122,7 +124,8 @@ public class BanCanSu extends javax.swing.JFrame {
         });
 
         LayeredPane.setBackground(new java.awt.Color(255, 255, 255));
-        LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 800));
+        LayeredPane.setMinimumSize(new java.awt.Dimension(1140, 647));
+        LayeredPane.setPreferredSize(new java.awt.Dimension(1674, 647));
         LayeredPane.setLayout(new java.awt.CardLayout());
 
         dsSinhVienPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -172,7 +175,7 @@ public class BanCanSu extends javax.swing.JFrame {
         LayeredPane.add(taiKhoanSinhVienPanel, "card2");
 
         header.setBackground(new java.awt.Color(20, 80, 55));
-        header.setPreferredSize(new java.awt.Dimension(1360, 61));
+        header.setPreferredSize(new java.awt.Dimension(1140, 62));
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -188,6 +191,9 @@ public class BanCanSu extends javax.swing.JFrame {
         sideMenu.setBackground(new java.awt.Color(20, 80, 55));
 
         scrollPaneWin112.setPreferredSize(new java.awt.Dimension(250, 700));
+
+        menuBanCanSu1.setMinimumSize(new java.awt.Dimension(196, 242));
+        menuBanCanSu1.setPreferredSize(new java.awt.Dimension(196, 242));
         scrollPaneWin112.setViewportView(menuBanCanSu1);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo-ptit 50x50.png"))); // NOI18N
@@ -209,8 +215,8 @@ public class BanCanSu extends javax.swing.JFrame {
             .addGroup(sideMenuLayout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(scrollPaneWin112, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(scrollPaneWin112, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,20 +227,18 @@ public class BanCanSu extends javax.swing.JFrame {
                 .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(LayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(LayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(sideMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 806, Short.MAX_VALUE)
+                    .addComponent(sideMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(LayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(LayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
         );
 
@@ -247,6 +251,16 @@ public class BanCanSu extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseMoved
 
     public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(BanCanSu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 BanCanSu main = new BanCanSu();
