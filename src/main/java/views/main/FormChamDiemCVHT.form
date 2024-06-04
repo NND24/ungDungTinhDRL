@@ -604,7 +604,6 @@
                                           <Component id="jLabel118" min="-2" pref="60" max="-2" attributes="0"/>
                                           <Component id="jLabel121" min="-2" pref="60" max="-2" attributes="0"/>
                                           <Component id="jLabel123" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                                          <Component id="jLabel125" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -684,20 +683,20 @@
                       <Component id="jPanel4" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel69" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jLabel69" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="txtMaSinhVien" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="txtNgaySinh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel139" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel139" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="txtHocKy" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel62" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jLabel70" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="txtHoTen" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="txtLop" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel140" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel140" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="txtNamHoc" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -1189,26 +1188,27 @@
                           </Group>
                           <Component id="jLabel121" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel123" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel124" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel137" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="sv5TextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="bcs5TextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="cv5TextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel124" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jLabel137" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="sv5TextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="bcs5TextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="cv5TextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel126" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jLabel138" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="svTongTextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="bcsTongTextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="cvTongTextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel125" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel126" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel138" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="svTongTextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="bcsTongTextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="cvTongTextField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Component id="jLabel123" min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -3588,19 +3588,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="text" type="java.lang.String" value="M&#x1ee9;c &#x111;i&#x1ec3;m t&#x1ed1;i &#x111;a Ti&#xea;u ch&#xed; 5"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel125">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="16" style="0"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder/>
