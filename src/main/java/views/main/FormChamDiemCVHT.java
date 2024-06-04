@@ -763,30 +763,39 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv11TextField.setEditable(false);
+        sv11TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv11TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv14TextField.setEditable(false);
+        sv14TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv14TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv15TextField.setEditable(false);
+        sv15TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv15TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv1TextField.setEditable(false);
+        sv1TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv1TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs11TextField.setEditable(false);
+        bcs11TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs11TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs13TextField.setEditable(false);
+        bcs13TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs13TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs14TextField.setEditable(false);
+        bcs14TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs14TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs15TextField.setEditable(false);
+        bcs15TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs15TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs1TextField.setEditable(false);
+        bcs1TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs1TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv11TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -798,6 +807,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         cv15TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv1TextField.setEditable(false);
+        cv1TextField.setBackground(new java.awt.Color(240, 240, 240));
         cv1TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -849,9 +859,11 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv21TextField.setEditable(false);
+        sv21TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv21TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs21TextField.setEditable(false);
+        bcs21TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs21TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv21TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -960,21 +972,27 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel94.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv22TextField.setEditable(false);
+        sv22TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv22TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv23TextField.setEditable(false);
+        sv23TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv23TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv2TextField.setEditable(false);
+        sv2TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv2TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs22TextField.setEditable(false);
+        bcs22TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs22TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs23TextField.setEditable(false);
+        bcs23TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs23TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs2TextField.setEditable(false);
+        bcs2TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs2TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv22TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -982,6 +1000,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         cv23TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv2TextField.setEditable(false);
+        cv2TextField.setBackground(new java.awt.Color(240, 240, 240));
         cv2TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jTextArea5.setEditable(false);
@@ -1066,9 +1085,11 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel101.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv31TextField.setEditable(false);
+        sv31TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv31TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs31TextField.setEditable(false);
+        bcs31TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs31TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv31TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1079,12 +1100,15 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel102.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv3TextField.setEditable(false);
+        sv3TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv3TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs3TextField.setEditable(false);
+        bcs3TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs3TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv3TextField.setEditable(false);
+        cv3TextField.setBackground(new java.awt.Color(240, 240, 240));
         cv3TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel103.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1112,27 +1136,35 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel107.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv32TextField.setEditable(false);
+        sv32TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv32TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv33TextField.setEditable(false);
+        sv33TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv33TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv34TextField.setEditable(false);
+        sv34TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv34TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv35TextField.setEditable(false);
+        sv35TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv35TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs32TextField.setEditable(false);
+        bcs32TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs32TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs33TextField.setEditable(false);
+        bcs33TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs33TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs34TextField.setEditable(false);
+        bcs34TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs34TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs35TextField.setEditable(false);
+        bcs35TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs35TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv32TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1367,86 +1399,113 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel138.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv41TextField.setEditable(false);
+        sv41TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv41TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv42TextField.setEditable(false);
+        sv42TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv42TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv43TextField.setEditable(false);
+        sv43TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv43TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv44TextField.setEditable(false);
+        sv44TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv44TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv45TextField.setEditable(false);
+        sv45TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv45TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv46TextField.setEditable(false);
+        sv46TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv46TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv4TextField.setEditable(false);
+        sv4TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv4TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv51TextField.setEditable(false);
+        sv51TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv51TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv52TextField.setEditable(false);
+        sv52TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv52TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv53TextField.setEditable(false);
+        sv53TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv53TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv5TextField.setEditable(false);
+        sv5TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv5TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         svTongTextField.setEditable(false);
+        svTongTextField.setBackground(new java.awt.Color(240, 240, 240));
         svTongTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs43TextField.setEditable(false);
+        bcs43TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs43TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs4TextField.setEditable(false);
+        bcs4TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs4TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs5TextField.setEditable(false);
+        bcs5TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs5TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcsTongTextField.setEditable(false);
+        bcsTongTextField.setBackground(new java.awt.Color(240, 240, 240));
         bcsTongTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs41TextField.setEditable(false);
+        bcs41TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs41TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs42TextField.setEditable(false);
+        bcs42TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs42TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs44TextField.setEditable(false);
+        bcs44TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs44TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs45TextField.setEditable(false);
+        bcs45TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs45TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs46TextField.setEditable(false);
+        bcs46TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs46TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs51TextField.setEditable(false);
+        bcs51TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs51TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs52TextField.setEditable(false);
+        bcs52TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs52TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs53TextField.setEditable(false);
+        bcs53TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs53TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv43TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv4TextField.setEditable(false);
+        cv4TextField.setBackground(new java.awt.Color(240, 240, 240));
         cv4TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv5TextField.setEditable(false);
+        cv5TextField.setBackground(new java.awt.Color(240, 240, 240));
         cv5TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cvTongTextField.setEditable(false);
+        cvTongTextField.setBackground(new java.awt.Color(240, 240, 240));
         cvTongTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv41TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1484,6 +1543,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel65.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv13TextField.setEditable(false);
+        sv13TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv13TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1579,9 +1639,11 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         jLabel144.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         sv12TextField.setEditable(false);
+        sv12TextField.setBackground(new java.awt.Color(240, 240, 240));
         sv12TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bcs12TextField.setEditable(false);
+        bcs12TextField.setBackground(new java.awt.Color(240, 240, 240));
         bcs12TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cv12TextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -2552,140 +2614,186 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
                 DialogHelper.showError("Ban cán sự chưa chấm điểm\nNếu muốn chấm điểm thay đổi trạng thái chấm điểm của ban cán sự");
             } else {
                 try {
-                    String maSinhVien = txtMaSinhVien.getText();
-                    String hocKy = txtHocKy.getText();
-                    String namHoc = txtNamHoc.getText();
-                    String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(maSinhVien, hocKy, namHoc);
-
-                    String nguoiCham = "CoVan";
-                    String trangThaiCham = "Cố vấn đã chấm";
-                    CoVanModel cv = CoVanCtrl.timCoVanTheoTenDangNhap(DangNhap.username);
-                    String maCoVanCham = cv.getMaCoVan();
-
-                    float cv1 = Float.parseFloat(cv1TextField.getText());
-                    int cv2 = Integer.parseInt(cv2TextField.getText());
-                    int cv3 = Integer.parseInt(cv3TextField.getText());
-                    int cv4 = Integer.parseInt(cv4TextField.getText());
-                    int cv5 = Integer.parseInt(cv5TextField.getText());
-                    float tongDiem = Float.parseFloat(cvTongTextField.getText());
-                    String xepLoai = "";
-                    if (tongDiem >= 90) {
-                        xepLoai = "Xuất sắc";
-                    } else if (tongDiem >= 80) {
-                        xepLoai = "Tốt";
-                    } else if (tongDiem >= 65) {
-                        xepLoai = "Khá";
-                    } else if (tongDiem >= 50) {
-                        xepLoai = "Trung bình";
-                    } else if (tongDiem >= 35) {
-                        xepLoai = "Yếu";
-                    } else {
-                        xepLoai = "Kém";
-                    }
-                    int cv11 = Integer.parseInt(cv11TextField.getText());
-                    int cv12 = Integer.parseInt(cv12TextField.getText());
-                    int cv13 = Integer.parseInt(cv13TextField.getText());
-                    float cv14 = Float.parseFloat(cv14TextField.getText());
-                    int cv15 = Integer.parseInt(cv15TextField.getText());
-
-                    int cv21 = Integer.parseInt(cv21TextField.getText());
-                    int cv22 = Integer.parseInt(cv22TextField.getText());
-                    int cv23 = Integer.parseInt(cv23TextField.getText());
-
-                    int cv31 = Integer.parseInt(cv31TextField.getText());
-                    int cv32 = Integer.parseInt(cv32TextField.getText());
-                    int cv33 = Integer.parseInt(cv33TextField.getText());
-                    int cv34 = Integer.parseInt(cv34TextField.getText());
-                    int cv35 = Integer.parseInt(cv35TextField.getText());
-
-                    int cv41 = Integer.parseInt(cv41TextField.getText());
-                    int cv42 = Integer.parseInt(cv42TextField.getText());
-                    int cv43 = Integer.parseInt(cv43TextField.getText());
-                    int cv44 = Integer.parseInt(cv44TextField.getText());
-                    int cv45 = Integer.parseInt(cv45TextField.getText());
-                    int cv46 = Integer.parseInt(cv46TextField.getText());
-
-                    int cv51 = Integer.parseInt(cv51TextField.getText());
-                    int cv52 = Integer.parseInt(cv52TextField.getText());
-                    int cv53 = Integer.parseInt(cv53TextField.getText());
-
-                    if (maSinhVien.isEmpty()) {
-                        DialogHelper.showError("Mã sinh viên không được để trống");
-                    } else if (hocKy.isEmpty()) {
-                        DialogHelper.showError("Học kỳ không được để trống");
-                    } else if (namHoc.isEmpty()) {
-                        DialogHelper.showError("Năm học không được để trống");
-                    } else if (nguoiCham.isEmpty()) {
-                        DialogHelper.showError("Người chấm không được để trống");
-                    } else if (xepLoai.isEmpty()) {
-                        DialogHelper.showError("Xếp loại không được để trống");
-                    } else if (cv11 != 0 && (cv11 < 0 || cv11 > 3)) {
+                    if (!Validator.isIntegerString(cv11TextField.getText())) {
                         DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv12 != 0 && !(cv12 == -1 || cv12 == 0 || cv12 == 4 || cv12 == 6 || cv12 == 8 || cv12 == 10)) {
+                    } else if (!Validator.isIntegerString(cv12TextField.getText())) {
                         DialogHelper.showError("Mục 1.2 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv13 != 0 && !(cv13 == 0 || cv13 == 1 || cv13 == 2 || cv13 == 4)) {
+                    } else if (!Validator.isIntegerString(cv13TextField.getText())) {
                         DialogHelper.showError("Mục 1.3 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv14 != 0 && (cv14 < 0 || cv14 > 2)) {
+                    } else if (!Validator.isDecimalString(cv14TextField.getText())) {
                         DialogHelper.showError("Mục 1.4 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv15 != 0 && (cv15 != 1)) {
+                    } else if (!Validator.isIntegerString(cv15TextField.getText())) {
                         DialogHelper.showError("Mục 1.5 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv21 != 0 && (cv21 != 10 || cv21 != 15)) {
+                    } else if (!Validator.isIntegerString(cv21TextField.getText())) {
                         DialogHelper.showError("Mục 2.1 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv22 != 0 && (cv22 < 0 || cv22 > 5)) {
+                    } else if (!Validator.isIntegerString(cv22TextField.getText())) {
                         DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv23 != 0 && (cv23 < 0 || cv23 > 5)) {
+                    } else if (!Validator.isIntegerString(cv23TextField.getText())) {
                         DialogHelper.showError("Mục 2.3a không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv31 != 0 && (cv31 < 0 || cv31 > 10)) {
+                    } else if (!Validator.isIntegerString(cv31TextField.getText())) {
                         DialogHelper.showError("Mục 3.1 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv32 != 0 && (cv32 < 0 || cv32 > 4)) {
+                    } else if (!Validator.isIntegerString(cv32TextField.getText())) {
                         DialogHelper.showError("Mục 3.2 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv33 != 0 && (cv33 < 0 || cv33 > 3)) {
+                    } else if (!Validator.isIntegerString(cv33TextField.getText())) {
                         DialogHelper.showError("Mục 3.3 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv34 != 0 && (cv34 < 0 || cv34 > 3)) {
+                    } else if (!Validator.isIntegerString(cv34TextField.getText())) {
                         DialogHelper.showError("Mục 3.4 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv35 != 0 && (cv35 != -10)) {
+                    } else if (!Validator.isIntegerString(cv35TextField.getText())) {
                         DialogHelper.showError("Mục 3.5 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv41 != 0 && (cv41 < 0 || cv41 > 8)) {
+                    } else if (!Validator.isIntegerString(cv41TextField.getText())) {
                         DialogHelper.showError("Mục 4.1 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv42 != 0 && (cv42 < 0 || cv42 > 5)) {
+                    } else if (!Validator.isIntegerString(cv42TextField.getText())) {
                         DialogHelper.showError("Mục 4.2 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv43 != 0 && (cv43 < 0 || cv43 > 5)) {
+                    } else if (!Validator.isIntegerString(cv43TextField.getText())) {
                         DialogHelper.showError("Mục 4.3 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv44 != 0 && (cv44 < 0 || cv44 > 5)) {
+                    } else if (!Validator.isIntegerString(cv44TextField.getText())) {
                         DialogHelper.showError("Mục 4.4 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv45 != 0 && (cv45 < 0 || cv45 > 2)) {
+                    } else if (!Validator.isIntegerString(cv45TextField.getText())) {
                         DialogHelper.showError("Mục 4.5 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv46 != 0 && (cv46 != -5)) {
+                    } else if (!Validator.isIntegerString(cv46TextField.getText())) {
                         DialogHelper.showError("Mục 4.6 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv51 != 0 && (cv51 < 0 || cv51 > 4)) {
+                    } else if (!Validator.isIntegerString(cv51TextField.getText())) {
                         DialogHelper.showError("Mục 5.1 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv52 != 0 && (cv52 < 0 || cv52 > 3)) {
+                    } else if (!Validator.isIntegerString(cv52TextField.getText())) {
                         DialogHelper.showError("Mục 5.2 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv53 != 0 && (cv53 < 0 || cv53 > 3)) {
+                    } else if (!Validator.isIntegerString(cv53TextField.getText())) {
                         DialogHelper.showError("Mục 5.3 không hợp lệ. Vui lòng nhập lại!");
-                    } else if (cv1 != 0 && (cv1 < 0 || cv1 > 20)) {
-                        DialogHelper.showError("Tổng điểm tiêu chí 1 không chính xác");
-                    } else if (cv2 != 0 && (cv2 < 0 || cv2 > 25)) {
-                        DialogHelper.showError("Tổng điểm tiêu chí 2 không chính xác");
-                    } else if (cv3 != 0 && (cv3 < 0 || cv3 > 20)) {
-                        DialogHelper.showError("Tổng điểm tiêu chí 3 không chính xác");
-                    } else if (cv4 != 0 && (cv4 < 0 || cv4 > 25)) {
-                        DialogHelper.showError("Tổng điểm tiêu chí 4 không chính xác");
-                    } else if (cv5 != 0 && (cv5 < 0 || cv5 > 10)) {
-                        DialogHelper.showError("Tổng điểm tiêu chí 5 không chính xác");
-                    } else if (tongDiem != 0 && (tongDiem < 0 || tongDiem > 100)) {
-                        DialogHelper.showError("Tổng điểm không chính xác");
-                    } else if (cv1 + cv2 + cv3 + cv4 + cv5 != tongDiem) {
-                        DialogHelper.showError("Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!");
                     } else {
-                        try {
-                            DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, tongDiem, cv11, cv12, cv13, cv14, cv15, cv1, cv21, cv22, cv23, cv2, cv31, cv32, cv33, cv34, cv35, cv3, cv41, cv42, cv43, cv44, cv45, cv46, cv4, cv51, cv52, cv53, cv5);
-                            DiemRenLuyenCtrl.chamDiemRenLuyen(drl);
-                            PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, maCoVanCham, trangThaiCham);
-                            PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
-                            DialogHelper.showMessage("Chấm điểm thành công!");
-                        } catch (ClassNotFoundException ex) {
-                            Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
+                        String maSinhVien = txtMaSinhVien.getText();
+                        String hocKy = txtHocKy.getText();
+                        String namHoc = txtNamHoc.getText();
+                        String maPhieuDRL = DiemRenLuyenCtrl.timMaPhieuDRL(maSinhVien, hocKy, namHoc);
+
+                        String nguoiCham = "CoVan";
+                        String trangThaiCham = "Cố vấn đã chấm";
+                        CoVanModel cv = CoVanCtrl.timCoVanTheoTenDangNhap(DangNhap.username);
+                        String maCoVanCham = cv.getMaCoVan();
+
+                        float cv1 = Float.parseFloat(cv1TextField.getText());
+                        int cv2 = Integer.parseInt(cv2TextField.getText());
+                        int cv3 = Integer.parseInt(cv3TextField.getText());
+                        int cv4 = Integer.parseInt(cv4TextField.getText());
+                        int cv5 = Integer.parseInt(cv5TextField.getText());
+                        float tongDiem = Float.parseFloat(cvTongTextField.getText());
+                        String xepLoai = "";
+                        if (tongDiem >= 90) {
+                            xepLoai = "Xuất sắc";
+                        } else if (tongDiem >= 80) {
+                            xepLoai = "Tốt";
+                        } else if (tongDiem >= 65) {
+                            xepLoai = "Khá";
+                        } else if (tongDiem >= 50) {
+                            xepLoai = "Trung bình";
+                        } else if (tongDiem >= 35) {
+                            xepLoai = "Yếu";
+                        } else {
+                            xepLoai = "Kém";
+                        }
+                        int cv11 = Integer.parseInt(cv11TextField.getText());
+                        int cv12 = Integer.parseInt(cv12TextField.getText());
+                        int cv13 = Integer.parseInt(cv13TextField.getText());
+                        float cv14 = Float.parseFloat(cv14TextField.getText());
+                        int cv15 = Integer.parseInt(cv15TextField.getText());
+
+                        int cv21 = Integer.parseInt(cv21TextField.getText());
+                        int cv22 = Integer.parseInt(cv22TextField.getText());
+                        int cv23 = Integer.parseInt(cv23TextField.getText());
+
+                        int cv31 = Integer.parseInt(cv31TextField.getText());
+                        int cv32 = Integer.parseInt(cv32TextField.getText());
+                        int cv33 = Integer.parseInt(cv33TextField.getText());
+                        int cv34 = Integer.parseInt(cv34TextField.getText());
+                        int cv35 = Integer.parseInt(cv35TextField.getText());
+
+                        int cv41 = Integer.parseInt(cv41TextField.getText());
+                        int cv42 = Integer.parseInt(cv42TextField.getText());
+                        int cv43 = Integer.parseInt(cv43TextField.getText());
+                        int cv44 = Integer.parseInt(cv44TextField.getText());
+                        int cv45 = Integer.parseInt(cv45TextField.getText());
+                        int cv46 = Integer.parseInt(cv46TextField.getText());
+
+                        int cv51 = Integer.parseInt(cv51TextField.getText());
+                        int cv52 = Integer.parseInt(cv52TextField.getText());
+                        int cv53 = Integer.parseInt(cv53TextField.getText());
+
+                        if (maSinhVien.isEmpty()) {
+                            DialogHelper.showError("Mã sinh viên không được để trống");
+                        } else if (hocKy.isEmpty()) {
+                            DialogHelper.showError("Học kỳ không được để trống");
+                        } else if (namHoc.isEmpty()) {
+                            DialogHelper.showError("Năm học không được để trống");
+                        } else if (nguoiCham.isEmpty()) {
+                            DialogHelper.showError("Người chấm không được để trống");
+                        } else if (xepLoai.isEmpty()) {
+                            DialogHelper.showError("Xếp loại không được để trống");
+                        } else if (cv11 != 0 && (cv11 < 0 || cv11 > 3)) {
+                            DialogHelper.showError("Mục 1.1 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv12 != 0 && !(cv12 == -1 || cv12 == 0 || cv12 == 4 || cv12 == 6 || cv12 == 8 || cv12 == 10)) {
+                            DialogHelper.showError("Mục 1.2 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv13 != 0 && !(cv13 == 0 || cv13 == 1 || cv13 == 2 || cv13 == 4)) {
+                            DialogHelper.showError("Mục 1.3 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv14 != 0 && (cv14 < 0 || cv14 > 2)) {
+                            DialogHelper.showError("Mục 1.4 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv15 != 0 && (cv15 != 1)) {
+                            DialogHelper.showError("Mục 1.5 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv21 != 0 && (cv21 != 10 || cv21 != 15)) {
+                            DialogHelper.showError("Mục 2.1 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv22 != 0 && (cv22 < 0 || cv22 > 5)) {
+                            DialogHelper.showError("Mục 2.2a không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv23 != 0 && (cv23 < 0 || cv23 > 5)) {
+                            DialogHelper.showError("Mục 2.3a không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv31 != 0 && (cv31 < 0 || cv31 > 10)) {
+                            DialogHelper.showError("Mục 3.1 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv32 != 0 && (cv32 < 0 || cv32 > 4)) {
+                            DialogHelper.showError("Mục 3.2 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv33 != 0 && (cv33 < 0 || cv33 > 3)) {
+                            DialogHelper.showError("Mục 3.3 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv34 != 0 && (cv34 < 0 || cv34 > 3)) {
+                            DialogHelper.showError("Mục 3.4 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv35 != 0 && (cv35 != -10)) {
+                            DialogHelper.showError("Mục 3.5 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv41 != 0 && (cv41 < 0 || cv41 > 8)) {
+                            DialogHelper.showError("Mục 4.1 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv42 != 0 && (cv42 < 0 || cv42 > 5)) {
+                            DialogHelper.showError("Mục 4.2 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv43 != 0 && (cv43 < 0 || cv43 > 5)) {
+                            DialogHelper.showError("Mục 4.3 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv44 != 0 && (cv44 < 0 || cv44 > 5)) {
+                            DialogHelper.showError("Mục 4.4 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv45 != 0 && (cv45 < 0 || cv45 > 2)) {
+                            DialogHelper.showError("Mục 4.5 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv46 != 0 && (cv46 != -5)) {
+                            DialogHelper.showError("Mục 4.6 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv51 != 0 && (cv51 < 0 || cv51 > 4)) {
+                            DialogHelper.showError("Mục 5.1 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv52 != 0 && (cv52 < 0 || cv52 > 3)) {
+                            DialogHelper.showError("Mục 5.2 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv53 != 0 && (cv53 < 0 || cv53 > 3)) {
+                            DialogHelper.showError("Mục 5.3 không hợp lệ. Vui lòng nhập lại!");
+                        } else if (cv1 != 0 && (cv1 < 0 || cv1 > 20)) {
+                            DialogHelper.showError("Tổng điểm tiêu chí 1 không chính xác");
+                        } else if (cv2 != 0 && (cv2 < 0 || cv2 > 25)) {
+                            DialogHelper.showError("Tổng điểm tiêu chí 2 không chính xác");
+                        } else if (cv3 != 0 && (cv3 < 0 || cv3 > 20)) {
+                            DialogHelper.showError("Tổng điểm tiêu chí 3 không chính xác");
+                        } else if (cv4 != 0 && (cv4 < 0 || cv4 > 25)) {
+                            DialogHelper.showError("Tổng điểm tiêu chí 4 không chính xác");
+                        } else if (cv5 != 0 && (cv5 < 0 || cv5 > 10)) {
+                            DialogHelper.showError("Tổng điểm tiêu chí 5 không chính xác");
+                        } else if (tongDiem != 0 && (tongDiem < 0 || tongDiem > 100)) {
+                            DialogHelper.showError("Tổng điểm không chính xác");
+                        } else if (cv1 + cv2 + cv3 + cv4 + cv5 != tongDiem) {
+                            DialogHelper.showError("Tổng điểm các chỉ tiêu không bằng tổng điểm. Vui lòng nhập lại!");
+                        } else {
+                            try {
+                                DiemRenLuyenModel drl = new DiemRenLuyenModel(maPhieuDRL, nguoiCham, xepLoai, tongDiem, cv11, cv12, cv13, cv14, cv15, cv1, cv21, cv22, cv23, cv2, cv31, cv32, cv33, cv34, cv35, cv3, cv41, cv42, cv43, cv44, cv45, cv46, cv4, cv51, cv52, cv53, cv5);
+                                DiemRenLuyenCtrl.chamDiemRenLuyen(drl);
+                                PhieuDRLModel phieu = new PhieuDRLModel(maPhieuDRL, maCoVanCham, trangThaiCham);
+                                PhieuDRLCtrl.capNhatTrangThaiCham(phieu);
+                                DialogHelper.showMessage("Chấm điểm thành công!");
+                            } catch (ClassNotFoundException ex) {
+                                Logger.getLogger(FormChamDiemCVHT.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         }
                     }
                 } catch (ClassNotFoundException ex) {
@@ -2830,54 +2938,78 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDienDiemActionPerformed
 
     private void formChamDiemCVHTPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formChamDiemCVHTPanelMouseExited
-        if (!cv11TextField.getText().isEmpty() && !cv12TextField.getText().isEmpty() && !cv13TextField.getText().isEmpty()
-                && !cv14TextField.getText().isEmpty() && !cv15TextField.getText().isEmpty() && !cv1TextField.getText().isEmpty()
-                && !cv21TextField.getText().isEmpty() && !cv22TextField.getText().isEmpty() && !cv23TextField.getText().isEmpty()
-                && !cv2TextField.getText().isEmpty() && !cv31TextField.getText().isEmpty()
-                && !cv32TextField.getText().isEmpty() && !cv33TextField.getText().isEmpty() && !cv34TextField.getText().isEmpty()
-                && !cv35TextField.getText().isEmpty() && !cv3TextField.getText().isEmpty() && !cv41TextField.getText().isEmpty()
-                && !cv42TextField.getText().isEmpty() && !cv43TextField.getText().isEmpty() && !cv44TextField.getText().isEmpty()
-                && !cv45TextField.getText().isEmpty() && !cv46TextField.getText().isEmpty() && !cv4TextField.getText().isEmpty()
-                && !cv51TextField.getText().isEmpty() && !cv52TextField.getText().isEmpty() && !cv53TextField.getText().isEmpty()
-                && !cv5TextField.getText().isEmpty() && !cvTongTextField.getText().isEmpty()) {
-            int d11 = Integer.parseInt(cv11TextField.getText());
-            int d12 = Integer.parseInt(cv12TextField.getText());
-            int d13 = Integer.parseInt(cv13TextField.getText());
-            float d14 = Float.parseFloat(cv14TextField.getText());
-            int d15 = Integer.parseInt(cv15TextField.getText());
-            float d1 = d11 + d12 + d13 + d14 + d15;
-            cv1TextField.setText(Float.toString(d1));
+        if (!Validator.isIntegerString(cv11TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv12TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv13TextField.getText())) {
+        } else if (!Validator.isDecimalString(cv14TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv15TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv21TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv22TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv23TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv31TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv32TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv33TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv34TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv35TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv41TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv42TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv43TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv44TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv45TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv46TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv51TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv52TextField.getText())) {
+        } else if (!Validator.isIntegerString(cv53TextField.getText())) {
+        } else {
+            if (!cv11TextField.getText().isEmpty() && !cv12TextField.getText().isEmpty() && !cv13TextField.getText().isEmpty()
+                    && !cv14TextField.getText().isEmpty() && !cv15TextField.getText().isEmpty() && !cv1TextField.getText().isEmpty()
+                    && !cv21TextField.getText().isEmpty() && !cv22TextField.getText().isEmpty() && !cv23TextField.getText().isEmpty()
+                    && !cv2TextField.getText().isEmpty() && !cv31TextField.getText().isEmpty()
+                    && !cv32TextField.getText().isEmpty() && !cv33TextField.getText().isEmpty() && !cv34TextField.getText().isEmpty()
+                    && !cv35TextField.getText().isEmpty() && !cv3TextField.getText().isEmpty() && !cv41TextField.getText().isEmpty()
+                    && !cv42TextField.getText().isEmpty() && !cv43TextField.getText().isEmpty() && !cv44TextField.getText().isEmpty()
+                    && !cv45TextField.getText().isEmpty() && !cv46TextField.getText().isEmpty() && !cv4TextField.getText().isEmpty()
+                    && !cv51TextField.getText().isEmpty() && !cv52TextField.getText().isEmpty() && !cv53TextField.getText().isEmpty()
+                    && !cv5TextField.getText().isEmpty() && !cvTongTextField.getText().isEmpty()) {
+                int d11 = Integer.parseInt(cv11TextField.getText());
+                int d12 = Integer.parseInt(cv12TextField.getText());
+                int d13 = Integer.parseInt(cv13TextField.getText());
+                float d14 = Float.parseFloat(cv14TextField.getText());
+                int d15 = Integer.parseInt(cv15TextField.getText());
+                float d1 = d11 + d12 + d13 + d14 + d15;
+                cv1TextField.setText(Float.toString(d1));
 
-            int d21 = Integer.parseInt(cv21TextField.getText());
-            int d22 = Integer.parseInt(cv22TextField.getText());
-            int d23 = Integer.parseInt(cv23TextField.getText());
-            int d2 = d21 + d22 + d23;
-            cv2TextField.setText(Integer.toString(d2));
+                int d21 = Integer.parseInt(cv21TextField.getText());
+                int d22 = Integer.parseInt(cv22TextField.getText());
+                int d23 = Integer.parseInt(cv23TextField.getText());
+                int d2 = d21 + d22 + d23;
+                cv2TextField.setText(Integer.toString(d2));
 
-            int d31 = Integer.parseInt(cv31TextField.getText());
-            int d32 = Integer.parseInt(cv32TextField.getText());
-            int d33 = Integer.parseInt(cv33TextField.getText());
-            int d34 = Integer.parseInt(cv34TextField.getText());
-            int d35 = Integer.parseInt(cv35TextField.getText());
-            int d3 = d31 + d32 + d33 + d34 + d35;
-            cv3TextField.setText(Integer.toString(d3));
+                int d31 = Integer.parseInt(cv31TextField.getText());
+                int d32 = Integer.parseInt(cv32TextField.getText());
+                int d33 = Integer.parseInt(cv33TextField.getText());
+                int d34 = Integer.parseInt(cv34TextField.getText());
+                int d35 = Integer.parseInt(cv35TextField.getText());
+                int d3 = d31 + d32 + d33 + d34 + d35;
+                cv3TextField.setText(Integer.toString(d3));
 
-            int d41 = Integer.parseInt(cv41TextField.getText());
-            int d42 = Integer.parseInt(cv42TextField.getText());
-            int d43 = Integer.parseInt(cv43TextField.getText());
-            int d44 = Integer.parseInt(cv44TextField.getText());
-            int d45 = Integer.parseInt(cv45TextField.getText());
-            int d46 = Integer.parseInt(cv46TextField.getText());
-            int d4 = d41 + d42 + d43 + d44 + d45 + d46;
-            cv4TextField.setText(Integer.toString(d4));
+                int d41 = Integer.parseInt(cv41TextField.getText());
+                int d42 = Integer.parseInt(cv42TextField.getText());
+                int d43 = Integer.parseInt(cv43TextField.getText());
+                int d44 = Integer.parseInt(cv44TextField.getText());
+                int d45 = Integer.parseInt(cv45TextField.getText());
+                int d46 = Integer.parseInt(cv46TextField.getText());
+                int d4 = d41 + d42 + d43 + d44 + d45 + d46;
+                cv4TextField.setText(Integer.toString(d4));
 
-            int d51 = Integer.parseInt(cv51TextField.getText());
-            int d52 = Integer.parseInt(cv52TextField.getText());
-            int d53 = Integer.parseInt(cv53TextField.getText());
-            int d5 = d51 + d52 + d53;
-            cv5TextField.setText(Integer.toString(d5));
+                int d51 = Integer.parseInt(cv51TextField.getText());
+                int d52 = Integer.parseInt(cv52TextField.getText());
+                int d53 = Integer.parseInt(cv53TextField.getText());
+                int d5 = d51 + d52 + d53;
+                cv5TextField.setText(Integer.toString(d5));
 
-            cvTongTextField.setText(Float.toString(d1 + d2 + d3 + d4 + d5));
+                cvTongTextField.setText(Float.toString(d1 + d2 + d3 + d4 + d5));
+            }
         }
     }//GEN-LAST:event_formChamDiemCVHTPanelMouseExited
 
