@@ -1564,7 +1564,7 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
         btnChamDiem.setBackground(new java.awt.Color(0, 102, 255));
         btnChamDiem.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnChamDiem.setForeground(new java.awt.Color(255, 255, 255));
-        btnChamDiem.setText("Chấm điểm");
+        btnChamDiem.setText("Lưu");
         btnChamDiem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnChamDiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1591,10 +1591,10 @@ public class FormChamDiemCVHT extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 565, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 593, Short.MAX_VALUE)
                 .addComponent(btnDienDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(btnChamDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnChamDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
         jPanel4Layout.setVerticalGroup(

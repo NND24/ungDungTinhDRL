@@ -727,7 +727,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     private void btnKetThucChamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKetThucChamActionPerformed
         if (cmbTKNamHoc.getSelectedItem().toString().equals("---Năm học---")
                 || cmbTKHocKy.getSelectedItem().toString().equals("---Học kỳ---")) {
-            DialogHelper.showError("Chưa chọn lớp, năm học, học kỳ muốn kết thúc chấm");
+            DialogHelper.showError("Chưa chọn năm học, học kỳ muốn kết thúc chấm");
         } else if (DialogHelper.showConfirmation("Bạn có chắc muốn kết thúc chấm điểm cho sinh viên không?")) {
             thayDoiTrangThaiCham("Sinh viên kết thúc chấm", "Kết thúc");
             timKiemDanhSachDRL();
@@ -737,7 +737,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     private void btnChamLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChamLaiActionPerformed
         if (cmbTKNamHoc.getSelectedItem().toString().equals("---Năm học---")
                 || cmbTKHocKy.getSelectedItem().toString().equals("---Học kỳ---")) {
-            DialogHelper.showError("Chưa chọn lớp, năm học, học kỳ muốn chấm lại");
+            DialogHelper.showError("Chưa chọn năm học, học kỳ muốn chấm lại");
         } else if (DialogHelper.showConfirmation("Bạn có chắc muốn cho phép cho sinh viên chấm lại không?")) {
             thayDoiTrangThaiCham("Sinh viên đã chấm", "Chấm lại");
             timKiemDanhSachDRL();
