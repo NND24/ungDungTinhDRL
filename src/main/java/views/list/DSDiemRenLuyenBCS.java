@@ -14,6 +14,7 @@ import controllers.DiemRenLuyenCtrl;
 import controllers.NamHocCtrl;
 import controllers.PhieuDRLCtrl;
 import controllers.SinhVienCtrl;
+import java.text.SimpleDateFormat;
 import views.main.DangNhap;
 import views.main.FormChamDiemBCS;
 import utils.DialogHelper;
@@ -22,6 +23,7 @@ import utils.Validator;
 public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
     private List<NamHocModel> dsNamHoc = new ArrayList<>();
     private String trangThaiChamDiem;
@@ -62,7 +64,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                 drl.getD1(), drl.getD2(), drl.getD3(),
                 drl.getD4(), drl.getD5(), drl.getTongDiem(),
                 drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
-                drl.getTrangThaiCham()
+                drl.getTrangThaiCham(), drl.getNgayKetThuc()
             });
         }
         trangThaiChamDiem = "";
@@ -109,6 +111,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         txtXepLoai.setText("");
         txtHocKy.setText("");
         txtNamHoc.setText("");
+        txtNgayKetThuc.setText("");
     }
 
     private void timKiemDanhSachDRL() {
@@ -249,6 +252,8 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         cmbTKNamHoc = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         cmbTKHocKy = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        txtNgayKetThuc = new javax.swing.JTextField();
 
         jFrame1.setBackground(new java.awt.Color(51, 255, 51));
 
@@ -424,17 +429,17 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
         tblDanhSachDRL.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblDanhSachDRL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sinh viên", "Họ tên", "Điểm tiêu chí 1", "Điểm tiêu chí 2", "Điểm tiêu chí 3", "Điểm tiêu chí 4", "Điểm tiêu chí 5", "Tổng điểm", "Xếp loại", "Học kỳ", "Năm học", "Trạng thái chấm"
+                "Mã sinh viên", "Họ tên", "Điểm tiêu chí 1", "Điểm tiêu chí 2", "Điểm tiêu chí 3", "Điểm tiêu chí 4", "Điểm tiêu chí 5", "Tổng điểm", "Xếp loại", "Học kỳ", "Năm học", "Trạng thái chấm", "Ngày kết thúc"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -532,6 +537,12 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             }
         });
 
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel17.setText("Ngày kết thúc");
+
+        txtNgayKetThuc.setEditable(false);
+        txtNgayKetThuc.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -575,9 +586,11 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel9)
-                                .addComponent(jLabel13))
-                            .addGap(33, 33, 33)
+                                .addComponent(jLabel13)
+                                .addComponent(jLabel17))
+                            .addGap(20, 20, 20)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtXepLoai, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtDiemTieuChi4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtDiemTieuChi1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -632,7 +645,9 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
                     .addComponent(jLabel14)
                     .addComponent(txtHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(txtNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
@@ -675,6 +690,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
             txtXepLoai.setText(drl.getXepLoai());
             txtHocKy.setText(drl.getHocKy());
             txtNamHoc.setText(drl.getNamHoc());
+            txtNgayKetThuc.setText(dateFormat.format(drl.getNgayKetThuc()));
         }
     }//GEN-LAST:event_tblDanhSachDRLMouseClicked
 
@@ -790,6 +806,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -813,6 +830,7 @@ public class DSDiemRenLuyenBCS extends javax.swing.JPanel {
     private javax.swing.JTextField txtHocKy;
     private javax.swing.JTextField txtMaSinhVien;
     private javax.swing.JTextField txtNamHoc;
+    private javax.swing.JTextField txtNgayKetThuc;
     private javax.swing.JTextField txtTimKiem;
     private javax.swing.JTextField txtTongDiem;
     private javax.swing.JTextField txtXepLoai;

@@ -12,6 +12,7 @@ import controllers.DiemRenLuyenCtrl;
 import controllers.NamHocCtrl;
 import controllers.PhieuDRLCtrl;
 import controllers.SinhVienCtrl;
+import java.text.SimpleDateFormat;
 import models.PhieuDRLModel;
 import views.main.DangNhap;
 import views.main.FormChamDiemSV;
@@ -21,6 +22,7 @@ import utils.Validator;
 public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
     DefaultTableModel tableModel;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     private List<DiemRenLuyenModel> dsDiemRenLuyen = new ArrayList<>();
     private List<NamHocModel> dsNamHoc = new ArrayList<>();
 
@@ -80,7 +82,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
                     drl.getD1(), drl.getD2(), drl.getD3(),
                     drl.getD4(), drl.getD5(), drl.getTongDiem(),
                     drl.getXepLoai(), drl.getHocKy(), drl.getNamHoc(),
-                    drl.getTrangThaiCham()});
+                    drl.getTrangThaiCham(), drl.getNgayKetThuc()});
             });
         }
     }
@@ -98,6 +100,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
             txtXepLoai.setText("");
             txtHocKy.setText("");
             txtNamHoc.setText("");
+            txtNgayKetThuc.setText("");
             cmbTKNamHoc.setSelectedItem("---Năm học---");
             cmbTKHocKy.setSelectedItem("---Học kỳ---");
             hienThiTatCaDRL();
@@ -199,6 +202,8 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
         txtHocKy = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtTongDiem = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txtNgayKetThuc = new javax.swing.JTextField();
 
         jFrame1.setBackground(new java.awt.Color(51, 255, 51));
 
@@ -358,17 +363,17 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
 
         tblDSDiemRenLuyen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sinh viên", "Họ tên", "Điểm tiêu chí 1", "Điểm tiêu chí 2", "Điểm tiêu chí 3", "Điểm tiêu chí 4", "Điểm tiêu chí 5", "Tổng điểm", "Xếp loại", "Học kỳ", "Năm học", "Trạng thái chấm"
+                "Mã sinh viên", "Họ tên", "Điểm tiêu chí 1", "Điểm tiêu chí 2", "Điểm tiêu chí 3", "Điểm tiêu chí 4", "Điểm tiêu chí 5", "Tổng điểm", "Xếp loại", "Học kỳ", "Năm học", "Trạng thái chấm", "Ngày kết thúc"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -437,6 +442,12 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
         txtTongDiem.setEditable(false);
         txtTongDiem.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel18.setText("Ngày kết thúc");
+
+        txtNgayKetThuc.setEditable(false);
+        txtNgayKetThuc.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -476,14 +487,20 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
                             .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel13))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtXepLoai, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDiemTieuChi4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDiemTieuChi1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel13))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDiemTieuChi1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDiemTieuChi4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtXepLoai, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
             .addComponent(jScrollPane1)
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 1136, Short.MAX_VALUE)
@@ -522,7 +539,9 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
                     .addComponent(jLabel14)
                     .addComponent(txtHocKy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(txtNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -559,6 +578,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
             txtXepLoai.setText(drl.getXepLoai());
             txtHocKy.setText(drl.getHocKy());
             txtNamHoc.setText(drl.getNamHoc());
+            txtNgayKetThuc.setText(dateFormat.format(drl.getNgayKetThuc()));
         }
     }//GEN-LAST:event_tblDSDiemRenLuyenMouseClicked
 
@@ -631,6 +651,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -646,6 +667,7 @@ public class DSDiemRenLuyenCaNhan extends javax.swing.JPanel {
     private javax.swing.JTextField txtHocKy;
     private javax.swing.JTextField txtMaSinhVien;
     private javax.swing.JTextField txtNamHoc;
+    private javax.swing.JTextField txtNgayKetThuc;
     private javax.swing.JTextField txtTongDiem;
     private javax.swing.JTextField txtXepLoai;
     // End of variables declaration//GEN-END:variables
