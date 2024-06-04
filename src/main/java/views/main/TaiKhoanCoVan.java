@@ -554,7 +554,7 @@ public class TaiKhoanCoVan extends javax.swing.JPanel {
         if (matKhau.isEmpty()) {
             DialogHelper.showError("Mật khẩu không được để trống");
         } else if (maCoVan.isEmpty()) {
-            DialogHelper.showError("Mã sinh viên không được để trống");
+            DialogHelper.showError("Mã cố vấn không được để trống");
         } else if (tenDangNhapMoi.isEmpty()) {
             DialogHelper.showError("Tên đăng nhập không được để trống");
         } else {
