@@ -183,7 +183,7 @@ public class SinhVienCtrl {
                      SELECT MaSinhVien, Lop.MaLop, SinhVien.MaLop, HoTen, Email, GioiTinh, NgaySinh, SoDienThoai, CanCuoc, QueQuan, DaNghiHoc, TenChucVu
                      FROM SinhVien, Lop, TaiKhoan, ChucVu
                      WHERE SinhVien.MaLop=Lop.MaLop AND SinhVien.MaTaiKhoan=TaiKhoan.MaTaiKhoan AND TaiKhoan.MaChucVu=ChucVu.MaChucVu
-                     AND Lop.MaLop=? ORDER BY MaSinhVien ASC
+                     AND Lop.MaLop=? AND DaNghiHoc=0 ORDER BY MaSinhVien ASC
                      """;
         try (Connection connection = ConnectDB.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
