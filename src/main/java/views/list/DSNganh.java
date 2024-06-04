@@ -155,7 +155,7 @@ public class DSNganh extends javax.swing.JFrame {
         pnlChiTietLayout.setVerticalGroup(
             pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChiTietLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(25, 25, 25)
                 .addGroup(pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMaNganh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMaNganh))
@@ -171,7 +171,7 @@ public class DSNganh extends javax.swing.JFrame {
                 .addGroup(pnlChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTrangThai)
                     .addComponent(cmbTrangThaiHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 27, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         pnlNutLenh.setBackground(new java.awt.Color(255, 255, 255));
@@ -329,7 +329,7 @@ public class DSNganh extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlNutLenh, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
