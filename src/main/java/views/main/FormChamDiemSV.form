@@ -687,21 +687,21 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel69" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtMaSinhVien" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNgaySinh" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtMaSinhVien" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtNgaySinh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLabel139" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtHocKy" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtHocKy" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtHoTen" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtLop" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtHoTen" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtLop" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLabel140" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNamHoc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNamHoc" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel3" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
@@ -797,10 +797,12 @@
                                           <Component id="jLabel14" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel26" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="jLabel53" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel142" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel26" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="jLabel53" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel32" alignment="1" min="-2" pref="181" max="-2" attributes="0"/>
@@ -904,10 +906,12 @@
                                   </Group>
                                   <Component id="jLabel65" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel143" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jLabel80" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jLabel88" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel80" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="jLabel88" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -955,10 +959,12 @@
                                   <Component id="jTextArea4" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel83" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jLabel93" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel164" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel83" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="jLabel93" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Component id="jLabel84" min="-2" pref="80" max="-2" attributes="0"/>

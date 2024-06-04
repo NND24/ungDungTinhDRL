@@ -152,7 +152,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Component id="jPanel4" min="-2" pref="1140" max="-2" attributes="0"/>
@@ -168,27 +168,27 @@
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtMaQuanLy" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtMaQuanLy" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtHoTen" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtHoTen" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel21" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="txtEmail" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtEmail" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="txtCanCuoc" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtCanCuoc" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel17" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="txtNgaySinh" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="txtGioiTinh" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtNgaySinh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txtGioiTinh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtQueQuan" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtQueQuan" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel18" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="jLabel20" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="txtSoDienThoai" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtSoDienThoai" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
@@ -400,20 +400,20 @@
                       <Component id="jPanel8" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="oldPasswordField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="oldPasswordField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="newPasswordField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="newPasswordField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="retypePasswordField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="retypePasswordField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="111" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="96" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jPanel5" alignment="0" pref="316" max="32767" attributes="0"/>
               </Group>
@@ -553,11 +553,11 @@
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtTenDangNhap" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="txtTenDangNhap" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtMatKhau" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="txtMatKhau" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
